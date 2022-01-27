@@ -30,12 +30,19 @@ const ProductSingle = ({src, width, imgPack, ordinary, special, goldenOffer}) =>
             px: '1rem',
             mx: special && 1.5,
             direction: 'rtl',
-            border: ordinary && '1px solid #E0E0E0',
+            borderLeft: ordinary && 1,
+            borderColor: 'rgba(0, 0, 0, 0.12)',
             borderRadius: special ? '0.5rem' : '0',
             boxShadow: 'none',
+            flex: category ? '10 0 auto' : 'none',
+            zIndex: 99,
+            ':hover': {
+                boxShadow: ordinary && 'rgba(0, 0, 0, 0.1) 0px 1px 28px',
+                zIndex: ordinary && 100
+            },
             ':hover img': {
                 transition: 'transform 0.25s ease-in-out 0s',
-                transform: goldenOffer || special ? 'none' : 'translateY(-0.4rem)'
+                transform: goldenOffer || special ? 'none' : 'translateY(-0.4rem)',
             }
         }}>
             <CardContent sx={{p: '0', cursor: goldenOffer ? 'default' : 'pointer'}}>
@@ -44,9 +51,8 @@ const ProductSingle = ({src, width, imgPack, ordinary, special, goldenOffer}) =>
                     &&
                     <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
                         <Typography variant="subtitle2" component="p">بقچه طلایی</Typography>
-                        <Typography variant="subtitle2" component="p" sx={{color: '#2347fb', cursor: 'pointer'}}>
-                            جزئیات بیشتر
-                        </Typography>
+                        <Typography variant="subtitle2" component="p" sx={{color: '#2347fb', cursor: 'pointer'}}>جزئیات
+                            بیشتر</Typography>
                     </Box>
                 }
                 <Box sx={{display: 'flex', justifyContent: goldenOffer ? 'start' : 'center', position: 'relative'}}>
@@ -56,6 +62,7 @@ const ProductSingle = ({src, width, imgPack, ordinary, special, goldenOffer}) =>
                             <AvatarGroup sx={{direction: 'ltr', my: 2}}>
                                 {imgPack.map(img => <Avatar key={img.id} sx={{width: 60, height: 60, border: 1}}
                                                             src={img.src}/>)}
+                                {/*style={{border:'1px solid #bdbdbd'}}*/}
                             </AvatarGroup>
                             :
                             <CardMedia
@@ -67,38 +74,31 @@ const ProductSingle = ({src, width, imgPack, ordinary, special, goldenOffer}) =>
                                 alt=""
                             />
                     }
-                    {
-                        available ||
-                        <Typography variant="body1" component="p" sx={{
-                            position: 'absolute', top: '40%', boxShadow: 'rgb(163 163 163) 0px 0px 1rem 0px',
-                            padding: '0.25rem 0.6rem',
-                            color: '#0000ee',
-                            backgroundColor: 'rgb(255, 255, 255)',
-                            borderRadius: '0.9rem',
-                            fontSize: '1rem'
-                        }}>
-                            تمام شد
-                        </Typography>
-                    }
+                    {available ||
+                    <Typography variant="body1" component="p" sx={{
+                        position: 'absolute', top: '40%', boxShadow: 'rgb(163 163 163) 0px 0px 1rem 0px',
+                        padding: '0.25rem 0.6rem',
+                        color: '#0000ee',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        borderRadius: '0.9rem',
+                        fontSize: '1rem'
+                    }}>تمام شد</Typography>}
                 </Box>
                 <Typography variant="body1" component="p" sx={{
                     height: 48,
                     color: '#30354b'
-                }}>
-                    {
-                        goldenOffer
-                            ?
-                            <Typography variant="body1" component="p">
-                                با خرید یکجای این محصولات
-                                {<Typography variant="body1" component="span"
-                                             sx={{color: '#f9131a'}}>  {discount}%
-                                </Typography>}
-                                تخفیف بیشتر بگیرید
-                            </Typography>
-                            : 'پنیر خامه ای هراز 200 گرمی'}</Typography>
+                }}>{goldenOffer ?
+                    <Typography variant="body1" component="p">
+                        با خرید یکجای این محصولات
+                        {<Typography variant="body1" component="span"
+                                     sx={{color: '#f9131a'}}>  {discount}%
+                        </Typography>}
+                        تخفیف بیشتر بگیرید
+                    </Typography>
+                    : 'پنیر خامه ای هراز 200 گرمی'}</Typography>
             </CardContent>
             <CardActions
-                sx={{p: '0', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end'}}>
+                sx={{p: '0', display: 'flex', alignItems: 'flex-end'}}>
                 <Box sx={{flexGrow: '2'}}>
                     <Box sx={{
                         display: 'flex',
@@ -123,98 +123,91 @@ const ProductSingle = ({src, width, imgPack, ordinary, special, goldenOffer}) =>
                                     }}>{price}</Typography>
                     </Box>
                     <Box sx={{mt: 0.75}}>
-                        <Typography variant="body1"
+                        <Typography variant="body2"
                                     component="span">{Math.floor(price - price * (discount / 100))} تومان</Typography>
                     </Box>
                 </Box>
-                {
-                    available
-                    &&
-                    <Box>
-                        {
-                            quantity === 0 ?
-                                <Button onClick={incrementHandler} sx={{
-                                    flexGrow: '1', px: 1.6, borderRadius: '1rem', transition: 'none', ':hover': {
-                                        bgcolor: '#2446f5',
-                                        color: '#fff',
-                                    },
-                                }} size='small'
-                                        variant="outlined">
-                                    افزودن به سبد
-                                </Button>
-                                :
-                                <Box sx={{display: "flex", alignItems: 'center'}}>
-                                    {
-                                        quantity > 1
-                                            ?
-                                            <RemoveIcon sx={{
-                                                bgcolor: '#fff',
-                                                color: '#2446f5',
-                                                fontSize: 30,
-                                                borderRadius: '100%',
-                                                border: 1,
-                                                borderColor: 'grey.300',
-                                                p: 0.75,
-                                                ':hover': {
-                                                    bgcolor: '#2446f5',
-                                                    color: '#fff',
-                                                },
-                                            }}
-                                                        onClick={decrementHandler}/> :
-                                            <DeleteOutlineOutlinedIcon sx={{
-                                                bgcolor: '#fff',
-                                                color: '#2446f5',
-                                                fontSize: 30,
-                                                borderRadius: '100%',
-                                                p: 0.75,
-                                                ':hover': {
-                                                    bgcolor: '#2446f5',
-                                                    color: '#fff',
-                                                },
-                                            }}
-                                                                       onClick={decrementHandler}/>
-                                    }
-                                    <Box sx={{display: 'flex', justifyContent: 'center', minWidth: 30}}>
-                                        <Typography variant="body1"
-                                                    component="span"
-                                                    sx={{color: '#2446f5'}}>
-                                            {quantity}
-                                        </Typography></Box>
-                                    {
-                                        goldenOffer
-                                        &&
-                                        quantity === 1 ?
-                                            <AddIcon
-                                                disable
-                                                sx={{
-                                                    bgcolor: '#fff',
-                                                    color: 'grey.500',
-                                                    fontSize: 30,
-                                                    borderRadius: '100%',
-                                                    border: 1,
-                                                    borderColor: 'grey.300',
-                                                    p: 0.75,
-                                                    cursor: 'not-allowed'
-                                                }}/>
-                                            :
-                                            <AddIcon
-                                                sx={{
-                                                    bgcolor: '#fff',
-                                                    color: '#2446f5',
-                                                    fontSize: 30,
-                                                    borderRadius: '100%',
-                                                    border: 1,
-                                                    borderColor: 'grey.300',
-                                                    p: 0.75,
-                                                    ':hover': {
-                                                        bgcolor: '#2446f5',
-                                                        color: '#fff',
-                                                    },
-                                                }}
-                                                onClick={incrementHandler}/>}
-                                </Box>
-                        }
-                    </Box>
+                {available
+                &&
+                <Box>
+                    {
+                        quantity === 0 ?
+                            <Button onClick={incrementHandler} sx={{
+                                flexGrow: '1', px: 1.5, borderRadius: '1rem', transition: 'none', ':hover': {
+                                    bgcolor: '#2446f5',
+                                    color: '#fff',
+                                },
+                            }} size='small'
+                                    variant="outlined">
+                                افزودن به سبد
+                            </Button>
+                            :
+                            <Box sx={{display: "flex", alignItems: 'center'}}>
+                                {quantity > 1 ?
+                                    <RemoveIcon sx={{
+                                        bgcolor: '#fff',
+                                        color: '#2446f5',
+                                        fontSize: 30,
+                                        borderRadius: '100%',
+                                        border: 1,
+                                        borderColor: 'grey.300',
+                                        p: 0.75,
+                                        ':hover': {
+                                            bgcolor: '#2446f5',
+                                            color: '#fff',
+                                        },
+                                    }}
+                                                onClick={decrementHandler}/> :
+                                    <DeleteOutlineOutlinedIcon sx={{
+                                        bgcolor: '#fff',
+                                        color: '#2446f5',
+                                        fontSize: 30,
+                                        borderRadius: '100%',
+                                        p: 0.75,
+                                        ':hover': {
+                                            bgcolor: '#2446f5',
+                                            color: '#fff',
+                                        },
+                                    }}
+                                                               onClick={decrementHandler}/>}
+                                <Box sx={{display: 'flex', justifyContent: 'center', minWidth: 30}}>
+                                    <Typography variant="body1"
+                                                component="span"
+                                                sx={{color: '#2446f5'}}>
+                                        {quantity}
+                                    </Typography></Box>
+                                {goldenOffer && quantity === 1 ?
+                                    <AddIcon
+                                        disable
+                                        sx={{
+                                            bgcolor: '#fff',
+                                            color: 'grey.500',
+                                            fontSize: 30,
+                                            borderRadius: '100%',
+                                            border: 1,
+                                            borderColor: 'grey.300',
+                                            p: 0.75,
+                                            cursor: 'not-allowed'
+                                        }}/>
+                                    :
+                                    <AddIcon
+                                        sx={{
+                                            bgcolor: '#fff',
+                                            color: '#2446f5',
+                                            fontSize: 30,
+                                            borderRadius: '100%',
+                                            border: 1,
+                                            borderColor: 'grey.300',
+                                            p: 0.75,
+                                            ':hover': {
+                                                bgcolor: '#2446f5',
+                                                color: '#fff',
+                                            },
+                                        }}
+                                        onClick={incrementHandler}/>}
+                            </Box>
+                    }
+                </Box>
                 }
             </CardActions>
         </Card>
