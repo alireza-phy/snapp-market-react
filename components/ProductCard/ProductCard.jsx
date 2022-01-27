@@ -12,7 +12,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import {useState} from "react";
 
-const ProductSingle = ({src, width, imgPack, ordinary, special, goldenOffer}) => {
+const ProductSingle = ({src, width, imgPack, ordinary, special, goldenOffer,category}) => {
     const discount = 13
     const price = 99000
     const available = true
