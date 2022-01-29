@@ -12,10 +12,11 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import {useState} from "react";
 
-const ProductSingle = ({src, width, imgPack, ordinary, special, goldenOffer,category}) => {
-    const discount = 13
-    const price = 99000
+function ProductCard({src, width, imgPack, ordinary, special, goldenOffer, category}) {
+    const discount = 20
+    const price = 85000
     const available = true
+    const maximumOrder = 6;
     const [quantity, setQuantity] = useState(0)
     const incrementHandler = () => {
         setQuantity(quantity + 1)
@@ -28,11 +29,12 @@ const ProductSingle = ({src, width, imgPack, ordinary, special, goldenOffer,cate
             width: {width},
             py: '1rem',
             px: '1rem',
-            mx: special && 1.5,
+            my: (goldenOffer || special) && 0.75,
+            mx: (goldenOffer || special) && 0.5,
             direction: 'rtl',
             borderLeft: ordinary && 1,
             borderColor: 'rgba(0, 0, 0, 0.12)',
-            borderRadius: special ? '0.5rem' : '0',
+            borderRadius: (goldenOffer || special) ? '0.5rem' : '0',
             boxShadow: 'none',
             flex: category ? '10 0 auto' : 'none',
             zIndex: 99,
@@ -176,7 +178,7 @@ const ProductSingle = ({src, width, imgPack, ordinary, special, goldenOffer,cate
                                                 sx={{color: '#2446f5'}}>
                                         {quantity}
                                     </Typography></Box>
-                                {goldenOffer && quantity === 1 ?
+                                {maximumOrder === quantity ?
                                     <AddIcon
                                         disable
                                         sx={{
@@ -214,4 +216,4 @@ const ProductSingle = ({src, width, imgPack, ordinary, special, goldenOffer,cate
     );
 }
 
-export default ProductSingle;
+export default ProductCard;
