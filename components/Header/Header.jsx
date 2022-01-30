@@ -25,6 +25,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import SlideDrawer from "./slideDrawer";
+import CartDrawer from "./CartDrawer";
 
 //search
 
@@ -89,11 +90,17 @@ const Header = () => {
         setValue(newValue);
     };
 
-    //Drawer
+    //Drawer Category
     const [drawerOpen,setDrawerOpen] = useState(false);
     const toggleDrawer = (value) => {
         setDrawerOpen(value)
     };
+    const [drawerOpenCart,setDrawerOpenCart] = useState(false);
+    const toggleDrawerCart = (value) => {
+        setDrawerOpenCart(value)
+    };
+
+
 
     return(
         <>
@@ -142,7 +149,7 @@ const Header = () => {
                             marginBottom:"0"
                         },
                     }}>
-                        <Button
+                        <Button onClick={() => toggleDrawerCart(true)}
                             sx={{
                                 display: {xs: "none", sm: "flex"}, backgroundColor: "white",
                                 color: "blue",
@@ -166,6 +173,7 @@ const Header = () => {
                         >
                             سبد خرید
                         </Button>
+                        <CartDrawer openCart={drawerOpenCart} onCloseCart={toggleDrawerCart}/>
 
                         <Button variant="outlined" sx={{fontSize: "2rem", border: "none",
                             [theme.breakpoints.up('md')]: {
