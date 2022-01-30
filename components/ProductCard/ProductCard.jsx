@@ -64,7 +64,6 @@ function ProductCard({src, width, imgPack, ordinary, special, goldenOffer, categ
                             <AvatarGroup sx={{direction: 'ltr', my: 2}}>
                                 {imgPack.map(img => <Avatar key={img.id} sx={{width: 60, height: 60, border: 1}}
                                                             src={img.src}/>)}
-                                {/*style={{border:'1px solid #bdbdbd'}}*/}
                             </AvatarGroup>
                             :
                             <CardMedia
@@ -95,7 +94,9 @@ function ProductCard({src, width, imgPack, ordinary, special, goldenOffer, categ
                         {<Typography variant="body1" component="span"
                                      sx={{color: '#f9131a'}}>  {discount}%
                         </Typography>}
-                        تخفیف بیشتر بگیرید
+                        تخفیف
+                        {<br/>}
+                        بیشتر بگیرید
                     </Typography>
                     : 'پنیر خامه ای هراز 200 گرمی'}</Typography>
             </CardContent>
