@@ -3,9 +3,9 @@ import {useState} from "react";
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Image from "../../assets/images/back-header.jpg";
-import Logo from "../../assets/images/logo.png";
-import Hyper from "../../assets/images/Hyper.jpg"
+import Image from "../../public/mainpageImages/backgroundHeaderImage.jpg";
+// import Logo from "../../assets/images/logo.png";
+// import Hyper from "../../assets/images/Hyper.jpg"
 import Box from "@mui/material/Box"
 import Button from "@mui/material/Button"
 import InputBase from '@mui/material/InputBase';
@@ -232,7 +232,7 @@ const Header = () => {
                                 style={{
                                     width: "3.5rem", height: "3.5rem",
                                 }}
-                                src={Logo}
+                                // src={Logo}
                                 alt="اسنپ مارکت"
                             />
                         </Box>
@@ -373,7 +373,7 @@ const Header = () => {
                                 <img style={{
                                     width: "3rem", height: "3rem", borderRadius: "50%",
                                 }}
-                                     src={Hyper}
+                                     // src={Hyper}
                                      alt="هایپر استار"
                                 />
                             </Box>

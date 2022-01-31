@@ -1,27 +1,30 @@
 import Head from "next/head";
+import styles from '../styles/Home.module.css'
 import {useEffect} from "react";
 import ProductSingle from "../components/ProductCard/ProductCard";
+
+import Image from "next/image";
+import ProductsCategory from "../components/ProductsCategory/ProductsCategory";
 import Assortment from "../components/Assortment/Assortment";
 import {Container} from "@mui/material";
-// import Image from "next/image";
 
 export default function Home() {
 
-    const imagepack = [
-        {
-            src: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60cf1e4112f33.jpg'
-        }, {
-            src: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60cf1e4112f33.jpg'
-        }, {
-            src: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60cf1e4112f33.jpg'
-        }
-    ];
+  const imagepack = [
+    {
+      src:'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60cf1e4112f33.jpg'
+    },{
+      src:'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60cf1e4112f33.jpg'
+    },{
+      src:'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60cf1e4112f33.jpg'
+    }
+  ] ;
 
-    useEffect(() => {
-        fetch("/api/products")
-            .then(res => res.json())
-            .then(data => console.log(data.products))
-    }, [])
+  useEffect(() => {
+    fetch("/api/products")
+        .then(res => res.json())
+        .then(data => console.log(data.products))
+  }, [])
 
     return (
         <Container sx={{marginY: "1rem", display: 'flex', flexDirection: 'column', gap: '2rem'}}>
@@ -37,21 +40,7 @@ export default function Home() {
             {/*    layout='fill'*/}
             {/*/>*/}
             <Assortment/>
-            <ProductSingle
-                src='https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60cf1e4112f33.jpg'
-                width='14.1rem'
-                ordinary
-            />
-            <ProductSingle
-                src='https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60cf1e4112f33.jpg'
-                width='14.1rem'
-                special
-            />
-            <ProductSingle
-                width='14.1rem'
-                imgPack={imagepack}
-                goldenOffer
-            />
+            <ProductsCategory/>
         </Container>
     )
 }
