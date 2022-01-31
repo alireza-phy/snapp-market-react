@@ -1,9 +1,11 @@
 import React from "react";
-import ProductsCategory from "../../components/ProductsCategory/ProductsCategory";
+import Assortment from "../../components/Assortment/Assortment";
 
 const ProductContainer = () => {
     return (
-        <ProductsCategory/>
+        <>
+        <Assortment/>
+        </>
     )
 }
 

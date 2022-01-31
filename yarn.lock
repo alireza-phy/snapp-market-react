@@ -1723,6 +1723,13 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
+material-ui-image@^3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/material-ui-image/-/material-ui-image-3.3.2.tgz#984b9cea9fcea85a29ab603213d3c825c0692357"
+  integrity sha512-WE5QE0Rjdx9jPKuI0LWI7s8VQ9cifPIXObu8AUCRcidXGV3NqPI9C8c9A/C0MofKpkZ3buG8+IT9N7GgSmxXeg==
+  dependencies:
+    prop-types "^15.5.8"
+
 merge-stream@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/merge-stream/-/merge-stream-2.0.0.tgz#52823629a14dd00c9770fb6ad47dc6310f2c1f60"
@@ -2004,6 +2011,11 @@ path-type@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
+persian-number@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/persian-number/-/persian-number-1.5.1.tgz#7c897e8ab8f72ba2eba4daf8d8be19b8aec5fab6"
+  integrity sha512-BbJ0vUV23RtFCYiEn6jTx3hzDHRD8pAWl7xrisff2Pihqopu2G2zIySscchJ6lWp8QnwJBXf2FXHIW5V2QemRQ==
+
 picomatch@^2.2.3:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
@@ -2031,7 +2043,7 @@ pretender@^3.4.7:
     fake-xml-http-request "^2.1.2"
     route-recognizer "^0.3.3"
 
-prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.8, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==

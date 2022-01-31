@@ -1,10 +1,10 @@
 import {createTheme} from '@mui/material/styles';
-import IranSans100 from "../public/fonts/woff2/IRANSansWeb_UltraLight.woff2";
-import IranSans200 from "../public/fonts/woff2/IRANSansWeb_Light.woff2";
-import IranSans300 from "../public/fonts/woff2/IRANSansWeb.woff2";
-import IranSans400 from "../public/fonts/woff2/IRANSansWeb_Medium.woff2";
-import IranSans500 from "../public/fonts/woff2/IRANSansWeb_Bold.woff2";
-import IranSans600 from "../public/fonts/woff2/IRANSansWeb_Black.woff2";
+import IranSans100 from "../public/fonts/woff2/IRANSansWeb(FaNum)_UltraLight.woff2";
+import IranSans200 from "../public/fonts/woff2/IRANSansWeb(FaNum)_Light.woff2";
+import IranSans300 from "../public/fonts/woff2/IRANSansWeb(FaNum).woff2";
+import IranSans400 from "../public/fonts/woff2/IRANSansWeb(FaNum)_Medium.woff2";
+import IranSans500 from "../public/fonts/woff2/IRANSansWeb(FaNum)_Bold.woff2";
+import IranSans600 from "../public/fonts/woff2/IRANSansWeb(FaNum)_Black.woff2";
 
 
 const theme = createTheme({
