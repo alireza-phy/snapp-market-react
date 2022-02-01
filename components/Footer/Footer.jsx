@@ -5,19 +5,11 @@ import PropTypes from 'prop-types';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import Divider from '@mui/material/Divider';
-import { blue, grey} from '@mui/material/colors';
 // ---------icons--------------------
-import LoyaltyOutlinedIcon from '@mui/icons-material/LoyaltyOutlined';
-import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
-import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlined';
-import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import TwitterIcon from '@mui/icons-material/Twitter';
+import {LoyaltyOutlinedIcon,LocalShippingOutlinedIcon,ShoppingBasketOutlinedIcon,Inventory2OutlinedIcon,InstagramIcon,TwitterIcon }from '@mui/icons-material';
+// ---------colors--------------------
+import { blue, grey} from '@mui/material/colors';
 
-// import { styled } from '@mui/material/styles';
-// import { margin, width } from '@mui/system';
-
-// const preventDefault = (event) => event.preventDefault();
 
 function Item(props) {
   const { sx, ...other } = props;
@@ -56,28 +48,28 @@ function Footer() {
           
           
           <Box sx={{display: 'flex',flexDirection: 'row',p: 1,m: 1}}>
-            <Item sx={{ order: 1 ,textAlign:"center", padding:2 }}>
+            <Item sx={{ order: 1 ,display: 'flex',flexDirection: 'column',alignItems:"center",textAlign:"center", padding:2 }}>
                 <Box sx={{ border:1, width:30, hight:30,borderColor: 'grey.100',borderRadius: 1}}>
                    <LoyaltyOutlinedIcon sx={{ color: blue[600] }}/>
                 </Box>
                 <Typography variant='h6' component='h4' sx={{ fontWeight: 'bold'}}>تخفیف بیشتر محصولات</Typography>
                 <Typography variant="body1" color="gray"> کالاها با قیمت کمتر از درج شده ارسال می‌شود</Typography>
             </Item>
-            <Item sx={{ order: 2 ,textAlign:"center", padding:2}}>
+            <Item sx={{ order: 2,display: 'flex',flexDirection: 'column',alignItems:"center" ,textAlign:"center", padding:2}}>
                 <Box sx={{alignItems:"center",border:1, width:30, hight:30,borderColor: 'grey.100',borderRadius: 1 }}>
                     <LocalShippingOutlinedIcon sx={{ color: blue[600] }}/>
                 </Box>
                 <Typography variant='h6' component='h4'sx={{ fontWeight: 'bold'}}>ارسال به موقع سفارش‌ها</Typography >
                 <Typography variant="body1" color="gray">سفارشات شما در زمان مقرر ارسال می‌شود</Typography>
             </Item>
-            <Item sx={{ order: 3,textAlign:"center", padding:2 }}>
+            <Item sx={{ order: 3,display: 'flex',flexDirection: 'column',alignItems:"center",textAlign:"center", padding:2 }}>
                 <Box sx={{alignItems:"center",border:1, width:30, hight:30,borderColor: 'grey.100',borderRadius: 1 }}>
                     <Inventory2OutlinedIcon sx={{ color: blue[600] }}/>
                 </Box>
                 <Typography variant='h6' component='h4'sx={{ fontWeight: 'bold'}}>ارسال بهترین کالاها</Typography >
                 <Typography variant="body1" color="gray">محصولات ارسالی از بین بهترین‌ها گلچین می‌شود</Typography>
             </Item>
-            <Item sx={{ order: 4 ,textAlign:"center", padding:2 }}>
+            <Item sx={{ order: 4,display: 'flex',flexDirection: 'column',alignItems:"center" ,textAlign:"center", padding:2 }}>
                 <Box sx={{alignItems:"center",border:1, width:30, hight:30,borderColor: 'grey.100',borderRadius: 1 }}>
                     <ShoppingBasketOutlinedIcon sx={{ color: blue[600] }}/>
                   </Box>
@@ -142,12 +134,12 @@ function Footer() {
           
           <Grid item xs={6}>
             <Box sx={{display: 'flex',flexWrap: 'nowrap',p: 1,m: 1}}>
-              <Item sx={{ mx:2}}>
+              <Item sx={{width:187,height:310, mx:2,py:1}}>
                 <Typography variant='h6' component='h4'sx={{ fontWeight: 'bold'}}>درباره‌ما</Typography >
                 <Typography variant='body1' component='p'color='gray'>اسنپ مارکت حاصل همکاری دو شرکت بزرگ اسنپ و‌هایپراستار است تا کالاهای مورد نیاز کاربران را در اسرع وقت برای آنها ارسال کند.
                             هایپر استار | مایلی</Typography>
             </Item>
-            <Item sx={{ mx:2}}>
+            <Item sx={{ width:125,height:310, mx:2,py:1}}>
                 <Typography variant='h6' component='h4'sx={{ fontWeight: 'bold'}}>دسترسی‌ها</Typography >
                 <Box sx={{display: 'flex',flexDirection: 'column',typography: 'body1'}}>
                   <Link href='#'underline="none" color="gray">درباره‌ما</Link>
@@ -157,7 +149,7 @@ function Footer() {
                   <Link href='#'underline="none"color="gray">گزارش مشکل</Link>
                 </Box>
               </Item>
-            <Item sx={{ mx:2}}>
+            <Item sx={{width:190,height:310, mx:2,py:1}}>
                 <Typography variant='h6' component='h4'sx={{ fontWeight: 'bold'}}>تماس با ما</Typography>
                     <Box sx={{display: 'flex',flexDirection: 'column',justifyContent: 'flex-start',p: 1,m: 1}}>
                         <Typography variant='body1' component='span'color='gray'>تلفن:۰۲۱۹۶۶۱۲۶۰۰ </Typography >
@@ -165,6 +157,12 @@ function Footer() {
                         <Typography variant='body1' component='span'color='gray'>ایمیل : info@snapp.market</Typography >
                         <Typography variant='body1' component='span'color='gray'>کد پستی:    ۱۹۶۷۸۶۵۶۳۱    </Typography>                       
                     </Box>
+                      <Box><Divider variant="middle" /></Box>
+                    <Box sx={{display: 'flex',flexDirection: 'row',alignItems:"center",verticalAlign: 'middle',p: 1,m: 1}}>
+                        <Typography variant='caption' color='gray'>info@snapp.market</Typography>
+                        <a href='https://twitter.com/snappmarket'><TwitterIcon sx={{ color: grey[400]}}/></a>
+                        <a href='https://www.instagram.com/snappmarket/'><InstagramIcon sx={{ color: grey[400] }}/></a>
+                   </Box>
             </Item>
             </Box>
           </Grid>
@@ -194,13 +192,7 @@ function Footer() {
           
           
           
-          <Box><Divider variant="middle" /></Box>
-          <Box sx={{display: 'flex',flexDirection: 'row',verticalAlign: 'middle',p: 1,m: 1}}>
-                  <Typography variant='caption' color='gray'>info@snapp.market</Typography>
-                  <a href='https://twitter.com/snappmarket'><TwitterIcon sx={{ color: grey[400]}}/></a>
-                  <a href='https://www.instagram.com/snappmarket/'><InstagramIcon sx={{ color: grey[400] }}/></a>
-                  
-            </Box>
+        
         </Grid>
       </Box>
       
