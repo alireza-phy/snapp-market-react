@@ -33,7 +33,7 @@ function ProductCard({src, width, ordinary, special, list, category}) {
             borderColor: 'rgba(0, 0, 0, 0.12)',
             borderRadius: special ? '0.5rem' : '0',
             boxShadow: 'none',
-            flex: category ? '10 0 auto' : 'none',
+            flex: category ? `0 0 ${width}` : 'none',
             zIndex: 99,
             ':hover': {
                 boxShadow: (ordinary || list) && 'rgba(0, 0, 0, 0.1) 0px 1px 28px',
