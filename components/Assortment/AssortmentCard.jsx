@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 const AssortmentCard = ({offer, title, image }) => {
 
     return (
-        <Grid item xs={3}>
+        <Grid item xs={6}>
             <Card elevation={0} sx={{
                 backgroundColor: 'white',
                 border: '0.1rem solid rgba(163, 163, 163, 0.25)',
