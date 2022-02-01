@@ -95,6 +95,7 @@ const Header = () => {
     const toggleDrawer = (value) => {
         setDrawerOpen(value)
     };
+    // Drawer Cart
     const [drawerOpenCart,setDrawerOpenCart] = useState(false);
     const toggleDrawerCart = (value) => {
         setDrawerOpenCart(value)
@@ -108,7 +109,8 @@ const Header = () => {
 
             <Toolbar sx={{
                 display: 'flex',
-                flexDirection: 'column', height: "20rem", backgroundImage: `url(${Image})`,
+                flexDirection: 'column', height: "20rem",
+                backgroundImage: `url(${Image})`,
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
                 backgroundSize: "100% 20rem",
@@ -198,7 +200,7 @@ const Header = () => {
                             <Typography sx={{
                                 fontSize: "1.7rem", display: "flex", alignItems: "center", color: "white",
                                 [theme.breakpoints.down('sm')]: {
-                                    fontSize: "0.9rem", overflow: "auto",
+                                    fontSize: "0.9rem", textOverflow: 'ellipsis',
                                 },
                                 [theme.breakpoints.between('sm', 'md')]: {
                                     fontSize: "1rem"
@@ -206,7 +208,8 @@ const Header = () => {
                                 [theme.breakpoints.up('md')]: {
                                     fontSize:"1rem"
                                 },
-                            }}>
+                            }} >
+
                                 <ExpandMore/>
                                 تهران،میدان انقلاب اسلامی
                                 <IconButton>
