@@ -7,13 +7,14 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Divider from '@mui/material/Divider';
 import {useRef, useEffect, useState} from "react";
 
-const ProductsCategory = ({ordinary, special, goldenOffer, children, spTitle, spBlue, spLightBlue, spGreen}) => {
+const ProductCategory = ({ordinary, special, goldenOffer, children, spTitle, spBlue, spLightBlue, spGreen}) => {
     const blue = 'url(https://snapp.market/v2/static/images/ff6cfe6688bee991b0de30bebfbe09fd.png) 0% 0% / cover,linear-gradient(-45deg,rgb(35, 67, 240),rgb(35, 67, 240))'
     const green = 'url(https://snapp.market/v2/static/images/ff6cfe6688bee991b0de30bebfbe09fd.png) 0% 0% / cover,linear-gradient(-45deg,rgb(50, 195, 53), rgb(50, 195, 53))'
     const lightBlue = 'url(https://snapp.market/v2/static/images/ff6cfe6688bee991b0de30bebfbe09fd.png) 0% 0% / cover,linear-gradient(-45deg,rgb(75, 104, 251), rgb(75, 104, 251))'
     const scroll = useRef(null)
     const [rightVisible, setRightVisible] = useState(false)
     const [leftVisible, setLeftVisible] = useState(true)
+    const [seeMoreProducts, setSeeMoreProducts] = useState(true)
     const scrollHandler = (scrollOffset) => {
         let i = 0
         let cancel = setInterval(() => {
@@ -26,16 +27,30 @@ const ProductsCategory = ({ordinary, special, goldenOffer, children, spTitle, sp
         }, 0)
     };
     useEffect(() => {
+        if (scroll.current.scrollWidth === scroll.current.clientWidth) {
+            setRightVisible(false)
+            setLeftVisible(false)
+        }
+        if (scroll.current.childNodes.length < 10) {
+            setSeeMoreProducts(false)
+        }
         scroll.current.addEventListener('scroll', () => {
-            if(ordinary){
+            if (ordinary) {
                 if (scroll.current.scrollLeft < -50) {
                     setRightVisible(true)
                 } else {
                     setRightVisible(false)
                 }
             }
-            if(special){
+            if (special) {
                 if (scroll.current.scrollLeft < -150) {
+                    setRightVisible(true)
+                } else {
+                    setRightVisible(false)
+                }
+            }
+            if (goldenOffer) {
+                if (scroll.current.scrollLeft < -20) {
                     setRightVisible(true)
                 } else {
                     setRightVisible(false)
@@ -57,9 +72,15 @@ const ProductsCategory = ({ordinary, special, goldenOffer, children, spTitle, sp
                     setLeftVisible(true)
                 }
             }
+            if (goldenOffer) {
+                if (scroll.current.scrollLeft < -240) {
+                    setLeftVisible(false)
+                } else {
+                    setLeftVisible(true)
+                }
+            }
         })
-    }, []);
-
+    }, [children, scroll]);
     return (
         <Box sx={{
             direction: 'rtl',
@@ -87,18 +108,22 @@ const ProductsCategory = ({ordinary, special, goldenOffer, children, spTitle, sp
                                 }}>
                         لبنیات
                     </Typography>
-                    <Typography variant='body1' component='span'
-                                sx={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    color: '#2446f5',
-                                    ml: {xl: 2.5, md: 2.5, xs: 1},
-                                    py: 1.2,
-                                    cursor: 'pointer'
-                                }}>
-                        مشاهده بیشتر
-                        <KeyboardArrowLeftIcon/>
-                    </Typography>
+                    {
+                        seeMoreProducts
+                        &&
+                        <Typography variant='body1' component='span'
+                                    sx={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        color: '#2446f5',
+                                        ml: {xl: 2.5, md: 2.5, xs: 1},
+                                        py: 1.2,
+                                        cursor: 'pointer'
+                                    }}>
+                            مشاهده بیشتر
+                            <KeyboardArrowLeftIcon/>
+                        </Typography>
+                    }
                 </Paper>
             }
             {
@@ -167,6 +192,8 @@ const ProductsCategory = ({ordinary, special, goldenOffer, children, spTitle, sp
                     }
                     {
                         ordinary
+                        &&
+                        seeMoreProducts
                         &&
                         <Paper sx={{
                             display: 'flex',
@@ -254,7 +281,7 @@ const ProductsCategory = ({ordinary, special, goldenOffer, children, spTitle, sp
                 </Paper>
             </Paper>
             {
-                (ordinary || special) && rightVisible
+                rightVisible
                 &&
                 <Box onClick={() => scrollHandler(200)} sx={{
                     display: {xl: 'flex', md: 'flex', xs: 'none'},
@@ -274,7 +301,7 @@ const ProductsCategory = ({ordinary, special, goldenOffer, children, spTitle, sp
                 </Box>
             }
             {
-                (ordinary || special) && leftVisible
+                leftVisible
                 &&
                 <Box onClick={() => scrollHandler(-200)} sx={{
                     display: {xl: 'flex', md: 'flex', xs: 'none'},
@@ -294,6 +321,7 @@ const ProductsCategory = ({ordinary, special, goldenOffer, children, spTitle, sp
                 </Box>
             }
         </Box>
+
     )
 }
-export default ProductsCategory
+export default ProductCategory
