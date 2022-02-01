@@ -1,9 +1,12 @@
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer"
+
 const HeaderAndFooter = ({children}) => {
     return (
         <>
-            <h1> هدر فروشگاه اینترنتی اسنپ مارکت </h1>
+            <Header/>
             {children}
-            <h2> فوتر فروشگاه اینترنتی اسنپ مارکت </h2>
+            <Footer/>
         </>
     )
 }
