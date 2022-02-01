@@ -23,10 +23,6 @@ const SlideDrawer = (props) => {
                     boxSizing: 'border-box',
 
                 },
-                [theme.breakpoints.down( 'md')]: {
-
-                },
-
 
             }}
 
