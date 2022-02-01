@@ -6,7 +6,12 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import Divider from '@mui/material/Divider';
 // ---------icons--------------------
-import {LoyaltyOutlinedIcon,LocalShippingOutlinedIcon,ShoppingBasketOutlinedIcon,Inventory2OutlinedIcon,InstagramIcon,TwitterIcon }from '@mui/icons-material';
+import LoyaltyOutlinedIcon from '@mui/icons-material/LoyaltyOutlined';
+import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
+import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlined';
+import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
 // ---------colors--------------------
 import { blue, grey} from '@mui/material/colors';
 
@@ -50,28 +55,28 @@ function Footer() {
           <Box sx={{display: 'flex',flexDirection: 'row',p: 1,m: 1}}>
             <Item sx={{ order: 1 ,display: 'flex',flexDirection: 'column',alignItems:"center",textAlign:"center", padding:2 }}>
                 <Box sx={{ border:1, width:30, hight:30,borderColor: 'grey.100',borderRadius: 1}}>
-                   <LoyaltyOutlinedIcon sx={{ color: blue[600] }}/>
+                   <LoyaltyOutlinedIcon sx={{ fontSize: 30 ,color: blue[600] }}/>
                 </Box>
                 <Typography variant='h6' component='h4' sx={{ fontWeight: 'bold'}}>تخفیف بیشتر محصولات</Typography>
                 <Typography variant="body1" color="gray"> کالاها با قیمت کمتر از درج شده ارسال می‌شود</Typography>
             </Item>
             <Item sx={{ order: 2,display: 'flex',flexDirection: 'column',alignItems:"center" ,textAlign:"center", padding:2}}>
                 <Box sx={{alignItems:"center",border:1, width:30, hight:30,borderColor: 'grey.100',borderRadius: 1 }}>
-                    <LocalShippingOutlinedIcon sx={{ color: blue[600] }}/>
+                    <LocalShippingOutlinedIcon sx={{fontSize: 30 , color: blue[600] }}/>
                 </Box>
                 <Typography variant='h6' component='h4'sx={{ fontWeight: 'bold'}}>ارسال به موقع سفارش‌ها</Typography >
                 <Typography variant="body1" color="gray">سفارشات شما در زمان مقرر ارسال می‌شود</Typography>
             </Item>
             <Item sx={{ order: 3,display: 'flex',flexDirection: 'column',alignItems:"center",textAlign:"center", padding:2 }}>
                 <Box sx={{alignItems:"center",border:1, width:30, hight:30,borderColor: 'grey.100',borderRadius: 1 }}>
-                    <Inventory2OutlinedIcon sx={{ color: blue[600] }}/>
+                    <Inventory2OutlinedIcon sx={{fontSize: 30 , color: blue[600] }}/>
                 </Box>
                 <Typography variant='h6' component='h4'sx={{ fontWeight: 'bold'}}>ارسال بهترین کالاها</Typography >
                 <Typography variant="body1" color="gray">محصولات ارسالی از بین بهترین‌ها گلچین می‌شود</Typography>
             </Item>
             <Item sx={{ order: 4,display: 'flex',flexDirection: 'column',alignItems:"center" ,textAlign:"center", padding:2 }}>
                 <Box sx={{alignItems:"center",border:1, width:30, hight:30,borderColor: 'grey.100',borderRadius: 1 }}>
-                    <ShoppingBasketOutlinedIcon sx={{ color: blue[600] }}/>
+                    <ShoppingBasketOutlinedIcon sx={{fontSize: 30 , color: blue[600] }}/>
                   </Box>
                 <Typography variant='h6' component='h4'sx={{ fontWeight: 'bold'}}>بسته بندی مناسب</Typography>
                 <Typography variant="body1" color="gray">سفارشات با بسته‌بندی مناسب ارسال می‌شود</Typography>
