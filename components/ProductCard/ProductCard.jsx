@@ -1,7 +1,6 @@
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia'
 import Box from '@mui/material/Box';
@@ -9,9 +8,9 @@ import {useState, useRef} from "react";
 import CardPrice from "../CardPrice/CardPrice";
 import CardAddToCartButton from "../CardAddToCartButton/CardAddToCartButton";
 
-const ProductSingle = ({src, width, imgPack, ordinary, special, goldenOffer,category}) => {
-    const discount = 13
-    const price = 99000
+function ProductCard({src, width, ordinary, special, list, category}) {
+    const discount = 20
+    const price = 85000
     const available = true
     const maximumOrder = 6;
     const [quantity, setQuantity] = useState(0)
