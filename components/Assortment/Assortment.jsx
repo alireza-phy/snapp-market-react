@@ -5,7 +5,7 @@ import {Container} from "@mui/material";
 import Stack from "@mui/material/Stack";
 import AssortmentCard from "./AssortmentCard";
 import Box from "@mui/material/Box";
-
+import Divider from '@mui/material/Divider'
 const AssortmentCardData = [
     {
         img:'https://api.snapp.market/uploads/images/mobile-sliders/61e6a5ba7ea4f.png' ,
@@ -96,11 +96,8 @@ const AssortmentMenu = () => {
     return (
         <Box>
             <Container sx={{marginY: "1rem", display: 'flex', flexDirection: 'column', gap: '2rem'}}>
-                <Stack direction="row" spacing={2} alignItems={"center"} justifyContent={"center"}>
-                    <hr width='460vw' color='black'/>
-                    <h3> دسته بندی ها </h3>
-                    <hr width='460vw' color='black'/>
-                </Stack>
+                <Divider><h3>دسته بندی ها</h3></Divider>
+
                 <Grid container spacing={2}>
                     {AssortmentOfferData.map(item => (
                     <AssortmentOffer
