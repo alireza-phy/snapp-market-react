@@ -1,60 +1,60 @@
 import Head from "next/head";
 import styles from '../styles/Home.module.css'
 import {useEffect , useState} from "react";
-import Image from "next/image";
 import ProductsCategory from "../components/ProductsCategory/ProductsCategory";
 import Assortment from "../components/Assortment/Assortment";
 import {Container} from "@mui/material";
 import marketParty from '../public/mainpageImages/Banners/marketparty.jpg'
+import bijan from '../public/mainpageImages/Banners/bijan.jpg'
+import kale from  '../public/mainpageImages/Banners/kale2.jpg'
+import pakshooma from  '../public/mainpageImages/Banners/pakshooma.jpg'
+import specialOffer from  '../public/mainpageImages/Banners/specialOffer.jpg'
 import {getCategory} from '../library/axios/getData';
-
+import Box from '@mui/material/Box'
 export default function Home() {
 
-    const [category, setCategory] = useState(
-        [
-            {
+    const [categoryList, setCategoryList] = useState([{
                 id: 1,
-                name: 'شیر',
+                name: '',
                 brand: {
-                    brandEn: 'pak',
-                    brandPe: 'پاک',
+                    brandEn: '',
+                    brandPe: '',
                 },
                 images: [
                     {
                         id: 1,
-                        url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60cf1e4112f33.jpg'
+                        url: ''
                     },
                     {
                         id: 2,
-                        url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60cf1e671bbe9.jpg'
+                        url: ''
                     },
                 ],
                 category: {
-                    categoryEn: 'dairy-product',
-                    categoryPe: 'لبنیات'
+                    categoryEn: '',
+                    categoryPe: ''
                 },
                 group: {
                     groupId: 1,
-                    groupName: 'شیر'
+                    groupName: ''
                 },
                 inventory: {
                     available: true,
-                    quantity: 9,
+                    quantity: 0,
                 },
-                seller: 'هایپر استار',
+                seller: '',
                 tags: [
-                    {id: 1, name: 'کم چرب'},
-                    {id: 2, name: 'ساده'}
+                    {id: 1, name: ''},
+                    {id: 2, name: ''}
                 ],
-                price: 10900,
-                discount: 14,
-                MaximumOrder: 4
-            }]
-    );
+                price: 0,
+                discount: 0,
+                MaximumOrder: 0
+            }]);
 
     useEffect( () => {
         getCategory('dairy-product')
-            .then(data => setCategory(data.products.slice(0,9)))
+            .then(data => setCategoryList(data.products.slice(0,9)))
     } , [])
 
 
@@ -66,12 +66,60 @@ export default function Home() {
                 <meta name='keywords' content='marketing site, developed with nextJs'/>
             </Head>
 
-            <Image src={marketParty}/>
+            <Box component="img" src={marketParty.src} sx={{width:'100%' , margin:'auto' , borderRadius: '0.5rem'}}/>
+            <ProductsCategory
+                categoryList = {categoryList}
+            />
+            <Box component="img" src={bijan.src} sx={{width:'100%' , margin:'auto' , borderRadius: '0.5rem'}}/>
             <Assortment/>
             <ProductsCategory
-            categoryList = {category}
+            categoryList = {categoryList}
             />
-
+            <ProductsCategory
+                categoryList = {categoryList}
+            />
+            <ProductsCategory
+                categoryList = {categoryList}
+            />
+            <Box component="img" src={kale.src} sx={{width:'100%' , margin:'auto' , borderRadius: '0.5rem'}}/>
+            <ProductsCategory
+                categoryList = {categoryList}
+            />
+            <ProductsCategory
+                categoryList = {categoryList}
+            />
+            <ProductsCategory
+                categoryList = {categoryList}
+            />
+            <ProductsCategory
+                categoryList = {categoryList}
+            />
+            <ProductsCategory
+                categoryList = {categoryList}
+            />
+            <ProductsCategory
+                categoryList = {categoryList}
+            />
+            <ProductsCategory
+                categoryList = {categoryList}
+            />
+            <ProductsCategory
+                categoryList = {categoryList}
+            />
+            <Box component="img" src={pakshooma.src} sx={{width:'100%' , margin:'auto' , borderRadius: '0.5rem'}}/>
+            <ProductsCategory
+                categoryList = {categoryList}
+            />
+            <ProductsCategory
+                categoryList = {categoryList}
+            />
+            <ProductsCategory
+                categoryList = {categoryList}
+            />
+            <Box component="img" src={specialOffer.src} sx={{width:'100%' , margin:'auto' , borderRadius: '0.5rem'}}/>
+            <ProductsCategory
+                categoryList = {categoryList}
+            />
         </Container>
     )
 }
