@@ -106,7 +106,7 @@ const Header = () => {
 
     return (
         <>
-            <AppBar position="static" sx={{direction: "rtl"}}>
+            <AppBar position="static">
 
                 <Toolbar  sx={{
                     display: 'flex',
@@ -126,6 +126,7 @@ const Header = () => {
                     },
                 }}>
                     <Container>
+
                     <Box sx={{
                         display: 'flex',
                         justifyContent: 'space-between',
@@ -179,12 +180,12 @@ const Header = () => {
                                     },
                                 }}>
 
-                                    <IconButton>
-                                        <LocationOnOutlined sx={{color: "white", fontSize: "1rem"}}/>
-                                    </IconButton>
-                                    تهران،میدان انقلاب اسلامی
+                                    {/*<IconButton>*/}
+                                    {/*    <LocationOnOutlined sx={{color: "white", fontSize: "1rem"}}/>*/}
+                                    {/*</IconButton>*/}
+                                    ابتدا آدرس خود را انتخاب کنید
 
-                                    <ExpandMore/>
+                                    {/*<ExpandMore/>*/}
 
                                 </Typography>
                             </Button>
@@ -346,11 +347,10 @@ const Header = () => {
                                     backgroundColor: "white",
                                     color: "blue",
                                     borderRadius: "20rem",
-                                    fontSize: "1rem",
                                     marginRight:"2rem",
                                         [theme.breakpoints.down('sm')]: {
                                         fontSize: '0.5rem',
-                                        width: "5rem",
+                                        width: "5.5rem",
                                         height: "1.5rem",
                                     },
                                     [theme.breakpoints.between('sm', 'md')]: {
@@ -366,8 +366,8 @@ const Header = () => {
                                         borderRadius: "10rem",
                                         height: "1.5rem",
                                     },
-                                }} variant="contained" endIcon={<ExpandMore sx={{fontSize: "0.5rem"}}/>}>
-                                    تغییر فروشگاه
+                                }} variant="contained" endIcon={<ExpandMore sx={{fontSize: "0.2rem",}}/>}>
+                                        تغییر فروشگاه
                                 </Button>
                             </Box>
 
@@ -469,14 +469,16 @@ const Header = () => {
                             />
                         </Search>
                     </Box>
+
                     </Container>
+
                 </Toolbar>
 
             </AppBar>
 
 
 
-            <Paper sx={{display: {xs: "flex", sm: "none"}, position: 'fixed', bottom: 0, left: 0, right: 0}}
+            <Paper sx={{display: {xs: "flex", sm: "none"}, position: 'fixed', bottom: 0, left: 0, right: 0,zIndex:1}}
                    elevation={3}>
                 <BottomNavigation sx={{width: "100%", color: "black"}} showLabels value={value} onChange={handleChange}>
                     <BottomNavigationAction
