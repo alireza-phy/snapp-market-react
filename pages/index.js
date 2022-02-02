@@ -7,14 +7,14 @@ import ProductsCategory from "../components/ProductsCategory/ProductsCategory";
 import Assortment from "../components/Assortment/Assortment";
 import {Container} from "@mui/material";
 import marketparty from '../public/mainpageImages/Banners/marketparty.jpg'
+import {getCategory} from '../library/axios/getData';
 
 export default function Home() {
 
-  useEffect(() => {
-    fetch("/api/products")
-        .then(res => res.json())
-        .then(data => console.log(data.products))
-  }, [])
+    useEffect( () => {
+        getCategory('dairy-products')
+            .then(data => console.log(data.products))
+    } , [])
 
     return (
         <Container sx={{marginY: "1rem", display: 'flex', flexDirection: 'column', gap: '2rem'}}>
@@ -27,6 +27,7 @@ export default function Home() {
             <Image src={marketparty}/>
             <Assortment/>
             <ProductsCategory/>
+
         </Container>
     )
 }
