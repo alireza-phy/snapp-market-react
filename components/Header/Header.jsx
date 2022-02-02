@@ -3,15 +3,15 @@ import {useState} from "react";
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Image from "../../assets/images/back-header.jpg";
-import Logo from "../../assets/images/logo.png";
-import Hyper from "../../assets/images/Hyper.jpg"
+import Image from "./images/back-header.jpg";
+import Logo from "./images/logo.png";
+import Hyper from "./images/Hyper.jpg"
 import Box from "@mui/material/Box"
 import Button from "@mui/material/Button"
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import {useTheme, createTheme, makeStyles} from '@mui/material/styles';
-import {IconButton, Link, Paper} from "@mui/material";
+import {Container, IconButton, Link, Paper} from "@mui/material";
 import {styled, alpha} from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
 
@@ -108,7 +108,7 @@ const Header = () => {
         <>
             <AppBar position="static" sx={{direction: "rtl"}}>
 
-                <Toolbar sx={{
+                <Toolbar  sx={{
                     display: 'flex',
                     flexDirection: 'column', height: "20rem",
                     backgroundImage: `url(${Image})`,
@@ -125,7 +125,7 @@ const Header = () => {
                         height: "14rem"
                     },
                 }}>
-
+                    <Container>
                     <Box sx={{
                         display: 'flex',
                         justifyContent: 'space-between',
@@ -469,10 +469,12 @@ const Header = () => {
                             />
                         </Search>
                     </Box>
-
+                    </Container>
                 </Toolbar>
 
             </AppBar>
+
+
 
             <Paper sx={{display: {xs: "flex", sm: "none"}, position: 'fixed', bottom: 0, left: 0, right: 0}}
                    elevation={3}>
