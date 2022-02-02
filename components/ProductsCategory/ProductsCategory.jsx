@@ -8,10 +8,12 @@ import Divider from '@mui/material/Divider';
 import ProductCard from "../ProductCard/ProductCard";
 import {useRef, useEffect, useState} from "react";
 
-const ProductsCategory = () => {
+const ProductsCategory = ({categoryList}) => {
+
     const scroll = useRef(null)
     const [rightVisible, setRightVisible] = useState(false)
     const [leftVisible, setLeftVisible] = useState(true)
+
     const scrollHandler = (scrollOffset) => {
         let i = 0
         let cancel = setInterval(() => {
@@ -23,6 +25,7 @@ const ProductsCategory = () => {
             }
         }, 0)
     };
+
     useEffect(() => {
         scroll.current.addEventListener('scroll', () => {
             if (scroll.current.scrollLeft < -50) {
@@ -60,7 +63,7 @@ const ProductsCategory = () => {
                                 mr: 2.5,
                                 py: 1.2
                             }}>
-                    لبنیات
+                    {categoryList[0].category.categoryPe}
                 </Typography>
                 <Typography variant='body1' component='span'
                             sx={{
@@ -84,24 +87,19 @@ const ProductsCategory = () => {
                 borderTop: 0,
                 borderRadius: 0
             }} variant='outlined'>
-                <ProductCard category ordinary width='13rem'
-                             src='https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/383613.jpg'/>
-                <ProductCard category ordinary width='13rem'
-                             src='https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210815-122727.jpg'/>
-                <ProductCard category ordinary width='13rem'
-                             src='https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/383613.jpg'/>
-                <ProductCard category ordinary width='13rem'
-                             src='https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210815-122727.jpg'/>
-                <ProductCard category ordinary width='13rem'
-                             src='https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/383613.jpg'/>
-                <ProductCard category ordinary width='13rem'
-                             src='https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/383613.jpg'/>
-                <ProductCard category ordinary width='13rem'
-                             src='https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210815-122727.jpg'/>
-                <ProductCard category ordinary width='13rem'
-                             src='https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/383613.jpg'/>
-                <ProductCard category ordinary width='13rem'
-                             src='https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/383613.jpg'/>
+                {categoryList.map(item =>
+                    <ProductCard category
+                                 ordinary
+                                 width='13rem'
+                                 src={item.images[0].url}
+                                 title={item.name}
+                                 price={item.price}
+                                 discount={item.discount}
+                                 maximumOrder={item.MaximumOrder}
+                                 available={item.inventory.available}
+                    />
+                )}
+
                 <Paper sx={{
                     display: 'flex',
                     flexDirection: "column",
@@ -118,20 +116,14 @@ const ProductsCategory = () => {
                         flexGrow: 3,
                         py: 1.75,
                     }}>
-                        <Box component='img' alt=''
-                             src='https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/383613.jpg'
-                             sx={{width: '3rem', filter: 'sepia(80%) blur(0.75px)'}}/>
-                        <Divider orientation="vertical" variant="middle"/>
-                        <Box component='img' alt=''
-                             src='https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/383613.jpg'
-                             sx={{
-                                 width: '3rem',
-                                 filter: 'sepia(80%) blur(1px)'
-                             }}/>
-                        <Divider orientation="vertical" variant="middle"/>
-                        <Box component='img' alt=''
-                             src='https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/383613.jpg'
-                             sx={{width: '3rem', filter: 'sepia(80%) blur(0.75px)'}}/>
+                        {categoryList.slice(0,3).map(item =>
+                                <Box component='img' alt=''
+                                     src={item.images[0].url}
+                                     sx={{
+                                         width: '3rem',
+                                         opacity:'0.34'
+                                     }}/>
+                        )}
                     </Box>
                     <Box sx={{flexGrow: 3, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                         <Typography sx={{
@@ -150,20 +142,14 @@ const ProductsCategory = () => {
                         flexGrow: 3,
                         py: 1.75,
                     }}>
-                        <Box component='img' alt=''
-                             src='https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/383613.jpg'
-                             sx={{width: '3rem', filter: 'sepia(80%) blur(0.75px)'}}/>
-                        <Divider orientation="vertical" variant="middle"/>
-                        <Box component='img' alt=''
-                             src='https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/383613.jpg'
-                             sx={{
-                                 width: '3rem',
-                                 filter: 'sepia(80%) blur(0.75px)'
-                             }}/>
-                        <Divider orientation="vertical" variant="middle"/>
-                        <Box component='img' alt=''
-                             src='https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/383613.jpg'
-                             sx={{width: '3rem', filter: 'sepia(80%) blur(1px)'}}/>
+                        {categoryList.slice(3,6).map(item =>
+                            <Box component='img' alt=''
+                                 src={item.images[0].url}
+                                 sx={{
+                                     width: '3rem',
+                                     opacity:'0.34'
+                                 }}/>
+                        )}
                     </Box>
                 </Paper>
             </Paper>

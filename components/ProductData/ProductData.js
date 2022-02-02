@@ -17,7 +17,7 @@ const ProductData = [
             },
         ],
         category: {
-            categoryEn: 'dairy-products',
+            categoryEn: 'dairy-product',
             categoryPe: 'لبنیات'
         },
         group: {

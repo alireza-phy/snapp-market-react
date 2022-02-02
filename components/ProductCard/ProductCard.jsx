@@ -8,11 +8,8 @@ import Box from '@mui/material/Box';
 import {useState, useRef} from "react";
 import CardPrice from "../CardPrice/CardPrice";
 import CardAddToCartButton from "../CardAddToCartButton/CardAddToCartButton";
-function ProductCard({src, width, ordinary, special, list, category}) {
-    const discount = 20
-    const price = 85000
-    const available = true
-    const maximumOrder = 6;
+function ProductCard({src, title, price, discount, available, maximumOrder, width, ordinary, special, list, category}) {
+
     const [quantity, setQuantity] = useState(0)
     const incrementHandler = () => {
         setQuantity(quantity + 1)
@@ -79,7 +76,7 @@ function ProductCard({src, width, ordinary, special, list, category}) {
                     color: '#30354b',
                     mb: 0.5
                 }}>
-                    پنیر خامه ای هراز 200 گرمی
+                    {title}
                 </Typography>
             </CardContent>
             <CardActions
