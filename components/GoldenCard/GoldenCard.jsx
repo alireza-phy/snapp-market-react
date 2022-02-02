@@ -41,7 +41,7 @@ const GoldenCard = ({width, imgPack, category}) => {
             direction: 'rtl',
             borderRadius: '0.5rem',
             boxShadow: 'none',
-            flex: category ? '10 0 auto' : 'none',
+            flex: category ? `0 0 ${width}` : 'none',
             zIndex: 99,
             transition: 'all 0.6s ease 0s',
             transformStyle: 'preserve-3d',
