@@ -68,58 +68,22 @@ export default function Home() {
 
             <Box component="img" src={marketParty.src} sx={{width:'100%' , margin:'auto' , borderRadius: '0.5rem'}}/>
             <ProductsCategory
+                ordinary
+                categoryList = {categoryList}
+            />
+            <ProductsCategory
+                special
+                categoryList = {categoryList}
+                spBlue
+                spTitle='حراج اول ماه'
+            />
+            <ProductsCategory
+                goldenOffer
                 categoryList = {categoryList}
             />
             <Box component="img" src={bijan.src} sx={{width:'100%' , margin:'auto' , borderRadius: '0.5rem'}}/>
             <Assortment/>
-            <ProductsCategory
-            categoryList = {categoryList}
-            />
-            <ProductsCategory
-                categoryList = {categoryList}
-            />
-            <ProductsCategory
-                categoryList = {categoryList}
-            />
-            <Box component="img" src={kale.src} sx={{width:'100%' , margin:'auto' , borderRadius: '0.5rem'}}/>
-            <ProductsCategory
-                categoryList = {categoryList}
-            />
-            <ProductsCategory
-                categoryList = {categoryList}
-            />
-            <ProductsCategory
-                categoryList = {categoryList}
-            />
-            <ProductsCategory
-                categoryList = {categoryList}
-            />
-            <ProductsCategory
-                categoryList = {categoryList}
-            />
-            <ProductsCategory
-                categoryList = {categoryList}
-            />
-            <ProductsCategory
-                categoryList = {categoryList}
-            />
-            <ProductsCategory
-                categoryList = {categoryList}
-            />
-            <Box component="img" src={pakshooma.src} sx={{width:'100%' , margin:'auto' , borderRadius: '0.5rem'}}/>
-            <ProductsCategory
-                categoryList = {categoryList}
-            />
-            <ProductsCategory
-                categoryList = {categoryList}
-            />
-            <ProductsCategory
-                categoryList = {categoryList}
-            />
-            <Box component="img" src={specialOffer.src} sx={{width:'100%' , margin:'auto' , borderRadius: '0.5rem'}}/>
-            <ProductsCategory
-                categoryList = {categoryList}
-            />
+
         </Container>
     )
 }

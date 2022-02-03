@@ -9,7 +9,17 @@ import AvatarGroup from '@mui/material/AvatarGroup';
 import CardPrice from "../CardPrice/CardPrice";
 import CardAddToCartButton from "../CardAddToCartButton/CardAddToCartButton";
 
-const GoldenCard = ({width, imgPack, category}) => {
+const GoldenCard = ({width, category}) => {
+    const imgPack = [{
+        id: 1,
+        src: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/383613.jpg'
+    }, {
+        id: 2,
+        src: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210815-122727.jpg'
+    }, {
+        id: 3,
+        src: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210815-122728.jpg'
+    }]
     const discount = 19
     const price = 95000
     const available = true
