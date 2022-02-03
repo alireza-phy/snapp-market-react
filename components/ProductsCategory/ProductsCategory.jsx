@@ -8,9 +8,10 @@ import Divider from '@mui/material/Divider';
 import {useRef, useEffect, useState} from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import GoldenCard from '../GoldenCard/GoldenCard'
+import {getCategory} from '../../library/axios/getData';
 
 const ProductCategory = ({
-                             categoryList,
+                             categorySub,
                              ordinary,
                              special,
                              goldenOffer,
@@ -39,6 +40,51 @@ const ProductCategory = ({
             }
         }, 0)
     };
+
+    const [categoryList, setCategoryList] = useState([{
+        id: 1,
+        name: '',
+        brand: {
+            brandEn: '',
+            brandPe: '',
+        },
+        images: [
+            {
+                id: 1,
+                url: ''
+            },
+            {
+                id: 2,
+                url: ''
+            },
+        ],
+        category: {
+            categoryEn: '',
+            categoryPe: ''
+        },
+        group: {
+            groupId: 1,
+            groupName: ''
+        },
+        inventory: {
+            available: true,
+            quantity: 0,
+        },
+        seller: '',
+        tags: [
+            {id: 1, name: ''},
+            {id: 2, name: ''}
+        ],
+        price: 0,
+        discount: 0,
+        MaximumOrder: 0
+    }]);
+
+    useEffect( () => {
+        getCategory(categorySub)
+            .then(data => setCategoryList(data.products.slice(0,9)))
+    } , [])
+
     useEffect(() => {
         if (scroll.current.scrollWidth === scroll.current.clientWidth) {
             setRightVisible(false)
