@@ -74,7 +74,10 @@ function ProductCard({src, title, price, discount, available, maximumOrder, widt
                 <Typography variant="body1" component="p" sx={{
                     height: 48,
                     color: '#30354b',
-                    mb: 0.5
+                    mb: 0.5,
+                    wordWrap:'break-word',
+                    wordBreak:'break-word',
+                    whiteSpace:'pre-wrap'
                 }}>
                     {title}
                 </Typography>
