@@ -8,6 +8,7 @@ import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import CardPrice from "../CardPrice/CardPrice";
 import CardAddToCartButton from "../CardAddToCartButton/CardAddToCartButton";
+import PN from "persian-number";
 
 const GoldenCard = ({width, category}) => {
     const imgPack = [{
@@ -83,9 +84,12 @@ const GoldenCard = ({width, category}) => {
                     </AvatarGroup>
                 </Box>
                 <Typography variant="body1" component="p" sx={{
-                    height: 48,
+                    minHeight: 48,
                     color: '#30354b',
-                    mb: 0.5
+                    mb: 0.5,
+                    wordWrap:'break-word',
+                    wordBreak:'break-word',
+                    whiteSpace:'pre-wrap'
                 }}>
                     <Typography variant="body1" component="p">
                         با خرید یکجای این محصولات
@@ -93,13 +97,11 @@ const GoldenCard = ({width, category}) => {
                         {
                             <Typography variant="body1" component="span"
                                         sx={{color: '#f9131a'}}>
-                                {discount}%
+                                {PN.convertEnToPe(discount)} ٪
                             </Typography>
                         }
                         &nbsp;
-                        تخفیف
-                        {<br/>}
-                        بیشتر بگیرید
+                        تخفیف بیشتر بگیرید
                     </Typography>
                 </Typography>
             </CardContent>
