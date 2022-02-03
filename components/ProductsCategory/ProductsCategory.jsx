@@ -210,6 +210,8 @@ const ProductCategory = ({
                             />
                             <GoldenCard category width='17rem'
                             />
+                            <GoldenCard category width='17rem'
+                            />
                         </>
                     }
                     {

@@ -2,7 +2,7 @@ import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import {createTheme, ThemeProvider} from '@mui/material/styles';
-
+import Link from '@mui/material/Link'
 const theme = createTheme({
     typography: {
         body1: {
@@ -74,29 +74,53 @@ const data = {
 }
 const PageDescription = () => {
     return (
-        <Paper sx={{direction: 'rtl', pt: 1, pb: 2, px: 2.5}} variant='outlined'>
+        <Paper sx={{direction: 'rtl', pt: 1, pb: 2, px: 2.5, color: 'rgb(117, 117, 117)'}} variant='outlined'>
             <ThemeProvider theme={theme}>
-                <Typography sx={{textAlign: 'justify', lineHeight: 1.5, fontWeight: 600, my: 2}} variant='h5'
+                <Typography sx={{textAlign: 'justify', lineHeight: 1.5, fontWeight: 600, my: 2, fontFamily: 'iranSans'}}
+                            variant='h5'
                             component='h2'>
-                    {data.header}
+                    سوپرمارکت اینترنتی اسنپ مارکت
                 </Typography>
                 {
-                    data.mainText.map((info) => (
-                        <Box>
-                            <Typography sx={{textAlign: 'justify', lineHeight: 1.5, fontWeight: 600, my: 2}}
-                                        variant='h6'
-                                        component='h3'>{info.header}</Typography>
-                            {
-                                info.description.map((info) => (
-                                    <Typography sx={{textAlign: 'justify', lineHeight: 1.5, my: 1}} variant='body1'
-                                                component='p'>{info.text}</Typography>
-                                ))
-                            }
-                        </Box>
-                    ))
+                    // data.mainText.map((info) => (
+                    <Box>
+                        {/*<Typography sx={{textAlign: 'justify', lineHeight: 1.5, fontWeight: 600, my: 2}}*/}
+                        {/*            variant='h6'*/}
+                        {/*            component='h3'>*/}
+                        {/*</Typography>*/}
+                        {/*{*/}
+                        {/*    info.description.map((info) => (*/}
+                        <Typography sx={{textAlign: 'justify', lineHeight: 1.5, my: 1, fontFamily: 'iranSans'}}
+                                    variant='body1'
+                                    component='p'>
+
+                            اسنپ‌مارکت جهت تسریع و تسهیل فرایند خرید اینترنتی و خدمت‌رسانی به هم‌وطنان عزیز،
+                            همکاری خود با مجموعه فروشگاه‌های زنجیره‌ای هایپراستار، سوپرمارکت‌ها و
+                            فروشگاه‌های لوازم آرایشی و بهداشتی مایلی را آغاز کرده و در زمینه فروش آنلاین
+                            کالاهای سوپرمارکتی و سایر مایحتاج روزمره و کالاهای آرایشی و بهداشتی مشغول به
+                            خدمت‌رسانی به هم‌میهنان عزیز در برخی از کلان‌شهرهای ایران است.
+                            <br/><br/>
+                            هدف اسنپ‌مارکت بر این است تا با ارائه کالاهای باکیفیت و در عین حال با قیمت
+                            مناسب، امکان خرید را برای کلیه اقشار جامعه مهیا سازد.
+                            <br/><br/>
+                            سوپرمارکت اینترنتی اسنپ‌مارکت بیش از ۵۰۰۰ کالای متنوع در دسته‌بند‌ی‌های گوناگون
+                            نظیر لبنیات، خواربار، میوه و سبزیجات تازه، نان، مواد پروتئینی، لوازم بهداشتی و
+                            آرایشی ... را به صورت آنلاین عرضه می‌کند و گستردگی این محصولات این امکان را به
+                            کاربران می‌دهد که تمامی اجناس مورد نیاز خود را به صورت یکباره تهیه کرده و با
+                            توجه به موقعیت جغرافیایی ثبت شده در
+                            <Link href="https://snapp.market/club/download-app" variant='body1' sx={{color:'-webkit-link' , cursor:'pointer' , fontWeight:'bold' , textDecoration:'none' , fontFamily: 'iranSans' , display:'inline'}}> اپلیکیشن </Link>
+                            و یا وب‌سایت، اجناس خریداری شده را
+                            در زمانی کوتاه و از نزدیکترین شعبه هایپراستار، درب منزل خود تحویل بگیرند.
+                        </Typography>
+                        {/*    ))*/}
+                        {/*}*/}
+                    </Box>
+                    // )
+                    // )
                 }
             </ThemeProvider>
         </Paper>
+
     )
 }
 export default PageDescription

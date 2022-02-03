@@ -6,10 +6,13 @@ import Assortment from "../components/Assortment/Assortment";
 import {Container} from "@mui/material";
 import marketParty from '../public/mainpageImages/Banners/marketparty.jpg'
 import bijan from '../public/mainpageImages/Banners/bijan.jpg'
-import kale from  '../public/mainpageImages/Banners/kale2.jpg'
+import kale from  '../public/mainpageImages/Banners/kale.jpg'
+import kale2 from  '../public/mainpageImages/Banners/kale2.jpg'
 import pakshooma from  '../public/mainpageImages/Banners/pakshooma.jpg'
+import bHaminTazegi from  '../public/mainpageImages/Banners/bHaminTazegi.jpg'
 import specialOffer from  '../public/mainpageImages/Banners/specialOffer.jpg'
 import {getCategory} from '../library/axios/getData';
+import PageDescription from '../components/PageDescription/PageDescription'
 import Box from '@mui/material/Box'
 export default function Home() {
 
@@ -68,6 +71,41 @@ export default function Home() {
 
             <Box component="img" src={marketParty.src} sx={{width:'100%' , margin:'auto' , borderRadius: '0.5rem'}}/>
             <ProductsCategory
+                special
+                categoryList = {categoryList}
+                spBlue
+                spTitle='مارکت پارتی'
+            />
+            <Box component="img" src={specialOffer.src} sx={{width:'100%' , margin:'auto' , borderRadius: '0.5rem'}}/>
+            <Assortment/>
+            <Box component="img" src={kale.src} sx={{width:'100%' , margin:'auto' , borderRadius: '0.5rem'}}/>
+            <ProductsCategory
+                ordinary
+                categoryList = {categoryList}
+            />
+            <ProductsCategory
+                ordinary
+                categoryList = {categoryList}
+            />
+            <Box component="img" src={kale2.src} sx={{width:'100%' , margin:'auto' , borderRadius: '0.5rem'}}/>
+            <ProductsCategory
+                goldenOffer
+                categoryList = {categoryList}
+            />
+            <ProductsCategory
+                ordinary
+                categoryList = {categoryList}
+            />
+            <Box component="img" src={bHaminTazegi.src} sx={{width:'100%' , margin:'auto' , borderRadius: '0.5rem'}}/>
+            <ProductsCategory
+                ordinary
+                categoryList = {categoryList}
+            />
+            <ProductsCategory
+                ordinary
+                categoryList = {categoryList}
+            />
+            <ProductsCategory
                 ordinary
                 categoryList = {categoryList}
             />
@@ -75,15 +113,47 @@ export default function Home() {
                 special
                 categoryList = {categoryList}
                 spBlue
-                spTitle='حراج اول ماه'
+                spTitle='تو هر خونه لازمه'
             />
             <ProductsCategory
-                goldenOffer
+                ordinary
                 categoryList = {categoryList}
             />
-            <Box component="img" src={bijan.src} sx={{width:'100%' , margin:'auto' , borderRadius: '0.5rem'}}/>
-            <Assortment/>
-
+            <ProductsCategory
+                ordinary
+                categoryList = {categoryList}
+            />
+            <ProductsCategory
+                ordinary
+                categoryList = {categoryList}
+            />
+            <ProductsCategory
+                ordinary
+                categoryList = {categoryList}
+            />
+            <Box component="img" src={pakshooma.src} sx={{width:'100%' , margin:'auto' , borderRadius: '0.5rem'}}/>
+            <ProductsCategory
+                ordinary
+                categoryList = {categoryList}
+            />
+            <ProductsCategory
+                ordinary
+                categoryList = {categoryList}
+            />
+            <Box component="img" src={specialOffer.src} sx={{width:'100%' , margin:'auto' , borderRadius: '0.5rem'}}/>
+            <ProductsCategory
+                ordinary
+                categoryList = {categoryList}
+            />
+            <ProductsCategory
+                ordinary
+                categoryList = {categoryList}
+            />
+            <ProductsCategory
+                ordinary
+                categoryList = {categoryList}
+            />
+            <PageDescription/>
         </Container>
     )
 }
