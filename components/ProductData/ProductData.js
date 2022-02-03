@@ -4094,7 +4094,7 @@ const ProductData = [
             }
         ],
         category: {
-            categoryEn: '13',
+            categoryEn: 'appliances',
             categoryPe: 'لوازم برقی و دیجیتال'
         },
         group: {
@@ -4133,7 +4133,7 @@ const ProductData = [
             }
         ],
         category: {
-            categoryEn: '13',
+            categoryEn: 'appliances',
             categoryPe: 'لوازم برقی و دیجیتال'
         },
         group: {
@@ -4227,7 +4227,7 @@ const ProductData = [
             }
         ],
         category: {
-            categoryEn: '13',
+            categoryEn: 'appliances',
             categoryPe: 'لوازم برقی و دیجیتال'
         },
         group: {
@@ -4263,7 +4263,7 @@ const ProductData = [
             },
         ],
         category: {
-            categoryEn: '13',
+            categoryEn: 'appliances',
             categoryPe: 'لوازم برقی و دیجیتال'
         },
         group: {
@@ -4305,7 +4305,7 @@ const ProductData = [
             }
         ],
         category: {
-            categoryEn: '13',
+            categoryEn: 'appliances',
             categoryPe: 'لوازم برقی و دیجیتال'
         },
         group: {
@@ -4347,7 +4347,7 @@ const ProductData = [
             }
         ],
         category: {
-            categoryEn: '13',
+            categoryEn: 'appliances',
             categoryPe: 'لوازم برقی و دیجیتال'
         },
         group: {

@@ -80,10 +80,10 @@ const ProductCategory = ({
         MaximumOrder: 0
     }]);
 
-    useEffect( () => {
+    useEffect(() => {
         getCategory(categorySub)
-            .then(data => setCategoryList(data.products.slice(0,9)))
-    } , [])
+            .then(data => setCategoryList(data.products.slice(0, 9)))
+    }, [])
 
     useEffect(() => {
         if (scroll.current.scrollWidth === scroll.current.clientWidth) {
@@ -261,82 +261,91 @@ const ProductCategory = ({
                         </>
                     }
                     {
-                    (ordinary || special)
-                    &&
-                    <>
-                        {categoryList.map(item =>
-                            <ProductCard category
-                                         special
-                                         width='14.5rem'
-                                         src={item.images[0].url}
-                                         title={item.name}
-                                         price={item.price}
-                                         discount={item.discount}
-                                         maximumOrder={item.MaximumOrder}
-                                         available={item.inventory.available}
-                            />
-                        )}
-                    </>
-                    }
-                    {
-                        ordinary
+                        (ordinary || special)
                         &&
-                        seeMoreProducts
-                        &&
-                        <Paper sx={{
-                            display: 'flex',
-                            flexDirection: "column",
-                            alignItems: 'center',
-                            border: 0,
-                            cursor: 'pointer'
-                        }}
-                               variant='outlined' square>
-                            <Box sx={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: 1.5,
-                                borderBottom: 1,
-                                borderColor: 'grey.200',
-                                flexGrow: 3,
-                                py: 1.75,
-                            }}>
-                                {categoryList.slice(0, 3).map(item =>
-                                    <Box component='img' alt=''
-                                         src={item.images[0].url}
-                                         sx={{
-                                             width: '3rem',
-                                             opacity: '0.34'
-                                         }}/>
-                                )}
-                            </Box>
-                            <Box sx={{flexGrow: 3, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                                <Typography sx={{
-                                    display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#2446f5'
-                                }} variant='body1' component='p'>
-                                    نمایش همه
-                                    <ChevronLeftIcon/>
-                                </Typography>
-                            </Box>
-                            <Box sx={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: 1.5,
-                                borderTop: 1,
-                                borderColor: 'grey.200',
-                                flexGrow: 3,
-                                py: 1.75,
-                            }}>
-                                {categoryList.slice(3, 6).map(item =>
-                                    <Box component='img' alt=''
-                                         src={item.images[0].url}
-                                         sx={{
-                                             width: '3rem',
-                                             opacity: '0.34'
-                                         }}/>
-                                )}
-                            </Box>
-                        </Paper>
+                        <>
+                            {categoryList.map(item =>
+                                <ProductCard category
+                                             special
+                                             width='14.5rem'
+                                             src={item.images[0].url}
+                                             title={item.name}
+                                             price={item.price}
+                                             discount={item.discount}
+                                             maximumOrder={item.MaximumOrder}
+                                             available={item.inventory.available}
+                                />
+                            )}
+                            {
+                                ordinary
+                                &&
+                                // seeMoreProducts
+                                // &&
+                                <Paper sx={{
+                                    display: 'flex',
+                                    flexDirection: "column",
+                                    alignItems: 'center',
+                                    border: 0,
+                                    cursor: 'pointer'
+                                }}
+                                       variant='outlined' square>
+                                    <Box sx={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: 1.5,
+                                        borderBottom: 1,
+                                        borderColor: 'grey.200',
+                                        flexGrow: 3,
+                                        py: 1.75,
+                                    }}>
+                                        {categoryList.slice(0, 3).map(item =>
+                                            <Box component='img' alt=''
+                                                 src={item.images[0].url}
+                                                 sx={{
+                                                     width: '3rem',
+                                                     opacity: '0.34'
+                                                 }}/>
+                                        )}
+                                    </Box>
+                                    <Box sx={{
+                                        flexGrow: 3,
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center'
+                                    }}>
+                                        <Typography sx={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            color: '#2446f5'
+                                        }} variant='body1' component='p'>
+                                            نمایش همه
+                                            <ChevronLeftIcon/>
+                                        </Typography>
+                                    </Box>
+                                    <Box sx={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: 1.5,
+                                        borderTop: 1,
+                                        borderColor: 'grey.200',
+                                        flexGrow: 3,
+                                        py: 1.75,
+                                    }}>
+                                        {categoryList.slice(3, 6).map(item =>
+                                            <Box component='img' alt=''
+                                                 src={item.images[0].url}
+                                                 sx={{
+                                                     width: '3rem',
+                                                     opacity: '0.34'
+                                                 }}/>
+                                        )}
+                                    </Box>
+                                </Paper>
+                            }
+                        </>
                     }
+
                     {
                         special
                         &&
