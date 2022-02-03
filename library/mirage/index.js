@@ -1,5 +1,5 @@
 import {createServer, Model, Response} from 'miragejs'
-import ProductData from "../components/ProductData/ProductData";
+import ProductData from "../../components/ProductData/ProductData";
 
 export function makeServer({environment = "test"} = {}) {
     let server = createServer({
@@ -20,10 +20,15 @@ export function makeServer({environment = "test"} = {}) {
                     return schema.products.all();
                 }
             );
+            this.get("category/:categoryName" , (schema , request) =>{
+                const category = request.params.categoryName
+                return schema.products.all().filter(item => item.category.categoryEn === category)
+            } )
+
             this.get("/products/:id", (schema, request) => {
                     const id = request.params.id;
                     let productId = schema.products.find(id)
-                    if (productId) return productId ;
+                    if (productId) return productId;
                     else
                         return new Response(404, {}, {error: 'کالای مورد نظر یافت نشد'});
                 }

@@ -44,7 +44,7 @@ function Item(props) {
 
 function Footer() {
     return (
-      <Container sx={{marginTop:20, backgroundColor:"white"}}>
+      <Box sx={{marginTop:20, backgroundColor:"white" , width:'100%'}}>
         <Grid container alignItems="center" spacing={3}>
           
           
@@ -198,7 +198,7 @@ function Footer() {
           </Grid>
           </Box>
         </Grid>
-      </Container>
+      </Box>
       
     );
   }

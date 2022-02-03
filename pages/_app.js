@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import {makeServer} from "../mirage";
+import {makeServer} from "../library/mirage/index";
 import HeaderAndFooter from "../components/HeaderAndFooter/HeaderAndFooter";
 import {CssBaseline , ThemeProvider} from "@mui/material";
 import theme from "../styles/theme";
