@@ -44,7 +44,7 @@ function Item(props) {
 
 function Footer() {
     return (
-      <Container sx={{marginTop:20, backgroundColor:"white"}}>
+      <Container sx={{marginTop:20, backgroundColor:"white",overFlow:'hidden'}}>
         <Grid container alignItems="center" spacing={3}>
           
           
