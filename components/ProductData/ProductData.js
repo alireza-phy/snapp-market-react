@@ -66,7 +66,7 @@ const ProductData = [
         seller: 'هایپر استار',
         tags: [
             {id: 1, name: 'ساده'},
-            {id: 2, name: 'پرچرب'},
+            {id: 2, name: 'پر چرب'},
         ],
         price: 17000,
         discount: null,
@@ -205,7 +205,7 @@ const ProductData = [
         seller: 'هایپر استار',
         tags: [
             {id: 1, name: 'ساده'},
-            {id: 2, name: 'کم چرب '}
+            {id: 2, name: 'کم چرب'}
         ],
         price: 5000,
         discount: 16,
@@ -312,7 +312,7 @@ const ProductData = [
         seller: 'هایپر استار',
         tags: [
             {id: 1, name: 'ساده'},
-            {id: 2, name: 'پرچرب'}
+            {id: 2, name: 'پر چرب'}
         ],
         price: 17000,
         discount: 12,

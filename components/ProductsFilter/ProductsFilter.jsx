@@ -22,7 +22,8 @@ const ProductsFilter = ({
                             removeFilterList,
                             categories,
                             brands,
-                            types
+                            types,
+                            priceRange
                         }) => {
     const [drawer, setDrawer] = useState(false);
     const drawerClose = () => {
@@ -126,7 +127,7 @@ const ProductsFilter = ({
                                                           label={
                                                               <Typography sx={{userSelect: 'none'}} variant='body1'
                                                                           component='p'>
-                                                                  {brand.name}
+                                                                  {brand.pe}
                                                               </Typography>
                                                           }/>
                                     ))
@@ -162,7 +163,7 @@ const ProductsFilter = ({
                                                           label={
                                                               <Typography sx={{userSelect: 'none'}} variant='body1'
                                                                           component='p'>
-                                                                  {type.name}
+                                                                  {type.tag}
                                                               </Typography>
                                                           }/>
                                     ))
@@ -203,8 +204,8 @@ const ProductsFilter = ({
                     <Typography>قیمت</Typography>
                     <Slider sx={{mb: 2}}/>
                     <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
-                        <Typography variant='body2' component='p'>از 3,800 تومان</Typography>
-                        <Typography variant='body2' component='p'>تا 78,800 تومان</Typography>
+                        <Typography variant='body2' component='p'> از{priceRange.from} تومان </Typography>
+                        <Typography variant='body2' component='p'> از{priceRange.to}تومان </Typography>
                     </Box>
                 </Paper>
             </Box>
@@ -341,7 +342,7 @@ const ProductsFilter = ({
                                                                       <Typography sx={{userSelect: 'none'}}
                                                                                   variant='body1'
                                                                                   component='p'>
-                                                                          {brand.name}
+                                                                          {brand.pe}
                                                                       </Typography>
                                                                   }/>
                                             ))
@@ -378,7 +379,7 @@ const ProductsFilter = ({
                                                                       <Typography sx={{userSelect: 'none'}}
                                                                                   variant='body1'
                                                                                   component='p'>
-                                                                          {type.name}
+                                                                          {type.tag}
                                                                       </Typography>
                                                                   }/>
                                             ))
@@ -419,8 +420,8 @@ const ProductsFilter = ({
                             <Typography>قیمت</Typography>
                             <Slider sx={{mb: 2}}/>
                             <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
-                                <Typography variant='body2' component='p'>از 3,800 تومان</Typography>
-                                <Typography variant='body2' component='p'>تا 78,800 تومان</Typography>
+                                <Typography variant='body2' component='p'> از{priceRange.from} تومان </Typography>
+                                <Typography variant='body2' component='p'> از{priceRange.to}تومان </Typography>
                             </Box>
                         </Paper>
                     </Box>

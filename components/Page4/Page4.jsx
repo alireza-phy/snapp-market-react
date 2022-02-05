@@ -5,51 +5,36 @@ import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
 import ProductData from '../ProductData/ProductData'
 import {useState} from "react";
+import PN from "persian-number";
 
 const Page4 = () => {
-    const [data, setData] = useState(ProductData)
+    const [data, setData] = useState(ProductData.filter((dairy) => (dairy.category.categoryEn === 'dairy-product' && dairy.group.groupId === 1)))
     const [filter, setFilter] = useState([])
+    const highPrice = PN.convertEnToPe(PN.sliceNumber(Math.max(...data.map((product) => product.price))))
+    const lowPrice = PN.convertEnToPe(PN.sliceNumber(Math.min(...data.map((product) => product.price))))
+    const priceRange = {
+        from: lowPrice,
+        to: highPrice
+    }
     const categories = [
         {id: 1, name: 'شیر تازه'},
         {id: 2, name: 'شیر مدت دار'}
     ]
-    const brands = [
-        {id: 1, name: 'البحر'},
-        {id: 2, name: 'به تک'},
-        {id: 3, name: 'پاک'},
-        {id: 4, name: 'پاکبان'},
-        {id: 5, name: 'پگاه'},
-        {id: 6, name: 'دامدارن'},
-        {id: 7, name: 'دنت'},
-        {id: 8, name: 'دومینو'},
-        {id: 9, name: 'رامک'},
-        {id: 10, name: 'روزانه'},
-        {id: 11, name: 'سحر'},
-        {id: 12, name: 'عالیس'},
-        {id: 13, name: 'کاله'},
-        {id: 14, name: 'مانداسوی'},
-        {id: 15, name: 'مانیزان'},
-        {id: 16, name: 'میلکی سیپ'},
-        {id: 17, name: 'میهن'},
-        {id: 18, name: 'نیچر لین'},
-        {id: 19, name: 'هراز'}
-    ]
-    const types = [
-        {id: 1, name: 'ساده'},
-        {id: 2, name: 'توت فرنگی'},
-        {id: 3, name: 'پرچرب'},
-        {id: 4, name: 'کم چرب'},
-        {id: 5, name: 'طالبی'},
-        {id: 6, name: 'موز'},
-        {id: 7, name: 'نیم چرب'},
-        {id: 8, name: 'کاکائو'},
-        {id: 9, name: 'نی شیر'},
-        {id: 10, name: 'شیر سویا'}
-    ]
-    const priceRange = {
-        from: '',
-        to: ''
-    }
+    const allBrandsFromData = data.map((product) => (
+        {en: product.brand.brandEn, pe: product.brand.brandPe}
+    ))
+    const removeDubBrands = allBrandsFromData
+        .filter((v, i, a) => a.findIndex(t => ['en', 'pe'].every(k => t[k] === v[k])) === i)
+    const brands = removeDubBrands.map((product) => ({id: Math.floor(Math.random() * 1000), ...product}))
+    const emptyArrayForTypes = []
+    const typesFiltered = data.map((product) => (product.tags))
+        .filter((tag) => (tag.length !== 0))
+        .map((product) => (product.forEach((tag) => (emptyArrayForTypes.push(tag)))))
+    const removeIdTypes = emptyArrayForTypes.map((tag) => (tag.name))
+    const types = [...new Set(removeIdTypes)]
+        .map((tag) => ({tag}))
+        .map((tag) => ({id: Math.floor(Math.random() * 1000), ...tag}))
+    console.log(brands, types)
     const filterRemoveHandler = (id) => {
         setFilter(filter.filter((tag) => tag.id !== id))
     }
@@ -62,15 +47,13 @@ const Page4 = () => {
 
     return (
         <Container sx={{px: {xs: 0, sm: '24px'}}}>
-            <div onClick={productFilter}>
-                hi
-            </div>
             <Grid container sx={{direction: 'rtl', mt: 4}} columnSpacing={3}>
                 <ProductsFilter
                     categories={categories}
                     brands={brands}
                     types={types}
                     filter={filter}
+                    priceRange={priceRange}
                     filterRemoveHandler={filterRemoveHandler}
                     removeFilterList={removeFilterList}
                 />
@@ -83,10 +66,3 @@ const Page4 = () => {
     )
 }
 export default Page4
-// const [categories, setCategories] = useState([])
-// const [brands, setBrands] = useState([])
-// const [types, setTypes] = useState([])
-// const [priceRange, setPriceRange] = useState({
-//     from: '',
-//     to: ''
-// })
