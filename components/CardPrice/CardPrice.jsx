@@ -1,5 +1,6 @@
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
+import PN from "persian-number";
 
 const CardPrice = ({price, discount}) => {
     return (
@@ -17,7 +18,7 @@ const CardPrice = ({price, discount}) => {
                     px: .75,
                     py: .75
                 }} variant="body2" component="span">
-                    %{discount}
+                    {PN.convertEnToPe(discount)} ٪
                 </Typography>
                 <Typography variant="body2" component="p"
                             sx={{
@@ -25,13 +26,14 @@ const CardPrice = ({price, discount}) => {
                                 textDecoration: '#30354bbd line-through',
                                 color: '#30354bbd'
                             }}>
-                    {price}
+                    {PN.convertEnToPe(PN.sliceNumber(price))}
                 </Typography>
             </Box>
             <Box sx={{mt: 0.75}}>
                 <Typography variant="body2"
                             component="span">
-                    {Math.floor(price - price * (discount / 100))} تومان
+                    {PN.convertEnToPe(PN.sliceNumber(Math.floor(price - price * (discount / 100))))}
+                     تومان
                 </Typography>
             </Box>
         </Box>
