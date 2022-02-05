@@ -94,7 +94,7 @@ function ProductCard({src, title, price, discount, available, maximumOrder, widt
                     }
                 </Box>
             </CardContent>
-            <Box>
+            <Box sx={{flexGrow: list && 1}}>
                 <CardContent sx={{p: '0', cursor: 'pointer'}}>
                     <Typography variant="body1" component="p" sx={{
                         minHeight: 48,
@@ -102,9 +102,9 @@ function ProductCard({src, title, price, discount, available, maximumOrder, widt
                         mb: 0.5,
                         wordWrap: 'break-word',
                         wordBreak: 'break-word',
-                        whiteSpace: 'pre-wrap'
+                        whiteSpace: 'pre-wrap',
                     }}>
-                        پنیر خامه ای هراز 200 گرمی اهل کوچه پسر خوب و عالی
+                        {title}
                     </Typography>
                 </CardContent>
                 <CardActions

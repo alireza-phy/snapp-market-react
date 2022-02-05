@@ -8,7 +8,6 @@ import {Typography, Button} from "@mui/material";
 import {SwapVert} from "@mui/icons-material";
 import {makeStyles} from '@mui/styles';
 import ProductCard from "../ProductCard/ProductCard";
-import ProductData from '../ProductData/ProductData'
 
 const sort = ["پیش فرض", "پرفروش ترین", "بیشترین درصد تخفیف", "بیشترین مبلغ خرید", "ارزان ترین", "گران ترین"]
 const useStyles = makeStyles(() => ({
@@ -19,8 +18,7 @@ const useStyles = makeStyles(() => ({
         }
     }
 }));
-const PaginationPage = () => {
-    const [data,setData] =useState(ProductData)
+const PaginationPage = ({productData}) => {
     const classes = useStyles();
     return (
         <Box dir="rtl">
@@ -45,10 +43,15 @@ const PaginationPage = () => {
                 <Paper variant='outlined' sx={{borderRadius: 0, borderLeft: 0, borderTop: 0}}>
                     <Grid container xs={12}>
                         {
-                            data.map((product)=>(
+                            productData.map((product) => (
                                 <Grid key={product.id} item xs={12} sm={4} md={4} lg={3} xl={3}>
                                     <ProductCard list
-                                                src={product.images[0].url}/>
+                                                 title={product.name}
+                                                 price={product.price}
+                                                 discount={product.discount}
+                                                 available={product.inventory.available}
+                                                 maximumOrder={product.MaximumOrder}
+                                                 src={product.images[0].url}/>
                                 </Grid>
                             ))
                         }
