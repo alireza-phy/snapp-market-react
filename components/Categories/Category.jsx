@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography'
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
 import Divider from '@mui/material/Divider'
 
-const Categories = () => {
+const Category = () => {
     const data = {
         id: 1,
         groups: [
@@ -99,4 +99,4 @@ const Categories = () => {
         </Grid>
     )
 }
-export default Categories
+export default Category
