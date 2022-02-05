@@ -108,10 +108,10 @@ const Header = () => {
         <>
             <AppBar position="static">
 
-                <Toolbar  sx={{
+                <Toolbar sx={{
                     display: 'flex',
                     flexDirection: 'column', height: "20rem",
-                    backgroundImage: `url(${Image})`,
+                    backgroundImage: `url(${Image.src})`,
                     backgroundRepeat: "no-repeat",
                     backgroundPosition: "center",
                     backgroundSize: "100% 20rem",
@@ -127,348 +127,354 @@ const Header = () => {
                 }}>
                     <Container>
 
-                    <Box sx={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        borderBottom: '1px solid rgba(250, 251, 252,0.1)',
-                        width: '100%',
-                        marginTop: "1rem",
-                        [theme.breakpoints.down('sm')]: {
-                            marginTop: "0",
-                        },
-                        [theme.breakpoints.between('sm', 'md')]: {
-                            marginTop: "0.8rem"
-                        },
-                        [theme.breakpoints.up('md')]: {
-                            marginTop: "0.2rem"
-                        },
-                    }}>
-
-                        <Box sx={{display: 'flex', alignItems: "center"}}>
-
-                            <Box sx={{
-                                width: "5rem", height: "5rem",
-                                [theme.breakpoints.down('sm')]: {
-                                    width: "3rem", height: "3rem",
-                                },
-
-                                [theme.breakpoints.up('sm')]: {
-                                    width: "4rem", height: "4rem",
-                                },
-
-                            }}>
-                                <img
-                                    style={{
-                                        width: "3.5rem", height: "3.5rem",
-                                    }}
-                                    src={Logo}
-                                    alt="اسنپ مارکت"
-                                />
-                            </Box>
-
-                            <Button underline="none" sx={{textOverflow: "ellipsis"}}>
-                                <Typography sx={{
-                                    fontSize: "1.7rem", display: "flex", alignItems: "center", color: "white",
-                                    [theme.breakpoints.down('sm')]: {
-                                        fontSize: "0.7rem", textOverflow: 'ellipsis',
-                                    },
-                                    [theme.breakpoints.between('sm', 'md')]: {
-                                        fontSize: "0.8rem"
-                                    },
-                                    [theme.breakpoints.up('md')]: {
-                                        fontSize: "1rem"
-                                    },
-                                }}>
-
-                                    {/*<IconButton>*/}
-                                    {/*    <LocationOnOutlined sx={{color: "white", fontSize: "1rem"}}/>*/}
-                                    {/*</IconButton>*/}
-                                    ابتدا آدرس خود را انتخاب کنید
-
-                                    {/*<ExpandMore/>*/}
-
-                                </Typography>
-                            </Button>
-
-                        </Box>
-
                         <Box sx={{
-                            display: 'flex', alignItems: "center", marginBottom: "0.8rem",
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            borderBottom: '1px solid rgba(250, 251, 252,0.1)',
+                            width: '100%',
+                            marginTop: "1rem",
+                            [theme.breakpoints.down('sm')]: {
+                                marginTop: "0",
+                            },
                             [theme.breakpoints.between('sm', 'md')]: {
-                                marginBottom: "0.4rem"
+                                marginTop: "0.8rem"
                             },
                             [theme.breakpoints.up('md')]: {
-                                marginBottom: "0"
+                                marginTop: "0.2rem"
                             },
                         }}>
 
-                            <Button variant="outlined" sx={{
-                                fontSize: "2rem", border: "none",
-                                [theme.breakpoints.up('md')]: {
-                                    fontSize: "1.2rem"
-                                },
-                            }}>
-                                <IconButton aria-label="login" size="5rem">
-                                    <PersonOutline sx={{
-                                        color: "white",
-                                        [theme.breakpoints.down('sm')]: {
-                                            fontSize: "1.6rem"
-                                        }
-                                    }}/>
-                                </IconButton>
-
-                                <Typography sx={{display: {xs: "none", sm: "flex"}, overflow: "auto", color: "white"}}>
-                                    ورود / عضویت
-                                </Typography>
-
-                            </Button>
-
-                            <Box sx={{display: {xs: "none", sm: "flex"},}}>
-                                <Button onClick={() => toggleDrawerCart(true)}
-                                        sx={{
-                                            display: "flex",
-                                            justifyContent: "space-between",
-                                            backgroundColor: "white",
-                                            color: "blue",
-                                            border: "none",
-                                            width: "12rem",
-                                            fontSize: "1.4rem",
-                                            height: "3rem",
-                                            fontWeight:600,
-                                            [theme.breakpoints.between('sm', 'md')]: {
-                                                width: "8rem",
-                                                height: "2.5rem",
-                                                fontSize: "0.8rem",
-                                                padding: "0 1rem"
-                                            },
-                                            [theme.breakpoints.up('md')]: {
-                                                fontSize: "1rem",
-                                                width: "10rem",
-                                                height: "2.5rem",
-                                            },
-                                        }}
-                                        variant="contained" startIcon={<ShoppingBagOutlined/>}
-                                        size="large"
-                                >
-                                    سبد خرید
-                                    <Typography sx={{
-                                        width: "0.7rem",
-                                        height: "0.7rem",
-                                        borderRadius: "50%",
-                                        fontSize: "0.4rem",
-                                        backgroundColor: "lightblue",
-                                        display: "flex",
-                                        alignItems: "center",
-                                        justifyContent: "center",
-                                        [theme.breakpoints.up('md')]: {
-                                            width: "1rem",
-                                            height: "1rem",
-                                        },
-                                    }}>
-                                        0
-                                    </Typography>
-                                </Button>
-                                <CartDrawer openCart={drawerOpenCart} onCloseCart={toggleDrawerCart}/>
-                            </Box>
-
-                        </Box>
-
-                    </Box>
-
-                    <Box sx={{
-                        display: 'flex', justifyContent: 'space-between', width: "100%", marginTop: "1rem",
-                        [theme.breakpoints.down('sm')]: {
-                            flexDirection: 'column',
-                            borderBottom: '1px solid rgba(250, 251, 252,0.1)',
-                            alignItems: 'flex-start',
-                            paddingBottom: "0.9rem"
-                        },
-                        [theme.breakpoints.between('sm', 'md')]: {
-                            marginTop: "0.8rem"
-
-                        },
-
-                    }}>
-
-                        <Box sx={{
-                            display: 'flex', alignItems: "center",
-                            [theme.breakpoints.down('sm')]: {
-                                marginBottom: "0.5rem",
-                                order: "1"
-                            },
-                        }}>
-
-                            <Box sx={{display: 'flex', alignItems: "center",}}>
+                            <Box sx={{display: 'flex', alignItems: "center"}}>
 
                                 <Box sx={{
                                     width: "5rem", height: "5rem",
                                     [theme.breakpoints.down('sm')]: {
-                                        width: "2rem", height: "2rem",
+                                        width: "3rem", height: "3rem",
                                     },
-                                    [theme.breakpoints.between('sm', 'md')]: {
-                                        width: "3rem", height: "3rem"
-                                    },
-                                    [theme.breakpoints.up('md')]: {
-                                        width: "3rem", height: "3rem"
+
+                                    [theme.breakpoints.up('sm')]: {
+                                        width: "4rem", height: "4rem",
                                     },
 
                                 }}>
-                                    <img style={{
-                                        width: "3rem", height: "3rem", borderRadius: "50%",
-                                    }}
-                                         src={Hyper}
-                                         alt="هایپر استار"
+                                    <img
+                                        style={{
+                                            width: "3.5rem", height: "3.5rem",
+                                        }}
+                                        src={Logo.src}
+                                        alt="اسنپ مارکت"
                                     />
                                 </Box>
 
-                                <Box sx={{
-                                    display:"flex",
+                                <Button underline="none" sx={{textOverflow: "ellipsis"}}>
+                                    <Typography sx={{
+                                        fontSize: "1.7rem", display: "flex", alignItems: "center", color: "white",
+                                        [theme.breakpoints.down('sm')]: {
+                                            fontSize: "0.7rem", textOverflow: 'ellipsis',
+                                        },
+                                        [theme.breakpoints.between('sm', 'md')]: {
+                                            fontSize: "0.8rem"
+                                        },
+                                        [theme.breakpoints.up('md')]: {
+                                            fontSize: "1rem"
+                                        },
+                                    }}>
 
-                                    fontSize: "2rem",
-                                    [theme.breakpoints.down('sm')]: {
-                                        fontSize: '0.7rem',
-                                    },
-                                    [theme.breakpoints.between('sm', 'md')]: {
-                                        fontSize: "1rem",
-                                    },
+                                        {/*<IconButton>*/}
+                                        {/*    <LocationOnOutlined sx={{color: "white", fontSize: "1rem"}}/>*/}
+                                        {/*</IconButton>*/}
+                                        ابتدا آدرس خود را انتخاب کنید
+
+                                        {/*<ExpandMore/>*/}
+
+                                    </Typography>
+                                </Button>
+
+                            </Box>
+
+                            <Box sx={{
+                                display: 'flex', alignItems: "center", marginBottom: "0.8rem",
+                                [theme.breakpoints.between('sm', 'md')]: {
+                                    marginBottom: "0.4rem"
+                                },
+                                [theme.breakpoints.up('md')]: {
+                                    marginBottom: "0"
+                                },
+                            }}>
+
+                                <Button variant="outlined" sx={{
+                                    fontSize: "2rem", border: "none",
                                     [theme.breakpoints.up('md')]: {
-                                        fontSize: "1.3rem",
+                                        fontSize: "1.2rem"
                                     },
                                 }}>
-                                    <Typography sx={{display: {xs: "none", sm: "flex"}}}> خرید از   </Typography>
-                                    <Typography sx={{fontWeight: 600}}>هایپراستار صبا</Typography>
+                                    <IconButton aria-label="login" size="5rem">
+                                        <PersonOutline sx={{
+                                            color: "white",
+                                            [theme.breakpoints.down('sm')]: {
+                                                fontSize: "1.6rem"
+                                            }
+                                        }}/>
+                                    </IconButton>
+
+                                    <Typography
+                                        sx={{display: {xs: "none", sm: "flex"}, overflow: "auto", color: "white"}}>
+                                        ورود / عضویت
+                                    </Typography>
+
+                                </Button>
+
+                                <Box sx={{display: {xs: "none", sm: "flex"},}}>
+                                    <Button onClick={() => toggleDrawerCart(true)}
+                                            sx={{
+                                                display: "flex",
+                                                justifyContent: "space-between",
+                                                backgroundColor: "white",
+                                                color: "blue",
+                                                border: "none",
+                                                width: "12rem",
+                                                fontSize: "1.4rem",
+                                                height: "3rem",
+                                                fontWeight: 600,
+                                                [theme.breakpoints.between('sm', 'md')]: {
+                                                    width: "8rem",
+                                                    height: "2.5rem",
+                                                    fontSize: "0.8rem",
+                                                    padding: "0 1rem"
+                                                },
+                                                [theme.breakpoints.up('md')]: {
+                                                    fontSize: "1rem",
+                                                    width: "10rem",
+                                                    height: "2.5rem",
+                                                },
+                                            }}
+                                            variant="contained" startIcon={<ShoppingBagOutlined/>}
+                                            size="large"
+                                    >
+                                        سبد خرید
+                                        <Typography sx={{
+                                            width: "0.7rem",
+                                            height: "0.7rem",
+                                            borderRadius: "50%",
+                                            fontSize: "0.4rem",
+                                            backgroundColor: "lightblue",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            [theme.breakpoints.up('md')]: {
+                                                width: "1rem",
+                                                height: "1rem",
+                                            },
+                                        }}>
+                                            0
+                                        </Typography>
+                                    </Button>
+                                    <CartDrawer openCart={drawerOpenCart} onCloseCart={toggleDrawerCart}/>
+                                </Box>
+
+                            </Box>
+
+                        </Box>
+
+                        <Box sx={{
+                            display: 'flex', justifyContent: 'space-between', width: "100%", marginTop: "1rem",
+                            [theme.breakpoints.down('sm')]: {
+                                flexDirection: 'column',
+                                borderBottom: '1px solid rgba(250, 251, 252,0.1)',
+                                alignItems: 'flex-start',
+                                paddingBottom: "0.9rem"
+                            },
+                            [theme.breakpoints.between('sm', 'md')]: {
+                                marginTop: "0.8rem"
+
+                            },
+
+                        }}>
+
+                            <Box sx={{
+                                display: 'flex', alignItems: "center",
+                                [theme.breakpoints.down('sm')]: {
+                                    marginBottom: "0.5rem",
+                                    order: "1"
+                                },
+                            }}>
+
+                                <Box sx={{display: 'flex', alignItems: "center",}}>
+
+                                    <Box sx={{
+                                        width: "5rem", height: "5rem",
+                                        [theme.breakpoints.down('sm')]: {
+                                            width: "2rem", height: "2rem",
+                                        },
+                                        [theme.breakpoints.between('sm', 'md')]: {
+                                            width: "3rem", height: "3rem"
+                                        },
+                                        [theme.breakpoints.up('md')]: {
+                                            width: "3rem", height: "3rem"
+                                        },
+
+                                    }}>
+                                        <img style={{
+                                            width: "3rem", height: "3rem", borderRadius: "50%"
+                                        }}
+                                             src={Hyper.src}
+                                             alt="هایپر استار"
+                                        />
+                                    </Box>
+
+                                    <Box sx={{
+                                        display: "flex",
+                                        marginRight: '0.5rem',
+                                        gap: '0.5rem',
+                                        fontSize: "2rem",
+                                        [theme.breakpoints.down('sm')]: {
+                                            fontSize: '0.7rem',
+                                        },
+                                        [theme.breakpoints.between('sm', 'md')]: {
+                                            fontSize: "1rem",
+                                        },
+                                        [theme.breakpoints.up('md')]: {
+                                            fontSize: "1.3rem",
+                                        },
+                                    }}>
+                                        <Typography sx={{display: {xs: "none", sm: "flex"}}}> خرید از </Typography>
+                                        <Typography sx={{fontWeight: 600}}> هایپراستار صبا </Typography>
+                                    </Box>
+
+
+                                </Box>
+                                <Box>
+                                    <Button sx={{
+                                        padding: 0,
+                                        display: 'flex',
+                                        justifyContent:'space-evenly',
+                                        alignItems:'center',
+                                        width: "10rem",
+                                        backgroundColor: "white",
+                                        color: "blue",
+                                        borderRadius: "20rem",
+                                        marginRight: "2rem",
+                                        [theme.breakpoints.down('sm')]: {
+                                            fontSize: '0.5rem',
+                                            width: "5.5rem",
+                                            height: "1.5rem",
+                                        },
+                                        [theme.breakpoints.between('sm', 'md')]: {
+                                            fontSize: "0.6rem",
+                                            width: "6.5rem",
+                                            borderRadius: "10rem",
+                                            height: "1.5rem",
+
+                                        },
+                                        [theme.breakpoints.up('md')]: {
+                                            fontSize: "0.6rem",
+                                            width: "6.5rem",
+                                            borderRadius: "10rem",
+                                            height: "1.5rem",
+                                        },
+                                    }} variant="contained" endIcon={<ExpandMore sx={{fontSize:"0.2rem"}}/>}>
+                                        تغییر فروشگاه
+                                    </Button>
                                 </Box>
 
 
                             </Box>
-                            <Box>
-                                <Button sx={{
-                                    width: "10rem",
-                                    backgroundColor: "white",
-                                    color: "blue",
-                                    borderRadius: "20rem",
-                                    marginRight:"2rem",
-                                        [theme.breakpoints.down('sm')]: {
-                                        fontSize: '0.5rem',
-                                        width: "5.5rem",
-                                        height: "1.5rem",
-                                    },
-                                    [theme.breakpoints.between('sm', 'md')]: {
-                                        fontSize: "0.6rem",
-                                        width: "6.5rem",
-                                        borderRadius: "10rem",
-                                        height: "1.5rem",
+                            <Box sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                [theme.breakpoints.down('sm')]: {
+                                    marginLeft: '0', order: "2"
 
+                                },
+                                [theme.breakpoints.between('sm', 'md')]: {
+                                    marginTop: "1rem"
+
+                                },
+                            }}>
+
+                                <QueryBuilder sx={{
+                                    display: {xs: "none", sm: "flex"}, fontSize: "large",
+                                    marginLeft: "0.6rem",
+                                    [theme.breakpoints.between('sm', 'md')]: {
+                                        fontSize: "1.4rem",
                                     },
                                     [theme.breakpoints.up('md')]: {
-                                        fontSize: "0.6rem",
-                                        width: "6.5rem",
-                                        borderRadius: "10rem",
-                                        height: "1.5rem",
+                                        fontSize: "1.5rem",
+                                        marginLeft: "0.5rem"
+                                    }
+                                }}/>
+                                <Typography sx={{
+                                    display: "flex", alignItems: "center", fontSize: "1.5rem",
+                                    fontWeight: 600,
+                                    marginLeft: "6rem",
+                                    [theme.breakpoints.down('sm')]: {
+                                        fontSize: '0.7rem',
+                                        marginTop: "0.8rem"
                                     },
-                                }} variant="contained" endIcon={<ExpandMore sx={{fontSize: "0.2rem",}}/>}>
-                                        تغییر فروشگاه
-                                </Button>
+                                    [theme.breakpoints.between('sm', 'md')]: {
+                                        fontSize: "0.7rem",
+                                    },
+
+                                    [theme.breakpoints.up('md')]: {
+                                        fontSize: "1rem"
+                                    },
+
+                                }}>
+
+                                    تحویل از امروز ساعت 11
+
+                                </Typography>
                             </Box>
 
 
                         </Box>
+
                         <Box sx={{
-                            display:"flex",
-                            alignItems:"center",
-                            [theme.breakpoints.down('sm')]: {
-                                marginLeft: '0', order: "2"
-
-                            },
+                            display: 'flex', width: '100%', justifyContent: "flex-start", marginTop: "2rem",
                             [theme.breakpoints.between('sm', 'md')]: {
-                                marginTop: "1rem"
-
-                            },
-                        }}>
-
-                            <QueryBuilder sx={{
-                                display: {xs: "none", sm: "flex"}, fontSize: "large",
-                                marginLeft:"0.6rem",
-                                [theme.breakpoints.between('sm', 'md')]: {
-                                    fontSize: "1.4rem",
-                                },
-                                [theme.breakpoints.up('md')]: {
-                                    fontSize: "1.5rem",
-                                    marginLeft: "0.5rem"
-                                }
-                            }}/>
-                            <Typography sx={{
-                                display: "flex", alignItems: "center", fontSize: "1.5rem",
-                                fontWeight:600,
-                                marginLeft:"6rem",
-                                [theme.breakpoints.down('sm')]: {
-                                    fontSize: '0.7rem',
-                                    marginTop: "0.8rem"
-                                },
-                                [theme.breakpoints.between('sm', 'md')]: {
-                                    fontSize: "0.7rem",
-                                },
-
-                                [theme.breakpoints.up('md')]: {
-                                    fontSize: "1rem"
-                                },
-
-                            }}>
-
-                                تحویل از امروز ساعت 11
-
-                            </Typography>
-                        </Box>
-
-
-                    </Box>
-
-                    <Box sx={{
-                        display: 'flex', width: '100%', justifyContent: "flex-start", marginTop: "2rem",
-                        [theme.breakpoints.between('sm', 'md')]: {
-                            marginTop: "1.6rem"
-                        },
-                        [theme.breakpoints.up('md')]: {
-                            marginTop: "1rem"
-                        },
-                    }}>
-
-                        <Button onClick={() => toggleDrawer(true)}
-                                variant="contained" sx={{
-                            display: {xs: "none", sm: "flex"},
-                            width: "10rem",
-                            height: "3rem",
-                            backgroundColor: "white",
-                            color: "black",
-                            fontSize: "1rem",
-                            justifyContent:"center",
-                            [theme.breakpoints.between('sm', 'md')]: {
-                                fontSize: "0.8rem",
-                                width: "8rem",
-                                height: "2.6rem",
+                                marginTop: "1.6rem"
                             },
                             [theme.breakpoints.up('md')]: {
-                                width: "7.5rem",
-                                height: "2.4rem",
-                                fontSize: "0.8rem"
-                            }
-
+                                marginTop: "1rem"
+                            },
                         }}>
-                            <GridViewOutlined sx={{fontSize: "1rem",}}/>
 
-                            دسته بندی ها
-                        </Button>
-                        <SlideDrawer open={drawerOpen} onClose={toggleDrawer}/>
-                        <Search>
-                            <SearchIconWrapper>
-                                <SearchIcon/>
-                            </SearchIconWrapper>
-                            <StyledInputBase
-                                placeholder="جست و جوی برند یا محصول"
-                                inputProps={{'aria-label': 'search'}}
-                            />
-                        </Search>
-                    </Box>
+                            <Button onClick={() => toggleDrawer(true)}
+                                    variant="contained" sx={{
+                                display: {xs: "none", sm: "flex"},
+                                width: "10rem",
+                                height: "3rem",
+                                backgroundColor: "white",
+                                color: "black",
+                                fontSize: "1rem",
+                                justifyContent: "center",
+                                [theme.breakpoints.between('sm', 'md')]: {
+                                    fontSize: "0.8rem",
+                                    width: "8rem",
+                                    height: "2.6rem",
+                                },
+                                [theme.breakpoints.up('md')]: {
+                                    width: "7.5rem",
+                                    height: "2.4rem",
+                                    fontSize: "0.8rem"
+                                }
+
+                            }}>
+                                <GridViewOutlined sx={{fontSize: "1rem",}}/>
+
+                                دسته بندی ها
+                            </Button>
+                            <SlideDrawer open={drawerOpen} onClose={toggleDrawer}/>
+                            <Search>
+                                <SearchIconWrapper>
+                                    <SearchIcon/>
+                                </SearchIconWrapper>
+                                <StyledInputBase
+                                    placeholder="جست و جوی برند یا محصول"
+                                    inputProps={{'aria-label': 'search'}}
+                                />
+                            </Search>
+                        </Box>
 
                     </Container>
 
@@ -477,8 +483,7 @@ const Header = () => {
             </AppBar>
 
 
-
-            <Paper sx={{display: {xs: "flex", sm: "none"}, position: 'fixed', bottom: 0, left: 0, right: 0,zIndex:1}}
+            <Paper sx={{display: {xs: "flex", sm: "none"}, position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 1}}
                    elevation={3}>
                 <BottomNavigation sx={{width: "100%", color: "black"}} showLabels value={value} onChange={handleChange}>
                     <BottomNavigationAction
