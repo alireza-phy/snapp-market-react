@@ -1,3 +1,4 @@
+
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -7,12 +8,8 @@ import Box from '@mui/material/Box';
 import {useState, useRef} from "react";
 import CardPrice from "../CardPrice/CardPrice";
 import CardAddToCartButton from "../CardAddToCartButton/CardAddToCartButton";
+function ProductCard({src, title, price, discount, available, maximumOrder, width, ordinary, special, list, category}) {
 
-function ProductCard({src, width, ordinary, special, list, category}) {
-    const discount = 20
-    const price = 85000
-    const available = true
-    const maximumOrder = 6;
     const [quantity, setQuantity] = useState(0)
     const incrementHandler = () => {
         setQuantity(quantity + 1)
@@ -75,11 +72,14 @@ function ProductCard({src, width, ordinary, special, list, category}) {
                     }
                 </Box>
                 <Typography variant="body1" component="p" sx={{
-                    height: 48,
+                    minHeight: 48,
                     color: '#30354b',
-                    mb: 0.5
+                    mb: 0.5,
+                    wordWrap:'break-word',
+                    wordBreak:'break-word',
+                    whiteSpace:'pre-wrap'
                 }}>
-                    پنیر خامه ای هراز 200 گرمی
+                    {title}
                 </Typography>
             </CardContent>
             <CardActions
