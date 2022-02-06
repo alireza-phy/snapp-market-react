@@ -18,7 +18,6 @@ const Categories = ({ProductList}) => {
         <Grid container sx={{direction: 'rtl', mt: 4}} columnSpacing={3}>
             <CategoryMenu
                 category={currentCategory[0].categoryEn}
-
             />
             <Grid item xs={12} sm={12} md={9} xl={9}>
                 <Breadcrumb

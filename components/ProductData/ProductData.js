@@ -4577,84 +4577,109 @@ export const getSubCategory=(mainCategory)=>{
 
 export const AssortmentCardData = [
     {
+        cardVarity: 'ordinary',
         img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a5ba7ea4f.png',
         title: 'آرایشی و بهداشتی',
+        titleEn: 'health-and-beauty',
         offer: '45'
     },
     {
+        cardVarity: 'ordinary',
         img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a61baf7e1.png',
         title: 'میوه و سبزیجات تازه',
+        titleEn: "fruit-and-vegetables",
         offer: '25'
     },
     {
+        cardVarity: 'ordinary',
         img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a63db458e.png',
         title: 'نوشیدنی',
+        titleEn: "drinks",
         offer: '40'
     },
     {
+        cardVarity: 'ordinary',
         img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a653eef12.png',
         title: 'مواد پروتئینی',
+        titleEn: "proteins",
         offer: '30'
     },
     {
+        cardVarity: 'ordinary',
         img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a66977ce3.png',
         title: 'تنقلات',
+        titleEn: "junk-food",
         offer: '40'
     },
     {
+        cardVarity: 'ordinary',
         img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a67de1462.png',
         title: 'چاشنی و افزودنی',
+        titleEn: "condiment",
         offer: '35'
     },
     {
+        cardVarity: 'ordinary',
         img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a69760621.png',
         title: 'صبحانه',
+        titleEn: "breakfast",
         offer: '43'
     },
     {
+        cardVarity: 'ordinary',
         img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a6b6ba3c0.png',
         title: 'کنسرو، غذای آماده و منجمد',
+        titleEn: "canned-food",
         offer: '41'
     },
     {
+        cardVarity: 'ordinary',
         img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a6d29d1ad.png',
         title: 'کودک و نوزاد',
+        titleEn: "kids",
         offer: '44'
     },
     {
+        cardVarity: 'ordinary',
         img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a6eaccc7d.png',
         title: 'خشکبار، دسر و شیرینی',
+        titleEn: "nuts",
         offer: '40'
     },
     {
+        cardVarity: 'ordinary',
         img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a7015b7b9.png',
         title: 'خانه و سبک زندگی',
+        titleEn: "home-and-lifestyle",
         offer: '60'
     },
     {
+        cardVarity: 'ordinary',
         img: 'https://api.snapp.market/uploads/images/mobile-sliders/61ee70e70f503.png',
         title: 'لوازم برقی و دیجیتال',
+        titleEn: "appliances",
         offer: '55'
-    }
-]
-
-export const AssortmentOfferData = [
+    },
     {
-
+        cardVarity: 'special',
         offer: "۵۰",
         title: "دستمال و شوینده",
         titleEn: "detergent",
         img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a5d4ab909.png',
         bkGColor: "rgba(255, 203, 150, 0.27)",
         bordercolor: "rgba(255, 203, 150, 0.43)",
-    }, {
+    },
+    {
+        cardVarity: 'special',
         offer: "۵۵",
         title: "لبنیات",
         titleEn: "dairyProduct",
         img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a5ed7bb6d.png',
         bkGColor: "rgba(168, 224, 244, 0.25)",
         bordercolor: "rgba(168, 224, 244, 0.56)"
-    }, {
+    },
+    {
+        cardVarity: 'special',
         offer: "۳۵",
         title: "خواربار و نان",
         titleEn: "grocery-bread",
