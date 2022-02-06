@@ -3,8 +3,55 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
+import {useEffect, useState} from "react";
+import {getCategory} from '../../library/axios/getData';
+import ProductData from '../ProductData/ProductData'
 
-const Breadcrumb = ({productCounter, group}) => {
+const Breadcrumb = ({productCounter, group, category}) => {
+
+    // const [categoryList, setCategoryList] = useState([{
+    //     id: 1,
+    //     name: '',
+    //     brand: {
+    //         brandEn: '',
+    //         brandPe: '',
+    //     },
+    //     images: [
+    //         {
+    //             id: 1,
+    //             url: ''
+    //         },
+    //         {
+    //             id: 2,
+    //             url: ''
+    //         },
+    //     ],
+    //     categoryEn: '',
+    //     categoryPe: '',
+    //     groupId: 1,
+    //     groupName: '',
+    //     inventory: {
+    //         available: true,
+    //         quantity: 0,
+    //     },
+    //     seller: '',
+    //     tags: [
+    //         {id: 1, name: ''},
+    //         {id: 2, name: ''}
+    //     ],
+    //     price: 0,
+    //     discount: 0,
+    //     MaximumOrder: 0
+    // }]);
+    //
+    //
+    // useEffect(() => {
+    //     getCategory(category)
+    //         .then(data => setCategoryList(data.products.slice(0, 9)))
+    // }, [])
+
+    let categoryList = ProductData.filter(item => item.categoryEn === category)
+    console.log(categoryList)
     return (
         <Paper variant='outlined'
                sx={{
@@ -24,7 +71,8 @@ const Breadcrumb = ({productCounter, group}) => {
                 <KeyboardArrowLeftOutlinedIcon sx={{color: 'gray', mx: 0.25}}/>
                 <Typography component='span' variant='body1'
                             sx={{fontWeight: group ? 500 : 600, cursor: group && 'pointer'}}>
-                    لبنیات
+                    {/*{categoryList[0].categoryPe}*/}
+                    الکی
                 </Typography>
                 {
                     group

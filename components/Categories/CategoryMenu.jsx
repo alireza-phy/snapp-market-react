@@ -4,8 +4,55 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
 import Divider from '@mui/material/Divider'
+import {useState, useEffect} from 'react'
+import {getCategory} from '../../library/axios/getData';
+import ProductData from '../ProductData/ProductData'
 
-const Category = () => {
+const CategoryMenu = ({category}) => {
+
+    // const [categoryList, setCategoryList] = useState([{
+    //     id: 1,
+    //     name: '',
+    //     brand: {
+    //         brandEn: '',
+    //         brandPe: '',
+    //     },
+    //     images: [
+    //         {
+    //             id: 1,
+    //             url: ''
+    //         },
+    //         {
+    //             id: 2,
+    //             url: ''
+    //         },
+    //     ],
+    //     categoryEn: '',
+    //     categoryPe: '',
+    //     groupId: 1,
+    //     groupName: '',
+    //     inventory: {
+    //         available: true,
+    //         quantity: 0,
+    //     },
+    //     seller: '',
+    //     tags: [
+    //         {id: 1, name: ''},
+    //         {id: 2, name: ''}
+    //     ],
+    //     price: 0,
+    //     discount: 0,
+    //     MaximumOrder: 0
+    // }]);
+    //
+    //
+    // useEffect(() => {
+    //     getCategory(category)
+    //         .then(data => setCategoryList(data.products))
+    // }, [])
+
+let categoryList = ProductData
+
     const data = {
         id: 1,
         groups: [
@@ -26,8 +73,8 @@ const Category = () => {
                     <Typography variant='h6' component='h3' sx={{fontWeight: 600, mx: 2}}>
                         دسته بندی ها :
                     </Typography>
-                    {data.groups.map((group) => (
-                        <Box sx={{
+                    {categoryList.map(item => (
+                        <Box key={item.groupId} sx={{
                             display: 'flex',
                             justifyContent: 'space-between',
                             alignItems: 'center',
@@ -42,9 +89,9 @@ const Category = () => {
                             mx: 1,
                             cursor: 'pointer'
                         }}>
-                            <Typography variant='body1' component='p' key={group.id}
+                            <Typography variant='body1' component='p'
                                         sx={{py: 0.75, px: 1, fontWeight: 600, color: '#757575'}}>
-                                {group.group}
+                                {item.groupName}
                             </Typography>
                             <KeyboardArrowLeftOutlinedIcon sx={{color: 'rgb(117, 117, 117)', visibility: 'hidden'}}/>
                         </Box>
@@ -99,4 +146,4 @@ const Category = () => {
         </Grid>
     )
 }
-export default Category
+export default CategoryMenu
