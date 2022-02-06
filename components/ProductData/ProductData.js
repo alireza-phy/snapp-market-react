@@ -17,7 +17,7 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60cf1e671bbe9.jpg'
             },
         ],
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 1,
         groupName: 'شیر',
@@ -47,7 +47,7 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/5fd9b62661447.jpg'
             }
         ],
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 1,
         groupName: 'شیر',
@@ -82,9 +82,8 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
-        categoryPe: 'لبنیات'
-        ,
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
         groupId: 1,
         groupName: 'شیر',
         inventory: {
@@ -113,9 +112,8 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
-        categoryPe: 'لبنیات'
-        ,
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
         groupId: 1,
         groupName: 'شیر',
         inventory: {
@@ -148,7 +146,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 1,
         groupName: 'شیر',
@@ -176,7 +174,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 1,
         groupName: 'شیر',
@@ -207,7 +205,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 1,
         groupName: 'شیر',
@@ -242,7 +240,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 1,
         groupName: 'شیر',
@@ -274,7 +272,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 1,
         groupName: 'شیر',
@@ -309,7 +307,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 1,
         groupName: 'شیر',
@@ -343,7 +341,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 1,
         groupName: 'شیر',
@@ -374,7 +372,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 1,
         groupName: 'شیر',
@@ -408,7 +406,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 2,
         groupName: 'پنیر',
@@ -443,7 +441,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 2,
         groupName: 'پنیر',
@@ -478,7 +476,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 2,
         groupName: 'پنیر',
@@ -513,7 +511,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 2,
         groupName: 'پنیر',
@@ -548,7 +546,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 2,
         groupName: 'پنیر',
@@ -587,7 +585,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 3,
         groupName: 'ماست',
@@ -626,7 +624,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 3,
         groupName: 'ماست',
@@ -668,7 +666,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 3,
         groupName: 'ماست',
@@ -699,7 +697,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 3,
         groupName: 'ماست',
@@ -737,7 +735,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 3,
         groupName: 'ماست',
@@ -772,7 +770,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 4,
         groupName: 'دوغ',
@@ -807,7 +805,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 4,
         groupName: 'دوغ',
@@ -841,7 +839,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 4,
         groupName: 'دوغ',
@@ -876,7 +874,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 4,
         groupName: 'دوغ',
@@ -911,7 +909,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 4,
         groupName: 'دوغ',
@@ -949,7 +947,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 5,
         groupName: 'کره',
@@ -987,7 +985,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 5,
         groupName: 'کره',
@@ -1008,7 +1006,7 @@ const ProductData = [
         name: 'کره گیاهی لیوانی مهگل ۲۵۰ گرمی',
         brand: {
             brandEn: 'mahgol',
-            brandPe: 'مهگول',
+            brandPe: 'مهگل',
         },
         images: [
             {
@@ -1021,7 +1019,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 5,
         groupName: 'کره',
@@ -1042,7 +1040,7 @@ const ProductData = [
         name: 'کره گیاهی کم چرب غنی شده با ویتامین D مهگل ۱۵۰ گرمی',
         brand: {
             brandEn: 'mahgol',
-            brandPe: 'مهگول',
+            brandPe: 'مهگل',
         },
         images: [
             {
@@ -1051,7 +1049,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 5,
         groupName: 'کره',
@@ -1081,7 +1079,7 @@ const ProductData = [
             }
         ],
 
-        categoryEn: 'dairy-product',
+        categoryEn: 'dairyProduct',
         categoryPe: 'لبنیات',
         groupId: 5,
         groupName: 'کره',
@@ -4563,9 +4561,19 @@ const ProductData = [
         discount: 20,
         MaximumOrder: 12
     },
-
-
 ]
+
+export default ProductData
+
+
+export const getSubCategory=(mainCategory)=>{
+    let result=[]
+    ProductData.filter(item=>item.categoryEn===mainCategory).map
+    (item=>{ if(!result.includes(item.groupName)) {result.push(item.groupName)}})
+    console.log(result)
+    return result
+}
+
 
 export const AssortmentCardData = [
     {
@@ -4642,7 +4650,7 @@ export const AssortmentOfferData = [
     }, {
         offer: "۵۵",
         title: "لبنیات",
-        titleEn: "dairy-product",
+        titleEn: "dairyProduct",
         img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a5ed7bb6d.png',
         bkGColor: "rgba(168, 224, 244, 0.25)",
         bordercolor: "rgba(168, 224, 244, 0.56)"
@@ -4655,6 +4663,3 @@ export const AssortmentOfferData = [
         bordercolor: "rgba(250, 237, 163, 0.67)"
     }
 ]
-
-
-export default ProductData

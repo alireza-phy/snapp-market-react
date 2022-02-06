@@ -8,12 +8,10 @@ import Divider from '@mui/material/Divider';
 import {useRef, useEffect, useState} from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import GoldenCard from '../GoldenCard/GoldenCard'
-import {getCategory} from '../../library/axios/getData';
-import {useRouter} from 'next/router';
 import ProductData from '../ProductData/ProductData'
 
 const ProductCategory = ({
-                             groupId,
+                             groupName,
                              categorySub,
                              ordinary,
                              special,
@@ -25,7 +23,6 @@ const ProductCategory = ({
                              spGreen
                          }) => {
 
-    const router = useRouter();
     const blue = 'url(https://snapp.market/v2/static/images/ff6cfe6688bee991b0de30bebfbe09fd.png) 0% 0% / cover,linear-gradient(-45deg,rgb(35, 67, 240),rgb(35, 67, 240))'
     const green = 'url(https://snapp.market/v2/static/images/ff6cfe6688bee991b0de30bebfbe09fd.png) 0% 0% / cover,linear-gradient(-45deg,rgb(50, 195, 53), rgb(50, 195, 53))'
     const lightBlue = 'url(https://snapp.market/v2/static/images/ff6cfe6688bee991b0de30bebfbe09fd.png) 0% 0% / cover,linear-gradient(-45deg,rgb(75, 104, 251), rgb(75, 104, 251))'
@@ -45,48 +42,11 @@ const ProductCategory = ({
         }, 0)
     };
 
-    // const [categoryList, setCategoryList] = useState([{
-    //     id: 1,
-    //     name: '',
-    //     brand: {
-    //         brandEn: '',
-    //         brandPe: '',
-    //     },
-    //     images: [
-    //         {
-    //             id: 1,
-    //             url: ''
-    //         },
-    //         {
-    //             id: 2,
-    //             url: ''
-    //         },
-    //     ],
-    //     categoryEn: '',
-    //     categoryPe: '',
-    //     groupId: 1,
-    //     groupName: '',
-    //     inventory: {
-    //         available: true,
-    //         quantity: 0,
-    //     },
-    //     seller: '',
-    //     tags: [
-    //         {id: 1, name: ''},
-    //         {id: 2, name: ''}
-    //     ],
-    //     price: 0,
-    //     discount: 0,
-    //     MaximumOrder: 0
-    // }]);
+    let categoryList = ProductData;
 
-    // useEffect(() => {
-    //     getCategory(categorySub)
-    //         .then(data => setCategoryList(data.products.slice(0, 9)))
-    // }, [])
-
-    let categoryList = ProductData.filter(item => item.categoryEn === categorySub).slice(0, 9)
-
+    if (categorySub) {
+        categoryList = ProductData.filter(item => item.categoryEn === categorySub).slice(0, 9)
+    }
 
     useEffect(() => {
         if (scroll.current.scrollWidth === scroll.current.clientWidth) {
@@ -144,13 +104,9 @@ const ProductCategory = ({
         })
     }, [children, scroll]);
 
-    if (groupId) {
-        categoryList = categoryList.filter(item => item.groupId === groupId).slice(0, 9)
+    if (groupName) {
+        categoryList = categoryList.filter(item => item.groupName === groupName).slice(0, 9)
     }
-
-    // function showCategoryHandler() {
-    //     router.push('/categories/' + 'drinks');
-    // }
 
     return (
         <Box sx={{
@@ -169,7 +125,7 @@ const ProductCategory = ({
                 }}
                        variant='outlined'>
                     {
-                        (!groupId) ?
+                        (groupName) ?
                             <Typography variant='body1' component='span'
                                         sx={{
                                             borderBottom: 2.5,
@@ -179,7 +135,7 @@ const ProductCategory = ({
                                             py: 1.2,
                                             cursor: 'pointer'
                                         }}>
-                                {categoryList[0].categoryPe}
+                                {groupName}
                             </Typography>
                             :
                             <Typography variant='body1' component='span'
@@ -191,26 +147,21 @@ const ProductCategory = ({
                                             py: 1.2,
                                             cursor: 'pointer'
                                         }}>
-                                 {categoryList[0].groupName}
+                                {categoryList[0].categoryPe}
                             </Typography>
                     }
-                    {/*{*/}
-                    {/*seeMoreProducts*/}
-                    {/*&&*/}
-                        <Typography variant='body1' component='span'
-                                    // onClick={showCategoryHandler}
-                                    sx={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        color: '#2446f5',
-                                        ml: {xl: 2.5, md: 2.5, xs: 1},
-                                        py: 1.2,
-                                        cursor: 'pointer'
-                                    }}>
-                            مشاهده بیشتر
-                            <KeyboardArrowLeftIcon/>
-                        </Typography>
-                    {/*}*/}
+                    <Typography variant='body1' component='span'
+                                sx={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    color: '#2446f5',
+                                    ml: {xl: 2.5, md: 2.5, xs: 1},
+                                    py: 1.2,
+                                    cursor: 'pointer'
+                                }}>
+                        مشاهده بیشتر
+                        <KeyboardArrowLeftIcon/>
+                    </Typography>
                 </Paper>
             }
             {
@@ -309,8 +260,6 @@ const ProductCategory = ({
                             {
                                 ordinary
                                 &&
-                                // seeMoreProducts
-                                // &&
                                 <Paper sx={{
                                     display: 'flex',
                                     flexDirection: "column",
