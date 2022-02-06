@@ -5,17 +5,25 @@ import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
 import ProductData from '../ProductData/ProductData'
 import {useState} from "react";
-import PN from "persian-number";
 
 const Page4 = () => {
     const [data, setData] = useState(ProductData.filter((dairy) => (dairy.category.categoryEn === 'dairy-product' && dairy.group.groupId === 1)))
     const [filter, setFilter] = useState([])
-    const highPrice = PN.convertEnToPe(PN.sliceNumber(Math.max(...data.map((product) => product.price))))
-    const lowPrice = PN.convertEnToPe(PN.sliceNumber(Math.min(...data.map((product) => product.price))))
-    const priceRange = {
-        from: lowPrice,
-        to: highPrice
+    const allPrices = data.map((product) => (
+        product.price * (1 - (product.discount / 100))
+    ))
+    const lowPrice = Math.min(...allPrices)
+    const highPrice = Math.max(...allPrices)
+    const [ranger, setRange] = useState([lowPrice, highPrice])
+
+    const rangeHandler = (e, newValue) => {
+        setRange(newValue)
     }
+    const priceRange = {
+        to: ranger[0],
+        from: ranger[1]
+    }
+    console.log(ranger)
     const categories = [
         {id: 1, name: 'شیر تازه'},
         {id: 2, name: 'شیر مدت دار'}
@@ -34,7 +42,6 @@ const Page4 = () => {
     const types = [...new Set(removeIdTypes)]
         .map((tag) => ({tag}))
         .map((tag) => ({id: Math.floor(Math.random() * 1000), ...tag}))
-    console.log(brands, types)
     const filterRemoveHandler = (id) => {
         setFilter(filter.filter((tag) => tag.id !== id))
     }
@@ -44,7 +51,7 @@ const Page4 = () => {
     const productFilter = () => {
 
     }
-
+    console.log(ranger)
     return (
         <Container sx={{px: {xs: 0, sm: '24px'}}}>
             <Grid container sx={{direction: 'rtl', mt: 4}} columnSpacing={3}>
@@ -54,8 +61,12 @@ const Page4 = () => {
                     types={types}
                     filter={filter}
                     priceRange={priceRange}
+                    ranger={ranger}
+                    lowPrice={lowPrice}
+                    highPrice={highPrice}
                     filterRemoveHandler={filterRemoveHandler}
                     removeFilterList={removeFilterList}
+                    handleChange={rangeHandler}
                 />
                 <Grid item xs={12} sm={12} md={9} xl={9}>
                     <Breadcrumb productCounter={data.length} group={'شیر'}/>

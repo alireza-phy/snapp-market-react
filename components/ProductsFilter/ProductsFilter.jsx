@@ -14,6 +14,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Drawer from '@mui/material/Drawer'
 import Button from '@mui/material/Button'
+import PN from "persian-number";
 import {useState} from "react";
 
 const ProductsFilter = ({
@@ -23,12 +24,16 @@ const ProductsFilter = ({
                             categories,
                             brands,
                             types,
-                            priceRange
+                            priceRange,
+                            ranger,
+                            lowPrice,
+                            highPrice,
+                            handleChange
                         }) => {
-    const [drawer, setDrawer] = useState(false);
+    const [drawer, setDrawer] = useState(true);
     const drawerClose = () => {
         setDrawer(false);
-    };
+    }
     return (
         <Grid item xs={12} sm={12} md={3} xl={3} sx={{position: 'relative'}}>
             <Box sx={{position: 'sticky', top: 15, display: {xs: 'none', sm: 'none', md: 'block', xl: 'block'}}}>
@@ -202,10 +207,12 @@ const ProductsFilter = ({
                 </Paper>
                 <Paper variant='outlined' sx={{px: 2, py: 1}}>
                     <Typography>قیمت</Typography>
-                    <Slider sx={{mb: 2}}/>
+                    <Slider min={lowPrice} max={highPrice} value={ranger} onChange={handleChange} disableSwap/>
                     <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
-                        <Typography variant='body2' component='p'> از{priceRange.from} تومان </Typography>
-                        <Typography variant='body2' component='p'> از{priceRange.to}تومان </Typography>
+                        <Typography variant='body2'
+                                    component='p'> از{PN.convertEnToPe(PN.sliceNumber(priceRange.to))}تومان </Typography>
+                        <Typography variant='body2'
+                                    component='p'> تا{PN.convertEnToPe(PN.sliceNumber(priceRange.from))} تومان </Typography>
                     </Box>
                 </Paper>
             </Box>
@@ -418,10 +425,10 @@ const ProductsFilter = ({
                         </Paper>
                         <Paper variant='outlined' sx={{px: 2, py: 1}}>
                             <Typography>قیمت</Typography>
-                            <Slider sx={{mb: 2}}/>
+                            <Slider min={lowPrice} max={highPrice} value={ranger} onChange={handleChange} disableSwap/>
                             <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
-                                <Typography variant='body2' component='p'> از{priceRange.from} تومان </Typography>
                                 <Typography variant='body2' component='p'> از{priceRange.to}تومان </Typography>
+                                <Typography variant='body2' component='p'> تا{priceRange.from} تومان </Typography>
                             </Box>
                         </Paper>
                     </Box>
