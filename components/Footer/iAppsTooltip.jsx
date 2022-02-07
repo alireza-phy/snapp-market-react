@@ -6,18 +6,18 @@ import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 
-const HtmlTooltip = styled(({ className, ...props }) => (
-    <HtmlTooltip {...props} classes={{ popper: className }} />
-        ))
-        (({ theme }) => ({
-[`& .${tooltipClasses.tooltip}`]: {
-  backgroundColor: '#f5f5f9',
-  color: 'rgba(0, 0, 0, 0.87)',
-  maxWidth: 220,
-  fontSize: theme.typography.pxToRem(12),
-  border: '1px solid #dadde9',
-},
-}));
+// const HtmlTooltip = styled(({ className, ...props }) => (
+//     <HtmlTooltip {...props} classes={{ popper: className }} />
+//         ))
+//         (({ theme }) => ({
+// [`& .${tooltipClasses.tooltip}`]: {
+//   backgroundColor: '#f5f5f9',
+//   color: 'rgba(0, 0, 0, 0.87)',
+//   maxWidth: 220,
+//   fontSize: theme.typography.pxToRem(12),
+//   border: '1px solid #dadde9',
+// },
+// }));
 
 export default function TriggersTooltips() {
         const [open, setOpen] = React.useState(false);
@@ -32,7 +32,7 @@ export default function TriggersTooltips() {
 return (
     <ClickAwayListener onClickAway={handleTooltipClose}>
         <div>
-            <HtmlTooltip placement="top"   arrow    PopperProps={{disablePortal: true,}} onClose={handleTooltipClose} open={open}
+            <Tooltip placement="top"   arrow    PopperProps={{disablePortal: true,}} onClose={handleTooltipClose} open={open}
                                     disableFocusListener
                                     disableHoverListener
                                     disableTouchListener
@@ -45,7 +45,7 @@ return (
                     // </React.Fragment>}   */}
                   
                  <img onClick={handleTooltipOpen} style={{width:125,height:40,margin:5}}   src='https://snapp.market/v2/static/images/b73e78b6652ebf0b5c4034fd17b91933.png' alt=''></img>
-            </HtmlTooltip>
+            </Tooltip>
         </div>
     </ClickAwayListener>
 )
