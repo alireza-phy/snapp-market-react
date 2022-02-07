@@ -4,11 +4,14 @@ import Pagination from '../Pagination/Pagination'
 import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
 import ProductData from '../ProductData/ProductData'
+import Slider from '@mui/material/Slider'
 import {useState} from "react";
 
 const Page4 = () => {
     const [data, setData] = useState(ProductData.filter((dairy) => (dairy.category.categoryEn === 'dairy-product' && dairy.group.groupId === 1)))
+    const [productData, setProductData] = useState([...data])
     const [filter, setFilter] = useState([])
+    const [justDiscountState, setJustDiscountState] = useState(false)
     const allPrices = data.map((product) => (
         product.price * (1 - (product.discount / 100))
     ))
@@ -18,12 +21,25 @@ const Page4 = () => {
 
     const rangeHandler = (e, newValue) => {
         setRange(newValue)
+        setProductData([...data].filter((product) => (
+            product.price >= newValue[0] && product.price <= newValue[1]
+        )))
+    }
+    const justDiscount = (e) => {
+        setJustDiscountState(!justDiscountState)
+        if (justDiscountState) {
+            setProductData([...data])
+        } else {
+            setProductData([...productData].filter((product) => (
+                product.discount > 0
+            )))
+        }
+
     }
     const priceRange = {
         to: ranger[0],
         from: ranger[1]
     }
-    console.log(ranger)
     const categories = [
         {id: 1, name: 'شیر تازه'},
         {id: 2, name: 'شیر مدت دار'}
@@ -49,12 +65,10 @@ const Page4 = () => {
         setFilter([])
     }
     const productFilter = () => {
-
     }
-    console.log(ranger)
     return (
         <Container sx={{px: {xs: 0, sm: '24px'}}}>
-            <Grid container sx={{direction: 'rtl', mt: 4}} columnSpacing={3}>
+            <Grid container sx={{direction: 'rtl', mt: 4}} columnSpacing={{xs: 0, sm: 0, md: 3, lg: 3, xl: 3}}>
                 <ProductsFilter
                     categories={categories}
                     brands={brands}
@@ -67,10 +81,12 @@ const Page4 = () => {
                     filterRemoveHandler={filterRemoveHandler}
                     removeFilterList={removeFilterList}
                     handleChange={rangeHandler}
+                    justDiscount={justDiscount}
+                    justDiscountState={justDiscountState}
                 />
                 <Grid item xs={12} sm={12} md={9} xl={9}>
                     <Breadcrumb productCounter={data.length} group={'شیر'}/>
-                    <Pagination productData={data}/>
+                    <Pagination productData={productData}/>
                 </Grid>
             </Grid>
         </Container>

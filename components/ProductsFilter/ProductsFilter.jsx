@@ -14,6 +14,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Drawer from '@mui/material/Drawer'
 import Button from '@mui/material/Button'
+import {styled} from '@mui/material/styles';
 import PN from "persian-number";
 import {useState} from "react";
 
@@ -28,12 +29,55 @@ const ProductsFilter = ({
                             ranger,
                             lowPrice,
                             highPrice,
-                            handleChange
+                            handleChange,
+                            justDiscount,
+                            justDiscountState
                         }) => {
     const [drawer, setDrawer] = useState(true);
     const drawerClose = () => {
         setDrawer(false);
     }
+    const AntSwitch = styled(Switch)(({theme}) => ({
+        width: 33,
+        height: 17,
+        padding: 0,
+        display: 'flex',
+        '&:active': {
+            '& .MuiSwitch-thumb': {
+                width: 15,
+            },
+            '& .MuiSwitch-switchBase.Mui-checked': {
+                transform: 'translateX(9px)',
+            },
+        },
+        '& .MuiSwitch-switchBase': {
+            padding: 2,
+            '&.Mui-checked': {
+                transform: 'translateX(17px)',
+                color: '#fff',
+                '& + .MuiSwitch-track': {
+                    opacity: 1,
+                    backgroundColor: theme.palette.mode === 'dark' ? '#177ddc' : '#556ff7',
+                },
+            },
+        },
+        '& .MuiSwitch-thumb': {
+            boxShadow: '0 2px 4px 0 rgb(0 35 11 / 10%)',
+            width: 13,
+            height: 13,
+            borderRadius: 6,
+            transition: theme.transitions.create(['width'], {
+                duration: 200,
+            }),
+        },
+        '& .MuiSwitch-track': {
+            borderRadius: 16 / 2,
+            opacity: 1,
+            backgroundColor:
+                theme.palette.mode === 'dark' ? 'rgba(255,255,255,.35)' : '#f2f2f2',
+            boxSizing: 'border-box',
+        },
+    }));
     return (
         <Grid item xs={12} sm={12} md={3} xl={3} sx={{position: 'relative'}}>
             <Box sx={{position: 'sticky', top: 15, display: {xs: 'none', sm: 'none', md: 'block', xl: 'block'}}}>
@@ -69,7 +113,7 @@ const ProductsFilter = ({
                         </Box>
                     </Paper>
                 }
-                <Accordion variant='outlined' sx={{borderRadius: 1, mb: 1}}>
+                <Accordion variant='outlined' sx={{borderRadius: 1, mb: 1, py: 0.25}}>
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon/>}
                         aria-controls="panel1a-content"
@@ -105,7 +149,7 @@ const ProductsFilter = ({
                         </Box>
                     </AccordionDetails>
                 </Accordion>
-                <Accordion variant='outlined' sx={{borderRadius: 1, mb: 1}}>
+                <Accordion variant='outlined' sx={{borderRadius: 1, mb: 1, py: 0.25}}>
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon/>}
                         aria-controls="panel1a-content"
@@ -141,7 +185,7 @@ const ProductsFilter = ({
                         </Box>
                     </AccordionDetails>
                 </Accordion>
-                <Accordion variant='outlined' sx={{borderRadius: 1, mb: 1}}>
+                <Accordion variant='outlined' sx={{borderRadius: 1, mb: 1, py: 0.25}}>
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon/>}
                         aria-controls="panel1a-content"
@@ -183,13 +227,12 @@ const ProductsFilter = ({
                            justifyContent: 'space-between',
                            alignItems: 'center',
                            mb: 2,
-                           px: 2,
-                           py: 1
+                           p: 2
                        }}>
                     <Typography variant='body2' component='p'>
                         فقط کالاهای موجود
                     </Typography>
-                    <Switch inputProps={{'aria-label': 'controlled'}}/>
+                    <AntSwitch inputProps={{'aria-label': 'controlled'}}/>
                 </Paper>
                 <Paper variant='outlined'
                        sx={{
@@ -197,18 +240,25 @@ const ProductsFilter = ({
                            justifyContent: 'space-between',
                            alignItems: 'center',
                            mb: 2,
-                           px: 2,
-                           py: 1
+                           p: 2
                        }}>
                     <Typography variant='body2' component='p'>
                         فقط کالاهای تخفیف دار
                     </Typography>
-                    <Switch inputProps={{'aria-label': 'controlled'}}/>
+                    <AntSwitch onChange={justDiscount} checked={justDiscountState}
+                               inputProps={{'aria-label': 'controlled'}}/>
                 </Paper>
                 <Paper variant='outlined' sx={{px: 2, py: 1}}>
                     <Typography>قیمت</Typography>
-                    <Slider min={lowPrice} max={highPrice} value={ranger} onChange={handleChange} disableSwap/>
-                    <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
+                    <Slider
+                        size='small'
+                        min={lowPrice}
+                        max={highPrice}
+                        value={ranger}
+                        onChange={handleChange}
+                        disableSwap
+                    />
+                    <Box sx={{display: 'flex', justifyContent: 'space-between', mt: 2}}>
                         <Typography variant='body2'
                                     component='p'> از{PN.convertEnToPe(PN.sliceNumber(priceRange.to))}تومان </Typography>
                         <Typography variant='body2'
@@ -407,7 +457,7 @@ const ProductsFilter = ({
                             <Typography variant='body2' component='p'>
                                 فقط کالاهای موجود
                             </Typography>
-                            <Switch inputProps={{'aria-label': 'controlled'}}/>
+                            <AntSwitch inputProps={{'aria-label': 'controlled'}}/>
                         </Paper>
                         <Paper variant='outlined'
                                sx={{
@@ -421,7 +471,8 @@ const ProductsFilter = ({
                             <Typography variant='body2' component='p'>
                                 فقط کالاهای تخفیف دار
                             </Typography>
-                            <Switch inputProps={{'aria-label': 'controlled'}}/>
+                            <AntSwitch onChange={justDiscount} checked={justDiscountState}
+                                       inputProps={{'aria-label': 'controlled'}}/>
                         </Paper>
                         <Paper variant='outlined' sx={{px: 2, py: 1}}>
                             <Typography>قیمت</Typography>
