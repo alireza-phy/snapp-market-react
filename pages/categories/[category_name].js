@@ -40,6 +40,7 @@ const Categories = ({ProductList}) => {
 export default Categories
 
 export async function getStaticPaths() {
+
     return {
         paths: [
             {params: {category_name: 'drinks'}}
@@ -47,8 +48,10 @@ export async function getStaticPaths() {
         fallback: 'blocking'
     };
 }
-//
-export async function getStaticProps() {
+
+export async function getStaticProps(context) {
+    console.log('#######################')
+    console.log(context)
     let ProductList = ProductData
 
     return {

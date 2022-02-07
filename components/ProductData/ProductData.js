@@ -4570,7 +4570,6 @@ export const getSubCategory=(mainCategory)=>{
     let result=[]
     ProductData.filter(item=>item.categoryEn===mainCategory).map
     (item=>{ if(!result.includes(item.groupName)) {result.push(item.groupName)}})
-    console.log(result)
     return result
 }
 
