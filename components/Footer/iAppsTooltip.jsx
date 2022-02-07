@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 
 // const HtmlTooltip = styled(({ className, ...props }) => (
-//     <HtmlTooltip {...props} classes={{ popper: className }} />
+//     <Tooltip {...props} classes={{ popper: className }} />
 //         ))
 //         (({ theme }) => ({
 // [`& .${tooltipClasses.tooltip}`]: {
