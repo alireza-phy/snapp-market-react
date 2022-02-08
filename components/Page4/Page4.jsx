@@ -1,6 +1,6 @@
 import ProductsFilter from '../ProductsFilter/ProductsFilter'
 import Breadcrumb from '../Breadcrumb/Breadcrumb'
-import Pagination from '../Pagination/Pagination'
+import PaginationAndSort from '../Pagination/Pagination'
 import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
 import ProductData from '../ProductData/ProductData'
@@ -87,7 +87,8 @@ const Page4 = () => {
                 />
                 <Grid item xs={12} sm={12} md={9} xl={9}>
                     <Breadcrumb productCounter={data.length} group={'شیر'}/>
-                    <Pagination productData={productData}/>
+                    <PaginationAndSort productData={productData}/>
+
                 </Grid>
             </Grid>
         </Container>
