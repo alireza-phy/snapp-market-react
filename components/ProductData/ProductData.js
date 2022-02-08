@@ -1291,7 +1291,7 @@ const ProductData = [
         categoryEn: 'drinks',
         categoryPe: 'نوشیدنی',
         groupId: 6,
-        groupName: 'قهوه و هات هاکلت',
+        groupName: 'قهوه و هات چاکلت',
         inventory: {
             available: true,
             quantity: 20,
@@ -4565,11 +4565,17 @@ const ProductData = [
 
 export default ProductData
 
-
-export const getSubCategory=(mainCategory)=>{
-    let result=[]
-    ProductData.filter(item=>item.categoryEn===mainCategory).map
-    (item=>{ if(!result.includes(item.groupName)) {result.push(item.groupName)}})
+export const getSubCategory = (mainCategory) => {
+    let result = []
+    ProductData.filter
+    (item =>
+        item.categoryEn === mainCategory).map
+    (item => {
+            if (!result.find(element => element.name === item.groupName))
+                result.push({name: item.groupName , id:item.groupId})
+        }
+    )
+    console.log(result)
     return result
 }
 

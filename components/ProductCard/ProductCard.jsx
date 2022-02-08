@@ -5,9 +5,10 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia'
 import Box from '@mui/material/Box';
-import {useState, useRef} from "react";
+import {useState} from "react";
 import CardPrice from "../CardPrice/CardPrice";
 import CardAddToCartButton from "../CardAddToCartButton/CardAddToCartButton";
+
 function ProductCard({src, title, price, discount, available, maximumOrder, width, ordinary, special, list, category}) {
 
     const [quantity, setQuantity] = useState(0)

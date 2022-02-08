@@ -18,7 +18,7 @@ const AssortmentMenu = () => {
     const handleShowAssortment = () => {
         (listHeight === 120) ? setListHeight(400) : setListHeight(120)
     }
-    console.log(AssortmentCardData)
+
     return (
         <Box>
             <Container sx={{marginY: "1rem", display: 'flex', flexDirection: 'column', gap: '2rem'}}>

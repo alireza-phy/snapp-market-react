@@ -11,29 +11,14 @@ const Categories = ({ProductList}) => {
 
     const router = useRouter();
 
-    let currentCategory = ProductList.filter(product => product.categoryEn === router.query.category_name)
-    console.log(currentCategory)
+    // let currentCategory = ProductList.filter(product => product.categoryEn === router.query.group_id)
+    // console.log(currentCategory)
 
     return (
 
         <Grid container sx={{direction: 'rtl', mt: 4}} columnSpacing={3}>
-            <CategoryMenu
-                subCategory={getSubCategory(currentCategory[0].categoryEn)}
-            />
-            <Grid item xs={12} sm={12} md={9} xl={9}>
-                <Breadcrumb
-                    category={currentCategory[0].categoryPe}
-                />
-                <Box>
-                    {getSubCategory(currentCategory[0].categoryEn).map(obj =>
-                        <ProductsCategory
-                            key={obj.id}
-                            groupNameObject = {obj}
-                            ordinary
-                        />
-                    )}
-                </Box>
-            </Grid>
+
+    <h1> hello : router.query.group_id </h1>
         </Grid>
     )
 }
@@ -44,7 +29,7 @@ export async function getStaticPaths() {
 
     return {
         paths: [
-            {params: {category_name: 'drinks'}}
+            {params: {group_id: 'drinks'}}
         ],
         fallback: 'blocking'
     };
