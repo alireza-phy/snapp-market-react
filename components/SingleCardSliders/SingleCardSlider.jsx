@@ -7,9 +7,9 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-
 import "swiper/css";
-function SingleSlider() {
+
+function SingleSlider({currentProduct}) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
     <>
@@ -24,12 +24,13 @@ function SingleSlider() {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2"
       >
-        <SwiperSlide>
-          <img src={ProductData[0].images[0].url} width="250" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={ProductData[0].images[1].url} width="250" />
-        </SwiperSlide>
+          {
+              currentProduct.images.map(item =>
+                  <SwiperSlide key={item.id}>
+                      <img src={item.url} width="250" />
+                  </SwiperSlide>
+              )
+          }
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
@@ -40,12 +41,13 @@ function SingleSlider() {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <img src={ProductData[0].images[0].url} width="250" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={ProductData[0].images[1].url} width="250" />
-        </SwiperSlide>
+          {
+              currentProduct.images.map(item =>
+                  <SwiperSlide key={item.id}>
+                      <img src={item.url} width="250"/>
+                  </SwiperSlide>
+              )
+          }
       </Swiper>
     </>
   );

@@ -1,4 +1,4 @@
-import SingleSlider from "../SingleCardSliders/SingleCardSlider";
+import SingleSlider from "../../components/SingleCardSliders/SingleCardSlider";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -7,46 +7,49 @@ import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import HomeIcon from "@mui/icons-material/Home";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
-import { useEffect, useState } from "react";
+import SingleProductCardPrice from '../../components/CardPrice/SingleProductCardPrice'
+// import { useEffect, useState } from "react";
+import ProductData from '../../components/ProductData/ProductData'
 
-const SingleProduct = () => {
-  const sampleProduct = {
-    products: [
-      {
-        MaximumOrder: 4,
-        brand: { brandEn: "pak", brandPe: "پاک" },
-        category: { categoryEn: "dairy-products", categoryPe: "لبنیات" },
-        discount: 14,
-        group: { groupId: 1, groupName: "شیر" },
-        id: "1",
-        images: [
-          {
-            id: 1,
-            url: "https://api.snapp.market/media/cache/product-varia…ploads/images/vendors/users/app/60cf1e4112f33.jpg",
-          },
-          {
-            id: 2,
-            url: "https://api.snapp.market/media/cache/product-varia…ploads/images/vendors/users/app/60cf1e671bbe9.jpg",
-          },
-        ],
-        length: 2,
-        inventory: { available: true, quantity: 9 },
-        name: "شیر کم چرب غنی شده با ویتامین D پاک ۱ لیتری",
-        price: 10900,
-        seller: "هایپر استار",
-        tags: [
-          { id: 1, name: "کم چرب" },
-          { id: 2, name: "ساده" },
-        ],
-      },
-    ],
-  };
-  const [data, setData] = useState(sampleProduct);
-  useEffect(async () => {
-    await fetch("/api/products")
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
+const SingleProduct = ({currentProduct}) => {
+  // const sampleProduct = {
+  //   products: [
+  //     {
+  //       MaximumOrder: 4,
+  //       brand: { brandEn: "pak", brandPe: "پاک" },
+  //       category: { categoryEn: "dairy-products", categoryPe: "لبنیات" },
+  //       discount: 14,
+  //       group: { groupId: 1, groupName: "شیر" },
+  //       id: "1",
+  //       images: [
+  //         {
+  //           id: 1,
+  //           url: "https://api.snapp.market/media/cache/product-varia…ploads/images/vendors/users/app/60cf1e4112f33.jpg",
+  //         },
+  //         {
+  //           id: 2,
+  //           url: "https://api.snapp.market/media/cache/product-varia…ploads/images/vendors/users/app/60cf1e671bbe9.jpg",
+  //         },
+  //       ],
+  //       length: 2,
+  //       inventory: { available: true, quantity: 9 },
+  //       name: "شیر کم چرب غنی شده با ویتامین D پاک ۱ لیتری",
+  //       price: 10900,
+  //       seller: "هایپر استار",
+  //       tags: [
+  //         { id: 1, name: "کم چرب" },
+  //         { id: 2, name: "ساده" },
+  //       ],
+  //     },
+  //   ],
+  // };
+  // const [data, setData] = useState(sampleProduct);
+  // useEffect(async () => {
+  //   await fetch("/api/products")
+  //     .then((res) => res.json())
+  //     .then((data) => setData(data));
+  // }, []);
+
   return (
     <Container
       sx={{
@@ -81,7 +84,7 @@ const SingleProduct = () => {
             color="inherit"
             href="#"
           >
-            {data.products[0].category.categoryPe}
+            {currentProduct.categoryPe}
           </Link>
           <Link
             underline="hover"
@@ -89,7 +92,7 @@ const SingleProduct = () => {
             color="inherit"
             href="#"
           >
-            {data.products[0].group.groupName}
+            {currentProduct.groupName}
           </Link>
 
           <Link
@@ -98,8 +101,9 @@ const SingleProduct = () => {
             color="inherit"
             href="#"
           >
-            {data.products[0].category.categoryPe}{" "}
-            {data.products[0].brand.brandPe}
+              {currentProduct.groupName} {" "}
+            {currentProduct.brand.brandPe}
+
           </Link>
         </Breadcrumbs>
       </Box>
@@ -111,7 +115,9 @@ const SingleProduct = () => {
         columnSpacing={{ xs: 1, sm: 2, md: 3 }}
       >
         <Grid item xs={12} sm={6} md={6} lg={5}>
-          <SingleSlider />
+          <SingleSlider
+              currentProduct={currentProduct}
+          />
         </Grid>
         <Grid item xs={12} sm={12} md={6} lg={6}>
           <Box
@@ -129,7 +135,7 @@ const SingleProduct = () => {
               }}
               component="h1"
             >
-              {data.products[0].name}
+              {currentProduct.name}
             </Typography>
             <Box
               sx={{
@@ -137,6 +143,7 @@ const SingleProduct = () => {
                 flexDirection: "row",
               }}
             >
+
               <Typography sx={{ fontWeight: "bold" }} component="h2">
                 برند :
               </Typography>
@@ -149,7 +156,7 @@ const SingleProduct = () => {
                 }}
               >
                 <Link sx={{ textDecoration: "none" }} href="#">
-                  {data.products[0].brand.brandPe}
+                  {currentProduct.brand.brandPe}
                 </Link>
               </Typography>
             </Box>
@@ -171,7 +178,7 @@ const SingleProduct = () => {
                 }}
               >
                 <Link sx={{ textDecoration: "none" }} href="#">
-                  {data.products[0].category.categoryPe}
+                    {currentProduct.groupName}
                 </Link>
               </Typography>
             </Box>
@@ -197,7 +204,8 @@ const SingleProduct = () => {
                   paddingRight: "5px",
                 }}
               >
-                {data.products[0].seller}
+                {currentProduct.seller}
+
               </Typography>
             </Box>
           </Box>
@@ -220,19 +228,23 @@ const SingleProduct = () => {
             </Typography>
           </Box>
           <Box>
-            <Typography
-              sx={{
-                display: "flex",
-                justifyContent: "flex-end",
-                color: "rgb(117,117,117)",
-                fontWeight: "bold",
-                paddingBottom: "15px",
-                fontSize: "1.4rem",
-              }}
-              component="h2"
-            >
-              {data.products[0].price} تومان
-            </Typography>
+            {/*<Typography*/}
+            {/*  sx={{*/}
+            {/*    display: "flex",*/}
+            {/*    justifyContent: "flex-end",*/}
+            {/*    color: "rgb(117,117,117)",*/}
+            {/*    fontWeight: "bold",*/}
+            {/*    paddingBottom: "15px",*/}
+            {/*    fontSize: "1.4rem",*/}
+            {/*  }}*/}
+            {/*  component="h2"*/}
+            {/*>*/}
+                <SingleProductCardPrice
+                price={currentProduct.price}
+                discount={currentProduct.discount}
+                />
+
+            {/*</Typography>*/}
           </Box>
           <Button
             variant="outlined"
