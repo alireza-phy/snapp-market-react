@@ -258,12 +258,7 @@ const ProductCategory = ({
                                     category
                                     special
                                     width='14.5rem'
-                                    src={item.images[0].url}
-                                    title={item.name}
-                                    price={item.price}
-                                    discount={item.discount}
-                                    maximumOrder={item.MaximumOrder}
-                                    available={item.inventory.available}
+                                    item={item}
                                 />
                             )}
                             {
