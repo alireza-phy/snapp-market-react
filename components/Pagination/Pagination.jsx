@@ -9,7 +9,6 @@ import {SwapVert} from "@mui/icons-material";
 import {makeStyles} from '@mui/styles';
 import ProductCard from "../ProductCard/ProductCard";
 
-// const sort = ["پیش فرض", "پرفروش ترین", "بیشترین درصد تخفیف", "بیشترین مبلغ تخفیف", "ارزان ترین", "گران ترین"]
 const useStyles = makeStyles(() => ({
     ul: {
         "& .MuiPaginationItem-root": {
@@ -20,39 +19,28 @@ const useStyles = makeStyles(() => ({
 }));
 
 const PaginationPage = ({productData}) => {
-    // const [products, setProducts] = useState()
+    const [products, setProducts] = useState([...productData])
     const classes = useStyles()
 
-    // const prices = productData.map((product) => (
-    //     product.price
-    // ))
-
-    const pricesWithDiscount = productData.map((product) => (
-        product.price * (1 - (product.discount / 100))))
-
-    const discounts = productData.map((product) => (
-        product.discount
-    ))
-
-    const maxDiscountAmounts = productData.map((product) => (
-        product.price - product.price * (1 - (product.discount / 100))
-    ))
-
     //sorting
+    const defaults = () =>{
+        setProducts([...productData])
+    }
     const maxDiscount = () => {
-        discounts.sort((a,b) => a <= b ? 1 : -1);
+        setProducts([...productData].sort((a,b) => a.discount <= b.discount ? 1 : -1))
     }
 
     const maxDiscountAmount = () => {
-        maxDiscountAmounts.sort((a,b) => a <= b ? 1 : -1);
-    }
+        setProducts([...productData].sort(  (a,b) =>
+            a.price - a.price * (1 - (a.discount / 100)) <= b.price - b.price * (1 - (b.discount / 100)) ? 1 : -1))
 
-    const inexpensiveHandler = () => {
-        pricesWithDiscount.sort((a,b) => a >= b ? 1 : -1);
+    }
+     const inexpensiveHandler = () => {
+         setProducts([...productData].sort((a,b) => a.price * (1 - (a.discount / 100)) >= b.price * (1 - (b.discount / 100)) ? 1 : -1))
     }
 
     const expensiveHandler = () => {
-        pricesWithDiscount.sort((a,b) => a <= b ? 1 : -1);
+        setProducts([...productData].sort((a,b) => a.price * (1 - (a.discount / 100)) <= b.price * (1 - (b.discount / 100)) ? 1 : -1))
     }
     return (
         <Box dir="rtl">
@@ -61,7 +49,7 @@ const PaginationPage = ({productData}) => {
                     <SwapVert sx={{fontSize: "2rem", color: "black"}}/>
                     <Typography sx={{color: "rgb(64, 64, 64)", fontWeight: 600}}>
                         مرتب سازی براساس:
-                        <Button sx={{
+                        <Button onClick={() => defaults()} sx={{
                             borderRadius: "5rem", color: "rgb(64, 64, 64)", fontWeight: 400, "&:hover": {
                                 color: "#556FF7",
                                 backgroundColor: "#FFF",
@@ -125,7 +113,7 @@ const PaginationPage = ({productData}) => {
                 <Paper variant='outlined' sx={{borderRadius: 0, borderLeft: 0, borderTop: 0}}>
                     <Grid container xs={12}>
                         {
-                            productData.map((product) => (
+                            products.map((product) => (
                                 <Grid key={product.id} item xs={12} sm={4} md={4} lg={3} xl={3}>
                                     <ProductCard list
                                                  title={product.name}
