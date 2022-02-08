@@ -20,30 +20,39 @@ const useStyles = makeStyles(() => ({
 }));
 
 const PaginationPage = ({productData}) => {
+    // const [products, setProducts] = useState()
     const classes = useStyles()
+
+    // const prices = productData.map((product) => (
+    //     product.price
+    // ))
+
     const pricesWithDiscount = productData.map((product) => (
         product.price * (1 - (product.discount / 100))))
 
-    const prices = productData.map((product) => (
-        product.price
+    const discounts = productData.map((product) => (
+        product.discount
     ))
 
+    const maxDiscountAmounts = productData.map((product) => (
+        product.price - product.price * (1 - (product.discount / 100))
+    ))
 
     //sorting
     const maxDiscount = () => {
-
+        discounts.sort((a,b) => a <= b ? 1 : -1);
     }
 
     const maxDiscountAmount = () => {
-
+        maxDiscountAmounts.sort((a,b) => a <= b ? 1 : -1);
     }
 
     const inexpensiveHandler = () => {
-
+        pricesWithDiscount.sort((a,b) => a >= b ? 1 : -1);
     }
 
     const expensiveHandler = () => {
-
+        pricesWithDiscount.sort((a,b) => a <= b ? 1 : -1);
     }
     return (
         <Box dir="rtl">
