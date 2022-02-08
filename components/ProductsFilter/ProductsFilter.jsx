@@ -33,7 +33,7 @@ const ProductsFilter = ({
                             justDiscount,
                             justDiscountState
                         }) => {
-    const [drawer, setDrawer] = useState(true);
+    const [drawer, setDrawer] = useState(false);
     const drawerClose = () => {
         setDrawer(false);
     }
