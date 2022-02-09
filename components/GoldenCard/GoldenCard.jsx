@@ -26,11 +26,11 @@ const GoldenCard = ({width, category}) => {
     const available = true
     const maximumOrder = 1;
     const refer = useRef(null)
-    const [goldenOfferShow, setGoldenOfferShow] = useState(false)
-    const showDetailHandler = () => {
-        setGoldenOfferShow(!goldenOfferShow)
-        refer.current.style.transform = "rotateY(180deg)"
-    }
+    // const [goldenOfferShow, setGoldenOfferShow] = useState(false)
+    // const showDetailHandler = () => {
+    //     setGoldenOfferShow(!goldenOfferShow)
+    //     refer.current.style.transform = "rotateY(180deg)"
+    // }
     // const showCardHandler = () => {
     //     setGoldenOfferShow(!goldenOfferShow)
     //     refer.current.style.transform = "rotateY(0)"
@@ -62,7 +62,7 @@ const GoldenCard = ({width, category}) => {
             }
         }}>
             <CardContent sx={{p: '0'}}>
-                <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
+                {/* <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
                     <Typography variant="subtitle2" component="p">
                         بقچه طلایی
                     </Typography>
@@ -70,7 +70,7 @@ const GoldenCard = ({width, category}) => {
                                 sx={{color: '#2347fb', cursor: 'pointer'}}>
                         جزئیات بیشتر
                     </Typography>
-                </Box>
+                </Box> */}
                 <Box sx={{
                     display: 'flex',
                     justifyContent: 'start',

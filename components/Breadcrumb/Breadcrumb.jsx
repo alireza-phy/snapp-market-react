@@ -4,7 +4,8 @@ import Typography from '@mui/material/Typography'
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
 
-const Breadcrumb = ({productCounter, group}) => {
+const Breadcrumb = ({productCounter, group, category}) => {
+
     return (
         <Paper variant='outlined'
                sx={{
@@ -24,7 +25,7 @@ const Breadcrumb = ({productCounter, group}) => {
                 <KeyboardArrowLeftOutlinedIcon sx={{color: 'gray', mx: 0.25}}/>
                 <Typography component='span' variant='body1'
                             sx={{fontWeight: group ? 500 : 600, cursor: group && 'pointer'}}>
-                    لبنیات
+                    {category}
                 </Typography>
                 {
                     group
