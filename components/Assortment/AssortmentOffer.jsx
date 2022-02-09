@@ -5,11 +5,22 @@ import Stack from '@mui/material/Stack';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import {SkewBox} from "./ClassComponents";
 import Box from "@mui/material/Box";
+import {useRouter} from 'next/router';
 
-const AssortmentOffer = ({offer, title, image, bkGColor, bordercolor}) => {
+const AssortmentOffer = ({offer, title, image, bkGColor, bordercolor, categoryname}) => {
+
+
+    const router = useRouter();
+
+    function showCategoryHandler() {
+        router.push('/categories/' + categoryname);
+    }
 
     return (
-        <Grid item xs={4}>
+        <Grid
+            sx={{cursor:'pointer'}}
+            onClick={showCategoryHandler}
+            item xs={4}>
             <Card elevation={0} sx={{
                 backgroundColor: bkGColor,
                 border: `0.1rem solid ${bordercolor}`,

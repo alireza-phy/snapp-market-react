@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import {useState} from "react";
 import CardPrice from "../CardPrice/CardPrice";
 import CardAddToCartButton from "../CardAddToCartButton/CardAddToCartButton";
+import {useRouter} from 'next/router';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 
 const theme = createTheme({
@@ -22,7 +23,16 @@ const theme = createTheme({
     },
 });
 
-function ProductCard({src, title, price, discount, available, maximumOrder, width, ordinary, special, list, category}) {
+function ProductCard({
+                         item, width, ordinary, special, list, category
+                     }) {
+    // let dummyString = item.name.replace(/\s+/g, '-');
+    const router = useRouter();
+
+    const showProductHandler = () => {
+        router.push('/products/' + item.id)
+        // console.log(dummyString)
+    }
 
     const [quantity, setQuantity] = useState(0)
     const incrementHandler = () => {
@@ -66,6 +76,7 @@ function ProductCard({src, title, price, discount, available, maximumOrder, widt
                 }}>
                     <ThemeProvider theme={theme}>
                         <CardMedia
+                            onClick={() => showProductHandler()}
                             sx={{
                                 width: list ? {xs: 70, mobileMd: 90, sm: 170} : 170,
                                 height: list && {xs: 70, mobileMd: 90, sm: 170},
@@ -74,21 +85,26 @@ function ProductCard({src, title, price, discount, available, maximumOrder, widt
                                 '-webkit-user-drag': 'none'
                             }}
                             component="img"
-                            src={src}
+                            src={item.images[0].url}
                             alt=""
                         />
                     </ThemeProvider>
+
                     {
-                        available
+                        (item.inventory.available)
                         ||
-                        <Typography variant="body1" component="p" sx={{
-                            position: 'absolute', top: '40%', boxShadow: 'rgb(163 163 163) 0px 0px 1rem 0px',
-                            padding: '0.25rem 0.6rem',
-                            color: '#0000ee',
-                            backgroundColor: 'rgb(255, 255, 255)',
-                            borderRadius: '0.9rem',
-                            fontSize: '1rem'
-                        }}>
+                        <Typography variant="body1" component="p"
+                                    sx={{
+                                        position: 'absolute',
+                                        top: '40%',
+                                        boxShadow: 'rgb(163 163 163) 0px 0px 1rem 0px',
+                                        padding: '0.25rem 0.6rem',
+                                        color: '#0000ee',
+                                        backgroundColor: 'rgb(255, 255, 255)',
+                                        borderRadius: '0.9rem',
+                                        fontSize: '1rem'
+                                    }}
+                        >
                             تمام شد
                         </Typography>
                     }
@@ -96,27 +112,29 @@ function ProductCard({src, title, price, discount, available, maximumOrder, widt
             </CardContent>
             <Box sx={{flexGrow: list && 1}}>
                 <CardContent sx={{p: '0', cursor: 'pointer'}}>
-                    <Typography variant="body1" component="p" sx={{
-                        minHeight: 48,
-                        color: '#30354b',
-                        mb: 0.5,
-                        wordWrap: 'break-word',
-                        wordBreak: 'break-word',
-                        whiteSpace: 'pre-wrap',
-                    }}>
-                        {title}
+                    <Typography variant="body1" component="p"
+                                onClick={() => showProductHandler()}
+                                sx={{
+                                    minHeight: 48,
+                                    color: '#30354b',
+                                    mb: 0.5,
+                                    wordWrap: 'break-word',
+                                    wordBreak: 'break-word',
+                                    whiteSpace: 'pre-wrap',
+                                }}>
+                        {item.name}
                     </Typography>
                 </CardContent>
                 <CardActions
                     sx={{p: '0', display: 'flex', alignItems: 'flex-end'}}>
-                    <CardPrice price={price} discount={discount}/>
+                    <CardPrice price={item.price} discount={item.discount}/>
                     {
-                        available
+                        (item.inventory.available)
                         &&
                         <CardAddToCartButton quantity={quantity}
                                              incrementHandler={incrementHandler}
                                              decrementHandler={decrementHandler}
-                                             maximumOrder={maximumOrder}/>
+                                             maximumOrder={item.MaximumOrder}/>
                     }
                 </CardActions>
             </Box>
