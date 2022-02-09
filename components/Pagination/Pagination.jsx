@@ -61,7 +61,7 @@ const PaginationAndSort = ({productData}) => {
                                 borderRadius: "5rem", color: "rgb(64, 64, 64)", fontWeight: 400, "&:hover": {
                                     color: "#556FF7",
                                     backgroundColor: "#FFF",
-                                }
+                                },
                             }}>
                                 {"پیش فرض"}
                             </Button>
@@ -153,14 +153,29 @@ const PaginationAndSort = ({productData}) => {
                                 </Button>
 
                                 <Box sx={{display:"flex",overflow: "scroll",
-                                    [theme.breakpoints.between('sm','md')]: {
-                                        overflow:"scroll"
-                                    },
 
                                 }}>
-                                    <Button onClick={() => defaults()} sx={{
-                                        padding:0, color: "rgb(64, 64, 64)",border: '0.1rem solid rgba(64, 64, 64, 0.16)',
+                                    {/*<Button onClick={() => defaults()} sx={{*/}
+                                    {/*    padding:0, color: "rgb(64, 64, 64)",border: '0.1rem solid rgba(64, 64, 64, 0.16)',*/}
 
+                                    {/*    "&:hover": {*/}
+                                    {/*        color: "#556FF7",*/}
+                                    {/*        backgroundColor: "#FFF",*/}
+                                    {/*    },*/}
+                                    {/*    [theme.breakpoints.down('sm')]: {*/}
+                                    {/*        fontSize:"1rem",*/}
+                                    {/*        margin:"0.7rem 0.5rem 0 0.5rem",*/}
+                                    {/*        padding: "0 4rem",*/}
+                                    {/*        borderRadius:"1.8rem",*/}
+                                    {/*        whiteSpace: "nowrap",*/}
+                                    {/*    },*/}
+
+
+                                    {/*}}>*/}
+                                    {/*    {"پیش فرض"}*/}
+                                    {/*</Button>*/}
+                                    <Button sx={{
+                                        padding:0, color: "#404040",border: '0.1rem solid rgba(64, 64, 64, 0.16)',
                                         "&:hover": {
                                             color: "#556FF7",
                                             backgroundColor: "#FFF",
@@ -168,27 +183,14 @@ const PaginationAndSort = ({productData}) => {
                                         [theme.breakpoints.down('sm')]: {
                                             fontSize:"1rem",
                                             margin:"0.7rem 0.5rem 0 0.5rem",
-                                            padding: "0 4rem",
+                                            padding: "0.5rem 4rem",
                                             borderRadius:"1.8rem",
                                             whiteSpace: "nowrap",
                                         },
                                         [theme.breakpoints.between('sm','md')]: {
-
-
-                                        },
-
-                                    }}>
-                                        {"پیش فرض"}
-                                    </Button>
-                                    <Button sx={{
-                                        padding:0, color: "rgb(64, 64, 64)",border: '0.1rem solid rgba(64, 64, 64, 0.16)', "&:hover": {
-                                            color: "#556FF7",
-                                            backgroundColor: "#FFF",
-                                        },
-                                        [theme.breakpoints.down('sm')]: {
                                             fontSize:"1rem",
-                                            margin:"0.7rem 0.5rem 0 0.5rem",
-                                            padding: "0 4rem",
+                                            margin:"0.7rem 0.8rem 0.7rem 0.5rem",
+                                            padding: "0.3rem 1rem",
                                             borderRadius:"1.8rem",
                                             whiteSpace: "nowrap",
                                         },
@@ -196,14 +198,21 @@ const PaginationAndSort = ({productData}) => {
                                         {"پرفروش ترین"}
                                     </Button>
                                     <Button onClick={() => maxDiscount()} sx={{
-                                        padding:0, color: "rgb(64, 64, 64)",border: '0.1rem solid rgba(64, 64, 64, 0.16)', "&:hover": {
+                                        padding:0, color: "#404040",border: '0.1rem solid rgba(64, 64, 64, 0.16)', "&:hover": {
                                             color: "#556FF7",
                                             backgroundColor: "#FFF",
                                         },
                                         [theme.breakpoints.down('sm')]: {
                                             fontSize:"1rem",
                                             margin:"0.7rem 0.5rem 0 0.5rem",
-                                            padding: "0 4rem",
+                                            padding: "0.5rem 4rem",
+                                            borderRadius:"1.8rem",
+                                            whiteSpace: "nowrap",
+                                        },
+                                        [theme.breakpoints.between('sm','md')]: {
+                                            fontSize:"1rem",
+                                            margin:"0.7rem 0.5rem 0.7rem 0.5rem",
+                                            padding: "0.3rem 1rem",
                                             borderRadius:"1.8rem",
                                             whiteSpace: "nowrap",
                                         },
@@ -211,14 +220,21 @@ const PaginationAndSort = ({productData}) => {
                                         {"بیشترین درصد تخفیف"}
                                     </Button>
                                     <Button onClick={() => maxDiscountAmount()} sx={{
-                                        padding:0, color: "rgb(64, 64, 64)",border: '0.1rem solid rgba(64, 64, 64, 0.16)', "&:hover": {
+                                        padding:0, color: "#404040",border: '0.1rem solid rgba(64, 64, 64, 0.16)', "&:hover": {
                                             color: "#556FF7",
                                             backgroundColor: "#FFF",
                                         },
                                         [theme.breakpoints.down('sm')]: {
                                             fontSize:"1rem",
                                             margin:"0.7rem 0.5rem 0 0.5rem",
-                                            padding: "0 4rem",
+                                            padding: "0.5rem 4rem",
+                                            borderRadius:"1.8rem",
+                                            whiteSpace: "nowrap",
+                                        },
+                                        [theme.breakpoints.between('sm','md')]: {
+                                            fontSize:"1rem",
+                                            margin:"0.7rem 0.5rem 0.7rem 0.5rem",
+                                            padding: "0.3rem 1rem",
                                             borderRadius:"1.8rem",
                                             whiteSpace: "nowrap",
                                         },
@@ -226,14 +242,21 @@ const PaginationAndSort = ({productData}) => {
                                         {"بیشترین مبلغ تخفیف"}
                                     </Button>
                                     <Button onClick={() => inexpensiveHandler()} sx={{
-                                        padding:0, color: "rgb(64, 64, 64)",border: '0.1rem solid rgba(64, 64, 64, 0.16)', "&:hover": {
+                                        padding:0, color: "#404040",border: '0.1rem solid rgba(64, 64, 64, 0.16)', "&:hover": {
                                             color: "#556FF7",
                                             backgroundColor: "#FFF",
                                         },
                                         [theme.breakpoints.down('sm')]: {
                                             fontSize:"1rem",
                                             margin:"0.7rem 0.5rem 0 0.5rem",
-                                            padding: "0 4rem",
+                                            padding: "0.5rem 4rem",
+                                            borderRadius:"1.8rem",
+                                            whiteSpace: "nowrap",
+                                        },
+                                        [theme.breakpoints.between('sm','md')]: {
+                                            fontSize:"1rem",
+                                            margin:"0.7rem 0.5rem 0.7rem 0.5rem",
+                                            padding: "0.3rem 1rem",
                                             borderRadius:"1.8rem",
                                             whiteSpace: "nowrap",
                                         },
@@ -241,14 +264,21 @@ const PaginationAndSort = ({productData}) => {
                                         {"ارزان ترین"}
                                     </Button>
                                     <Button onClick={() => expensiveHandler()} sx={{
-                                        padding:0, color: "rgb(64, 64, 64)",border: '0.1rem solid rgba(64, 64, 64, 0.16)', "&:hover": {
+                                        padding:0, color: "#404040",border: '0.1rem solid rgba(64, 64, 64, 0.16)', "&:hover": {
                                             color: "#556FF7",
                                             backgroundColor: "#FFF",
                                         },
                                         [theme.breakpoints.down('sm')]: {
                                             fontSize:"1rem",
                                             margin:"0.7rem 0.5rem 0 0.5rem",
-                                            padding: "0 4rem",
+                                            padding: "0.5rem 4rem",
+                                            borderRadius:"1.8rem",
+                                            whiteSpace: "nowrap",
+                                        },
+                                        [theme.breakpoints.between('sm','md')]: {
+                                            fontSize:"1rem",
+                                            margin:"0.7rem 0.5rem 0.7rem 0.5rem",
+                                            padding: "0.3rem 1rem",
                                             borderRadius:"1.8rem",
                                             whiteSpace: "nowrap",
                                         },
