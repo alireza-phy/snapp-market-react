@@ -5,17 +5,10 @@ import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import {Typography, Button} from "@mui/material";
-import {GridViewOutlined, SwapVert} from "@mui/icons-material";
+import {ExpandLess, GridViewOutlined, SwapVert} from "@mui/icons-material";
 import {makeStyles} from '@mui/styles';
 import ProductCard from "../ProductCard/ProductCard";
 import {useTheme} from '@mui/material/styles';
-import BottomNavigation from "@mui/material/BottomNavigation";
-import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import SlideDrawer from "../Header/slideDrawer";
-import Badge from "@mui/material/Badge";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-
 
 const useStyles = makeStyles(() => ({
     ul: {
@@ -54,14 +47,14 @@ const PaginationAndSort = ({productData}) => {
     return (
             <Box dir="rtl">
                 <Grid item>
-                    <Paper variant="outlined" sx={{display: {xs:"none", md:"flex"}, borderBottom: 0, borderRadius: '4px 4px 0 0 ',
+                    <Paper variant="outlined" sx={{display: {xs:"none", sm:"flex"}, borderBottom: 0, borderRadius: '4px 4px 0 0 ',
                         padding:"0.5rem",
-                        [theme.breakpoints.down('sm')]: {
+                        [theme.breakpoints.between('sm','md')]: {
 
                         },
 
                     }}>
-                        <SwapVert sx={{fontSize: "2rem", color: "black"}}/>
+                        <SwapVert sx={{fontSize: "1.6rem", color: "black",display:{xs:"none",md:"flex"}}}/>
                         <Typography sx={{color: "rgb(64, 64, 64)", fontWeight: 600}}>
                             مرتب سازی براساس:
                             <Button onClick={() => defaults()} sx={{
@@ -152,64 +145,119 @@ const PaginationAndSort = ({productData}) => {
                 <Grid item>
                     <Paper elevation={3} sx={{display: {sm: "flex", md: "none"}, margin:"1.4rem 0",
                         borderBottom: 0, borderRadius: '4px 4px 0 0 ', alignItems:"center"}}>
-                        <Grid item>
-                            <Button sx={{color: "rgb(64, 64, 64)", fontWeight: 400,fontSize:"1.4rem"}}>
-                                فیلترها
-                            </Button>
-                        </Grid>
-                        <Grid item>
-                            <Box sx={{overflowX:"scroll"}}>
-                                <Button onClick={() => defaults()} sx={{
-                                    borderRadius: "5rem", color: "rgb(64, 64, 64)", fontWeight: 400,fontSize:"1.4rem",
-                                    "&:hover": {
-                                        color: "#556FF7",
-                                        backgroundColor: "#FFF",
-                                    }
-                                }}>
-                                    {"پیش فرض"}
+
+                            <Box sx={{display:"flex"}}>
+                                <Button sx={{color: "rgb(64, 64, 64)", fontWeight: 400,fontSize:"1.2rem",}}>
+                                    فیلترها
+                                    <ExpandLess/>
                                 </Button>
-                                <Button sx={{
-                                    borderRadius: "5rem", color: "rgb(64, 64, 64)", fontWeight: 400,fontSize:"1.4rem", "&:hover": {
-                                        color: "#556FF7",
-                                        backgroundColor: "#FFF",
-                                    }
+
+                                <Box sx={{display:"flex",overflow: "scroll",
+                                    [theme.breakpoints.between('sm','md')]: {
+                                        overflow:"scroll"
+                                    },
+
                                 }}>
-                                    {"پرفروش ترین"}
-                                </Button>
-                                <Button onClick={() => maxDiscount()} sx={{
-                                    borderRadius: "5rem", color: "rgb(64, 64, 64)", fontWeight: 400,fontSize:"1.4rem", "&:hover": {
-                                        color: "#556FF7",
-                                        backgroundColor: "#FFF",
-                                    }
-                                }}>
-                                    {"بیشترین درصد تخفیف"}
-                                </Button>
-                                <Button onClick={() => maxDiscountAmount()} sx={{
-                                    borderRadius: "5rem", color: "rgb(64, 64, 64)", fontWeight: 400,fontSize:"1.4rem", "&:hover": {
-                                        color: "#556FF7",
-                                        backgroundColor: "#FFF",
-                                    }
-                                }}>
-                                    {"بیشترین مبلغ تخفیف"}
-                                </Button>
-                                <Button onClick={() => inexpensiveHandler()} sx={{
-                                    borderRadius: "5rem", color: "rgb(64, 64, 64)", fontWeight: 400,fontSize:"1.4rem", "&:hover": {
-                                        color: "#556FF7",
-                                        backgroundColor: "#FFF",
-                                    }
-                                }}>
-                                    {"ارزان ترین"}
-                                </Button>
-                                <Button onClick={() => expensiveHandler()} sx={{
-                                    borderRadius: "5rem", color: "rgb(64, 64, 64)", fontWeight: 400,fontSize:"1.4rem", "&:hover": {
-                                        color: "#556FF7",
-                                        backgroundColor: "#FFF",
-                                    }
-                                }}>
-                                    {"گران ترین"}
-                                </Button>
+                                    <Button onClick={() => defaults()} sx={{
+                                        padding:0, color: "rgb(64, 64, 64)",border: '0.1rem solid rgba(64, 64, 64, 0.16)',
+
+                                        "&:hover": {
+                                            color: "#556FF7",
+                                            backgroundColor: "#FFF",
+                                        },
+                                        [theme.breakpoints.down('sm')]: {
+                                            fontSize:"1rem",
+                                            margin:"0.7rem 0.5rem 0 0.5rem",
+                                            padding: "0 4rem",
+                                            borderRadius:"1.8rem",
+                                            whiteSpace: "nowrap",
+                                        },
+                                        [theme.breakpoints.between('sm','md')]: {
+
+
+                                        },
+
+                                    }}>
+                                        {"پیش فرض"}
+                                    </Button>
+                                    <Button sx={{
+                                        padding:0, color: "rgb(64, 64, 64)",border: '0.1rem solid rgba(64, 64, 64, 0.16)', "&:hover": {
+                                            color: "#556FF7",
+                                            backgroundColor: "#FFF",
+                                        },
+                                        [theme.breakpoints.down('sm')]: {
+                                            fontSize:"1rem",
+                                            margin:"0.7rem 0.5rem 0 0.5rem",
+                                            padding: "0 4rem",
+                                            borderRadius:"1.8rem",
+                                            whiteSpace: "nowrap",
+                                        },
+                                    }}>
+                                        {"پرفروش ترین"}
+                                    </Button>
+                                    <Button onClick={() => maxDiscount()} sx={{
+                                        padding:0, color: "rgb(64, 64, 64)",border: '0.1rem solid rgba(64, 64, 64, 0.16)', "&:hover": {
+                                            color: "#556FF7",
+                                            backgroundColor: "#FFF",
+                                        },
+                                        [theme.breakpoints.down('sm')]: {
+                                            fontSize:"1rem",
+                                            margin:"0.7rem 0.5rem 0 0.5rem",
+                                            padding: "0 4rem",
+                                            borderRadius:"1.8rem",
+                                            whiteSpace: "nowrap",
+                                        },
+                                    }}>
+                                        {"بیشترین درصد تخفیف"}
+                                    </Button>
+                                    <Button onClick={() => maxDiscountAmount()} sx={{
+                                        padding:0, color: "rgb(64, 64, 64)",border: '0.1rem solid rgba(64, 64, 64, 0.16)', "&:hover": {
+                                            color: "#556FF7",
+                                            backgroundColor: "#FFF",
+                                        },
+                                        [theme.breakpoints.down('sm')]: {
+                                            fontSize:"1rem",
+                                            margin:"0.7rem 0.5rem 0 0.5rem",
+                                            padding: "0 4rem",
+                                            borderRadius:"1.8rem",
+                                            whiteSpace: "nowrap",
+                                        },
+                                    }}>
+                                        {"بیشترین مبلغ تخفیف"}
+                                    </Button>
+                                    <Button onClick={() => inexpensiveHandler()} sx={{
+                                        padding:0, color: "rgb(64, 64, 64)",border: '0.1rem solid rgba(64, 64, 64, 0.16)', "&:hover": {
+                                            color: "#556FF7",
+                                            backgroundColor: "#FFF",
+                                        },
+                                        [theme.breakpoints.down('sm')]: {
+                                            fontSize:"1rem",
+                                            margin:"0.7rem 0.5rem 0 0.5rem",
+                                            padding: "0 4rem",
+                                            borderRadius:"1.8rem",
+                                            whiteSpace: "nowrap",
+                                        },
+                                    }}>
+                                        {"ارزان ترین"}
+                                    </Button>
+                                    <Button onClick={() => expensiveHandler()} sx={{
+                                        padding:0, color: "rgb(64, 64, 64)",border: '0.1rem solid rgba(64, 64, 64, 0.16)', "&:hover": {
+                                            color: "#556FF7",
+                                            backgroundColor: "#FFF",
+                                        },
+                                        [theme.breakpoints.down('sm')]: {
+                                            fontSize:"1rem",
+                                            margin:"0.7rem 0.5rem 0 0.5rem",
+                                            padding: "0 4rem",
+                                            borderRadius:"1.8rem",
+                                            whiteSpace: "nowrap",
+                                        },
+                                    }}>
+                                        {"گران ترین"}
+                                    </Button>
+                                </Box>
                             </Box>
-                        </Grid>
+
                     </Paper>
                 </Grid>
             </Box>
