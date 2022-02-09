@@ -215,7 +215,7 @@ const ProductData = [
         },
         seller: 'هایپر استار',
         tags: [
-            {id: 1, name: 'پر چرب'},
+            {id: 1, name: 'پرچرب'},
             {id: 2, name: 'کاکائو'}
         ],
         price: 17500,
@@ -707,7 +707,7 @@ const ProductData = [
         },
         seller: 'هایپر استار',
         tags: [
-            {id: 1, name: 'پر چرب'}
+            {id: 1, name: 'پرچرب'}
         ],
         price: 33200,
         discount: null,
