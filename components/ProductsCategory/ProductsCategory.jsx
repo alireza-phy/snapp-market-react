@@ -16,6 +16,8 @@ const ProductCategory = ({
                              categorySub,
                              ordinary,
                              special,
+                             list,
+                             category,
                              goldenOffer,
                              children,
                              spTitle,
@@ -159,7 +161,7 @@ const ProductCategory = ({
                             </Typography>
                     }
                     <Typography variant='body1' component='span'
-                                onClick={()=> showCategoryHandler(categoryList[0].categoryEn)}
+                                onClick={() => showCategoryHandler(categoryList[0].categoryEn)}
                                 sx={{
                                     display: 'flex',
                                     alignItems: 'center',
@@ -256,7 +258,8 @@ const ProductCategory = ({
                                 <ProductCard
                                     key={item.id}
                                     category
-                                    special
+                                    ordinary={ordinary}
+                                    special={special}
                                     width='14.5rem'
                                     item={item}
                                 />

@@ -12,9 +12,9 @@ function MyApp({Component, pageProps}) {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline/>
+            <HeaderAndFooter>
             <Component {...pageProps}/>
-            {/*<HeaderAndFooter>*/}
-            {/*</HeaderAndFooter>*/}
+            </HeaderAndFooter>
         </ThemeProvider>
     )
 }
