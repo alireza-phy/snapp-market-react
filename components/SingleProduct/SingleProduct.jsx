@@ -8,265 +8,233 @@ import Link from "@mui/material/Link";
 import HomeIcon from "@mui/icons-material/Home";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import SingleProductCardPrice from '../../components/CardPrice/SingleProductCardPrice'
-// import { useEffect, useState } from "react";
-import ProductData from '../../components/ProductData/ProductData'
+import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
 
 const SingleProduct = ({currentProduct}) => {
-  // const sampleProduct = {
-  //   products: [
-  //     {
-  //       MaximumOrder: 4,
-  //       brand: { brandEn: "pak", brandPe: "پاک" },
-  //       category: { categoryEn: "dairy-products", categoryPe: "لبنیات" },
-  //       discount: 14,
-  //       group: { groupId: 1, groupName: "شیر" },
-  //       id: "1",
-  //       images: [
-  //         {
-  //           id: 1,
-  //           url: "https://api.snapp.market/media/cache/product-varia…ploads/images/vendors/users/app/60cf1e4112f33.jpg",
-  //         },
-  //         {
-  //           id: 2,
-  //           url: "https://api.snapp.market/media/cache/product-varia…ploads/images/vendors/users/app/60cf1e671bbe9.jpg",
-  //         },
-  //       ],
-  //       length: 2,
-  //       inventory: { available: true, quantity: 9 },
-  //       name: "شیر کم چرب غنی شده با ویتامین D پاک ۱ لیتری",
-  //       price: 10900,
-  //       seller: "هایپر استار",
-  //       tags: [
-  //         { id: 1, name: "کم چرب" },
-  //         { id: 2, name: "ساده" },
-  //       ],
-  //     },
-  //   ],
-  // };
-  // const [data, setData] = useState(sampleProduct);
-  // useEffect(async () => {
-  //   await fetch("/api/products")
-  //     .then((res) => res.json())
-  //     .then((data) => setData(data));
-  // }, []);
 
-  return (
-    <Container
-      sx={{
-        margin: "0 auto ",
-        border: "1px solid grey",
-        padding: "10px 20px 20px 20px",
-        marginTop: "60px",
-      }}
-    >
-      <Box
-        sx={{
-          marginTop: "10px",
-          marginBottom: "50px",
-          display: "flex",
-          alignItems: "center",
-        }}
-        role="presentation"
-      >
-        <Breadcrumbs aria-label="breadcrumb">
-          <Link
-            underline="hover"
-            sx={{ display: "flex", alignItems: "center" }}
-            color="inherit"
-            href="#"
-          >
-            <HomeIcon sx={{ padding: "2px" }} />
-            اسنپ مارکت
-          </Link>
-          <Link
-            underline="hover"
-            sx={{ display: "flex", alignItems: "center" }}
-            color="inherit"
-            href="#"
-          >
-            {currentProduct.categoryPe}
-          </Link>
-          <Link
-            underline="hover"
-            sx={{ display: "flex", alignItems: "center" }}
-            color="inherit"
-            href="#"
-          >
-            {currentProduct.groupName}
-          </Link>
-
-          <Link
-            underline="hover"
-            sx={{ display: "flex", alignItems: "center" }}
-            color="inherit"
-            href="#"
-          >
-              {currentProduct.groupName} {" "}
-            {currentProduct.brand.brandPe}
-
-          </Link>
-        </Breadcrumbs>
-      </Box>
-
-      <Grid
-        spacing={7}
-        container
-        xs={12}
-        columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-      >
-        <Grid item xs={12} sm={6} md={6} lg={5}>
-          <SingleSlider
-              currentProduct={currentProduct}
-          />
-        </Grid>
-        <Grid item xs={12} sm={12} md={6} lg={6}>
-          <Box
+    return (
+        <Container
             sx={{
-              display: "flex",
-              flexDirection: "column",
-              borderBottom: "1px dashed grey",
+                margin: "0 auto ",
+                border: '0.1rem solid rgba(163, 163, 163, 0.25)',
+                padding: "10px 20px 20px 20px",
+                marginTop: "60px",
+                backgroundColor: "white"
             }}
-          >
-            <Typography
-              sx={{
-                paddingBottom: "20px",
-                fontWeight: "bold",
-                fontSize: "1.5rem",
-              }}
-              component="h1"
-            >
-              {currentProduct.name}
-            </Typography>
+        >
             <Box
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-              }}
+                sx={{
+                    marginTop: "10px",
+                    marginBottom: "50px",
+                    display: "flex",
+                    alignItems: "center",
+                }}
+                role="presentation"
             >
+                <Breadcrumbs separator={<KeyboardArrowLeftOutlinedIcon fontSize="small"/>} aria-label="breadcrumb">
+                    <Link
+                        underline="hover"
+                        sx={{display: "flex", alignItems: "center"}}
+                        color="inherit"
+                        href="#"
+                    >
+                        <HomeIcon sx={{p: "2px", marginX: '5px'}}/>
+                        اسنپ مارکت
+                    </Link>
+                    <Link
+                        underline="hover"
+                        sx={{display: "flex", alignItems: "center"}}
+                        color="inherit"
+                        href="#"
+                    >
+                        {currentProduct.categoryPe}
+                    </Link>
+                    <Link
+                        underline="hover"
+                        sx={{display: "flex", alignItems: "center"}}
+                        color="inherit"
+                        href="#"
+                    >
+                        {currentProduct.groupName}
+                    </Link>
 
-              <Typography sx={{ fontWeight: "bold" }} component="h2">
-                برند :
-              </Typography>
-              <Typography
-                sx={{
-                  color: "rgb(85,111,247)",
-                  paddingRight: "5px",
-                  fontWeight: "bold",
-                  paddingBottom: "15px",
-                }}
-              >
-                <Link sx={{ textDecoration: "none" }} href="#">
-                  {currentProduct.brand.brandPe}
-                </Link>
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-              }}
-            >
-              <Typography sx={{ fontWeight: "bold" }} component="h2">
-                دسته بندی ها :
-              </Typography>
-              <Typography
-                sx={{
-                  color: "rgb(85,111,247)",
-                  fontWeight: "bold",
-                  paddingBottom: "15px",
-                  paddingRight: "5px",
-                }}
-              >
-                <Link sx={{ textDecoration: "none" }} href="#">
-                    {currentProduct.groupName}
-                </Link>
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-              }}
-            >
-              <Typography
-                sx={{
-                  fontWeight: "bold",
-                }}
-                component="h2"
-              >
-                فروشنده :
-              </Typography>
-              <Typography
-                sx={{
-                  color: "rgb(85,111,247)",
-                  fontWeight: "bold",
-                  paddingBottom: "10px",
-                  paddingRight: "5px",
-                }}
-              >
-                {currentProduct.seller}
+                    <Link
+                        underline="hover"
+                        sx={{display: "flex", alignItems: "center"}}
+                        color="inherit"
+                        href="#"
+                    >
+                        {currentProduct.groupName} {" "}
+                        {currentProduct.brand.brandPe}
 
-              </Typography>
+                    </Link>
+                </Breadcrumbs>
             </Box>
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-            }}
-          >
-            <Typography
-              sx={{
-                display: "flex",
-                justifyContent: "flex-start",
-                paddingTop: "15px",
-                fontWeight: "bold",
-              }}
-              component="h2"
-            >
-              قیمت مصرف کننده :
-            </Typography>
-          </Box>
-          <Box>
-            {/*<Typography*/}
-            {/*  sx={{*/}
-            {/*    display: "flex",*/}
-            {/*    justifyContent: "flex-end",*/}
-            {/*    color: "rgb(117,117,117)",*/}
-            {/*    fontWeight: "bold",*/}
-            {/*    paddingBottom: "15px",*/}
-            {/*    fontSize: "1.4rem",*/}
-            {/*  }}*/}
-            {/*  component="h2"*/}
-            {/*>*/}
-                <SingleProductCardPrice
-                price={currentProduct.price}
-                discount={currentProduct.discount}
-                />
 
-            {/*</Typography>*/}
-          </Box>
-          <Button
-            variant="outlined"
-            sx={{
-              width: "100%",
-              color: "rgb(7,188,32)",
-              borderColor: "rgb(7,188,32)",
-              fontWeight: "bold",
-              fontSize: "1rem",
-              "&:hover": {
-                color: "white",
-                borderColor: "rgb(7,188,32)",
-                backgroundColor: "rgb(7,188,32)",
-              },
-            }}
-          >
-            افزودن به سبد
-          </Button>
-        </Grid>
-      </Grid>
-    </Container>
-  );
+            <Grid
+                spacing={7}
+                container
+                direction="row"
+                justifyContent="space-around"
+                // alignItems="center"
+                xs={12}
+                columnSpacing={{xs: 1, sm: 2, md: 3}}
+            >
+                <Grid item xs={12} sm={6} md={6} lg={4}>
+                    <SingleSlider
+                        currentProduct={currentProduct}
+                    />
+                </Grid>
+                <Grid item xs={12} sm={12} md={6} lg={5}>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            borderBottom: "1px dashed grey",
+                        }}
+                    >
+                        <Typography
+                            sx={{
+                                paddingBottom: "20px",
+                                fontWeight: "bold",
+                                fontSize: "1.5rem",
+                            }}
+                            component="h2"
+                        >
+                            {currentProduct.name}
+                        </Typography>
+                        <Box
+                            sx={{
+                                display: "flex",
+                                flexDirection: "row",
+                            }}
+                        >
+
+                            <Typography sx={{fontWeight: "bold"}} component="h2">
+                                برند :
+                            </Typography>
+                            <Typography
+                                sx={{
+                                    color: "rgb(85,111,247)",
+                                    paddingRight: "5px",
+                                    fontWeight: "bold",
+                                    paddingBottom: "15px",
+                                }}
+                            >
+                                <Link sx={{textDecoration: "none"}} href="#">
+                                    {currentProduct.brand.brandPe}
+                                </Link>
+                            </Typography>
+                        </Box>
+                        <Box
+                            sx={{
+                                display: "flex",
+                                flexDirection: "row",
+                            }}
+                        >
+                            <Typography sx={{fontWeight: "bold"}} component="h2">
+                                دسته بندی ها :
+                            </Typography>
+                            <Typography
+                                sx={{
+                                    color: "rgb(85,111,247)",
+                                    fontWeight: "bold",
+                                    paddingBottom: "15px",
+                                    paddingRight: "5px",
+                                }}
+                            >
+                                <Link sx={{textDecoration: "none"}} href="#">
+                                    {currentProduct.groupName}
+                                </Link>
+                            </Typography>
+                        </Box>
+                        <Box
+                            sx={{
+                                display: "flex",
+                                flexDirection: "row",
+                            }}
+                        >
+                            <Typography
+                                sx={{
+                                    fontWeight: "bold",
+                                }}
+                                component="h2"
+                            >
+                                فروشنده :
+                            </Typography>
+                            <Typography
+                                sx={{
+                                    color: "rgb(85,111,247)",
+                                    fontWeight: "bold",
+                                    paddingBottom: "10px",
+                                    paddingRight: "5px",
+                                }}
+                            >
+                                {currentProduct.seller}
+
+                            </Typography>
+                        </Box>
+                        <Box
+                            sx={{display: 'flex'}}>
+                            {currentProduct.tags.map(item =>
+                                <Typography
+                                    key={item.id}
+                                    sx={{
+                                        backgroundColor: 'rgb(250, 250, 250)',
+                                        borderColor: 'rgb(250, 250, 250)',
+                                        color: 'rgb(117, 117, 117)',
+                                        borderRadius: "0.8rem",
+                                        px: 1.2,
+                                        py: .4,
+                                        m: 0.8
+                                    }} variant="body2" component="span">
+                                    {item.name}
+                                </Typography>
+                            )}
+                        </Box>
+                    </Box>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                        }}
+                    >
+                        <Typography
+                            sx={{
+                                display: "flex",
+                                justifyContent: "flex-start",
+                                paddingTop: "15px",
+                                fontWeight: "bold",
+                            }}
+                            component="h2"
+                        >
+                            قیمت مصرف کننده :
+                        </Typography>
+                    </Box>
+                    <SingleProductCardPrice
+                        price={currentProduct.price}
+                        discount={currentProduct.discount}
+                    />
+                    <Button
+                        variant="outlined"
+                        sx={{
+                            width: "100%",
+                            color: "rgb(11, 153, 30)",
+                            border: '0.1rem solid rgb(16, 224, 44)',
+                            fontSize: '1.1rem',
+                            p: 1.25,
+                            "&:hover": {
+                                color: "white",
+                                backgroundColor: "rgb(5, 139, 24)",
+                            },
+                        }}
+                    >
+                        افزودن به سبد
+                    </Button>
+                </Grid>
+            </Grid>
+        </Container>
+    );
 };
 
 export default SingleProduct;

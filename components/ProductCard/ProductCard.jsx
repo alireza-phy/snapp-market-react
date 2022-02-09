@@ -12,12 +12,12 @@ import {useRouter} from 'next/router';
 function ProductCard({
                          item, width, ordinary, special, list, category
                      }) {
-
+    // let dummyString = item.name.replace(/\s+/g, '-');
     const router = useRouter();
 
     const showProductHandler = () => {
         router.push('/products/' + item.id)
-        console.log(item.id)
+        // console.log(dummyString)
     }
 
     const [quantity, setQuantity] = useState(0)
