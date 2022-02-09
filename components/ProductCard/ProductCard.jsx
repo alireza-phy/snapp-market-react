@@ -1,4 +1,3 @@
-
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -9,6 +8,7 @@ import {useState} from "react";
 import CardPrice from "../CardPrice/CardPrice";
 import CardAddToCartButton from "../CardAddToCartButton/CardAddToCartButton";
 import {createTheme, ThemeProvider} from '@mui/material/styles';
+import {useRouter} from 'next/router';
 
 const theme = createTheme({
     breakpoints: {
@@ -23,12 +23,8 @@ const theme = createTheme({
     },
 });
 
-function ProductCard({src, title, price, discount, available, maximumOrder, width, ordinary, special, list, category}) {
-import {useRouter} from 'next/router';
+function ProductCard({item, width, ordinary, special, list, category}) {
 
-function ProductCard({
-                         item, width, ordinary, special, list, category
-                     }) {
     // let dummyString = item.name.replace(/\s+/g, '-');
     const router = useRouter();
 
@@ -87,20 +83,11 @@ function ProductCard({
                                 '-webkit-user-drag': 'none'
                             }}
                             component="img"
-                            src={src}
+                            src={item.images[0].url}
                             alt=""
                         />
                     </ThemeProvider>
 
-                    <CardMedia
-                        onClick={() => showProductHandler()}
-                        sx={{
-                            width: 170, pb: 0.75, transition: 'transform 0.25s ease-in-out 0s',
-                        }}
-                        component="img"
-                        src={item.images[0].url}
-                        alt=""
-                    />
                     {
                         (item.inventory.available)
                         ||
@@ -120,6 +107,9 @@ function ProductCard({
                         </Typography>
                     }
                 </Box>
+            </CardContent>
+            <Box>
+            <CardContent sx={{p: '0', cursor: 'pointer'}}>
                 <Typography variant="body1" component="p"
                             sx={{
                                 minHeight: 48,
@@ -134,47 +124,22 @@ function ProductCard({
                     {item.name}
                 </Typography>
             </CardContent>
-            <CardActions
-                sx={{p: '0', display: 'flex', alignItems: 'flex-end'}}>
-                <CardPrice price={item.price} discount={item.discount}/>
-                {
-                    (item.inventory.available)
-                    &&
-                    <CardAddToCartButton quantity={quantity}
-                                         incrementHandler={incrementHandler}
-                                         decrementHandler={decrementHandler}
-                                         maximumOrder={item.MaximumOrder}/>
-                }
-            </CardActions>
-            </CardContent>
-            <Box>
-                <CardContent sx={{p: '0', cursor: 'pointer'}}>
-                    <Typography variant="body1" component="p" sx={{
-                        minHeight: 48,
-                        color: '#30354b',
-                        mb: 0.5,
-                        wordWrap: 'break-word',
-                        wordBreak: 'break-word',
-                        whiteSpace: 'pre-wrap'
-                    }}>
-                        {title}
-                    </Typography>
-                </CardContent>
-                <CardActions
-                    sx={{p: '0', display: 'flex', alignItems: 'flex-end'}}>
-                    <CardPrice price={price} discount={discount}/>
-                    {
-                        available
-                        &&
-                        <CardAddToCartButton quantity={quantity}
-                                             incrementHandler={incrementHandler}
-                                             decrementHandler={decrementHandler}
-                                             maximumOrder={maximumOrder}/>
-                    }
-                </CardActions>
+
+    <CardActions
+        sx={{p: '0', display: 'flex', alignItems: 'flex-end'}}>
+        <CardPrice price={item.price} discount={item.discount}/>
+        {
+            (item.inventory.available)
+            &&
+            <CardAddToCartButton quantity={quantity}
+                                 incrementHandler={incrementHandler}
+                                 decrementHandler={decrementHandler}
+                                 maximumOrder={item.MaximumOrder}/>
+        }
+    </CardActions>
             </Box>
-        </Card>
-    );
+</Card>
+);
 }
 
 export default ProductCard;
