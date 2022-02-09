@@ -14,27 +14,75 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Drawer from '@mui/material/Drawer'
 import Button from '@mui/material/Button'
+import {styled} from '@mui/material/styles';
+import PN from "persian-number";
 import {useState} from "react";
 
-const ProductsFilter = () => {
-    const [appliedFilters, setAppliedFilters] = useState([
-        {id: 1, tagName: 'علی'}, {id: 2, tagName: 'ابوالفضل'}, {id: 3, tagName: 'احمدرضا'}
-    ])
-    const filterRemoveHandler = (id) => {
-        setAppliedFilters(appliedFilters.filter((tag) => tag.id !== id))
-    }
-    const removeFilterList = () => {
-        setAppliedFilters([])
-    }
-    const [drawer, setDrawer] = useState(true);
+const ProductsFilter = ({
+                            filter,
+                            filterRemoveHandler,
+                            removeFilterList,
+                            categories,
+                            brands,
+                            types,
+                            priceRange,
+                            ranger,
+                            lowPrice,
+                            highPrice,
+                            handleChange,
+                            justDiscount,
+                            justDiscountState
+                        }) => {
+    const [drawer, setDrawer] = useState(false);
     const drawerClose = () => {
         setDrawer(false);
-    };
+    }
+    const AntSwitch = styled(Switch)(({theme}) => ({
+        width: 33,
+        height: 17,
+        padding: 0,
+        display: 'flex',
+        '&:active': {
+            '& .MuiSwitch-thumb': {
+                width: 15,
+            },
+            '& .MuiSwitch-switchBase.Mui-checked': {
+                transform: 'translateX(9px)',
+            },
+        },
+        '& .MuiSwitch-switchBase': {
+            padding: 2,
+            '&.Mui-checked': {
+                transform: 'translateX(17px)',
+                color: '#fff',
+                '& + .MuiSwitch-track': {
+                    opacity: 1,
+                    backgroundColor: theme.palette.mode === 'dark' ? '#177ddc' : '#556ff7',
+                },
+            },
+        },
+        '& .MuiSwitch-thumb': {
+            boxShadow: '0 2px 4px 0 rgb(0 35 11 / 10%)',
+            width: 13,
+            height: 13,
+            borderRadius: 6,
+            transition: theme.transitions.create(['width'], {
+                duration: 200,
+            }),
+        },
+        '& .MuiSwitch-track': {
+            borderRadius: 16 / 2,
+            opacity: 1,
+            backgroundColor:
+                theme.palette.mode === 'dark' ? 'rgba(255,255,255,.35)' : '#f2f2f2',
+            boxSizing: 'border-box',
+        },
+    }));
     return (
         <Grid item xs={12} sm={12} md={3} xl={3} sx={{position: 'relative'}}>
             <Box sx={{position: 'sticky', top: 15, display: {xs: 'none', sm: 'none', md: 'block', xl: 'block'}}}>
                 {
-                    !(!appliedFilters.length)
+                    !(!filter.length)
                     &&
                     <Paper variant='outlined' sx={{px: 2, py: 1, mb: 2}}>
                         <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
@@ -45,7 +93,7 @@ const ProductsFilter = () => {
                         </Box>
                         <Box sx={{display: 'flex', gap: 1, flexWrap: 'wrap', py: 2.5}}>
                             {
-                                appliedFilters.map((tag) => (
+                                filter.map((tag) => (
                                     <Paper key={tag.id} variant='outlined' sx={{
                                         p: 1,
                                         borderRadius: 5,
@@ -65,7 +113,7 @@ const ProductsFilter = () => {
                         </Box>
                     </Paper>
                 }
-                <Accordion variant='outlined' sx={{borderRadius: 1, mb: 1}}>
+                <Accordion variant='outlined' sx={{borderRadius: 1, mb: 1, py: 0.25}}>
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon/>}
                         aria-controls="panel1a-content"
@@ -83,31 +131,25 @@ const ProductsFilter = () => {
                             overflowY: 'auto'
                         }}>
                             <FormGroup sx={{mr: -1.5}}>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
+                                {
+                                    categories.map((category) => (
+                                        <FormControlLabel key={category.id} sx={{m: 0}}
+                                                          control={
+                                                              <Checkbox/>
+                                                          }
+                                                          label={
+                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
+                                                                          component='p'>
+                                                                  {category.name}
+                                                              </Typography>
+                                                          }/>
+                                    ))
+                                }
                             </FormGroup>
                         </Box>
                     </AccordionDetails>
                 </Accordion>
-                <Accordion variant='outlined' sx={{borderRadius: 1, mb: 1}}>
+                <Accordion variant='outlined' sx={{borderRadius: 1, mb: 1, py: 0.25}}>
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon/>}
                         aria-controls="panel1a-content"
@@ -125,111 +167,25 @@ const ProductsFilter = () => {
                             overflowY: 'auto'
                         }}>
                             <FormGroup sx={{mr: -1.5}}>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
+                                {
+                                    brands.map((brand) => (
+                                        <FormControlLabel key={brand.id} sx={{m: 0}}
+                                                          control={
+                                                              <Checkbox/>
+                                                          }
+                                                          label={
+                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
+                                                                          component='p'>
+                                                                  {brand.pe}
+                                                              </Typography>
+                                                          }/>
+                                    ))
+                                }
                             </FormGroup>
                         </Box>
                     </AccordionDetails>
                 </Accordion>
-                <Accordion variant='outlined' sx={{borderRadius: 1, mb: 1}}>
+                <Accordion variant='outlined' sx={{borderRadius: 1, mb: 1, py: 0.25}}>
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon/>}
                         aria-controls="panel1a-content"
@@ -247,116 +203,20 @@ const ProductsFilter = () => {
                             overflowY: 'auto'
                         }}>
                             <FormGroup sx={{mr: -1.5}}>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
-                                <FormControlLabel sx={{m: 0}}
-                                                  control={
-                                                      <Checkbox/>
-                                                  }
-                                                  label={
-                                                      <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                  component='p'>
-                                                          شیر تازه
-                                                      </Typography>
-                                                  }/>
+                                {
+                                    types.map((type) => (
+                                        <FormControlLabel key={type.id} sx={{m: 0}}
+                                                          control={
+                                                              <Checkbox/>
+                                                          }
+                                                          label={
+                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
+                                                                          component='p'>
+                                                                  {type.tag}
+                                                              </Typography>
+                                                          }/>
+                                    ))
+                                }
                             </FormGroup>
                         </Box>
                     </AccordionDetails>
@@ -367,13 +227,12 @@ const ProductsFilter = () => {
                            justifyContent: 'space-between',
                            alignItems: 'center',
                            mb: 2,
-                           px: 2,
-                           py: 1
+                           p: 2
                        }}>
                     <Typography variant='body2' component='p'>
                         فقط کالاهای موجود
                     </Typography>
-                    <Switch inputProps={{'aria-label': 'controlled'}}/>
+                    <AntSwitch inputProps={{'aria-label': 'controlled'}}/>
                 </Paper>
                 <Paper variant='outlined'
                        sx={{
@@ -381,20 +240,29 @@ const ProductsFilter = () => {
                            justifyContent: 'space-between',
                            alignItems: 'center',
                            mb: 2,
-                           px: 2,
-                           py: 1
+                           p: 2
                        }}>
                     <Typography variant='body2' component='p'>
                         فقط کالاهای تخفیف دار
                     </Typography>
-                    <Switch inputProps={{'aria-label': 'controlled'}}/>
+                    <AntSwitch onChange={justDiscount} checked={justDiscountState}
+                               inputProps={{'aria-label': 'controlled'}}/>
                 </Paper>
                 <Paper variant='outlined' sx={{px: 2, py: 1}}>
                     <Typography>قیمت</Typography>
-                    <Slider sx={{mb: 2}}/>
-                    <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
-                        <Typography variant='body2' component='p'>از 3,800 تومان</Typography>
-                        <Typography variant='body2' component='p'>تا 78,800 تومان</Typography>
+                    <Slider
+                        size='small'
+                        min={lowPrice}
+                        max={highPrice}
+                        value={ranger}
+                        onChange={handleChange}
+                        disableSwap
+                    />
+                    <Box sx={{display: 'flex', justifyContent: 'space-between', mt: 2}}>
+                        <Typography variant='body2'
+                                    component='p'> از{PN.convertEnToPe(PN.sliceNumber(priceRange.to))}تومان </Typography>
+                        <Typography variant='body2'
+                                    component='p'> تا{PN.convertEnToPe(PN.sliceNumber(priceRange.from))} تومان </Typography>
                     </Box>
                 </Paper>
             </Box>
@@ -430,7 +298,7 @@ const ProductsFilter = () => {
                     </Box>
                     <Box sx={{m: 2, mt: 0.5}}>
                         {
-                            !(!appliedFilters.length)
+                            !(!filter.length)
                             &&
                             <Paper variant='outlined' sx={{px: 3, py: 1.5, mb: 2}}>
                                 <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
@@ -441,7 +309,7 @@ const ProductsFilter = () => {
                                 </Box>
                                 <Box sx={{display: 'flex', gap: 1, flexWrap: 'wrap', py: 1.5}}>
                                     {
-                                        appliedFilters.map((tag) => (
+                                        filter.map((tag) => (
                                             <Paper key={tag.id} variant='outlined' sx={{
                                                 p: 1,
                                                 borderRadius: 5,
@@ -484,26 +352,21 @@ const ProductsFilter = () => {
                                     overflowY: 'auto'
                                 }}>
                                     <FormGroup sx={{mr: -1.5}}>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
+                                        {
+                                            categories.map((category) => (
+                                                <FormControlLabel key={category.id} sx={{m: 0}}
+                                                                  control={
+                                                                      <Checkbox/>
+                                                                  }
+                                                                  label={
+                                                                      <Typography sx={{userSelect: 'none'}}
+                                                                                  variant='body1'
+                                                                                  component='p'>
+                                                                          {category.name}
+                                                                      </Typography>
+                                                                  }/>
+                                            ))
+                                        }
                                     </FormGroup>
                                 </Box>
                             </AccordionDetails>
@@ -526,106 +389,21 @@ const ProductsFilter = () => {
                                     overflowY: 'auto'
                                 }}>
                                     <FormGroup sx={{mr: -1.5}}>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
+                                        {
+                                            brands.map((brand) => (
+                                                <FormControlLabel key={brand.id} sx={{m: 0}}
+                                                                  control={
+                                                                      <Checkbox/>
+                                                                  }
+                                                                  label={
+                                                                      <Typography sx={{userSelect: 'none'}}
+                                                                                  variant='body1'
+                                                                                  component='p'>
+                                                                          {brand.pe}
+                                                                      </Typography>
+                                                                  }/>
+                                            ))
+                                        }
                                     </FormGroup>
                                 </Box>
                             </AccordionDetails>
@@ -648,116 +426,21 @@ const ProductsFilter = () => {
                                     overflowY: 'auto'
                                 }}>
                                     <FormGroup sx={{mr: -1.5}}>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
-                                        <FormControlLabel sx={{m: 0}}
-                                                          control={
-                                                              <Checkbox/>
-                                                          }
-                                                          label={
-                                                              <Typography sx={{userSelect: 'none'}} variant='body1'
-                                                                          component='p'>
-                                                                  شیر تازه
-                                                              </Typography>
-                                                          }/>
+                                        {
+                                            types.map((type) => (
+                                                <FormControlLabel key={type.id} sx={{m: 0}}
+                                                                  control={
+                                                                      <Checkbox/>
+                                                                  }
+                                                                  label={
+                                                                      <Typography sx={{userSelect: 'none'}}
+                                                                                  variant='body1'
+                                                                                  component='p'>
+                                                                          {type.tag}
+                                                                      </Typography>
+                                                                  }/>
+                                            ))
+                                        }
                                     </FormGroup>
                                 </Box>
                             </AccordionDetails>
@@ -774,7 +457,7 @@ const ProductsFilter = () => {
                             <Typography variant='body2' component='p'>
                                 فقط کالاهای موجود
                             </Typography>
-                            <Switch inputProps={{'aria-label': 'controlled'}}/>
+                            <AntSwitch inputProps={{'aria-label': 'controlled'}}/>
                         </Paper>
                         <Paper variant='outlined'
                                sx={{
@@ -788,14 +471,15 @@ const ProductsFilter = () => {
                             <Typography variant='body2' component='p'>
                                 فقط کالاهای تخفیف دار
                             </Typography>
-                            <Switch inputProps={{'aria-label': 'controlled'}}/>
+                            <AntSwitch onChange={justDiscount} checked={justDiscountState}
+                                       inputProps={{'aria-label': 'controlled'}}/>
                         </Paper>
                         <Paper variant='outlined' sx={{px: 2, py: 1}}>
                             <Typography>قیمت</Typography>
-                            <Slider sx={{mb: 2}}/>
+                            <Slider min={lowPrice} max={highPrice} value={ranger} onChange={handleChange} disableSwap/>
                             <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
-                                <Typography variant='body2' component='p'>از 3,800 تومان</Typography>
-                                <Typography variant='body2' component='p'>تا 78,800 تومان</Typography>
+                                <Typography variant='body2' component='p'> از{priceRange.to}تومان </Typography>
+                                <Typography variant='body2' component='p'> تا{priceRange.from} تومان </Typography>
                             </Box>
                         </Paper>
                     </Box>
