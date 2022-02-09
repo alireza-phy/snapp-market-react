@@ -1,14 +1,24 @@
-
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia'
 import Box from '@mui/material/Box';
-import {useState, useRef} from "react";
+import {useState} from "react";
 import CardPrice from "../CardPrice/CardPrice";
 import CardAddToCartButton from "../CardAddToCartButton/CardAddToCartButton";
-function ProductCard({src, title, price, discount, available, maximumOrder, width, ordinary, special, list, category}) {
+import {useRouter} from 'next/router';
+
+function ProductCard({
+                         item, width, ordinary, special, list, category
+                     }) {
+    // let dummyString = item.name.replace(/\s+/g, '-');
+    const router = useRouter();
+
+    const showProductHandler = () => {
+        router.push('/products/' + item.id)
+        // console.log(dummyString)
+    }
 
     const [quantity, setQuantity] = useState(0)
     const incrementHandler = () => {
@@ -30,7 +40,7 @@ function ProductCard({src, title, price, discount, available, maximumOrder, widt
             borderColor: 'rgba(0, 0, 0, 0.12)',
             borderRadius: special ? '0.5rem' : '0',
             boxShadow: 'none',
-            flex: category ? '10 0 auto' : 'none',
+            flex: category ? '0 0 16rem' : 'none',
             zIndex: 99,
             ':hover': {
                 boxShadow: (ordinary || list) && 'rgba(0, 0, 0, 0.1) 0px 1px 28px',
@@ -49,49 +59,57 @@ function ProductCard({src, title, price, discount, available, maximumOrder, widt
                 }}>
 
                     <CardMedia
+                        onClick={() => showProductHandler()}
                         sx={{
                             width: 170, pb: 0.75, transition: 'transform 0.25s ease-in-out 0s',
                         }}
                         component="img"
-                        src={src}
+                        src={item.images[0].url}
                         alt=""
                     />
                     {
-                        available
+                        (item.inventory.available)
                         ||
-                        <Typography variant="body1" component="p" sx={{
-                            position: 'absolute', top: '40%', boxShadow: 'rgb(163 163 163) 0px 0px 1rem 0px',
-                            padding: '0.25rem 0.6rem',
-                            color: '#0000ee',
-                            backgroundColor: 'rgb(255, 255, 255)',
-                            borderRadius: '0.9rem',
-                            fontSize: '1rem'
-                        }}>
+                        <Typography variant="body1" component="p"
+                                    sx={{
+                                        position: 'absolute',
+                                        top: '40%',
+                                        boxShadow: 'rgb(163 163 163) 0px 0px 1rem 0px',
+                                        padding: '0.25rem 0.6rem',
+                                        color: '#0000ee',
+                                        backgroundColor: 'rgb(255, 255, 255)',
+                                        borderRadius: '0.9rem',
+                                        fontSize: '1rem'
+                                    }}
+                        >
                             تمام شد
                         </Typography>
                     }
                 </Box>
-                <Typography variant="body1" component="p" sx={{
-                    minHeight: 48,
-                    color: '#30354b',
-                    mb: 0.5,
-                    wordWrap:'break-word',
-                    wordBreak:'break-word',
-                    whiteSpace:'pre-wrap'
-                }}>
-                    {title}
+                <Typography variant="body1" component="p"
+                            sx={{
+                                minHeight: 48,
+                                color: '#30354b',
+                                mb: 0.5,
+                                wordWrap: 'break-word',
+                                wordBreak: 'break-word',
+                                whiteSpace: 'pre-wrap'
+                            }}
+                            onClick={() => showProductHandler()}
+                >
+                    {item.name}
                 </Typography>
             </CardContent>
             <CardActions
                 sx={{p: '0', display: 'flex', alignItems: 'flex-end'}}>
-                <CardPrice price={price} discount={discount}/>
+                <CardPrice price={item.price} discount={item.discount}/>
                 {
-                    available
+                    (item.inventory.available)
                     &&
                     <CardAddToCartButton quantity={quantity}
                                          incrementHandler={incrementHandler}
                                          decrementHandler={decrementHandler}
-                                         maximumOrder={maximumOrder}/>
+                                         maximumOrder={item.MaximumOrder}/>
                 }
             </CardActions>
         </Card>

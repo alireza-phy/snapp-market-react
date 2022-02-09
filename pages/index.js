@@ -34,13 +34,13 @@ export default function Home() {
                 special
                 spBlue
                 spTitle='مارکت پارتی'
-                categorySub={'dairy-product'}
+                categorySub={'dairyProduct'}
             />
             <Box component="img" src={specialOffer.src} sx={{width:'100%' , margin:'auto' , borderRadius: '0.5rem'}}/>
             <Assortment/>
             <Box component="img" src={kale.src} sx={{width:'100%' , margin:'auto' , borderRadius: '0.5rem'}}/>
             <ProductsCategory
-                categorySub={'dairy-product'}
+                categorySub={'dairyProduct'}
                 ordinary
             />
             <ProductsCategory
@@ -69,7 +69,7 @@ export default function Home() {
                 ordinary
             />
             <ProductsCategory
-                categorySub={'dairy-product'}
+                categorySub={'dairyProduct'}
                 special
                 spBlue
                 spTitle='تو هر خونه لازمه'
