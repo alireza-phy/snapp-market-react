@@ -1,3 +1,4 @@
+
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -7,6 +8,22 @@ import Box from '@mui/material/Box';
 import {useState} from "react";
 import CardPrice from "../CardPrice/CardPrice";
 import CardAddToCartButton from "../CardAddToCartButton/CardAddToCartButton";
+import {createTheme, ThemeProvider} from '@mui/material/styles';
+
+const theme = createTheme({
+    breakpoints: {
+        values: {
+            xs: 0,
+            mobileMd: 321,
+            sm: 600,
+            md: 900,
+            lg: 1200,
+            xl: 1536,
+        },
+    },
+});
+
+function ProductCard({src, title, price, discount, available, maximumOrder, width, ordinary, special, list, category}) {
 import {useRouter} from 'next/router';
 
 function ProductCard({
@@ -29,18 +46,21 @@ function ProductCard({
     }
     return (
         <Card sx={{
+            display: list && {xs: 'flex', sm: 'block'},
+            alignItems: list && {xs: 'center'},
+            gap: list && {xs: 2, sm: 0, md: 0, lg: 0, xl: 0},
             width: {width},
             py: '1rem',
             px: '1rem',
             my: special && 0.75,
             mx: special && 0.5,
             direction: 'rtl',
-            borderLeft: ordinary && 1,
-            border: list && 1,
+            borderLeft: (list || ordinary) && 1,
+            borderTop: list && 1,
             borderColor: 'rgba(0, 0, 0, 0.12)',
             borderRadius: special ? '0.5rem' : '0',
             boxShadow: 'none',
-            flex: category ? '0 0 16rem' : 'none',
+            flex: category ? `0 0 ${width}` : 'none',
             zIndex: 99,
             ':hover': {
                 boxShadow: (ordinary || list) && 'rgba(0, 0, 0, 0.1) 0px 1px 28px',
@@ -57,6 +77,20 @@ function ProductCard({
                     justifyContent: 'center',
                     position: 'relative'
                 }}>
+                    <ThemeProvider theme={theme}>
+                        <CardMedia
+                            sx={{
+                                width: list ? {xs: 70, mobileMd: 90, sm: 170} : 170,
+                                height: list && {xs: 70, mobileMd: 90, sm: 170},
+                                pb: 0.75,
+                                transition: 'transform 0.25s ease-in-out 0s',
+                                '-webkit-user-drag': 'none'
+                            }}
+                            component="img"
+                            src={src}
+                            alt=""
+                        />
+                    </ThemeProvider>
 
                     <CardMedia
                         onClick={() => showProductHandler()}
@@ -112,6 +146,33 @@ function ProductCard({
                                          maximumOrder={item.MaximumOrder}/>
                 }
             </CardActions>
+            </CardContent>
+            <Box>
+                <CardContent sx={{p: '0', cursor: 'pointer'}}>
+                    <Typography variant="body1" component="p" sx={{
+                        minHeight: 48,
+                        color: '#30354b',
+                        mb: 0.5,
+                        wordWrap: 'break-word',
+                        wordBreak: 'break-word',
+                        whiteSpace: 'pre-wrap'
+                    }}>
+                        {title}
+                    </Typography>
+                </CardContent>
+                <CardActions
+                    sx={{p: '0', display: 'flex', alignItems: 'flex-end'}}>
+                    <CardPrice price={price} discount={discount}/>
+                    {
+                        available
+                        &&
+                        <CardAddToCartButton quantity={quantity}
+                                             incrementHandler={incrementHandler}
+                                             decrementHandler={decrementHandler}
+                                             maximumOrder={maximumOrder}/>
+                    }
+                </CardActions>
+            </Box>
         </Card>
     );
 }
