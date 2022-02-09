@@ -1,35 +1,26 @@
 import {useRouter} from 'next/router' ;
 import React from "react";
-import CategoryMenu from '../../components/Categories/CategoryMenu';
-import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
-import ProductsCategory from '../../components/ProductsCategory/ProductsCategory';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import ProductData,{getSubCategory} from '../../components/ProductData/ProductData'
+import ProductData from '../../components/ProductData/ProductData'
+import Page4 from '../../components/Page4/Page4'
 
-const Categories = ({ProductList}) => {
+export default function group({ProductList}) {
 
     const router = useRouter();
+
+    return (
+        <Page4/>
 
     // let currentCategory = ProductList.filter(product => product.categoryEn === router.query.group_id)
     // console.log(currentCategory)
 
-    return (
-
-        <Grid container sx={{direction: 'rtl', mt: 4}} columnSpacing={3}>
-
-    <h1> hello : router.query.group_id </h1>
-        </Grid>
     )
 }
-
-export default Categories
 
 export async function getStaticPaths() {
 
     return {
         paths: [
-            {params: {group_id: 'drinks'}}
+            {params: {group_id: '1'}}
         ],
         fallback: 'blocking'
     };
