@@ -1,3 +1,4 @@
+import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -15,6 +16,9 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 // ---------colors--------------------
 import { blue, grey} from '@mui/material/colors';
+import TriggersTooltips,{handleTooltipOpen} from './iAppsTooltip'
+
+
 
 
 function Item(props) {
@@ -30,6 +34,7 @@ function Item(props) {
       />
       );
     }
+
     Item.propTypes = {
       sx: PropTypes.oneOfType([
         PropTypes.arrayOf(
@@ -42,9 +47,11 @@ function Item(props) {
 
 
 
+
+
 function Footer() {
     return (
-      <Box sx={{marginTop:20, backgroundColor:"white" , width:'100%'}}>
+      <Container sx={{marginTop:20, backgroundColor:"white",overFlow:'hidden'}}>
         <Grid container alignItems="center" spacing={3}>
           
           
@@ -115,9 +122,9 @@ function Footer() {
                   </a>
               </Item>
               <Item>
-                  <a href='https://iapps.ir/app/%D8%A7%D8%B3%D9%86%D9%BE-%D9%85%D8%A7%D8%B1%DA%A9%D8%AA-Snapp-Market/57404100'>
-                    <img style={{width:125,height:40,margin:5}}   src='https://snapp.market/v2/static/images/b73e78b6652ebf0b5c4034fd17b91933.png' alt=''></img>
-                  </a>
+                <TriggersTooltips>
+
+                  </TriggersTooltips>
               </Item>
               </Box>
               
@@ -128,9 +135,6 @@ function Footer() {
                   <img style={{width:275,height:190,marginRight:-110}} src='https://snapp.market/v2/static/images/4a44f07ae496a910ef1f505ed72e2087.png' alt=''></img>
             </Box>
           </Grid>
-          {/* <Grid item xs={12}>
-          <Item><Divider variant="middle" /></Item>
-          </Grid> */}
           
            
            
@@ -198,9 +202,11 @@ function Footer() {
           </Grid>
           </Box>
         </Grid>
-      </Box>
+      </Container>
       
     );
   }
   
   export default Footer;
+
+
