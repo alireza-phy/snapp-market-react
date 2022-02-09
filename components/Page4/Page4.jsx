@@ -8,7 +8,7 @@ import Slider from '@mui/material/Slider'
 import {useState} from "react";
 
 const Page4 = () => {
-    const [data, setData] = useState(ProductData.filter((dairy) => (dairy.category.categoryEn === 'dairy-product' && dairy.group.groupId === 1)))
+    const [data, setData] = useState(ProductData.filter((dairy) => (dairy.categoryEn === 'dairy-product' && dairy.group.groupId === 1)))
     const [productData, setProductData] = useState([...data])
     const [filter, setFilter] = useState([])
     const [justDiscountState, setJustDiscountState] = useState(false)

@@ -6,7 +6,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import {Typography, Button} from "@mui/material";
 import {ExpandLess, GridViewOutlined, SwapVert} from "@mui/icons-material";
-import {makeStyles} from '@mui/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import ProductCard from "../ProductCard/ProductCard";
 import {useTheme} from '@mui/material/styles';
 
