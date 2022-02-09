@@ -3736,11 +3736,11 @@ const ProductData = [
         images: [
             {
                 id: 1,
-                url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/10272021-332201-1.jpg'
+                url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/hph-243662-a.jpg'
             },
             {
                 id: 2,
-                url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/hph-243662-a.jpg'
+                url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/hph-243662-b.jpg'
             }
         ],
 
