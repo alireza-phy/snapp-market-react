@@ -47,10 +47,10 @@ const FreeDeliveryModal = () => {
                             py: {xs: 2, sm: 0.5, md: 0.5, xl: 0.5},
                             pl: {xs: 2, sm: 0, md: 0, xl: 0}
                         }}>
-                        <Box component='img' src={delivery} alt='delivery logo'
-                             sx={{width: {xs: 60, sm: 100, md: 100, xl: 100}}}/>
+                        <Box component='img' src={delivery.src} alt='delivery logo'
+                             sx={{fill:'rgba(255, 249, 235, 0.3)' , width: {xs: 60, sm: 100, md: 100, xl: 100}}}/>
                         <ThemeProvider theme={theme}>
-                            <Typography sx={{fontWeight: 600}} variant='h6' component='h2'>
+                            <Typography sx={{color:'black' , fontWeight: 600}} variant='h6' component='h2'>
                                 هزینه ارسال اولین سفارش شما رایگان است
                             </Typography>
                         </ThemeProvider>

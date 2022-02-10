@@ -10,7 +10,7 @@ import ProductCard from "../ProductCard/ProductCard";
 import GoldenCard from '../GoldenCard/GoldenCard'
 import ProductData from '../ProductData/ProductData'
 import {useRouter} from 'next/router';
-
+import FlipGoldenCard from '../FlippeGoldenCard/FlippeGoldenCard'
 const ProductCategory = ({
                              groupNameObject,
                              categorySub,
@@ -240,14 +240,13 @@ const ProductCategory = ({
                         goldenOffer
                         &&
                         <>
-                            <GoldenCard category width='17rem'
-                            />
-                            <GoldenCard category width='17rem'
-                            />
-                            <GoldenCard category width='17rem'
-                            />
-                            <GoldenCard category width='17rem'
-                            />
+                            <FlipGoldenCard/>
+                            <FlipGoldenCard/>
+                            <FlipGoldenCard/>
+                            <FlipGoldenCard/>
+
+                            {/*<GoldenCard category width='17rem'*/}
+                            {/*/>*/}
                         </>
                     }
                     {
@@ -264,15 +263,16 @@ const ProductCategory = ({
                                     item={item}
                                 />
                             )}
+
                             {
-                                ordinary
+                                ( ordinary && (categoryList.length > 5) )
                                 &&
                                 <Paper sx={{
                                     display: 'flex',
                                     flexDirection: "column",
                                     alignItems: 'center',
                                     border: 0,
-                                    cursor: 'pointer'
+                                    cursor: 'pointer',
                                 }}
                                        variant='outlined' square>
                                     <Box sx={{
