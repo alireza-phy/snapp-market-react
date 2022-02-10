@@ -70,26 +70,26 @@ const Page4 = () => {
     return (
         <Container sx={{px: {xs: 0, sm: '24px'}}}>
             <Grid container sx={{direction: 'rtl', mt: 4}} columnSpacing={{xs: 0, sm: 0, md: 3, lg: 3, xl: 3}}>
-                {/*<ProductsFilter*/}
-                {/*    categories={categories}*/}
-                {/*    brands={brands}*/}
-                {/*    types={types}*/}
-                {/*    filter={filter}*/}
-                {/*    priceRange={priceRange}*/}
-                {/*    ranger={ranger}*/}
-                {/*    lowPrice={lowPrice}*/}
-                {/*    highPrice={highPrice}*/}
-                {/*    filterRemoveHandler={filterRemoveHandler}*/}
-                {/*    removeFilterList={removeFilterList}*/}
-                {/*    handleChange={rangeHandler}*/}
-                {/*    justDiscount={justDiscount}*/}
-                {/*    justDiscountState={justDiscountState}*/}
-                {/*/>*/}
-                {/*<Grid item xs={12} sm={12} md={9} xl={9}>*/}
-                {/*    <Breadcrumb productCounter={data.length} group={'شیر'}/>*/}
-                {/*    <PaginationAndSort productData={productData}/>*/}
+                <ProductsFilter
+                    categories={categories}
+                    brands={brands}
+                    types={types}
+                    filter={filter}
+                    priceRange={priceRange}
+                    ranger={ranger}
+                    lowPrice={lowPrice}
+                    highPrice={highPrice}
+                    filterRemoveHandler={filterRemoveHandler}
+                    removeFilterList={removeFilterList}
+                    handleChange={rangeHandler}
+                    justDiscount={justDiscount}
+                    justDiscountState={justDiscountState}
+                />
+                <Grid item xs={12} sm={12} md={9} xl={9}>
+                    <Breadcrumb productCounter={data.length} group={'شیر'}/>
+                    <PaginationAndSort productData={productData}/>
 
-                {/*</Grid>*/}
+                </Grid>
             </Grid>
         </Container>
     )
