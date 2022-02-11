@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import ProductData from "../ProductData/ProductData";
-
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-
 import "swiper/css";
 function SingleSlider() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
