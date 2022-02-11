@@ -17,7 +17,13 @@ function SingleSlider() {
         style={{
           "--swiper-navigation-color": "#fff",
           "--swiper-pagination-color": "#fff",
+          "--swiper-navigation-size": "15px !important",
+          border: "1px solid rgba(223,219,219,1)",
+          padding: "5px",
+          borderRadius: "5px",
         }}
+        autoHeight={true}
+        zoom={true}
         spaceBetween={10}
         navigation={true}
         thumbs={{ swiper: thumbsSwiper }}
