@@ -10,6 +10,7 @@ import ProductCard from "../ProductCard/ProductCard";
 import GoldenCard from '../GoldenCard/GoldenCard'
 import ProductData from '../ProductData/ProductData'
 import {useRouter} from 'next/router';
+import FlipGoldenCard from '../FlippeGoldenCard/FlippeGoldenCard'
 
 const ProductCategory = ({
                              groupNameObject,
@@ -238,14 +239,10 @@ const ProductCategory = ({
                         goldenOffer
                         &&
                         <>
-                            <GoldenCard category width='17rem'
-                            />
-                            <GoldenCard category width='17rem'
-                            />
-                            <GoldenCard category width='17rem'
-                            />
-                            <GoldenCard category width='17rem'
-                            />
+                            <FlipGoldenCard/>
+                            <FlipGoldenCard/>
+                            <FlipGoldenCard/>
+                            <FlipGoldenCard/>
                         </>
                     }
                     {
