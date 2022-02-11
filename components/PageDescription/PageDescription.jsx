@@ -74,7 +74,7 @@ const data = {
 }
 const PageDescription = () => {
     return (
-        <Paper sx={{direction: 'rtl', pt: 1, pb: 2, px: 2.5, color: 'rgb(117, 117, 117)'}} variant='outlined'>
+        <Paper sx={{direction: 'rtl', marginY:'1rem', pt: 1, pb: 2, px: 2.5, color: 'rgb(117, 117, 117)'}} variant='outlined'>
             <ThemeProvider theme={theme}>
                 <Typography sx={{textAlign: 'justify', lineHeight: 1.5, fontWeight: 600, my: 2, fontFamily: 'iranSans'}}
                             variant='h5'

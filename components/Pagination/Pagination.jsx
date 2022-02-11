@@ -44,6 +44,8 @@ const PaginationAndSort = ({productData}) => {
         setProducts([...productData].sort((a,b) => a.price * (1 - (a.discount / 100)) <= b.price * (1 - (b.discount / 100)) ? 1 : -1))
     }
     const theme = useTheme();
+
+    console.log(products)
     return (
             <Box dir="rtl">
                 <Grid item>
@@ -112,13 +114,10 @@ const PaginationAndSort = ({productData}) => {
                             {
                                 products.map((product) => (
                                     <Grid key={product.id} item xs={12} sm={4} md={4} lg={3} xl={3}>
-                                        <ProductCard list
-                                                     title={product.name}
-                                                     price={product.price}
-                                                     discount={product.discount}
-                                                     available={product.inventory.available}
-                                                     maximumOrder={product.MaximumOrder}
-                                                     src={product.images[0].url}/>
+                                        <ProductCard
+                                            list
+                                            item={product}
+                                        />
 
                                     </Grid>
                                 ))

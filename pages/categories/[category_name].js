@@ -6,7 +6,8 @@ import ProductsCategory from '../../components/ProductsCategory/ProductsCategory
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import ProductData,{getSubCategory} from '../../components/ProductData/ProductData'
-
+import PageDescription from '../../components/PageDescription/PageDescription'
+import Container from '@mui/material/Container'
 const Categories = ({ProductList}) => {
 
     const router = useRouter();
@@ -15,7 +16,7 @@ const Categories = ({ProductList}) => {
     console.log(currentCategory)
 
     return (
-
+        <Container>
         <Grid container sx={{direction: 'rtl', mt: 4}} columnSpacing={3}>
             <CategoryMenu
                 subCategory={getSubCategory(currentCategory[0].categoryEn)}
@@ -34,7 +35,9 @@ const Categories = ({ProductList}) => {
                     )}
                 </Box>
             </Grid>
+            <PageDescription/>
         </Grid>
+        </Container>
     )
 }
 

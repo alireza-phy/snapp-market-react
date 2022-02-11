@@ -8,7 +8,7 @@ import Slider from '@mui/material/Slider'
 import {useState} from "react";
 
 const Page4 = () => {
-    const [data, setData] = useState(ProductData.filter((dairy) => (dairy.categoryEn === 'dairy-product' && dairy.group.groupId === 1)))
+    const [data, setData] = useState(ProductData.filter((dairy) => (dairy.categoryEn === 'dairyProduct' && dairy.groupId === 2)))
     const [productData, setProductData] = useState([...data])
     const [filter, setFilter] = useState([])
     const [justDiscountState, setJustDiscountState] = useState(false)
@@ -66,7 +66,7 @@ const Page4 = () => {
     }
     const productFilter = () => {
     }
-
+    console.log(productData)
     return (
         <Container sx={{px: {xs: 0, sm: '24px'}}}>
             <Grid container sx={{direction: 'rtl', mt: 4}} columnSpacing={{xs: 0, sm: 0, md: 3, lg: 3, xl: 3}}>

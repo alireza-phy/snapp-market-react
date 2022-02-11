@@ -22,7 +22,7 @@ import specialOffer from '../public/mainpageImages/Banners/specialOffer.jpg'
 export default function Home() {
 
     return (
-        <Container sx={{marginY: "1rem", display: 'flex', flexDirection: 'column', gap: '2rem'}}>
+        <Container maxWidth='xl' sx={{marginY: "1rem", display: 'flex', flexDirection: 'column', gap: '1rem' , justifyContent:'center' }}>
 
             <Head>
                 <title> فروشگاه اینترنتی اسنپ </title>
