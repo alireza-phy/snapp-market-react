@@ -11,6 +11,7 @@ import GoldenCard from '../GoldenCard/GoldenCard'
 import ProductData from '../ProductData/ProductData'
 import {useRouter} from 'next/router';
 import FlipGoldenCard from '../FlippeGoldenCard/FlippeGoldenCard'
+
 const ProductCategory = ({
                              groupNameObject,
                              categorySub,
@@ -161,7 +162,7 @@ const ProductCategory = ({
                             </Typography>
                     }
                     <Typography variant='body1' component='span'
-                                onClick={() => showCategoryHandler(categoryList[0].categoryEn)}
+                                onClick={()=> showCategoryHandler(categoryList[0].categoryEn)}
                                 sx={{
                                     display: 'flex',
                                     alignItems: 'center',
@@ -242,11 +243,7 @@ const ProductCategory = ({
                         <>
                             <FlipGoldenCard/>
                             <FlipGoldenCard/>
-                            <FlipGoldenCard/>
-                            <FlipGoldenCard/>
 
-                            {/*<GoldenCard category width='17rem'*/}
-                            {/*/>*/}
                         </>
                     }
                     {
@@ -263,7 +260,6 @@ const ProductCategory = ({
                                     item={item}
                                 />
                             )}
-
                             {
                                 ( ordinary && (categoryList.length > 5) )
                                 &&
@@ -272,7 +268,7 @@ const ProductCategory = ({
                                     flexDirection: "column",
                                     alignItems: 'center',
                                     border: 0,
-                                    cursor: 'pointer',
+                                    cursor: 'pointer'
                                 }}
                                        variant='outlined' square>
                                     <Box sx={{
