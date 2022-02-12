@@ -1,4 +1,3 @@
-import PN from "persian-number";
 import SingleSlider from "../SingleCardSliders/SingleCardSlider";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -9,36 +8,8 @@ import Link from "@mui/material/Link";
 import HomeIcon from "@mui/icons-material/Home";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { useEffect, useState } from "react";
-import AddIcon from "@mui/icons-material/Add";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import RemoveIcon from "@mui/icons-material/Remove";
-import ProductData from "../ProductData/ProductData";
-import { connect } from "react-redux";
-function incerementCounter(num) {
-  return {
-    type: "SINGLEINC",
-    num: num,
-  };
-}
-function decrementCounter(num) {
-  return {
-    type: "SINGLEDEC",
-    num: num,
-  };
-}
-function mapStateToProps(state) {
-  return {
-    count: state.productCountReducer.count,
-    finallPrice: state.finallPriceReducer.finallPrice,
-    SingleCardCount: state.singleCardCountReducer.SingleCardCount,
-  };
-}
-const mapDispatchToProps = {
-  incerementCounter,
-  decrementCounter,
-};
-const SingleProduct = (props) => {
-  console.log(props);
+
+const SingleProduct = () => {
   const sampleProduct = {
     products: [
       {
@@ -76,12 +47,6 @@ const SingleProduct = (props) => {
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
-  const incrementHandler = () => {
-    props.incerementCounter(1);
-  };
-  const decrementHandler = () => {
-    props.decrementCounter(1);
-  };
   return (
     <Container
       sx={{
@@ -254,7 +219,7 @@ const SingleProduct = (props) => {
               قیمت مصرف کننده :
             </Typography>
           </Box>
-          <Box sx={{ marginBottom: "15px" }}>
+          <Box>
             <Typography
               sx={{
                 display: "flex",
@@ -269,152 +234,27 @@ const SingleProduct = (props) => {
               {data.products[0].price} تومان
             </Typography>
           </Box>
-          {props.SingleCardCount === 0 ? (
-            <Button
-              variant="outlined"
-              onClick={incrementHandler}
-              sx={{
-                width: "100%",
-                color: "rgb(7,188,32)",
+          <Button
+            variant="outlined"
+            sx={{
+              width: "100%",
+              color: "rgb(7,188,32)",
+              borderColor: "rgb(7,188,32)",
+              fontWeight: "bold",
+              fontSize: "1rem",
+              "&:hover": {
+                color: "white",
                 borderColor: "rgb(7,188,32)",
-                fontWeight: "bold",
-                fontSize: "1.3rem",
-                "&:hover": {
-                  color: "white",
-                  borderColor: "rgb(7,188,32)",
-                  backgroundColor: "rgb(7,188,32)",
-                },
-              }}
-            >
-              افزودن به سبد
-            </Button>
-          ) : (
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                flexDirection: "row-reverse",
-                justifyContent: "center",
-              }}
-            >
-              {props.SingleCardCount > 1 ? (
-                <RemoveIcon
-                  sx={{
-                    background: "none",
-                    border: " 0.1rem solid rgb(7, 188, 32)",
-                    color: "rgb(7, 188, 32)",
-                    borderRadius: "0.3rem",
-                    cursor: "pointer",
-                    fontSize: "3rem",
-                    p: 0.75,
-                    ":hover": {
-                      backgroundColor: "rgb(5, 139, 24)",
-                      border: "none",
-                      color: "rgb(255, 255, 255)",
-                    },
-                    ":focus": {
-                      boxShadow:
-                        "rgb(7 188 32 / 50%) 0px 0px 1rem -0.1rem !important",
-                    },
-                    ":active": {
-                      boxShadow:
-                        "rgb(7 188 32 / 50%) 0px 0px 1rem -0.1rem !important",
-                    },
-                  }}
-                  onClick={decrementHandler}
-                />
-              ) : (
-                <DeleteOutlineOutlinedIcon
-                  sx={{
-                    background: "none",
-                    border: " 0.1rem solid rgb(7, 188, 32)",
-                    color: "rgb(7, 188, 32)",
-                    borderRadius: "0.3rem",
-                    cursor: "pointer",
-                    fontSize: "3rem",
-                    p: 0.75,
-                    ":hover": {
-                      backgroundColor: "rgb(5, 139, 24)",
-                      border: "none",
-                      color: "rgb(255, 255, 255)",
-                    },
-                    ":focus": {
-                      boxShadow:
-                        "rgb(7 188 32 / 50%) 0px 0px 1rem -0.1rem !important",
-                    },
-                    ":active": {
-                      boxShadow:
-                        "rgb(7 188 32 / 50%) 0px 0px 1rem -0.1rem !important",
-                    },
-                  }}
-                  onClick={decrementHandler}
-                />
-              )}
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  minWidth: 30,
-                  width: "70%",
-                  margin: "0px 15px 0px 15px",
-                  border: " 0.1rem solid rgb(238, 238, 238)",
-                  borderRadius: "0.3rem",
-                }}
-              >
-                <Typography
-                  variant="body1"
-                  component="span"
-                  sx={{ width: "100%", fontSize: "2rem", textAlign: "center" }}
-                >
-                  {PN.convertEnToPe(props.SingleCardCount)}
-                </Typography>
-              </Box>
-              {ProductData[0].MaximumOrder === props.SingleCardCount ? (
-                <AddIcon
-                  disable
-                  sx={{
-                    cursor: " not-allowed",
-                    backgroundColor: "rgb(174, 240, 184) !important",
-                    color: "rgb(255, 255, 255)",
-                    background: "none",
-                    boxShadow: "rgb(7 188 32 / 50%) 0px 0px 1rem -0.1rem",
-                    borderRadius: "0.3rem",
-                    fontSize: "3rem",
-                    p: 0.75,
-                  }}
-                />
-              ) : (
-                <AddIcon
-                  sx={{
-                    backgroundColor: "rgb(7,188,32)",
-                    border: " 0.1rem solid rgb(7, 188, 32)",
-                    color: "rgb(255,255,255)",
-                    borderRadius: "0.3rem",
-                    cursor: "pointer",
-                    fontSize: "3rem",
-                    p: 0.75,
-                    ":hover": {
-                      backgroundColor: "rgb(5, 139, 24)",
-                      border: "none",
-                      color: "rgb(255, 255, 255)",
-                    },
-                    ":focus": {
-                      boxShadow:
-                        "rgb(7 188 32 / 50%) 0px 0px 1rem -0.1rem !important",
-                    },
-                    ":active": {
-                      boxShadow:
-                        "rgb(7 188 32 / 50%) 0px 0px 1rem -0.1rem !important",
-                    },
-                  }}
-                  onClick={incrementHandler}
-                />
-              )}
-            </Box>
-          )}
+                backgroundColor: "rgb(7,188,32)",
+              },
+            }}
+          >
+            افزودن به سبد
+          </Button>
         </Grid>
       </Grid>
     </Container>
   );
 };
-export default connect(mapStateToProps, mapDispatchToProps)(SingleProduct);
+
+export default SingleProduct;
