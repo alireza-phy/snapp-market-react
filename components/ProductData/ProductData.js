@@ -4693,3 +4693,11 @@ export const AssortmentCardData = [
         bordercolor: "rgba(250, 237, 163, 0.67)"
     }
 ]
+
+
+export const goldenBoqche = (boqcheSub) => {
+    let result = ProductData.filter (item =>
+        item.categoryEn === boqcheSub && (item.price > 10000 && 15 < item.discount))
+    console.log(result)
+    return result
+}
