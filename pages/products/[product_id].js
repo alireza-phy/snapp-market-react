@@ -1,7 +1,7 @@
 import {useRouter} from 'next/router' ;
 import React from "react";
 import SingleProduct from '../../components/SingleProduct/SingleProduct'
-import ProductData,{getSubCategory} from '../../components/ProductData/ProductData'
+import ProductData from '../../components/ProductData/ProductData'
 
 const Products = ({ProductList}) => {
 

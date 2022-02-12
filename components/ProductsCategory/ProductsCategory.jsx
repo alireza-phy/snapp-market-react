@@ -17,6 +17,8 @@ const ProductCategory = ({
                              categorySub,
                              ordinary,
                              special,
+                             list,
+                             category,
                              goldenOffer,
                              children,
                              spTitle,
@@ -242,7 +244,7 @@ const ProductCategory = ({
                             <FlipGoldenCard/>
                             <FlipGoldenCard/>
                             <FlipGoldenCard/>
-                            
+
                         </>
                     }
                     {
@@ -253,13 +255,14 @@ const ProductCategory = ({
                                 <ProductCard
                                     key={item.id}
                                     category
-                                    special
+                                    ordinary={ordinary}
+                                    special={special}
                                     width='14.5rem'
                                     item={item}
                                 />
                             )}
                             {
-                                ordinary
+                                ( ordinary && (categoryList.length > 5) )
                                 &&
                                 <Paper sx={{
                                     display: 'flex',

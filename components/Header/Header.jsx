@@ -14,11 +14,12 @@ import {useTheme, createTheme, makeStyles} from '@mui/material/styles';
 import {Container, IconButton, Link, Paper} from "@mui/material";
 import {styled, alpha} from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
+import FreeDeliveryModal from '../FreeDeliveryModal/FreeDeliveryModal'
 
 import {
     ShoppingBagOutlined,
     PersonOutline,
-    LocationOnOutlined, QueryBuilder, GridViewOutlined, ExpandMore,
+     QueryBuilder, GridViewOutlined, ExpandMore,
 } from "@mui/icons-material";
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
@@ -107,7 +108,7 @@ const Header = () => {
     return (
         <>
             <AppBar position="static">
-
+                <FreeDeliveryModal/>
                 <Toolbar sx={{
                     display: 'flex',
                     flexDirection: 'column', height: "20rem",

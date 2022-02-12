@@ -7,8 +7,8 @@ import Box from '@mui/material/Box';
 import {useState} from "react";
 import CardPrice from "../CardPrice/CardPrice";
 import CardAddToCartButton from "../CardAddToCartButton/CardAddToCartButton";
-import {createTheme, ThemeProvider} from '@mui/material/styles';
 import {useRouter} from 'next/router';
+import {createTheme, ThemeProvider} from '@mui/material/styles';
 
 const theme = createTheme({
     breakpoints: {
@@ -23,8 +23,9 @@ const theme = createTheme({
     },
 });
 
-function ProductCard({item, width, ordinary, special, list, category}) {
-
+function ProductCard({
+                         item, width, ordinary, special, list, category
+                     }) {
     // let dummyString = item.name.replace(/\s+/g, '-');
     const router = useRouter();
 
@@ -75,6 +76,7 @@ function ProductCard({item, width, ordinary, special, list, category}) {
                 }}>
                     <ThemeProvider theme={theme}>
                         <CardMedia
+                            onClick={() => showProductHandler()}
                             sx={{
                                 width: list ? {xs: 70, mobileMd: 90, sm: 170} : 170,
                                 height: list && {xs: 70, mobileMd: 90, sm: 170},
@@ -108,38 +110,36 @@ function ProductCard({item, width, ordinary, special, list, category}) {
                     }
                 </Box>
             </CardContent>
-            <Box>
-            <CardContent sx={{p: '0', cursor: 'pointer'}}>
-                <Typography variant="body1" component="p"
-                            sx={{
-                                minHeight: 48,
-                                color: '#30354b',
-                                mb: 0.5,
-                                wordWrap: 'break-word',
-                                wordBreak: 'break-word',
-                                whiteSpace: 'pre-wrap'
-                            }}
-                            onClick={() => showProductHandler()}
-                >
-                    {item.name}
-                </Typography>
-            </CardContent>
-
-    <CardActions
-        sx={{p: '0', display: 'flex', alignItems: 'flex-end'}}>
-        <CardPrice price={item.price} discount={item.discount}/>
-        {
-            (item.inventory.available)
-            &&
-            <CardAddToCartButton quantity={quantity}
-                                 incrementHandler={incrementHandler}
-                                 decrementHandler={decrementHandler}
-                                 maximumOrder={item.MaximumOrder}/>
-        }
-    </CardActions>
+            <Box sx={{flexGrow: list && 1}}>
+                <CardContent sx={{p: '0', cursor: 'pointer'}}>
+                    <Typography variant="body1" component="p"
+                                onClick={() => showProductHandler()}
+                                sx={{
+                                    minHeight: 48,
+                                    color: '#30354b',
+                                    mb: 0.5,
+                                    wordWrap: 'break-word',
+                                    wordBreak: 'break-word',
+                                    whiteSpace: 'pre-wrap',
+                                }}>
+                        {item.name}
+                    </Typography>
+                </CardContent>
+                <CardActions
+                    sx={{p: '0', display: 'flex', alignItems: 'flex-end'}}>
+                    <CardPrice price={item.price} discount={item.discount}/>
+                    {
+                        (item.inventory.available)
+                        &&
+                        <CardAddToCartButton quantity={quantity}
+                                             incrementHandler={incrementHandler}
+                                             decrementHandler={decrementHandler}
+                                             maximumOrder={item.MaximumOrder}/>
+                    }
+                </CardActions>
             </Box>
-</Card>
-);
+        </Card>
+    );
 }
 
 export default ProductCard;

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from '../styles/Home.module.css'
-import {useEffect , useState} from "react";
+import {useEffect, useState} from "react";
 import ProductsCategory from "../components/ProductsCategory/ProductsCategory";
 import Assortment from "../components/Assortment/Assortment";
 import {Container} from "@mui/material";
@@ -11,18 +11,18 @@ import Box from '@mui/material/Box'
 
 import marketParty from '../public/mainpageImages/Banners/marketparty.jpg'
 import bijan from '../public/mainpageImages/Banners/bijan.jpg'
-import kale from  '../public/mainpageImages/Banners/kale.jpg'
-import kale2 from  '../public/mainpageImages/Banners/kale2.jpg'
-import pakshooma from  '../public/mainpageImages/Banners/pakshooma.jpg'
-import bHaminTazegi from  '../public/mainpageImages/Banners/bHaminTazegi.jpg'
-import specialOffer from  '../public/mainpageImages/Banners/specialOffer.jpg'
+import kale from '../public/mainpageImages/Banners/kale.jpg'
+import kale2 from '../public/mainpageImages/Banners/kale2.jpg'
+import pakshooma from '../public/mainpageImages/Banners/pakshooma.jpg'
+import bHaminTazegi from '../public/mainpageImages/Banners/bHaminTazegi.jpg'
+import specialOffer from '../public/mainpageImages/Banners/specialOffer.jpg'
 
 // ---------------- images ------------------ //
 
 export default function Home() {
 
     return (
-        <Container sx={{marginY: "1rem", display: 'flex', flexDirection: 'column', gap: '2rem'}}>
+        <Container maxWidth='xl' sx={{marginY: "1rem", display: 'flex', flexDirection: 'column', gap: '1rem' , justifyContent:'center' }}>
 
             <Head>
                 <title> فروشگاه اینترنتی اسنپ </title>
