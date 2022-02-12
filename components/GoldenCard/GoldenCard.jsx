@@ -62,15 +62,15 @@ const GoldenCard = ({width, category}) => {
             }
         }}>
             <CardContent sx={{p: '0'}}>
-                {/* <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
+                <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
                     <Typography variant="subtitle2" component="p">
                         بقچه طلایی
                     </Typography>
-                    <Typography onClick={showDetailHandler} variant="subtitle2" component="p"
+                    {/* <Typography onClick={showDetailHandler} variant="subtitle2" component="p"
                                 sx={{color: '#2347fb', cursor: 'pointer'}}>
                         جزئیات بیشتر
-                    </Typography>
-                </Box> */}
+                    </Typography>*/}
+                </Box> 
                 <Box sx={{
                     display: 'flex',
                     justifyContent: 'start',

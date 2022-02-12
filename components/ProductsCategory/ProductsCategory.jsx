@@ -242,7 +242,7 @@ const ProductCategory = ({
                             <FlipGoldenCard/>
                             <FlipGoldenCard/>
                             <FlipGoldenCard/>
-                            <FlipGoldenCard/>
+                            
                         </>
                     }
                     {
