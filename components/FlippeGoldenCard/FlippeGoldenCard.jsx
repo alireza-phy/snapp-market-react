@@ -1,5 +1,6 @@
 
 import * as React from 'react';
+import {useState} from 'react';
 import  GoldenCard from '../GoldenCard/GoldenCard';
 import CardActions from '@mui/material/CardActions';
 import CardPrice from "../CardPrice/CardPrice";
@@ -7,22 +8,27 @@ import {Box,Card,Typography,List,ListItem,ListItemText,ListItemAvatar,Avatar,Ima
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import ReactCardFlip from 'react-card-flip';
 import CardContent from '@mui/material/CardContent';
-class FlipGoldenCard extends React.Component {
-  constructor() {
-    super();
-      this.state = {
-      isFlipped: false
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
 
-  handleClick(e) {
-    e.preventDefault();
-    this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
-  }
-  render() {
+// class FlipGoldenCard extends React.Component {
+const FlipGoldenCard =() =>{
+    const [isFlipped,SetisFlipped]=useState(false)
+  const handleClick=()=>{
+    SetisFlipped(!isFlipped);
+  };
+  // constructor() {
+  //   super();
+  //     this.state = {
+  //     isFlipped: false
+  //   };
+  //   this.handleClick = this.handleClick.bind(this);
+  // }
+  // handleClick=(e)=>{
+  //   e.preventDefault();
+  //   this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
+  // }
+  // render() {
     return (
-      <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="horizontal">
+      <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
         <Box sx={{
         width: "15rem",
         py: '1rem',
@@ -34,10 +40,7 @@ class FlipGoldenCard extends React.Component {
         boxShadow: 'none',
         }}>
         <Box sx={{display:'flex',justifyContent:'end'}}>
-                    {/* <Typography variant="subtitle2" component="p" sx={{}}>
-                        بقچه طلایی
-                    </Typography> */}
-                     <Typography onClick={this.handleClick} variant="subtitle2" component="p"
+                     <Typography onClick={handleClick} variant="subtitle2" component="p"
                                   sx={{color: '#2347fb', cursor: 'pointer'}}>
                      جزئیات بیشتر
                      </Typography> 
@@ -46,7 +49,9 @@ class FlipGoldenCard extends React.Component {
           {id:"1", src:"https://api.snapp.market/media/cache/product-variation_image_thumbnail/uploads/images/vendors/users/app/60e46400a37e3.jpg"},
           {id:"2", src:"https://api.snapp.market/media/cache/product-variation_image_thumbnail/uploads/images/vendors/users/app/610783ecc41a2.jpg"},
           {id:"3", src:"https://api.snapp.market/media/cache/product-variation_image_thumbnail/uploads/images/vendors/users/app/6107810c1357e.jpg"}
-                    ]} category>
+                    ]} category
+                    handleClick={handleClick}
+                    >
           
           </GoldenCard>
           
@@ -59,23 +64,26 @@ class FlipGoldenCard extends React.Component {
         my: 0.75,
         mx: 0.5,
         zIndex: 99,
-        position:'absolute',
+        // position:'absolute',
         borderRadius: '0.5rem',
         boxShadow: 'none',
         display:'flex',
         flexDirection:'row',
-        backfaceVisibility: 'hidden',
-        scrollBehavior: 'smooth',
-        wordBreak:'breakAll',
-        overflowY:'auto'}}>
+        // backfaceVisibility: 'hidden',
+        // scrollBehavior: 'smooth',
+        // wordBreak:'breakAll',
+        // overflowY:'auto'
+        }}>
       
-        <List sx={{width: '100%',bgcolor: 'background.paper',  height: 'initial'}}>
+        <List sx={{width: '100%',bgcolor: 'background.paper',
+          // height: 'initial'
+          }}>
          <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
                     <Typography variant="subtitle2" component="p">
                         بقچه طلایی
                     </Typography>
            <label htmlFor="icon-button-file">
-             <IconButton onClick={this.handleClick} color="primary" aria-label="upload picture" component="span">
+             <IconButton onClick={handleClick} color="primary" aria-label="upload picture" component="span">
                <CancelOutlinedIcon />
              </IconButton>
            </label>
@@ -128,5 +136,5 @@ class FlipGoldenCard extends React.Component {
 </ReactCardFlip>
     )
   }
-}
+// }
 export default FlipGoldenCard;

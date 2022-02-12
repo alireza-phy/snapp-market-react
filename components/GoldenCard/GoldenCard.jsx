@@ -8,9 +8,10 @@ import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import CardPrice from "../CardPrice/CardPrice";
 import CardAddToCartButton from "../CardAddToCartButton/CardAddToCartButton";
+// import FlipGoldenCard from "../FlippeGoldenCard/FlippeGoldenCard";
 import PN from "persian-number";
 
-const GoldenCard = ({width, category}) => {
+const GoldenCard = ({width, category},props) => {
     const imgPack = [{
         id: 1,
         src: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/383613.jpg'
@@ -70,6 +71,10 @@ const GoldenCard = ({width, category}) => {
                                 sx={{color: '#2347fb', cursor: 'pointer'}}>
                         جزئیات بیشتر
                     </Typography>*/}
+                     <Typography onClick={()=>props.handleClick(props.GoldenCard)} variant="subtitle2" component="p"
+                                  sx={{color: '#2347fb', cursor: 'pointer'}}>
+                     جزئیات بیشتر
+                     </Typography> 
                 </Box> 
                 <Box sx={{
                     display: 'flex',
