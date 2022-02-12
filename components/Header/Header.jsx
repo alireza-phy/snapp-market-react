@@ -73,7 +73,6 @@ const StyledInputBase = styled(InputBase)(({theme}) => ({
     alignItems: "center",
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 0, 1, 0),
-        // vertical padding + font size from searchIcon
         paddingRight: `calc(1em + ${theme.spacing(3)})`,
         transition: theme.transitions.create('width'),
         width: '100%',
