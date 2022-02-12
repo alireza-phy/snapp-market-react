@@ -13,6 +13,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import {useTheme, createTheme, makeStyles} from '@mui/material/styles';
 import {Container, IconButton, Link, Paper} from "@mui/material";
 import {styled, alpha} from '@mui/material/styles';
+import PN from "persian-number";
 import Badge from '@mui/material/Badge';
 
 import {
@@ -26,6 +27,7 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import SlideDrawer from "./slideDrawer";
 import CartDrawer from "./CartDrawer";
+import { connect } from "react-redux";
 
 //search
 
@@ -82,9 +84,15 @@ const StyledInputBase = styled(InputBase)(({theme}) => ({
         },
     },
 }));
-
-const Header = () => {
-
+function mapStateToProps(state) {
+    return {
+      count: state.productCountReducer.count,
+      finallPrice: state.finallPriceReducer.finallPrice,
+      SingleCardCount: state.singleCardCountReducer.SingleCardCount,
+    };
+  }
+const Header = (props) => {
+console.log(props);
     const theme = useTheme();
     const [value, setValue] = useState('Home');
 
@@ -253,11 +261,13 @@ const Header = () => {
                                     >
                                         سبد خرید
                                         <Typography sx={{
-                                            width: "0.7rem",
-                                            height: "0.7rem",
+                                            width: "0.9rem",
+                                            height: "0.9rem",
                                             borderRadius: "50%",
-                                            fontSize: "0.4rem",
-                                            backgroundColor: "lightblue",
+                                            fontSize: "1rem",
+                                            padding:"0.7rem",
+                                            fontWeight:"bold",
+                                            backgroundColor: "rgb(242,247,255)",
                                             display: "flex",
                                             alignItems: "center",
                                             justifyContent: "center",
@@ -266,7 +276,7 @@ const Header = () => {
                                                 height: "1rem",
                                             },
                                         }}>
-                                            0
+                                            {PN.convertEnToPe(props.SingleCardCount)}
                                         </Typography>
                                     </Button>
                                     <CartDrawer openCart={drawerOpenCart} onCloseCart={toggleDrawerCart}/>
@@ -520,4 +530,4 @@ const Header = () => {
 
 };
 
-export default Header;
+export default connect(mapStateToProps,null)(Header);
