@@ -11,11 +11,28 @@ const initialState = {
 const initialFinallPrice = {
   finallPrice: 0,
 };
+const initialSingleCardCount = {
+  SingleCardCount: 0,
+};
+const initialCartBadge = {
+  cartBadge:0,
+}
 const rootReducer = combineReducers({
   finallPriceReducer,
   productCountReducer,
+  singleCardCountReducer,
 });
 const store = createStore(rootReducer);
+function productCountReducer(state = initialState, action) {
+  switch (action.type) {
+    case "INC":
+      return { count: (state.count += action.num) };
+    case "DEC":
+      return { count: (state.count -= action.num) };
+    default:
+      return state;
+  }
+}
 function finallPriceReducer(state = initialFinallPrice, action) {
   switch (action.type) {
     case "INCEREMENT":
@@ -26,12 +43,12 @@ function finallPriceReducer(state = initialFinallPrice, action) {
       return state;
   }
 }
-function productCountReducer(state = initialState, action) {
+function singleCardCountReducer(state = initialSingleCardCount, action) {
   switch (action.type) {
-    case "INC":
-      return { count: state.count += action.num };
-    case "DEC":
-      return { count: state.count -= action.num };
+    case "SINGLEINC":
+      return { SingleCardCount: state.SingleCardCount += action.num };
+    case "SINGLEDEC":
+      return { SingleCardCount: state.SingleCardCount -= action.num };
     default:
       return state;
   }
