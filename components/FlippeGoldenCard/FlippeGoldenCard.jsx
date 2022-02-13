@@ -3,7 +3,7 @@ import GoldenCard from '../GoldenCard/GoldenCard';
 import CardActions from '@mui/material/CardActions';
 import CardPrice from "../CardPrice/CardPrice";
 import {useState} from 'react';
-import {styled} from '@mui/material/styles';
+import {styled,useTheme} from '@mui/material/styles';
 import {
     Box,
     Card,
