@@ -3,13 +3,13 @@ import GoldenCard from '../GoldenCard/GoldenCard';
 import CardActions from '@mui/material/CardActions';
 import CardPrice from "../CardPrice/CardPrice";
 import {useState} from 'react';
+import {styled} from '@mui/material/styles';
 import {
     Box,
     Card,
     Typography,
     List,
     ListItem,
-    ListItemText,
     ListItemAvatar,
     Avatar,
     ImageIcon,
@@ -18,40 +18,35 @@ import {
 } from '@mui/material';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import ReactCardFlip from 'react-card-flip';
-import CardContent from '@mui/material/CardContent';
 import {goldenBoqche} from '../ProductData/ProductData'
 
-// class FlipGoldenCard extends React.Component {
-//
-//     constructor() {
-//         super();
-//         this.state = {
-//             isFlipped: false
-//         };
-//         this.handleClick = this.handleClick.bind(this);
-//     }
-//
-//     handleClick = (e) => {
-//         e.preventDefault();
-//         this.setState(prevState => ({isFlipped: !prevState.isFlipped}));
-//         console.log("*")
-//     }
-//
-//     render() {
+const Scroll = styled('div')(({theme})=>({
+        '*::-webkit-scrollbar':{
+            width:6},
+        '*::-webkit-scrollbar-track':{
+            backgroundColor:'#0f2b55',
+            borderRadius:10,
+        },
+        '*::-webkit-scrollbar-thumb':{
+            backgroundColor:'white',
+            borderRadius:10,
+        }
+    }
+));
 
 const FlipGoldenCard =() =>{
     const [isFlipped,SetFlipped]=useState(false)
     const handleClick=()=>{
         SetFlipped(!isFlipped);
     };
+    const theme = useTheme();
         return (
             <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
                 <Box sx={{
                     width:'15rem',
-                    height:'16rem',
                     py: '1rem',
                     px: '1rem',
-                    my: 0.75,
+                    my: '1rem',
                     mx: 0.5,
                     zIndex: 99,
                     borderRadius: '0.5rem',
@@ -62,7 +57,7 @@ const FlipGoldenCard =() =>{
                         isFlipped={isFlipped}
                         width={'15rem'}
                         category
-                        data={goldenBoqche('dairyProduct')}
+                        data={goldenBoqche('grocery-bread')}
                     >
 
                     </GoldenCard>
@@ -70,12 +65,13 @@ const FlipGoldenCard =() =>{
                 </Box>
 
                 <Card sx={{
-                    width:'20rem',
-                    height:'16rem',
+                    width:'26rem',
+                    height:'16.2rem',
                     py: '1rem',
                     px: '1rem',
-                    my: '1rem',
-                    mx: 0.5,
+                    my: '2.5rem',
+                    position:'reletive',
+                    mx: '1.5rem',
                     zIndex: 99,
                     borderRadius: '0.5rem',
                     boxShadow: 'none',
@@ -85,7 +81,6 @@ const FlipGoldenCard =() =>{
                     scrollBehavior: 'smooth',
                     wordBreak: 'breakAll',
                     overflowY: 'auto',
-                   scrollbar:{display: 'none'}
                 }}>
 
                     <List sx={{width: '100%', bgcolor: 'background.paper', height: 'initial'}}>
@@ -101,9 +96,10 @@ const FlipGoldenCard =() =>{
                             </label>
                         </Box>
                         <Box sx={{overflowY: 'auto', overflowX: 'hidden', maxHeight: '12rem'}}>
+                            <Scroll>
                             {
 
-                                goldenBoqche('dairyProduct').map(item =>
+                                goldenBoqche('grocery-bread').map(item =>
                                     <ListItem  key={item.id}>
                                         <ListItemAvatar>
                                             <Avatar sx={{
@@ -119,15 +115,16 @@ const FlipGoldenCard =() =>{
                                                 <ImageIcon/>
                                             </Avatar>
                                         </ListItemAvatar>
-                                        <Typography sx={{textAlign: 'right',fontSize:'1rem',width:90}}>{item.name}</Typography>
+                                        <Typography sx={{textAlign: 'right',fontSize:'0.8rem',width:150}}>{item.name}</Typography>
                                         <CardActions 
-                                            sx={{width:140,p: '0', display: 'flex', alignItems: 'flex-end',fontSize:'0.5rem',marginRight:5}}>
+                                            sx={{width:140,p: '0', display: 'flex', alignItems: 'flex-start',fontSize:'0.5rem',marginRight:'2rem'}}>
                                             <CardPrice Exdiscount={10} price={item.price} discount={item.discount}/>
                                         </CardActions>
                                         {/* <Divider component="li"/> */}
                                     </ListItem>
                                 )
                             }
+                            </Scroll>
                         </Box>
                     </List>
                 </Card>
