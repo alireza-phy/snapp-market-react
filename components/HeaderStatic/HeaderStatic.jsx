@@ -292,13 +292,13 @@ const infinityShrinknessCircle = keyframes`
 const HeaderStatic = ({drawerOpen, drawerOpenCart, toggleDrawer, toggleDrawerCart}) => {
     const theme = useTheme();
     return (
-        <Box sx={{direction: 'rtl', position: 'sticky', top: 0}}>
+        <Box sx={{direction: 'rtl', position: 'sticky', top: 0 , zIndex: 200000}}>
             <Toolbar sx={{
                 backgroundImage: `url(${Image.src})`,
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
                 backgroundSize: "100% 20rem",
-                zIndex: 99999,
+
             }}>
                 <Container>
                     <Box>
