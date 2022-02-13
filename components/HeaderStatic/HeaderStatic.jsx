@@ -18,7 +18,11 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import LensIcon from '@mui/icons-material/Lens';
-import Grid from '@mui/material/Grid'
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import Badge from '@mui/material/Badge'
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import {ShoppingBagOutlined, PersonOutline, GridViewOutlined} from "@mui/icons-material";
 import {styled, alpha} from '@mui/material/styles';
 import {useTheme} from '@mui/material/styles';
@@ -28,15 +32,16 @@ const style = {
     display: 'flex',
     justifyContent: 'space-between',
     position: 'absolute',
-    top: '40%',
-    left: '50%',
+    top: '29%',
+    left: '49.5%',
     transform: 'translate(-50%, -50%)',
     width: '100%',
-    maxWidth: 1140,
+    maxWidth: {md: 970, lg: 1150},
     bgcolor: 'background.paper',
-    border: '2px solid #000',
+    outline: 'none',
     boxShadow: 24,
-    px: 3
+    px: 3,
+    pt: 3
 };
 const Search = styled('div')(({theme}) => ({
     position: 'relative',
@@ -289,7 +294,15 @@ const infinityShrinknessCircle = keyframes`
     transform: scale(0.8);
   }
 `
-const HeaderStatic = ({drawerOpen, drawerOpenCart, toggleDrawer, toggleDrawerCart}) => {
+const HeaderStatic = ({
+                          drawerOpen,
+                          drawerOpenCart,
+                          toggleDrawer,
+                          toggleDrawerCart,
+                          value,
+                          handleChange,
+                          slideDrawerModal
+                      }) => {
     const theme = useTheme();
     return (
         <Box sx={{direction: 'rtl', position: 'sticky', top: 0 , zIndex: 200000}}>
@@ -475,6 +488,40 @@ const HeaderStatic = ({drawerOpen, drawerOpenCart, toggleDrawer, toggleDrawerCar
                         </Box>
                     </Box>
                 </Container>
+                <Paper
+                    sx={{display: {xs: "flex", sm: "none"}, position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 1}}
+                    elevation={3}>
+                    <BottomNavigation sx={{width: "100%", color: "black"}} showLabels value={value}
+                                      onChange={handleChange}>
+                        <BottomNavigationAction
+                            label="خانه"
+                            value="خانه"
+                            icon={<HomeOutlinedIcon/>}
+                        />
+                        <BottomNavigationAction
+                            label="دسته بندی ها"
+                            value="دسته بندی ها"
+                            icon={<GridViewOutlined/>}
+                            onClick={() => toggleDrawer(true)}
+                        />
+                        <SlideDrawer open={drawerOpen} onClose={toggleDrawer}/>
+
+                        <BottomNavigationAction
+                            label="سبد خرید"
+                            value="سبد خرید"
+                            icon={
+                                <Badge anchorOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'left',
+                                }}
+                                       badgeContent={1}
+                                       color="primary">
+                                    <ShoppingCartOutlinedIcon color="action"/>
+                                </Badge>
+                            }
+                        />
+                    </BottomNavigation>
+                </Paper>
             </Toolbar>
             <Box sx={{
                 display: {xs: 'none', sm: 'block'},
@@ -507,7 +554,8 @@ const HeaderStatic = ({drawerOpen, drawerOpenCart, toggleDrawer, toggleDrawerCar
                                     </Typography>
                                 </Box>
                             </Paper>
-                            <SlideDrawer open={drawerOpen} onClose={() => toggleDrawer(false)}/>
+                            <SlideDrawer slideDrawerModal={slideDrawerModal} open={drawerOpen}
+                                         onClose={() => toggleDrawer(false)}/>
                             <Modal
                                 sx={{display: {xs: 'none', md: 'block'}}}
                                 open={drawerOpen}
@@ -516,152 +564,302 @@ const HeaderStatic = ({drawerOpen, drawerOpenCart, toggleDrawer, toggleDrawerCar
                                 aria-describedby="modal-modal-description"
                             >
                                 <Box sx={style}>
-                                    <Grid container>
-                                        <Grid item xs={3}>
+                                    <Box sx={{display: 'flex', gap: {md: 11.5, lg: 19}}}>
+                                        <Box>
                                             <List>
                                                 {
                                                     firstCol.map((list) => (
                                                         <ListItem sx={{
                                                             display: 'flex',
                                                             flexDirection: 'column',
-                                                            alignItems: 'start'
+                                                            alignItems: 'start',
+                                                            mb: 1.5,
+                                                            cursor: 'pointer',
+                                                            ':hover div span svg': {
+                                                                color: '#2446f5',
+                                                                opacity: 1,
+                                                                fontSize: 10
+                                                            },
+                                                            ':hover div p': {
+                                                                color: '#07bc20'
+                                                            }
                                                         }} disablePadding>
-                                                            <ListItemText sx={{textAlign: 'right'}}
+                                                            <ListItemText sx={{
+                                                                textAlign: 'right',
+                                                                display: 'flex',
+                                                                alignItems: 'center'
+                                                            }}
                                                                           primary={
                                                                               <Typography sx={{
                                                                                   display: 'flex',
                                                                                   alignItems: 'center',
-                                                                                  gap: 1
+                                                                                  gap: 1,
+                                                                                  color: '#2446f5',
+                                                                                  fontWeight: 500
                                                                               }}
-                                                                                          variant="body1"
+                                                                                          variant="body2"
                                                                                           component="span">
-                                                                                  <LensIcon sx={{fontSize: 6}}/>
+                                                                                  <Box sx={{width: 8}}>
+                                                                                      <LensIcon
+                                                                                          sx={{
+                                                                                              fontSize: 6,
+                                                                                              opacity: 0.5
+                                                                                          }}/>
+                                                                                  </Box>
                                                                                   {list.name}
                                                                               </Typography>}/>
                                                             <ListItemText sx={{textAlign: 'right', mr: 1}}>
-                                                                {
-                                                                    list.groups.map((groups) => (
-                                                                        <Typography variant="body2"
-                                                                                    component="span">
-                                                                            {groups.group}،&nbsp;
-                                                                        </Typography>
-                                                                    ))
-                                                                }
+                                                                <Typography
+                                                                    variant="body2"
+                                                                    component="p"
+                                                                    sx={{
+                                                                        textOverflow: 'ellipsis',
+                                                                        overflow: 'hidden',
+                                                                        height: 20,
+                                                                        width: 150,
+                                                                        whiteSpace: 'nowrap',
+                                                                        color: '#a3a3a3'
+                                                                    }}
+                                                                >
+                                                                    {
+                                                                        list.groups.map((groups) => (
+                                                                            <Typography variant="body2"
+                                                                                        component="span">
+                                                                                {groups.group}،&nbsp;
+                                                                            </Typography>
+                                                                        ))
+                                                                    }
+                                                                </Typography>
                                                             </ListItemText>
                                                         </ListItem>
                                                     ))
                                                 }
                                             </List>
-                                        </Grid>
-                                        <Grid item xs={3}>
+                                        </Box>
+                                        <Box>
                                             <List>
                                                 {
                                                     secondCol.map((list) => (
                                                         <ListItem sx={{
                                                             display: 'flex',
                                                             flexDirection: 'column',
-                                                            alignItems: 'start'
+                                                            alignItems: 'start',
+                                                            mb: 1.5,
+                                                            cursor: 'pointer',
+                                                            ':hover div span svg': {
+                                                                color: '#2446f5',
+                                                                opacity: 1,
+                                                                fontSize: 10
+                                                            },
+                                                            ':hover div p': {
+                                                                color: '#07bc20'
+                                                            }
                                                         }} disablePadding>
-                                                            <ListItemText sx={{textAlign: 'right'}}
+                                                            <ListItemText sx={{
+                                                                textAlign: 'right',
+                                                                display: 'flex',
+                                                                alignItems: 'center'
+                                                            }}
                                                                           primary={
                                                                               <Typography sx={{
                                                                                   display: 'flex',
                                                                                   alignItems: 'center',
-                                                                                  gap: 1
+                                                                                  gap: 1,
+                                                                                  color: '#2446f5',
+                                                                                  fontWeight: 500
                                                                               }}
-                                                                                          variant="body1"
+                                                                                          variant="body2"
                                                                                           component="span">
-                                                                                  <LensIcon sx={{fontSize: 6}}/>
+                                                                                  <Box sx={{width: 8}}>
+                                                                                      <LensIcon
+                                                                                          sx={{
+                                                                                              fontSize: 6,
+                                                                                              opacity: 0.5
+                                                                                          }}/>
+                                                                                  </Box>
                                                                                   {list.name}
                                                                               </Typography>}/>
                                                             <ListItemText sx={{textAlign: 'right', mr: 1}}>
-                                                                {
-                                                                    list.groups.map((groups) => (
-                                                                        <Typography variant="body2"
-                                                                                    component="span">
-                                                                            {groups.group}،&nbsp;
-                                                                        </Typography>
-                                                                    ))
-                                                                }
+                                                                <Typography
+                                                                    variant="body2"
+                                                                    component="p"
+                                                                    sx={{
+                                                                        textOverflow: 'ellipsis',
+                                                                        overflow: 'hidden',
+                                                                        height: 20,
+                                                                        width: 150,
+                                                                        whiteSpace: 'nowrap',
+                                                                        color: '#a3a3a3'
+                                                                    }}
+                                                                >
+                                                                    {
+                                                                        list.groups.map((groups) => (
+                                                                            <Typography variant="body2"
+                                                                                        component="span">
+                                                                                {groups.group}،&nbsp;
+                                                                            </Typography>
+                                                                        ))
+                                                                    }
+                                                                </Typography>
                                                             </ListItemText>
                                                         </ListItem>
                                                     ))
                                                 }
                                             </List>
-                                        </Grid>
-                                        <Grid item xs={3}>
+                                        </Box>
+                                        <Box>
                                             <List>
                                                 {
                                                     thirdCol.map((list) => (
                                                         <ListItem sx={{
                                                             display: 'flex',
                                                             flexDirection: 'column',
-                                                            alignItems: 'start'
+                                                            alignItems: 'start',
+                                                            mb: 1.5,
+                                                            cursor: 'pointer',
+                                                            ':hover div span svg': {
+                                                                color: '#2446f5',
+                                                                opacity: 1,
+                                                                fontSize: 10
+                                                            },
+                                                            ':hover div p': {
+                                                                color: '#07bc20'
+                                                            }
                                                         }} disablePadding>
-                                                            <ListItemText sx={{textAlign: 'right'}}
+                                                            <ListItemText sx={{
+                                                                textAlign: 'right',
+                                                                display: 'flex',
+                                                                alignItems: 'center'
+                                                            }}
                                                                           primary={
                                                                               <Typography sx={{
                                                                                   display: 'flex',
                                                                                   alignItems: 'center',
-                                                                                  gap: 1
+                                                                                  gap: 1,
+                                                                                  color: '#2446f5',
+                                                                                  fontWeight: 500
                                                                               }}
-                                                                                          variant="body1"
+                                                                                          variant="body2"
                                                                                           component="span">
-                                                                                  <LensIcon sx={{fontSize: 6}}/>
+                                                                                  <Box sx={{width: 8}}>
+                                                                                      <LensIcon
+                                                                                          sx={{
+                                                                                              fontSize: 6,
+                                                                                              opacity: 0.5
+                                                                                          }}/>
+                                                                                  </Box>
                                                                                   {list.name}
                                                                               </Typography>}/>
                                                             <ListItemText sx={{textAlign: 'right', mr: 1}}>
-                                                                {
-                                                                    list.groups.map((groups) => (
-                                                                        <Typography variant="body2"
-                                                                                    component="span">
-                                                                            {groups.group}،&nbsp;
-                                                                        </Typography>
-                                                                    ))
-                                                                }
+                                                                <Typography
+                                                                    variant="body2"
+                                                                    component="p"
+                                                                    sx={{
+                                                                        textOverflow: 'ellipsis',
+                                                                        overflow: 'hidden',
+                                                                        height: 20,
+                                                                        width: 150,
+                                                                        whiteSpace: 'nowrap',
+                                                                        color: '#a3a3a3'
+                                                                    }}
+                                                                >
+                                                                    {
+                                                                        list.groups.map((groups) => (
+                                                                            <Typography variant="body2"
+                                                                                        component="span">
+                                                                                {groups.group}،&nbsp;
+                                                                            </Typography>
+                                                                        ))
+                                                                    }
+                                                                </Typography>
                                                             </ListItemText>
                                                         </ListItem>
                                                     ))
                                                 }
                                             </List>
-                                        </Grid>
-                                        <Grid item xs={3}>
-                                            <List>
+                                        </Box>
+                                        <Box>
+                                            <List sx={{position: 'relative'}}>
                                                 {
                                                     forthCol.map((list) => (
                                                         <ListItem sx={{
                                                             display: 'flex',
                                                             flexDirection: 'column',
-                                                            alignItems: 'start'
+                                                            alignItems: 'start',
+                                                            mb: 1.5,
+                                                            cursor: 'pointer',
+                                                            ':hover div span svg': {
+                                                                color: '#2446f5',
+                                                                opacity: 1,
+                                                                fontSize: 10
+                                                            },
+                                                            ':hover div p': {
+                                                                color: '#07bc20'
+                                                            }
                                                         }} disablePadding>
-                                                            <ListItemText sx={{textAlign: 'right'}}
+                                                            <ListItemText sx={{
+                                                                textAlign: 'right',
+                                                                display: 'flex',
+                                                                alignItems: 'center'
+                                                            }}
                                                                           primary={
                                                                               <Typography sx={{
                                                                                   display: 'flex',
                                                                                   alignItems: 'center',
-                                                                                  gap: 1
+                                                                                  gap: 1,
+                                                                                  color: '#2446f5',
+                                                                                  fontWeight: 500
                                                                               }}
-                                                                                          variant="body1"
+                                                                                          variant="body2"
                                                                                           component="span">
-                                                                                  <LensIcon sx={{fontSize: 6}}/>
+                                                                                  <Box sx={{width: 8}}>
+                                                                                      <LensIcon
+                                                                                          sx={{
+                                                                                              fontSize: 6,
+                                                                                              opacity: 0.5
+                                                                                          }}/>
+                                                                                  </Box>
                                                                                   {list.name}
                                                                               </Typography>}/>
                                                             <ListItemText sx={{textAlign: 'right', mr: 1}}>
-                                                                {
-                                                                    list.groups.map((groups) => (
-                                                                        <Typography variant="body2"
-                                                                                    component="span">
-                                                                            {groups.group}،&nbsp;
-                                                                        </Typography>
-                                                                    ))
-                                                                }
+                                                                <Typography
+                                                                    variant="body2"
+                                                                    component="p"
+                                                                    sx={{
+                                                                        textOverflow: 'ellipsis',
+                                                                        overflow: 'hidden',
+                                                                        height: 20,
+                                                                        width: 150,
+                                                                        whiteSpace: 'nowrap',
+                                                                        color: '#a3a3a3'
+                                                                    }}
+                                                                >
+                                                                    {
+                                                                        list.groups.map((groups) => (
+                                                                            <Typography variant="body2"
+                                                                                        component="span">
+                                                                                {groups.group}،&nbsp;
+                                                                            </Typography>
+                                                                        ))
+                                                                    }
+                                                                </Typography>
                                                             </ListItemText>
                                                         </ListItem>
                                                     ))
                                                 }
+                                                <Box component='img'
+                                                     src='https://snapp.market/v2/static/images/148e245e46b7c25e27d495d71b214277.png'
+                                                     sx={{
+                                                         width: 201,
+                                                         float: 'left',
+                                                         position: 'absolute',
+                                                         right: -20,
+                                                         mt: 7
+                                                     }}
+                                                />
                                             </List>
-                                        </Grid>
-                                    </Grid>
+                                        </Box>
+                                    </Box>
                                 </Box>
                             </Modal>
                             <Box sx={{display: 'flex', alignItems: 'center', cursor: 'pointer'}}>

@@ -4575,7 +4575,7 @@ export const getSubCategory = (mainCategory) => {
                 result.push({name: item.groupName , id:item.groupId})
         }
     )
-    console.log(result)
+
     return result
 }
 
@@ -4698,6 +4698,6 @@ export const AssortmentCardData = [
 export const goldenBoqche = (boqcheSub) => {
     let result = ProductData.filter (item =>
         item.categoryEn === boqcheSub && (item.price > 10000 && 15 < item.discount))
-    console.log(result)
+
     return result
 }

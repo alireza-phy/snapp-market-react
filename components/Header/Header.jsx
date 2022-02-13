@@ -26,18 +26,26 @@ import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import SlideDrawer from "./slideDrawer";
 import CartDrawer from "./CartDrawer";
 import Modal from '@mui/material/Modal';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import LensIcon from '@mui/icons-material/Lens';
 import {keyframes} from '@mui/system';
 
 const style = {
+    display: 'flex',
+    justifyContent: 'space-between',
     position: 'absolute',
-    top: '22%',
-    left: '50%',
+    top: '37%',
+    left: '49.5%',
     transform: 'translate(-50%, -50%)',
     width: '100%',
-    maxWidth: 1140,
+    maxWidth: {md: 970, lg: 1155},
     bgcolor: 'background.paper',
-    border: '2px solid #000',
+    outline: 'none',
     boxShadow: 24,
+    px: 3,
+    pt: 3
 };
 const infinityShrinknessCircle = keyframes`
   0% {
@@ -106,13 +114,193 @@ const StyledInputBase = styled(InputBase)(({theme}) => ({
         },
     },
 }));
-
-const Header = ({drawerOpen, drawerOpenCart, toggleDrawer, toggleDrawerCart}) => {
+const firstCol = [
+    {
+        id: 1, name: "لبنیات", groups: [
+            {id: 1, group: 'شیر'},
+            {id: 2, group: 'پنیر'},
+            {id: 3, group: 'ماست'},
+            {id: 4, group: 'دوغ'},
+            {id: 5, group: 'کره'},
+            {id: 6, group: 'خامه'},
+            {id: 7, group: 'کشک'},
+            {id: 8, group: 'بستنی'},
+        ]
+    },
+    {
+        id: 2, name: 'نوشیدنی', groups: [
+            {id: 1, group: 'نوشابه'},
+            {id: 2, group: 'ماءالشعیر'},
+            {id: 3, group: 'آبمیوه'},
+            {id: 4, group: 'چای و دمنوش'},
+            {id: 5, group: 'آب'},
+            {id: 6, group: 'قهوه و هات چاکلت'},
+            {id: 7, group: 'نوشیدنی انرژی زا'},
+            {id: 8, group: 'شربت'},
+            {id: 9, group: 'عرقیجات'}
+        ]
+    },
+    {
+        id: 3, name: 'میوه و سبزیجات تازه', groups: [
+            {id: 1, group: 'میوه تازه'},
+            {id: 2, group: 'سبزیجات و صیفی جات'}
+        ]
+    },
+    {
+        id: 4, name: 'خشکبار، دسر و شیرینی', groups: [
+            {id: 1, group: 'دسر'},
+            {id: 2, group: 'آجیل'},
+            {id: 3, group: 'خرما'},
+            {id: 4, group: 'ژله'},
+            {id: 5, group: 'خشکبار'},
+            {id: 6, group: 'پودر کیک و پنکیک'},
+            {id: 7, group: 'انواع شیرینی'}
+        ]
+    },
+    {
+        id: 5, name: 'کودک و نوزاد', groups: [
+            {id: 1, group: 'مواد غذایی کودک'},
+            {id: 2, group: 'بهداشت کودک'},
+            {id: 3, group: 'لوازم کودک و نوزاد'},
+            {id: 4, group: 'اسباب بازی کودک'}
+        ]
+    }
+]
+const secondCol = [
+    {
+        id: 1, name: "خواربار و نان", groups: [
+            {id: 1, group: 'روغن'},
+            {id: 2, group: 'ماکارونی و لازانیا و رشته'},
+            {id: 3, group: 'رب'},
+            {id: 4, group: 'حبوبات و سویا'},
+            {id: 5, group: 'انواع نان'},
+            {id: 6, group: 'برنج'},
+            {id: 7, group: 'قند و شکر و نبات'},
+            {id: 8, group: 'پودر سوخاری و آرد'},
+            {id: 9, group: 'غلات'},
+            {id: 10, group: 'انواع خمیر'}
+        ]
+    },
+    {
+        id: 2, name: 'مواد پروتئینی', groups: [
+            {id: 1, group: 'تخم مرغ'},
+            {id: 2, group: 'مرغ'},
+            {id: 3, group: 'گوشت قرمز'},
+            {id: 4, group: 'ماهی و میگو'},
+            {id: 5, group: 'سوسیس و کالباس'}
+        ]
+    },
+    {
+        id: 3, name: 'کنسرو و غذای آماده', groups: [
+            {id: 1, group: 'فرآورده های منجمد یخچالی'},
+            {id: 2, group: 'تن ماهی'},
+            {id: 3, group: 'غذای نیمه آماده'},
+            {id: 4, group: 'کنسرو و کمپوت'},
+            {id: 5, group: 'غذای آماده مصرف'}
+        ]
+    },
+    {
+        id: 4, name: 'خانه و سبک زندگی', groups: [
+            {id: 1, group: 'لوازم آشپزخانه'},
+            {id: 2, group: 'لوازم یکبار مصرف'},
+            {id: 3, group: 'لوازم خانه'},
+            {id: 4, group: 'کالای حمام و سرویس بهداشتی'},
+            {id: 5, group: 'ابزار و آلات و یراق آلات'},
+            {id: 6, group: 'باغبانی'},
+            {id: 7, group: 'گردش و سفر'},
+            {id: 8, group: 'کالای سلامت'},
+            {id: 9, group: 'ورزش و بازی'},
+            {id: 10, group: 'خودرو، موتور سیکلت و دوچرخه'},
+            {id: 11, group: 'لوازم جشن و کادو'},
+            {id: 12, group: 'لوازم التحریر و اداری'}
+        ]
+    },
+]
+const thirdCol = [
+    {
+        id: 1, name: "دستمال و شوینده", groups: [
+            {id: 1, group: 'دستمال کاغذی'},
+            {id: 2, group: 'دستمال حوله ای'},
+            {id: 3, group: 'دستمال توالت'},
+            {id: 4, group: 'نظافت خانه و آشپزخانه'},
+            {id: 5, group: 'پاک کننده و ضد عفونی کننده سرویس بهداشتی'},
+            {id: 6, group: 'شستشوی ظروف'},
+            {id: 7, group: 'شستشوی لباس'},
+            {id: 8, group: 'فوم و مایع دستشویی'},
+            {id: 9, group: 'ضدعفونی کننده سطوح و میوه'}
+        ]
+    },
+    {
+        id: 2, name: 'آرایشی و بهداشتی', groups: [
+            {id: 1, group: 'محصولات آرایشی'},
+            {id: 2, group: 'بهداشت و مراقبت صورت'},
+            {id: 3, group: 'شامپو و مراقبت مو'},
+            {id: 4, group: 'آرایش مو'},
+            {id: 5, group: 'بهداشت و مراقبت بدن'},
+            {id: 6, group: 'بهداشت دهان'},
+            {id: 7, group: 'اصلاح صورت و بدن'},
+            {id: 8, group: 'بهداشت جنسی'},
+            {id: 9, group: 'اسپری و ضدتعریق'}
+        ]
+    },
+    {
+        id: 3, name: 'صبحانه', groups: [
+            {id: 1, group: 'عسل'},
+            {id: 2, group: 'مربا'},
+            {id: 3, group: 'حلوا ارده و شیره'},
+            {id: 4, group: 'شکلات صبحانه'},
+            {id: 5, group: 'غلات صبحانه'},
+            {id: 6, group: 'کره بادام زمینی'}
+        ]
+    },
+    {
+        id: 4, name: 'لوازم برقی و دیجیتال', groups: [
+            {id: 1, group: 'باتری، محافظ و رابط'},
+            {id: 2, group: 'نور و روشنایی'},
+            {id: 3, group: 'لوازم برقی خانه'},
+            {id: 4, group: 'لوازم برقی آشپزخانه'}
+        ]
+    },
+]
+const forthCol = [
+    {
+        id: 1, name: "تنقلات", groups: [
+            {id: 1, group: 'بیسکویت و ویفر'},
+            {id: 2, group: 'چیپس'},
+            {id: 3, group: 'کیک و کلوچه'},
+            {id: 4, group: 'پفک و اسنک'},
+            {id: 5, group: 'شکلات و آبنبات'},
+            {id: 6, group: 'پاستیل و آدامس'},
+            {id: 7, group: 'آجیل تک و مغز آجیل'},
+            {id: 8, group: 'پاپ کورن و گندمک'},
+            {id: 9, group: 'آلوچه و لواشک'}
+        ]
+    },
+    {
+        id: 2, name: 'چاشنی و افزودنی', groups: [
+            {id: 1, group: 'سس'},
+            {id: 2, group: 'ادویه'},
+            {id: 3, group: 'خیارشور و زیتون'},
+            {id: 4, group: 'آبلیمو و سرکه و آبغوره'},
+            {id: 5, group: 'ترشی و شور'},
+            {id: 6, group: 'افزودنی های شیرینی پزی'},
+            {id: 7, group: 'زعفران'},
+            {id: 8, group: 'سبزیجات خشک و سرخ شده'},
+            {id: 9, group: 'سایر افزودنی ها'}
+        ]
+    }
+]
+const Header = ({
+                    drawerOpen,
+                    drawerOpenCart,
+                    toggleDrawer,
+                    toggleDrawerCart,
+                    value,
+                    handleChange,
+                    slideDrawerModal
+                }) => {
     const theme = useTheme();
-    const [value, setValue] = useState('Home');
-    const handleChange = (newValue) => {
-        setValue(newValue);
-    };
+
     return (
         <>
             <AppBar position="static">
@@ -448,7 +636,8 @@ const Header = ({drawerOpen, drawerOpenCart, toggleDrawer, toggleDrawerCart}) =>
 
                                 دسته بندی ها
                             </Button>
-                            <SlideDrawer open={drawerOpen} onClose={() => toggleDrawer(false)}/>
+                            <SlideDrawer slideDrawerModal={slideDrawerModal} open={drawerOpen}
+                                         onClose={() => toggleDrawer(false)}/>
                             <Modal
                                 sx={{display: {xs: 'none', md: 'block'}}}
                                 open={drawerOpen}
@@ -457,12 +646,302 @@ const Header = ({drawerOpen, drawerOpenCart, toggleDrawer, toggleDrawerCart}) =>
                                 aria-describedby="modal-modal-description"
                             >
                                 <Box sx={style}>
-                                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                                        Text in a modal
-                                    </Typography>
-                                    <Typography id="modal-modal-description" sx={{mt: 2}}>
-                                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                                    </Typography>
+                                    <Box sx={{display: 'flex', gap: {md: 11.5, lg: 19}}}>
+                                        <Box>
+                                            <List>
+                                                {
+                                                    firstCol.map((list) => (
+                                                        <ListItem sx={{
+                                                            display: 'flex',
+                                                            flexDirection: 'column',
+                                                            alignItems: 'start',
+                                                            mb: 1.5,
+                                                            cursor: 'pointer',
+                                                            ':hover div span svg': {
+                                                                color: '#2446f5',
+                                                                opacity: 1,
+                                                                fontSize: 10
+                                                            },
+                                                            ':hover div p': {
+                                                                color: '#07bc20'
+                                                            }
+                                                        }} disablePadding>
+                                                            <ListItemText sx={{
+                                                                textAlign: 'right',
+                                                                display: 'flex',
+                                                                alignItems: 'center'
+                                                            }}
+                                                                          primary={
+                                                                              <Typography sx={{
+                                                                                  display: 'flex',
+                                                                                  alignItems: 'center',
+                                                                                  gap: 1,
+                                                                                  color: '#2446f5',
+                                                                                  fontWeight: 500
+                                                                              }}
+                                                                                          variant="body2"
+                                                                                          component="span">
+                                                                                  <Box sx={{width: 8}}>
+                                                                                      <LensIcon
+                                                                                          sx={{
+                                                                                              fontSize: 6,
+                                                                                              opacity: 0.5
+                                                                                          }}/>
+                                                                                  </Box>
+                                                                                  {list.name}
+                                                                              </Typography>}/>
+                                                            <ListItemText sx={{textAlign: 'right', mr: 1}}>
+                                                                <Typography
+                                                                    variant="body2"
+                                                                    component="p"
+                                                                    sx={{
+                                                                        textOverflow: 'ellipsis',
+                                                                        overflow: 'hidden',
+                                                                        height: 20,
+                                                                        width: 150,
+                                                                        whiteSpace: 'nowrap',
+                                                                        color: '#a3a3a3'
+                                                                    }}
+                                                                >
+                                                                    {
+                                                                        list.groups.map((groups) => (
+                                                                            <Typography variant="body2"
+                                                                                        component="span">
+                                                                                {groups.group}،&nbsp;
+                                                                            </Typography>
+                                                                        ))
+                                                                    }
+                                                                </Typography>
+                                                            </ListItemText>
+                                                        </ListItem>
+                                                    ))
+                                                }
+                                            </List>
+                                        </Box>
+                                        <Box>
+                                            <List>
+                                                {
+                                                    secondCol.map((list) => (
+                                                        <ListItem sx={{
+                                                            display: 'flex',
+                                                            flexDirection: 'column',
+                                                            alignItems: 'start',
+                                                            mb: 1.5,
+                                                            cursor: 'pointer',
+                                                            ':hover div span svg': {
+                                                                color: '#2446f5',
+                                                                opacity: 1,
+                                                                fontSize: 10
+                                                            },
+                                                            ':hover div p': {
+                                                                color: '#07bc20'
+                                                            }
+                                                        }} disablePadding>
+                                                            <ListItemText sx={{
+                                                                textAlign: 'right',
+                                                                display: 'flex',
+                                                                alignItems: 'center'
+                                                            }}
+                                                                          primary={
+                                                                              <Typography sx={{
+                                                                                  display: 'flex',
+                                                                                  alignItems: 'center',
+                                                                                  gap: 1,
+                                                                                  color: '#2446f5',
+                                                                                  fontWeight: 500
+                                                                              }}
+                                                                                          variant="body2"
+                                                                                          component="span">
+                                                                                  <Box sx={{width: 8}}>
+                                                                                      <LensIcon
+                                                                                          sx={{
+                                                                                              fontSize: 6,
+                                                                                              opacity: 0.5
+                                                                                          }}/>
+                                                                                  </Box>
+                                                                                  {list.name}
+                                                                              </Typography>}/>
+                                                            <ListItemText sx={{textAlign: 'right', mr: 1}}>
+                                                                <Typography
+                                                                    variant="body2"
+                                                                    component="p"
+                                                                    sx={{
+                                                                        textOverflow: 'ellipsis',
+                                                                        overflow: 'hidden',
+                                                                        height: 20,
+                                                                        width: 150,
+                                                                        whiteSpace: 'nowrap',
+                                                                        color: '#a3a3a3'
+                                                                    }}
+                                                                >
+                                                                    {
+                                                                        list.groups.map((groups) => (
+                                                                            <Typography variant="body2"
+                                                                                        component="span">
+                                                                                {groups.group}،&nbsp;
+                                                                            </Typography>
+                                                                        ))
+                                                                    }
+                                                                </Typography>
+                                                            </ListItemText>
+                                                        </ListItem>
+                                                    ))
+                                                }
+                                            </List>
+                                        </Box>
+                                        <Box>
+                                            <List>
+                                                {
+                                                    thirdCol.map((list) => (
+                                                        <ListItem sx={{
+                                                            display: 'flex',
+                                                            flexDirection: 'column',
+                                                            alignItems: 'start',
+                                                            mb: 1.5,
+                                                            cursor: 'pointer',
+                                                            ':hover div span svg': {
+                                                                color: '#2446f5',
+                                                                opacity: 1,
+                                                                fontSize: 10
+                                                            },
+                                                            ':hover div p': {
+                                                                color: '#07bc20'
+                                                            }
+                                                        }} disablePadding>
+                                                            <ListItemText sx={{
+                                                                textAlign: 'right',
+                                                                display: 'flex',
+                                                                alignItems: 'center'
+                                                            }}
+                                                                          primary={
+                                                                              <Typography sx={{
+                                                                                  display: 'flex',
+                                                                                  alignItems: 'center',
+                                                                                  gap: 1,
+                                                                                  color: '#2446f5',
+                                                                                  fontWeight: 500
+                                                                              }}
+                                                                                          variant="body2"
+                                                                                          component="span">
+                                                                                  <Box sx={{width: 8}}>
+                                                                                      <LensIcon
+                                                                                          sx={{
+                                                                                              fontSize: 6,
+                                                                                              opacity: 0.5
+                                                                                          }}/>
+                                                                                  </Box>
+                                                                                  {list.name}
+                                                                              </Typography>}/>
+                                                            <ListItemText sx={{textAlign: 'right', mr: 1}}>
+                                                                <Typography
+                                                                    variant="body2"
+                                                                    component="p"
+                                                                    sx={{
+                                                                        textOverflow: 'ellipsis',
+                                                                        overflow: 'hidden',
+                                                                        height: 20,
+                                                                        width: 150,
+                                                                        whiteSpace: 'nowrap',
+                                                                        color: '#a3a3a3'
+                                                                    }}
+                                                                >
+                                                                    {
+                                                                        list.groups.map((groups) => (
+                                                                            <Typography variant="body2"
+                                                                                        component="span">
+                                                                                {groups.group}،&nbsp;
+                                                                            </Typography>
+                                                                        ))
+                                                                    }
+                                                                </Typography>
+                                                            </ListItemText>
+                                                        </ListItem>
+                                                    ))
+                                                }
+                                            </List>
+                                        </Box>
+                                        <Box>
+                                            <List sx={{position: 'relative'}}>
+                                                {
+                                                    forthCol.map((list) => (
+                                                        <ListItem sx={{
+                                                            display: 'flex',
+                                                            flexDirection: 'column',
+                                                            alignItems: 'start',
+                                                            mb: 1.5,
+                                                            cursor: 'pointer',
+                                                            ':hover div span svg': {
+                                                                color: '#2446f5',
+                                                                opacity: 1,
+                                                                fontSize: 10
+                                                            },
+                                                            ':hover div p': {
+                                                                color: '#07bc20'
+                                                            }
+                                                        }} disablePadding>
+                                                            <ListItemText sx={{
+                                                                textAlign: 'right',
+                                                                display: 'flex',
+                                                                alignItems: 'center'
+                                                            }}
+                                                                          primary={
+                                                                              <Typography sx={{
+                                                                                  display: 'flex',
+                                                                                  alignItems: 'center',
+                                                                                  gap: 1,
+                                                                                  color: '#2446f5',
+                                                                                  fontWeight: 500
+                                                                              }}
+                                                                                          variant="body2"
+                                                                                          component="span">
+                                                                                  <Box sx={{width: 8}}>
+                                                                                      <LensIcon
+                                                                                          sx={{
+                                                                                              fontSize: 6,
+                                                                                              opacity: 0.5
+                                                                                          }}/>
+                                                                                  </Box>
+                                                                                  {list.name}
+                                                                              </Typography>}/>
+                                                            <ListItemText sx={{textAlign: 'right', mr: 1}}>
+                                                                <Typography
+                                                                    variant="body2"
+                                                                    component="p"
+                                                                    sx={{
+                                                                        textOverflow: 'ellipsis',
+                                                                        overflow: 'hidden',
+                                                                        height: 20,
+                                                                        width: 150,
+                                                                        whiteSpace: 'nowrap',
+                                                                        color: '#a3a3a3'
+                                                                    }}
+                                                                >
+                                                                    {
+                                                                        list.groups.map((groups) => (
+                                                                            <Typography variant="body2"
+                                                                                        component="span">
+                                                                                {groups.group}،&nbsp;
+                                                                            </Typography>
+                                                                        ))
+                                                                    }
+                                                                </Typography>
+                                                            </ListItemText>
+                                                        </ListItem>
+                                                    ))
+                                                }
+                                                <Box component='img'
+                                                     src='https://snapp.market/v2/static/images/148e245e46b7c25e27d495d71b214277.png'
+                                                     sx={{
+                                                         width: 201,
+                                                         float: 'left',
+                                                         position: 'absolute',
+                                                         right: -20,
+                                                         mt: 7
+                                                     }}
+                                                />
+                                            </List>
+                                        </Box>
+                                    </Box>
                                 </Box>
                             </Modal>
                             <Search>
