@@ -269,14 +269,14 @@ const SingleProduct = (props) => {
               onClick={incrementHandler}
               sx={{
                 width: "100%",
-                color: "rgb(7,188,32)",
-                borderColor: "rgb(7,188,32)",
+                color: "rgb(11, 153, 30)",
+                border: "0.1rem solid rgb(16, 224, 44)",
                 fontWeight: "bold",
-                fontSize: "1.3rem",
+                fontSize: "1rem",
+                  py:'0.5rem',
                 "&:hover": {
                   color: "white",
-                  borderColor: "rgb(7,188,32)",
-                  backgroundColor: "rgb(7,188,32)",
+                  backgroundColor: "rgb(5, 139, 24)",
                 },
               }}
             >
