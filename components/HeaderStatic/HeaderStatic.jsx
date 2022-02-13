@@ -18,6 +18,11 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import LensIcon from '@mui/icons-material/Lens';
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import Badge from '@mui/material/Badge'
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import {ShoppingBagOutlined, PersonOutline, GridViewOutlined} from "@mui/icons-material";
 import {styled, alpha} from '@mui/material/styles';
 import {useTheme} from '@mui/material/styles';
@@ -289,7 +294,7 @@ const infinityShrinknessCircle = keyframes`
     transform: scale(0.8);
   }
 `
-const HeaderStatic = ({drawerOpen, drawerOpenCart, toggleDrawer, toggleDrawerCart}) => {
+const HeaderStatic = ({drawerOpen, drawerOpenCart, toggleDrawer, toggleDrawerCart,value,handleChange}) => {
     const theme = useTheme();
     return (
         <Box sx={{direction: 'rtl', position: 'sticky', top: 0}}>
@@ -475,6 +480,38 @@ const HeaderStatic = ({drawerOpen, drawerOpenCart, toggleDrawer, toggleDrawerCar
                         </Box>
                     </Box>
                 </Container>
+                <Paper sx={{display: {xs: "flex", sm: "none"}, position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 1}}
+                       elevation={3}>
+                    <BottomNavigation sx={{width: "100%", color: "black"}} showLabels value={value} onChange={handleChange}>
+                        <BottomNavigationAction
+                            label="خانه"
+                            value="خانه"
+                            icon={<HomeOutlinedIcon/>}
+                        />
+                        <BottomNavigationAction
+                            label="دسته بندی ها"
+                            value="دسته بندی ها"
+                            icon={<GridViewOutlined/>}
+                            onClick={() => toggleDrawer(true)}
+                        />
+                        <SlideDrawer open={drawerOpen} onClose={toggleDrawer}/>
+
+                        <BottomNavigationAction
+                            label="سبد خرید"
+                            value="سبد خرید"
+                            icon={
+                                <Badge anchorOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'left',
+                                }}
+                                       badgeContent={1}
+                                       color="primary">
+                                    <ShoppingCartOutlinedIcon color="action"/>
+                                </Badge>
+                            }
+                        />
+                    </BottomNavigation>
+                </Paper>
             </Toolbar>
             <Box sx={{
                 display: {xs: 'none', sm: 'block'},

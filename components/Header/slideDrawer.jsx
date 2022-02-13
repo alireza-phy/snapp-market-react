@@ -1,6 +1,5 @@
 import {Drawer, List, ListItem, ListItemText, Box, Typography} from "@mui/material"
-import {Close, CloseSharp, Lens} from "@mui/icons-material";
-import {useState} from "react";
+import {Close,Lens} from "@mui/icons-material";
 import {useTheme} from "@mui/material/styles";
 
 const SlideDrawer = (props) => {

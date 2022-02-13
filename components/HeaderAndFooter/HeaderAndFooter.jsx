@@ -28,6 +28,10 @@ const HeaderAndFooter = ({children}) => {
     const toggleDrawerCart = (value) => {
         setDrawerOpenCart(value)
     };
+    const [value, setValue] = useState('Home');
+    const handleChange = (newValue) => {
+        setValue(newValue);
+    };
     return (
         <>
             {
@@ -37,6 +41,8 @@ const HeaderAndFooter = ({children}) => {
                         drawerOpenCart={drawerOpenCart}
                         toggleDrawer={toggleDrawer}
                         toggleDrawerCart={toggleDrawerCart}
+                        value = {value}
+                        handleChange = {handleChange}
                 />
             }
             {
@@ -46,6 +52,8 @@ const HeaderAndFooter = ({children}) => {
                               drawerOpenCart={drawerOpenCart}
                               toggleDrawer={toggleDrawer}
                               toggleDrawerCart={toggleDrawerCart}
+                              value = {value}
+                              handleChange = {handleChange}
                 />
             }
             {children}
