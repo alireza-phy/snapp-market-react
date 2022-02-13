@@ -294,7 +294,15 @@ const infinityShrinknessCircle = keyframes`
     transform: scale(0.8);
   }
 `
-const HeaderStatic = ({drawerOpen, drawerOpenCart, toggleDrawer, toggleDrawerCart,value,handleChange}) => {
+const HeaderStatic = ({
+                          drawerOpen,
+                          drawerOpenCart,
+                          toggleDrawer,
+                          toggleDrawerCart,
+                          value,
+                          handleChange,
+                          slideDrawerModal
+                      }) => {
     const theme = useTheme();
     return (
         <Box sx={{direction: 'rtl', position: 'sticky', top: 0}}>
@@ -480,9 +488,11 @@ const HeaderStatic = ({drawerOpen, drawerOpenCart, toggleDrawer, toggleDrawerCar
                         </Box>
                     </Box>
                 </Container>
-                <Paper sx={{display: {xs: "flex", sm: "none"}, position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 1}}
-                       elevation={3}>
-                    <BottomNavigation sx={{width: "100%", color: "black"}} showLabels value={value} onChange={handleChange}>
+                <Paper
+                    sx={{display: {xs: "flex", sm: "none"}, position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 1}}
+                    elevation={3}>
+                    <BottomNavigation sx={{width: "100%", color: "black"}} showLabels value={value}
+                                      onChange={handleChange}>
                         <BottomNavigationAction
                             label="خانه"
                             value="خانه"
@@ -544,7 +554,8 @@ const HeaderStatic = ({drawerOpen, drawerOpenCart, toggleDrawer, toggleDrawerCar
                                     </Typography>
                                 </Box>
                             </Paper>
-                            <SlideDrawer open={drawerOpen} onClose={() => toggleDrawer(false)}/>
+                            <SlideDrawer slideDrawerModal={slideDrawerModal} open={drawerOpen}
+                                         onClose={() => toggleDrawer(false)}/>
                             <Modal
                                 sx={{display: {xs: 'none', md: 'block'}}}
                                 open={drawerOpen}

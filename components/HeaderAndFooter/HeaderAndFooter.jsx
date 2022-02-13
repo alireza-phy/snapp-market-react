@@ -6,17 +6,20 @@ import {useEffect, useState} from "react";
 const HeaderAndFooter = ({children}) => {
     const [scrollBarStatic, setScrollBarStatic] = useState(false)
     const [scrollBarHome, setScrollBarHome] = useState(true)
-    const [drawerOpen, setDrawerOpen] = useState(false);
-    const [drawerOpenCart, setDrawerOpenCart] = useState(false);
+    const [drawerOpen, setDrawerOpen] = useState(false)
+    const [drawerOpenCart, setDrawerOpenCart] = useState(false)
+    const [slideDrawerModal, setSlideDrawerModal] = useState(true)
     useEffect(() => {
         window.addEventListener('scroll', () => {
             if (window.scrollY < 230) {
                 setScrollBarHome(true)
                 setScrollBarStatic(false)
+                setSlideDrawerModal(false)
             }
             if (window.scrollY >= 230) {
                 setScrollBarHome(false)
                 setScrollBarStatic(true)
+                setSlideDrawerModal(true)
             }
         })
     }, [])
@@ -43,6 +46,7 @@ const HeaderAndFooter = ({children}) => {
                         toggleDrawerCart={toggleDrawerCart}
                         value = {value}
                         handleChange = {handleChange}
+                        slideDrawerModal={slideDrawerModal}
                 />
             }
             {
@@ -54,6 +58,7 @@ const HeaderAndFooter = ({children}) => {
                               toggleDrawerCart={toggleDrawerCart}
                               value = {value}
                               handleChange = {handleChange}
+                              slideDrawerModal={slideDrawerModal}
                 />
             }
             {children}

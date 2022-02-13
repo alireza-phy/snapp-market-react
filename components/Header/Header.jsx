@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useState} from "react";
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -9,8 +10,8 @@ import Box from "@mui/material/Box"
 import Button from "@mui/material/Button"
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import {useTheme} from '@mui/material/styles';
-import {Container, IconButton,Paper} from "@mui/material";
+import {useTheme, createTheme, makeStyles} from '@mui/material/styles';
+import {Container, IconButton, Link, Paper} from "@mui/material";
 import {styled, alpha} from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
 
@@ -289,7 +290,15 @@ const forthCol = [
         ]
     }
 ]
-const Header = ({drawerOpen, drawerOpenCart, toggleDrawer, toggleDrawerCart,value,handleChange}) => {
+const Header = ({
+                    drawerOpen,
+                    drawerOpenCart,
+                    toggleDrawer,
+                    toggleDrawerCart,
+                    value,
+                    handleChange,
+                    slideDrawerModal
+                }) => {
     const theme = useTheme();
 
     return (
@@ -627,7 +636,8 @@ const Header = ({drawerOpen, drawerOpenCart, toggleDrawer, toggleDrawerCart,valu
 
                                 دسته بندی ها
                             </Button>
-                            <SlideDrawer open={drawerOpen} onClose={() => toggleDrawer(false)}/>
+                            <SlideDrawer slideDrawerModal={slideDrawerModal} open={drawerOpen}
+                                         onClose={() => toggleDrawer(false)}/>
                             <Modal
                                 sx={{display: {xs: 'none', md: 'block'}}}
                                 open={drawerOpen}
