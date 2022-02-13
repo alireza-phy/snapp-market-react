@@ -2,17 +2,18 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import PN from "persian-number";
 
-const CardPrice = ({price, discount, Exdiscount}) => {
+const CardPrice = ({price, discount, Exdiscount=0}) => {
+
+    console.log(Exdiscount)
     return (
         <Box sx={{flexGrow: '2'}}>
             <Box sx={{
                 display: 'flex',
                 alignItems: 'center',
-                visibility: discount === null ? 'hidden' : 'visible'
             }}>
                 <Box sx={{display:'flex' , gap:'2px'}}>
                     {
-                        Exdiscount
+                    Exdiscount !== 0
                         &&
                         <Box sx={{display:'flex' , justifyContent:'center' , alignItems:'center' , gap:'2px'}}>
 
@@ -34,6 +35,7 @@ const CardPrice = ({price, discount, Exdiscount}) => {
                         border: discount > 12 ? 'none' : '1px solid #fa0f1b',
                         borderRadius: '0.4rem',
                         p: .5,
+                        visibility: discount === null ? 'hidden' : 'visible'
                     }} variant="body2" component="span">
                         {PN.convertEnToPe(discount)} ٪
                     </Typography>
@@ -44,7 +46,8 @@ const CardPrice = ({price, discount, Exdiscount}) => {
                             sx={{
                                 mr: 0.55,
                                 textDecoration: '#30354bbd line-through',
-                                color: '#30354bbd'
+                                color: '#30354bbd',
+                                visibility: discount === null ? 'hidden' : 'visible'
                             }}>
                     {PN.convertEnToPe(PN.sliceNumber(price))}
                 </Typography>

@@ -14,7 +14,7 @@ const SlideDrawer = (props) => {
     const drawerWidth = 280;
     const theme = useTheme();
 
-    console.log(getSubCategory('drinks'))
+
     return (
         <Drawer
             sx={{
@@ -25,7 +25,7 @@ const SlideDrawer = (props) => {
                     boxSizing: 'border-box',
 
                 },
-
+                display: {xs: 'block', md: 'none'}
             }}
 
             anchor="top" open={open} onClose={() => onClose(false)}>
