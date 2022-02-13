@@ -2,6 +2,7 @@ import {Drawer, List, ListItem, ListItemText, Box, Typography} from "@mui/materi
 import {Close, CloseSharp, Lens} from "@mui/icons-material";
 import {useState} from "react";
 import {useTheme} from "@mui/material/styles";
+import {AssortmentCardData , getSubCategory} from '../ProductData/ProductData'
 
 const SlideDrawer = (props) => {
     const {open, onClose} = props;
@@ -13,7 +14,7 @@ const SlideDrawer = (props) => {
     const drawerWidth = 280;
     const theme = useTheme();
 
-
+    console.log(getSubCategory('drinks'))
     return (
         <Drawer
             sx={{
@@ -34,12 +35,19 @@ const SlideDrawer = (props) => {
 
             </Box>
             <List component="nav" sx={{overflow:"scroll"}}>
-                {listItem.map((item, index) => (
-                    <ListItem button key={item} sx={{ display:"flex", flexDirection:"column",
+                {AssortmentCardData.map(item => (
+                    <ListItem button key={item.titleEn} sx={{ display:"flex", flexDirection:"column",
                         alignItems:"flex-start", textAlign:"left"}}>
                         <Lens sx={{color: "lightblue", fontSize: "0.5rem"}}/>
-                        <ListItemText primary={item}/>
-                        <ListItemText primary={"item"}/>
+                        <ListItemText primary={item.title}/>
+                        {
+                            getSubCategory(item.titleEn).map(group => (
+                                <p sx={{display:'flex' , fontSize:'0.5rem' , color:'gray'}}
+                                    key={group.id}
+
+                                > {group.name} , </p>
+                            ))}
+                        {/*<ListItemText primary={"item"}/>*/}
                     </ListItem>
                 ))}
             </List>
