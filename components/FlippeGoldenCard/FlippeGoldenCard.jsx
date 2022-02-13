@@ -47,7 +47,8 @@ const FlipGoldenCard =() =>{
         return (
             <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
                 <Box sx={{
-                    width: "15rem",
+                    width:'15rem',
+                    height:'16rem',
                     py: '1rem',
                     px: '1rem',
                     my: 0.75,
@@ -56,8 +57,6 @@ const FlipGoldenCard =() =>{
                     borderRadius: '0.5rem',
                     boxShadow: 'none',
                 }}>
-                    <Box sx={{display: 'flex', justifyContent: 'end'}}>
-                    </Box>
                     <GoldenCard
                         SetFlipped={SetFlipped}
                         isFlipped={isFlipped}
@@ -71,13 +70,13 @@ const FlipGoldenCard =() =>{
                 </Box>
 
                 <Card sx={{
-                    width: "25rem",
+                    width:'20rem',
+                    height:'16rem',
                     py: '1rem',
                     px: '1rem',
-                    my: 0.75,
+                    my: '1rem',
                     mx: 0.5,
                     zIndex: 99,
-                    position: 'absolute',
                     borderRadius: '0.5rem',
                     boxShadow: 'none',
                     display: 'flex',
@@ -85,7 +84,8 @@ const FlipGoldenCard =() =>{
                     backfaceVisibility: 'hidden',
                     scrollBehavior: 'smooth',
                     wordBreak: 'breakAll',
-                    overflowY: 'auto'
+                    overflowY: 'auto',
+                   scrollbar:{display: 'none'}
                 }}>
 
                     <List sx={{width: '100%', bgcolor: 'background.paper', height: 'initial'}}>
@@ -104,7 +104,7 @@ const FlipGoldenCard =() =>{
                             {
 
                                 goldenBoqche('dairyProduct').map(item =>
-                                    <ListItem>
+                                    <ListItem  key={item.id}>
                                         <ListItemAvatar>
                                             <Avatar sx={{
                                                 border: 1,
@@ -112,19 +112,19 @@ const FlipGoldenCard =() =>{
                                                 borderRadius: '50%',
                                                 width: '3rem',
                                                 height: '3rem',
-                                                p: '0.5rem'
+                                                p: '0.25rem'
                                             }}
                                                     src={item.images[0].url}
                                             >
                                                 <ImageIcon/>
                                             </Avatar>
                                         </ListItemAvatar>
-                                        <ListItemText sx={{textAlign: 'right'}}
-                                                      primary={item.name}/>
-                                        <CardActions
-                                            sx={{p: '0', display: 'flex', alignItems: 'flex-end'}}>
+                                        <Typography sx={{textAlign: 'right',fontSize:'1rem',width:90}}>{item.name}</Typography>
+                                        <CardActions 
+                                            sx={{width:140,p: '0', display: 'flex', alignItems: 'flex-end',fontSize:'0.5rem',marginRight:5}}>
                                             <CardPrice Exdiscount={10} price={item.price} discount={item.discount}/>
                                         </CardActions>
+                                        {/* <Divider component="li"/> */}
                                     </ListItem>
                                 )
                             }
