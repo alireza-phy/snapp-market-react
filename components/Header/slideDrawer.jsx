@@ -22,21 +22,22 @@ const SlideDrawer = (props) => {
                 '& .MuiDrawer-paper': {
                     width: drawerWidth,
                     boxSizing: 'border-box',
-
                 },
-
+                display: {xs: 'block', md: 'none'}
             }}
 
             anchor="top" open={open} onClose={() => onClose(false)}>
-            <Box sx={{ display:"flex",height:120,justifyContent:"space-between",padding:"1rem"}}>
-                <Close sx={{color:"gray"}}/>
-                <Typography sx={{fontSize:'1.2rem', fontWeight:700,}}>دسته بندی ها</Typography>
+            <Box sx={{display: "flex", height: 120, justifyContent: "space-between", padding: "1rem"}}>
+                <Close sx={{color: "gray"}}/>
+                <Typography sx={{fontSize: '1.2rem', fontWeight: 700,}}>دسته بندی ها</Typography>
 
             </Box>
-            <List component="nav" sx={{overflow:"scroll"}}>
+            <List component="nav" sx={{overflow: "scroll"}}>
                 {listItem.map((item, index) => (
-                    <ListItem button key={item} sx={{ display:"flex", flexDirection:"column",
-                        alignItems:"flex-start", textAlign:"left"}}>
+                    <ListItem button key={item} sx={{
+                        display: "flex", flexDirection: "column",
+                        alignItems: "flex-start", textAlign: "left"
+                    }}>
                         <Lens sx={{color: "lightblue", fontSize: "0.5rem"}}/>
                         <ListItemText primary={item}/>
                         <ListItemText primary={"item"}/>
