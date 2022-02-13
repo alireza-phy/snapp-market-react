@@ -11,9 +11,13 @@ const initialState = {
 const initialFinallPrice = {
   finallPrice: 0,
 };
+const initialSingleCardCount = {
+  SingleCardCount: 0,
+};
 const rootReducer = combineReducers({
   finallPriceReducer,
   productCountReducer,
+  singleCardCountReducer
 });
 const store = createStore(rootReducer);
 function finallPriceReducer(state = initialFinallPrice, action) {
@@ -32,6 +36,16 @@ function productCountReducer(state = initialState, action) {
       return { count: state.count += action.num };
     case "DEC":
       return { count: state.count -= action.num };
+    default:
+      return state;
+  }
+}
+function singleCardCountReducer(state = initialSingleCardCount, action) {
+  switch (action.type) {
+    case "SINGLEINC":
+      return { SingleCardCount: state.SingleCardCount += action.num };
+    case "SINGLEDEC":
+      return { SingleCardCount: state.SingleCardCount -= action.num };
     default:
       return state;
   }

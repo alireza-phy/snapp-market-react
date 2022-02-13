@@ -14,7 +14,9 @@ import {useTheme, createTheme, makeStyles} from '@mui/material/styles';
 import {Container, IconButton, Link, Paper} from "@mui/material";
 import {styled, alpha} from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
-import FreeDeliveryModal from '../FreeDeliveryModal/FreeDeliveryModal'
+import FreeDeliveryModal from '../FreeDeliveryModal/FreeDeliveryModal';
+import PN from "persian-number";
+import { connect } from "react-redux";
 
 import {
     ShoppingBagOutlined,
@@ -83,9 +85,14 @@ const StyledInputBase = styled(InputBase)(({theme}) => ({
         },
     },
 }));
-
-const Header = () => {
-
+function mapStateToProps(state) {
+    return {
+      count: state.productCountReducer.count,
+      finallPrice: state.finallPriceReducer.finallPrice,
+      SingleCardCount: state.singleCardCountReducer.SingleCardCount,
+    };
+  }
+const Header = (props) => {
     const theme = useTheme();
     const [value, setValue] = useState('Home');
 
@@ -254,11 +261,13 @@ const Header = () => {
                                     >
                                         سبد خرید
                                         <Typography sx={{
-                                            width: "0.7rem",
-                                            height: "0.7rem",
+                                            width: "0.9rem",
+                                            height: "0.9rem",
                                             borderRadius: "50%",
-                                            fontSize: "0.4rem",
-                                            backgroundColor: "lightblue",
+                                            fontSize: "1rem",
+                                            padding:"0.7rem",
+                                            fontWeight:"bold",
+                                            backgroundColor: "rgb(242,247,255)",
                                             display: "flex",
                                             alignItems: "center",
                                             justifyContent: "center",
@@ -267,7 +276,7 @@ const Header = () => {
                                                 height: "1rem",
                                             },
                                         }}>
-                                            0
+                                            {PN.convertEnToPe(props.SingleCardCount)}
                                         </Typography>
                                     </Button>
                                     <CartDrawer openCart={drawerOpenCart} onCloseCart={toggleDrawerCart}/>
@@ -520,5 +529,5 @@ const Header = () => {
     );
 
 };
+export default connect(mapStateToProps,null)(Header);
 
-export default Header;
