@@ -28,15 +28,6 @@ const GoldenCard = ({width, category, data , SetFlipped, isFlipped }) => {
     const available = true
     const maximumOrder = 1;
     const refer = useRef(null)
-    // const [goldenOfferShow, setGoldenOfferShow] = useState(false)
-    // const showDetailHandler = () => {
-    //     setGoldenOfferShow(!goldenOfferShow)
-    //     refer.current.style.transform = "rotateY(180deg)"
-    // }
-    // const showCardHandler = () => {
-    //     setGoldenOfferShow(!goldenOfferShow)
-    //     refer.current.style.transform = "rotateY(0)"
-    // }
     const [quantity, setQuantity] = useState(0)
     const incrementHandler = () => {
         setQuantity(quantity + 1)
@@ -77,10 +68,6 @@ const GoldenCard = ({width, category, data , SetFlipped, isFlipped }) => {
                                 sx={{color: '#2347fb', cursor: 'pointer'}}>
                         جزئیات بیشتر
                     </Typography>
-                    {/* <Typography onClick={showDetailHandler} variant="subtitle2" component="p"
-                                sx={{color: '#2347fb', cursor: 'pointer'}}>
-                        جزئیات بیشتر
-                    </Typography>*/}
                 </Box>
                 <Box sx={{
                     display: 'flex',
