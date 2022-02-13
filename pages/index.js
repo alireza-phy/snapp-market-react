@@ -5,7 +5,7 @@ import Assortment from "../components/Assortment/Assortment";
 import {Container} from "@mui/material";
 import PageDescription from '../components/PageDescription/PageDescription'
 import Box from '@mui/material/Box'
-
+import {SpecialCategory_marketParty , SpecialCategory_nessesaryForHome} from '../components/ProductData/ProductData'
 // ---------------- images ------------------ //
 
 import marketParty from '../public/mainpageImages/Banners/marketparty.jpg'
@@ -36,12 +36,14 @@ export default function Home() {
                     special
                     spBlue
                     spTitle='مارکت پارتی'
-                    categorySub={'dairyProduct'}
+                    // categorySub={'dairyProduct'}
+                    specialCategory={SpecialCategory_marketParty()}
                 />
                 <Box component="img" src={specialOffer.src}
                      sx={{width: '100%', margin: 'auto', borderRadius: '0.5rem'}}/>
                 <Assortment/>
-                <Box component="img" src={kale.src} sx={{width: '100%', margin: 'auto', borderRadius: '0.5rem'}}/>
+                <Box component="img" src={kale.src}
+                     sx={{width: '100%', margin: 'auto', borderRadius: '0.5rem'}}/>
                 <ProductsCategory
                     categorySub={'dairyProduct'}
                     ordinary
@@ -50,7 +52,8 @@ export default function Home() {
                     categorySub={'grocery-bread'}
                     ordinary
                 />
-                <Box component="img" src={kale2.src} sx={{width: '100%', margin: 'auto', borderRadius: '0.5rem'}}/>
+                <Box component="img" src={kale2.src}
+                     sx={{width: '100%', margin: 'auto', borderRadius: '0.5rem'}}/>
                 <ProductsCategory
                     goldenOffer
                 />
@@ -73,10 +76,10 @@ export default function Home() {
                     ordinary
                 />
                 <ProductsCategory
-                    categorySub={'dairyProduct'}
                     special
                     spBlue
                     spTitle='تو هر خونه لازمه'
+                    specialCategory={SpecialCategory_nessesaryForHome()}
                 />
                 <ProductsCategory
                     categorySub={'health-and-beauty'}
@@ -94,7 +97,8 @@ export default function Home() {
                     categorySub={'canned-food'}
                     ordinary
                 />
-                <Box component="img" src={pakshooma.src} sx={{width: '100%', margin: 'auto', borderRadius: '0.5rem'}}/>
+                <Box component="img" src={pakshooma.src}
+                     sx={{width: '100%', margin: 'auto', borderRadius: '0.5rem'}}/>
                 <ProductsCategory
                     categorySub={'breakfast'}
                     ordinary

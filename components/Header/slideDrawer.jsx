@@ -1,20 +1,11 @@
 import {Drawer, List, ListItem, ListItemText, Box, Typography} from "@mui/material"
-import {Close, CloseSharp, Lens} from "@mui/icons-material";
-import {useState} from "react";
-import {useTheme} from "@mui/material/styles";
-import {AssortmentCardData, getSubCategory} from '../ProductData/ProductData'
+import {Close, Lens} from "@mui/icons-material";
+import {headerAssortmentData} from '../ProductData/ProductData'
 
 const SlideDrawer = (props) => {
     const {open, onClose, slideDrawerModal} = props;
-    const listItem = ['لبنیات', 'خواربار و نان', 'دستمال و شوینده', 'تنقلات', 'نوشیدنی', 'مواد پروتئینی',
-        'آرایشی و بهداشتی', 'چاشنی و افزودنی', 'میوه و سبزیجات تازه', 'کنسرو و غذای آماده', 'صبحانه',
-        'خشکبار، دسر و شیرینی', 'خانه و سبک زندگی', 'لوازم برقی و دیجیتال', 'کودک و نوزاد'];
-
 
     const drawerWidth = 280;
-    const theme = useTheme();
-
-    console.log(getSubCategory('drinks'))
     return (
         <Drawer
             sx={{
@@ -26,7 +17,6 @@ const SlideDrawer = (props) => {
                 },
                 display: {xs: 'block', md: 'none'}
             }}
-
             anchor="top" open={open} onClose={() => onClose(false)}>
             {
                 slideDrawerModal
@@ -37,56 +27,46 @@ const SlideDrawer = (props) => {
                 </Box>
             }
             <List component="nav" sx={{overflow: "scroll", mx: 1.5}}>
-                {AssortmentCardData.map(item => (
-                    <ListItem button
-                              key={item.titleEn}
-                              sx={{
-                                  display: "flex", flexDirection: "column",
-                                  alignItems: "flex-start", textAlign: "right"
-                              }}
-                    >
-                        <Box
-                            sx={{
-                                display: "flex", flexDirection: "row", gap:'5px' ,
-                                alignItems: "center", justifyContent:'center' , textAlign: "right"
-
-                            }}
-                        >
-
-                {listItem.map((item, index) => (
-                    <ListItem button key={item} sx={{
+                {headerAssortmentData.map((item, index) => (
+                    <ListItem key={item.id} sx={{
                         display: "flex", flexDirection: "column",
                         alignItems: "flex-start", textAlign: "left"
                     }}>
-
-                        <Lens sx={{color: "lightblue", fontSize: "0.5rem"}}/>
-                        <ListItemText primary={item.title}/>
+                        <Box sx={{display: 'flex', alignItems: 'center', gap: 1, color: "#2446f5"}}>
+                            <Lens sx={{fontSize: 6, opacity: 0.5}}/>
+                            <ListItemText primary={
+                                <Typography
+                                    variant="body2"
+                                    component="p"
+                                    sx={{fontWeight: 500}}
+                                >
+                                    {item.name}
+                                </Typography>
+                            }/>
                         </Box>
-                        <Box
-                            sx={{display: 'block' , gap:'5px'}}
-
-                        >
-
-                            {
-                                getSubCategory(item.titleEn).splice(0, 3).map(group => (
-
-                                    <Typography
-                                        key={group.id}
-                                        variant="h5" component="h5"
-                                        sx={{display: 'inline', fontSize: '0.7rem', color: 'gray'}}
-                                    >
-                                        {`${group.name} , `}
-                                    </Typography>
-
-                                ))
-                            }
+                        <ListItemText sx={{mr: 1.5}}>
                             <Typography
-                                variant="h5" component="h5"
-                                sx={{display: 'inline', fontSize: '0.7rem', color: 'gray'}}
-                            > ... </Typography>
-
-                        </Box>
-                        {/*<ListItemText primary={"item"}/>*/}
+                                variant="body2"
+                                component="p"
+                                sx={{
+                                    textOverflow: 'ellipsis',
+                                    overflow: 'hidden',
+                                    height: 20,
+                                    width: 150,
+                                    whiteSpace: 'nowrap',
+                                    color: '#a3a3a3'
+                                }}
+                            >
+                                {
+                                    item.groups.map((groups) => (
+                                        <Typography key={groups.id} variant="body2"
+                                                    component="span">
+                                            {groups.group}،&nbsp;
+                                        </Typography>
+                                    ))
+                                }
+                            </Typography>
+                        </ListItemText>
                     </ListItem>
                 ))}
             </List>

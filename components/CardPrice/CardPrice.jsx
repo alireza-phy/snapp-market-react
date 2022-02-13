@@ -4,7 +4,6 @@ import PN from "persian-number";
 
 const CardPrice = ({price, discount, Exdiscount=0}) => {
 
-    console.log(Exdiscount)
     return (
         <Box sx={{flexGrow: '2'}}>
             <Box sx={{
