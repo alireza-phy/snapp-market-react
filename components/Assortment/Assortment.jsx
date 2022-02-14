@@ -65,7 +65,7 @@ const AssortmentMenu = () => {
                 </Box>
 
                 <Box onClick={() => handleShowAssortment()}
-                     sx={{cursor: 'pointer', width: 'fit-content', margin: 'auto'}}>
+                     sx={{cursor: 'pointer', width: 'fit-content', margin: 'auto' , overflowY:'auto' , overflowX:'hidden'}}>
                     {
                         (listHeight === 120) ?
                             <Box sx={{display: 'flex', justifyContent: 'center', gap: 1, color: 'rgb(117, 117, 117)'}}>

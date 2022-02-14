@@ -19,7 +19,7 @@ const AssortmentCard = ({offer, title, image, categoryname }) => {
         <Grid
             sx={{cursor:'pointer'}}
             onClick={showCategoryHandler}
-            item xs={3}>
+            item xs={12} sm={6} md={4} lg={3}>
             <Card elevation={0} sx={{
                 backgroundColor: 'white',
                 border: '0.1rem solid rgba(163, 163, 163, 0.25)',
