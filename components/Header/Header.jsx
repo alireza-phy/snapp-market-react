@@ -13,14 +13,11 @@ import SearchIcon from '@mui/icons-material/Search';
 import {useTheme, createTheme, makeStyles} from '@mui/material/styles';
 import {Container, IconButton, Link, Paper} from "@mui/material";
 import {styled, alpha} from '@mui/material/styles';
-import PN from "persian-number";
 import Badge from '@mui/material/Badge';
-import FreeDeliveryModal from '../FreeDeliveryModal/FreeDeliveryModal'
 
 import {
     ShoppingBagOutlined,
-    PersonOutline,
-     QueryBuilder, GridViewOutlined, ExpandMore,
+    PersonOutline, QueryBuilder, GridViewOutlined, ExpandMore,
 } from "@mui/icons-material";
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
@@ -28,8 +25,33 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import SlideDrawer from "./slideDrawer";
 import CartDrawer from "./CartDrawer";
-import { connect } from "react-redux";
+import Modal from '@mui/material/Modal';
+import {keyframes} from '@mui/system';
 
+const style = {
+    position: 'absolute',
+    top: '22%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '100%',
+    maxWidth: 1140,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+};
+const infinityShrinknessCircle = keyframes`
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.5);
+    border: 2px solid #fff;
+    outline: 3px solid rgb(7, 188, 32)
+  }
+  100% {
+    transform: scale(0.8);
+  }
+`
 //search
 
 const Search = styled('div')(({theme}) => ({
@@ -42,7 +64,6 @@ const Search = styled('div')(({theme}) => ({
     [theme.breakpoints.up('sm')]: {
         marginRight: theme.spacing(1),
         width: 'auto',
-
     },
     [theme.breakpoints.down('sm')]: {
         height: "2rem",
@@ -74,6 +95,7 @@ const StyledInputBase = styled(InputBase)(({theme}) => ({
     alignItems: "center",
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 0, 1, 0),
+        // vertical padding + font size from searchIcon
         paddingRight: `calc(1em + ${theme.spacing(3)})`,
         transition: theme.transitions.create('width'),
         width: '100%',
@@ -84,38 +106,16 @@ const StyledInputBase = styled(InputBase)(({theme}) => ({
         },
     },
 }));
-function mapStateToProps(state) {
-    return {
-      count: state.productCountReducer.count,
-      finallPrice: state.finallPriceReducer.finallPrice,
-      SingleCardCount: state.singleCardCountReducer.SingleCardCount,
-    };
-  }
-const Header = (props) => {
-console.log(props);
+
+const Header = ({drawerOpen, drawerOpenCart, toggleDrawer, toggleDrawerCart}) => {
     const theme = useTheme();
     const [value, setValue] = useState('Home');
-
     const handleChange = (newValue) => {
         setValue(newValue);
     };
-
-    //Drawer Category
-    const [drawerOpen, setDrawerOpen] = useState(false);
-    const toggleDrawer = (value) => {
-        setDrawerOpen(value)
-    };
-    // Drawer Cart
-    const [drawerOpenCart, setDrawerOpenCart] = useState(false);
-    const toggleDrawerCart = (value) => {
-        setDrawerOpenCart(value)
-    };
-
-
     return (
         <>
             <AppBar position="static">
-                <FreeDeliveryModal/>
                 <Toolbar sx={{
                     display: 'flex',
                     flexDirection: 'column', height: "20rem",
@@ -130,11 +130,10 @@ console.log(props);
                         height: "14rem"
                     },
                     [theme.breakpoints.up('md')]: {
-                        height: "14rem"
+                        height: "12.5rem"
                     },
                 }}>
                     <Container>
-
                         <Box sx={{
                             display: 'flex',
                             justifyContent: 'space-between',
@@ -151,8 +150,7 @@ console.log(props);
                                 marginTop: "0.2rem"
                             },
                         }}>
-
-                            <Box sx={{display: 'flex', alignItems: "center"}}>
+                            <Box sx={{display: 'flex', alignItems: "center", gap: 2}}>
 
                                 <Box sx={{
                                     width: "5rem", height: "5rem",
@@ -173,8 +171,15 @@ console.log(props);
                                         alt="اسنپ مارکت"
                                     />
                                 </Box>
-
                                 <Button underline="none" sx={{textOverflow: "ellipsis"}}>
+                                    <Box sx={{
+                                        width: '0.5rem',
+                                        height: '0.5rem',
+                                        mx: 1.5,
+                                        backgroundColor: 'rgb(7, 188, 32)',
+                                        borderRadius: '50%',
+                                        animation: `${infinityShrinknessCircle} 1.4s ease 0s infinite`,
+                                    }}/>
                                     <Typography sx={{
                                         fontSize: "1.7rem", display: "flex", alignItems: "center", color: "white",
                                         [theme.breakpoints.down('sm')]: {
@@ -187,19 +192,10 @@ console.log(props);
                                             fontSize: "1rem"
                                         },
                                     }}>
-
-                                        {/*<IconButton>*/}
-                                        {/*    <LocationOnOutlined sx={{color: "white", fontSize: "1rem"}}/>*/}
-                                        {/*</IconButton>*/}
                                         ابتدا آدرس خود را انتخاب کنید
-
-                                        {/*<ExpandMore/>*/}
-
                                     </Typography>
                                 </Button>
-
                             </Box>
-
                             <Box sx={{
                                 display: 'flex', alignItems: "center", marginBottom: "0.8rem",
                                 [theme.breakpoints.between('sm', 'md')]: {
@@ -209,7 +205,6 @@ console.log(props);
                                     marginBottom: "0"
                                 },
                             }}>
-
                                 <Button variant="outlined" sx={{
                                     fontSize: "2rem", border: "none",
                                     [theme.breakpoints.up('md')]: {
@@ -224,14 +219,11 @@ console.log(props);
                                             }
                                         }}/>
                                     </IconButton>
-
                                     <Typography
                                         sx={{display: {xs: "none", sm: "flex"}, overflow: "auto", color: "white"}}>
                                         ورود / عضویت
                                     </Typography>
-
                                 </Button>
-
                                 <Box sx={{display: {xs: "none", sm: "flex"},}}>
                                     <Button onClick={() => toggleDrawerCart(true)}
                                             sx={{
@@ -261,13 +253,11 @@ console.log(props);
                                     >
                                         سبد خرید
                                         <Typography sx={{
-                                            width: "0.9rem",
-                                            height: "0.9rem",
+                                            width: "0.7rem",
+                                            height: "0.7rem",
                                             borderRadius: "50%",
-                                            fontSize: "1rem",
-                                            padding:"0.7rem",
-                                            fontWeight:"bold",
-                                            backgroundColor: "rgb(242,247,255)",
+                                            fontSize: "0.4rem",
+                                            backgroundColor: "lightblue",
                                             display: "flex",
                                             alignItems: "center",
                                             justifyContent: "center",
@@ -276,16 +266,13 @@ console.log(props);
                                                 height: "1rem",
                                             },
                                         }}>
-                                            {PN.convertEnToPe(props.SingleCardCount)}
+                                            0
                                         </Typography>
                                     </Button>
                                     <CartDrawer openCart={drawerOpenCart} onCloseCart={toggleDrawerCart}/>
                                 </Box>
-
                             </Box>
-
                         </Box>
-
                         <Box sx={{
                             display: 'flex', justifyContent: 'space-between', width: "100%", marginTop: "1rem",
                             [theme.breakpoints.down('sm')]: {
@@ -298,9 +285,7 @@ console.log(props);
                                 marginTop: "0.8rem"
 
                             },
-
                         }}>
-
                             <Box sx={{
                                 display: 'flex', alignItems: "center",
                                 [theme.breakpoints.down('sm')]: {
@@ -308,9 +293,7 @@ console.log(props);
                                     order: "1"
                                 },
                             }}>
-
                                 <Box sx={{display: 'flex', alignItems: "center",}}>
-
                                     <Box sx={{
                                         width: "5rem", height: "5rem",
                                         [theme.breakpoints.down('sm')]: {
@@ -331,7 +314,6 @@ console.log(props);
                                              alt="هایپر استار"
                                         />
                                     </Box>
-
                                     <Box sx={{
                                         display: "flex",
                                         marginRight: '0.5rem',
@@ -350,15 +332,13 @@ console.log(props);
                                         <Typography sx={{display: {xs: "none", sm: "flex"}}}> خرید از </Typography>
                                         <Typography sx={{fontWeight: 600}}> هایپراستار صبا </Typography>
                                     </Box>
-
-
                                 </Box>
                                 <Box>
                                     <Button sx={{
                                         padding: 0,
                                         display: 'flex',
-                                        justifyContent:'space-evenly',
-                                        alignItems:'center',
+                                        justifyContent: 'space-evenly',
+                                        alignItems: 'center',
                                         width: "10rem",
                                         backgroundColor: "white",
                                         color: "blue",
@@ -382,12 +362,10 @@ console.log(props);
                                             borderRadius: "10rem",
                                             height: "1.5rem",
                                         },
-                                    }} variant="contained" endIcon={<ExpandMore sx={{fontSize:"0.2rem"}}/>}>
+                                    }} variant="contained" endIcon={<ExpandMore sx={{fontSize: "0.2rem"}}/>}>
                                         تغییر فروشگاه
                                     </Button>
                                 </Box>
-
-
                             </Box>
                             <Box sx={{
                                 display: "flex",
@@ -435,10 +413,7 @@ console.log(props);
 
                                 </Typography>
                             </Box>
-
-
                         </Box>
-
                         <Box sx={{
                             display: 'flex', width: '100%', justifyContent: "flex-start", marginTop: "2rem",
                             [theme.breakpoints.between('sm', 'md')]: {
@@ -448,7 +423,6 @@ console.log(props);
                                 marginTop: "1rem"
                             },
                         }}>
-
                             <Button onClick={() => toggleDrawer(true)}
                                     variant="contained" sx={{
                                 display: {xs: "none", sm: "flex"},
@@ -474,7 +448,23 @@ console.log(props);
 
                                 دسته بندی ها
                             </Button>
-                            <SlideDrawer open={drawerOpen} onClose={toggleDrawer}/>
+                            <SlideDrawer open={drawerOpen} onClose={() => toggleDrawer(false)}/>
+                            <Modal
+                                sx={{display: {xs: 'none', md: 'block'}}}
+                                open={drawerOpen}
+                                onClose={() => toggleDrawer(false)}
+                                aria-labelledby="modal-modal-title"
+                                aria-describedby="modal-modal-description"
+                            >
+                                <Box sx={style}>
+                                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                                        Text in a modal
+                                    </Typography>
+                                    <Typography id="modal-modal-description" sx={{mt: 2}}>
+                                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                                    </Typography>
+                                </Box>
+                            </Modal>
                             <Search>
                                 <SearchIconWrapper>
                                     <SearchIcon/>
@@ -485,14 +475,9 @@ console.log(props);
                                 />
                             </Search>
                         </Box>
-
                     </Container>
-
                 </Toolbar>
-
             </AppBar>
-
-
             <Paper sx={{display: {xs: "flex", sm: "none"}, position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 1}}
                    elevation={3}>
                 <BottomNavigation sx={{width: "100%", color: "black"}} showLabels value={value} onChange={handleChange}>
@@ -527,7 +512,6 @@ console.log(props);
             </Paper>
         </>
     );
-
 };
 
-export default connect(mapStateToProps,null)(Header);
+export default Header;

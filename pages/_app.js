@@ -5,6 +5,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import theme from "../styles/theme";
 import { Provider } from "react-redux";
 import { createStore, combineReducers } from "redux";
+import { propsToClassKey } from "@mui/styles";
 const initialState = {
   count: 0,
 };
@@ -14,25 +15,16 @@ const initialFinallPrice = {
 const initialSingleCardCount = {
   SingleCardCount: 0,
 };
-const initialCartBadge = {
-  cartBadge:0,
-}
+const initialCartProductList = {
+  CartProductList: [],
+};
 const rootReducer = combineReducers({
   finallPriceReducer,
   productCountReducer,
   singleCardCountReducer,
+  productDetailsToCartReducer,
 });
 const store = createStore(rootReducer);
-function productCountReducer(state = initialState, action) {
-  switch (action.type) {
-    case "INC":
-      return { count: (state.count += action.num) };
-    case "DEC":
-      return { count: (state.count -= action.num) };
-    default:
-      return state;
-  }
-}
 function finallPriceReducer(state = initialFinallPrice, action) {
   switch (action.type) {
     case "INCEREMENT":
@@ -43,12 +35,33 @@ function finallPriceReducer(state = initialFinallPrice, action) {
       return state;
   }
 }
+function productCountReducer(state = initialState, action) {
+  switch (action.type) {
+    case "INC":
+      return { count: (state.count += action.num) };
+    case "DEC":
+      return { count: (state.count -= action.num) };
+    default:
+      return state;
+  }
+}
 function singleCardCountReducer(state = initialSingleCardCount, action) {
   switch (action.type) {
     case "SINGLEINC":
-      return { SingleCardCount: state.SingleCardCount += action.num };
+      return { SingleCardCount: (state.SingleCardCount += action.num) };
     case "SINGLEDEC":
-      return { SingleCardCount: state.SingleCardCount -= action.num };
+      return { SingleCardCount: (state.SingleCardCount -= action.num) };
+    default:
+      return state;
+  }
+}
+
+function productDetailsToCartReducer(state = initialCartProductList, action) {
+  switch (action.type) {
+    case "ADDTOCART":
+      let CartProductListCopy = state.CartProductList;
+      CartProductListCopy.push(action.data);
+      return { CartProductList: CartProductListCopy };
     default:
       return state;
   }
@@ -60,14 +73,14 @@ if (process.env.NODE_ENV === "development") {
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <HeaderAndFooter>
-          <Component {...pageProps} />
-        </HeaderAndFooter>
-      </ThemeProvider>
-    </Provider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <HeaderAndFooter>
+            <Component {...pageProps} />
+          </HeaderAndFooter>
+        </ThemeProvider>
+      </Provider>
   );
 }
 
