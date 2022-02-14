@@ -14,13 +14,9 @@ import { blue, grey} from '@mui/material/colors';
 // ---------Tooltips--------------------
 import TriggersTooltips,{handleTooltipOpen} from './iAppsTooltip';
 
-
-
-{/* ------------------------section 1--------------------- */}
-
 const Box1 = styled('div')(({theme}) =>({
   display: 'flex',
-  p: 1,
+  py: 1,
   m: 1,
   [theme.breakpoints.between('sm','xl')]:{
     flexDirection: 'row',
@@ -30,60 +26,41 @@ const Box1 = styled('div')(({theme}) =>({
     flexDirection: 'column',
     
   },
-}));
-
-const IconBox = styled('div')(({theme}) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems:"center",
-  textAlign:"center",
-  padding:theme.spacing(2),
-}));
-const IconCard  = styled('div')(({theme}) => ({
-  display:'flex',
-  alignItems:"center",
-  justifyContent:'center',
-  width:'5rem',
-  height:'5rem',
-}));
-
-const IconONE = styled('div')(({theme}) =>({
-  width:'1.8rem',
-  height:'1.8rem',
-  margin:'auto',
-  color: blue[600]
-}));
-
-
+}))
+// const Box2 = styled('div')(({theme}) => ({
+//   display: 'flex',
+//   p:1,
+//   m:1,
+//   [theme.breakpoints.down('sm')]:{
+//     flexDirection:'row',
+//   },
+//   [theme.breakpoints.between('sm','md')]:{
+//      flexDirection:'column',},
+//   [theme.breakpoints.between('md','xl')]:{
+//      flexDirection:'column'
+//   }
+// }));
+y
 const Box3 = styled('div')(({theme}) => ({
-  display: 'grid',
+  display: 'flex',
+  py:1,
+  m:1,
   [theme.breakpoints.down('sm')]:{
-    gridTemplateRows : 'repeat(2,2fr )',
+    flexDirection:'column',
   },
   [theme.breakpoints.between('sm','md')]:{
-    gridTemplateColumns : 'repeat(2,2fr )',
+     flexDirection:'row',
     marginTop:'-3rem'},
   [theme.breakpoints.between('md','xl')]:{
-    gridTemplateColumns : 'repeat(2,2fr )',
+     flexDirection:'row',
     marginTop:'-6rem',
   }
 }));
 const LogoBox = styled('div')(({theme}) =>({
   display: 'flex',
+  flexDirection: 'row',
   p: 1,
   m: 1,
-  [theme.breakpoints.up('sm')]:{
-    flexDirection: 'row',
-    // height:'40vh',
-  },
-  [theme.breakpoints.down('sm')]:{
-    flexDirection: 'row',
-    // height:'60vh',
-  },
-  [theme.breakpoints.up('md')]:{
-    flexDirection: 'row',
-    // height:'40vh',
-  }
 }));
 const contactBox = styled('div')(({theme}) =>({
   [theme.breakpoints.down('sm')]:{
@@ -122,13 +99,12 @@ function Item(props) {
 function Footer() {
   const theme = useTheme();
     return (
-      <Box sx={{marginTop:20, backgroundColor:"white",overFlowX:'hidden'}}>
-        <Grid container alignItems="center" spacing={2} sx={{my:12,py:12}}>
+      <Box component='div' sx={{marginTop:20, backgroundColor:"white",overflow:'hidden'}}>
+        
           
           
           
           {/* ------------------------section 1--------------------- */}
-          
           
         <Box1>
           <Box sx={{display: 'flex',flexDirection: 'row',p: 1,m: 1}}>
@@ -164,6 +140,7 @@ function Footer() {
             </Item>
           </Box>
         </Box1>
+          
            
            
            
@@ -173,8 +150,9 @@ function Footer() {
           
           
           
-          
-      <Grid item md={5} sm={8} lg={5}>
+    
+  <Grid container spacing={1}>
+      <Grid item md={5} sm={8} lg={5} sx={{p:1}}>
           <Box sx={{ [theme.breakpoints.down('sm')]:{display: 'flex',justifyContent:'center',alignItems:'center',flexDirection:'column'}}}>
               <Typography variant='h6' component='h4'sx={{ fontSize:'1rem',mx:2}}>دانلود اپلیکیشن</Typography>
               <Typography variant='body2' color='gray' sx={{mx:2,marginBottom:1}}>
@@ -214,11 +192,13 @@ function Footer() {
           </Box>
       </Grid>
       <Grid item md={7} sm={6} lg={7}>
-            <Box sx={{display: 'flex',flexDirection: 'row',my:10,[theme.breakpoints.down('sm')]:{display:'none'}}}>
+            <Box sx={{display: 'flex',flexDirection: 'row',my:1,[theme.breakpoints.down('sm')]:{display:'none'}}}>
                   <img  style={{width:'15rem',height:'10rem'}} src='https://snapp.market/v2/static/images/84a4e25131797a425d1b489e90a07ce1.png' alt=''></img>
                   <img style={{width:'15rem',height:'10rem',marginRight:'-6rem'}} src='https://snapp.market/v2/static/images/4a44f07ae496a910ef1f505ed72e2087.png' alt=''></img>
             </Box>
       </Grid>
+    </Grid> 
+  
           
            
            
@@ -228,11 +208,11 @@ function Footer() {
           
           
           
-          
+           
         <Box3 sx={{ borderTop: 1, borderColor:'grey.100',backgroundColor:"white",[theme.breakpoints.down('md')]:{borderTop:'none'}}}>
-          <Grid item md={7} sm={8} lg={8}>
+          <Box item >
               <Box sx={{display:'flex',flexDirection:'row',marginLeft:0}}>
-              <Item md={3} lg={3} sx={{ width:'18vw', m:2,py:1,
+              <Item md={3} lg={3} sx={{m:2,py:1,
             [theme.breakpoints.between('sm','xl')]:{
                 display:'block'
                   },
@@ -243,7 +223,7 @@ function Footer() {
                 <Typography variant='body2' component='p'color='gray'sx={{lineHeight:'1.5rem',width:'18rem',marginTop:'1rem'}}>اسنپ مارکت حاصل همکاری دو شرکت بزرگ اسنپ و‌هایپراستار است تا کالاهای مورد نیاز کاربران را در اسرع وقت برای آنها ارسال کند.</Typography>
                 <Typography variant='body2' component='span'color='gray'sx={{lineHeight:'1.5rem',marginBottom:'1.5rem'}}>هایپر استار | مایلی</Typography>
             </Item>
-            <Item sx={{width:'11vw', m:2,px:2}}>
+            <Item sx={{m:2,px:2}}>
                 <Typography variant='h6' component='h4'sx={{ fontSize:'1rem',lineHeight:'1.5rem'}}>دسترسی‌ها</Typography >
                 <Box sx={{display: 'flex',flexDirection: 'column',typography: 'body2',lineHeight:'1.5rem'}}>
                   <Link href='#'underline="none" color="gray">درباره‌ما</Link>
@@ -253,7 +233,7 @@ function Footer() {
                   <Link href='#'underline="none"color="gray">گزارش مشکل</Link>
                 </Box>
               </Item>
-            <Item sx={{width:'18vw', m:2,px:2}}>
+            <Item sx={{ m:2,px:2}}>
                 <Typography variant='h6' component='h4'sx={{ fontSize:'1rem',lineHeight:'1.5rem'}}>تماس با ما</Typography>
                     <Box sx={{display: 'flex',flexDirection: 'column',justifyContent: 'flex-start',p: 1,m: 1,width:'18vw'}}>
                         <Typography variant='body2' component='span'color='gray'sx={{lineHeight:'1.5rem'}}>تلفن:۰۲۱۹۶۶۱۲۶۰۰ </Typography >
@@ -273,8 +253,8 @@ function Footer() {
                    </Box>
                 </Item>
             </Box>
-         </Grid>
-          <Grid item md={5} sm={4} lg={4}>
+         </Box>
+          <Box item>
             <Item>
             <LogoBox>
               <Box sx={{display: 'flex',flexDirection: 'row',justifyContent:'center',alignItems:'center',p: 1,marginBottom:0}}>
@@ -286,17 +266,16 @@ function Footer() {
                       <a href='https://trustseal.enamad.ir/?id=102454&code=uoLVRIdRPrQUVDTe'>
                       <img style={{width:'5rem',height:'5.7rem',padding:'auto'}} src='https://cdn01.zoomit.ir/2020/4/cd30d311-e630-412b-adb8-fd38a69fc8f4.jpg?w=768' alt='' ></img></a>
                 </Paper>
-                <Paper elevation={6} sx={{p:1,m:1,width: '6rem',height: '6.7rem'}}  >
+                <Paper elevation={6} sx={{p:1,m:1,width: '6.5rem',height: '7rem'}}  >
                       <a href='https://ecunion.ir/verify/snapp.market?token=54552875ce10bd9cbbcd'>
                       <img style={{width:'5rem',height:'5.5rem',padding:'auto'}} src='https://snapp.market/v2/static/images/70a7f8982e1c5e561c7620253876fa3f.png' alt='' ></img></a>
                 </Paper>
               </Box>
             </LogoBox>
             </Item>
-          </Grid>
+          </Box>
           </Box3>
-        </Grid>
-      </Box>
+    </Box>
       
     );
   }
