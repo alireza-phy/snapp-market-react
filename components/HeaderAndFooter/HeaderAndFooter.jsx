@@ -62,7 +62,7 @@ const HeaderAndFooter = ({children}) => {
                 />
             }
             {children}
-            {/*<Footer/>*/}
+            <Footer/>
         </>
     )
 }
