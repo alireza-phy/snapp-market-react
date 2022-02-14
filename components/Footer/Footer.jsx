@@ -40,7 +40,6 @@ const Box1 = styled('div')(({theme}) =>({
 //      flexDirection:'column'
 //   }
 // }));
-y
 const Box3 = styled('div')(({theme}) => ({
   display: 'flex',
   py:1,
@@ -50,10 +49,10 @@ const Box3 = styled('div')(({theme}) => ({
   },
   [theme.breakpoints.between('sm','md')]:{
      flexDirection:'row',
-    marginTop:'-3rem'},
+    marginTop:'-0.5rem'},
   [theme.breakpoints.between('md','xl')]:{
      flexDirection:'row',
-    marginTop:'-6rem',
+    marginTop:'-1rem',
   }
 }));
 const LogoBox = styled('div')(({theme}) =>({
@@ -152,7 +151,7 @@ function Footer() {
           
     
   <Grid container spacing={1}>
-      <Grid item md={5} sm={8} lg={5} sx={{p:1}}>
+      <Grid item md={5} sm={8} lg={5} sx={{p:1,m:1}}>
           <Box sx={{ [theme.breakpoints.down('sm')]:{display: 'flex',justifyContent:'center',alignItems:'center',flexDirection:'column'}}}>
               <Typography variant='h6' component='h4'sx={{ fontSize:'1rem',mx:2}}>دانلود اپلیکیشن</Typography>
               <Typography variant='body2' color='gray' sx={{mx:2,marginBottom:1}}>
@@ -184,9 +183,7 @@ function Footer() {
                   </a>
               </Item>
               <Item>
-                <TriggersTooltips>
-                   
-                  </TriggersTooltips>
+                <TriggersTooltips/>
               </Item>
              </Box>
           </Box>
@@ -210,7 +207,7 @@ function Footer() {
           
            
         <Box3 sx={{ borderTop: 1, borderColor:'grey.100',backgroundColor:"white",[theme.breakpoints.down('md')]:{borderTop:'none'}}}>
-          <Box item >
+        <Grid item md={7} sm={4} lg={8}>
               <Box sx={{display:'flex',flexDirection:'row',marginLeft:0}}>
               <Item md={3} lg={3} sx={{m:2,py:1,
             [theme.breakpoints.between('sm','xl')]:{
@@ -233,9 +230,9 @@ function Footer() {
                   <Link href='#'underline="none"color="gray">گزارش مشکل</Link>
                 </Box>
               </Item>
-            <Item sx={{ m:2,px:2}}>
+            <Item sx={{ m:2,px:2,[theme.breakpoints.down('sm')]:{fontSize:'0.8rem',height:'12rem',width:'18rem'}}}>
                 <Typography variant='h6' component='h4'sx={{ fontSize:'1rem',lineHeight:'1.5rem'}}>تماس با ما</Typography>
-                    <Box sx={{display: 'flex',flexDirection: 'column',justifyContent: 'flex-start',p: 1,m: 1,width:'18vw'}}>
+                    <Box sx={{display: 'flex',flexDirection: 'column',justifyContent: 'flex-start',p: 1,m: 1,width:'15vw'}}>
                         <Typography variant='body2' component='span'color='gray'sx={{lineHeight:'1.5rem'}}>تلفن:۰۲۱۹۶۶۱۲۶۰۰ </Typography >
                         <Typography variant='body2' component='span'color='gray' sx={{lineHeight:'1.5rem'}}> آدرس: خیابان ولیعصر بالاتر از اسفندیار خیابان سعیدی نبش کوچه مهردادپلاک۱ طبقه</Typography>                                                             
                         <Typography variant='body2' component='span'color='gray' sx={{lineHeight:'1.5rem'}}>ایمیل : info@snapp.market</Typography >
@@ -253,8 +250,8 @@ function Footer() {
                    </Box>
                 </Item>
             </Box>
-         </Box>
-          <Box item>
+         </Grid>
+          <Grid item md={5} sm={4} lg={4}>
             <Item>
             <LogoBox>
               <Box sx={{display: 'flex',flexDirection: 'row',justifyContent:'center',alignItems:'center',p: 1,marginBottom:0}}>
@@ -273,7 +270,7 @@ function Footer() {
               </Box>
             </LogoBox>
             </Item>
-          </Box>
+          </Grid>
           </Box3>
     </Box>
       
