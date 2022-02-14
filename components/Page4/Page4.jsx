@@ -86,7 +86,7 @@ const Page4 = ({groupId , categoryName}) => {
                     justDiscountState={justDiscountState}
                 />
                 <Grid item xs={12} sm={12} md={9} xl={9}>
-                    <Breadcrumb productCounter={data.length} category={data[0].categoryPe} group={data[0].groupName}/>
+                    {/*<Breadcrumb productCounter={data.length} category={data[0].categoryPe} group={data[0].groupName}/>*/}
                     <PaginationAndSort productData={productData}/>
 
                 </Grid>

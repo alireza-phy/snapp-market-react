@@ -3,13 +3,14 @@ import GoldenCard from '../GoldenCard/GoldenCard';
 import CardActions from '@mui/material/CardActions';
 import CardPrice from "../CardPrice/CardPrice";
 import {useState} from 'react';
+import {styled,useTheme} from '@mui/material/styles';
 import {
     Box,
     Card,
+    Grid,
     Typography,
     List,
     ListItem,
-    ListItemText,
     ListItemAvatar,
     Avatar,
     ImageIcon,
@@ -18,52 +19,47 @@ import {
 } from '@mui/material';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import ReactCardFlip from 'react-card-flip';
-import CardContent from '@mui/material/CardContent';
 import {goldenBoqche} from '../ProductData/ProductData'
+import ListItemText from '@mui/material/ListItemText';
 
-// class FlipGoldenCard extends React.Component {
-//
-//     constructor() {
-//         super();
-//         this.state = {
-//             isFlipped: false
-//         };
-//         this.handleClick = this.handleClick.bind(this);
-//     }
-//
-//     handleClick = (e) => {
-//         e.preventDefault();
-//         this.setState(prevState => ({isFlipped: !prevState.isFlipped}));
-//         console.log("*")
-//     }
-//
-//     render() {
+const Scroll = styled('div')(({theme})=>({
+        '*::-webkit-scrollbar':{
+            width:6},
+        '*::-webkit-scrollbar-track':{
+            backgroundColor:'#0f2b55',
+            borderRadius:10,
+        },
+        '*::-webkit-scrollbar-thumb':{
+            backgroundColor:'white',
+            borderRadius:10,
+        }
+    }
+));
 
-const FlipGoldenCard =() =>{
+const FlipGoldenCard =({goldenCatgory}) =>{
     const [isFlipped,SetFlipped]=useState(false)
     const handleClick=()=>{
         SetFlipped(!isFlipped);
     };
+    const theme = useTheme();
         return (
             <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
                 <Box sx={{
-                    width: "15rem",
+                    width:'15rem',
                     py: '1rem',
                     px: '1rem',
-                    my: 0.75,
+                    my: '1rem',
                     mx: 0.5,
                     zIndex: 99,
                     borderRadius: '0.5rem',
                     boxShadow: 'none',
                 }}>
-                    <Box sx={{display: 'flex', justifyContent: 'end'}}>
-                    </Box>
                     <GoldenCard
                         SetFlipped={SetFlipped}
                         isFlipped={isFlipped}
                         width={'15rem'}
                         category
-                        data={goldenBoqche('dairyProduct')}
+                        data={goldenBoqche(goldenCatgory)}
                     >
 
                     </GoldenCard>
@@ -71,13 +67,14 @@ const FlipGoldenCard =() =>{
                 </Box>
 
                 <Card sx={{
-                    width: "25rem",
+                    width:'26rem',
+                    height:'16.3rem',
                     py: '1rem',
                     px: '1rem',
-                    my: 0.75,
-                    mx: 0.5,
+                    my: '2.3rem',
+                    position:'reletive',
+                    mx: '1.5rem',
                     zIndex: 99,
-                    position: 'absolute',
                     borderRadius: '0.5rem',
                     boxShadow: 'none',
                     display: 'flex',
@@ -85,7 +82,7 @@ const FlipGoldenCard =() =>{
                     backfaceVisibility: 'hidden',
                     scrollBehavior: 'smooth',
                     wordBreak: 'breakAll',
-                    overflowY: 'auto'
+                    overflowY: 'auto',
                 }}>
 
                     <List sx={{width: '100%', bgcolor: 'background.paper', height: 'initial'}}>
@@ -100,34 +97,38 @@ const FlipGoldenCard =() =>{
                                 </IconButton>
                             </label>
                         </Box>
-                        <Box sx={{overflowY: 'auto', overflowX: 'hidden', maxHeight: '12rem'}}>
+                        <Box sx={{overflowY: 'auto', overflowX: 'hidden', maxHeight: '12rem' }}>
+                            <Scroll>
                             {
 
-                                goldenBoqche('dairyProduct').map(item =>
-                                    <ListItem>
-                                        <ListItemAvatar>
-                                            <Avatar sx={{
-                                                border: 1,
-                                                borderColor: 'rgb(230, 230, 230)',
-                                                borderRadius: '50%',
-                                                width: '3rem',
-                                                height: '3rem',
-                                                p: '0.5rem'
-                                            }}
-                                                    src={item.images[0].url}
-                                            >
-                                                <ImageIcon/>
-                                            </Avatar>
-                                        </ListItemAvatar>
-                                        <ListItemText sx={{textAlign: 'right'}}
-                                                      primary={item.name}/>
-                                        <CardActions
-                                            sx={{p: '0', display: 'flex', alignItems: 'flex-end'}}>
-                                            <CardPrice Exdiscount={10} price={item.price} discount={item.discount}/>
-                                        </CardActions>
-                                    </ListItem>
+                                goldenBoqche(goldenCatgory).map(item =>
+                                    <Grid key={item.id} container spacing={1} sx={{marginBottom:'0.75rem' , alignItems:'center'}}>
+                                        <Grid item xs={2}>
+                                            <ListItemAvatar>
+                                                <Avatar sx={{
+                                                    border: 1,
+                                                    borderColor: 'rgb(230, 230, 230)',
+                                                    borderRadius: '50%',
+                                                    width: '3rem',
+                                                    height: '3rem',
+                                                    p: '0.25rem'
+                                                }}
+                                                        src={item.images[0].url}
+                                                >
+                                                    <ImageIcon/>
+                                                </Avatar>
+                                            </ListItemAvatar>
+                                        </Grid>
+                                        <Grid item xs={5.5}>
+                                            <Typography variant="body2" style={{ display: "inline-block", whiteSpace: "pre-line" , fontSize:"0.8rem" }} >{item.name}</Typography>
+                                        </Grid>
+                                        <Grid item xs={4.5}>
+                                                <CardPrice Exdiscount={10} price={item.price} discount={item.discount}/>
+                                        </Grid>
+                                    </Grid>
                                 )
                             }
+                            </Scroll>
                         </Box>
                     </List>
                 </Card>

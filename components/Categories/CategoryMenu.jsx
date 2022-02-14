@@ -3,10 +3,17 @@ import Paper from '@mui/material/Paper'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
-import {getSubCategory} from '../ProductData/ProductData'
-import Divider from '@mui/material/Divider'
+import {getSubCategory} from '../ProductData/ProductData';
+import Divider from '@mui/material/Divider';
+import {useRouter} from 'next/router';
 
 const CategoryMenu = ({subCategory}) => {
+    const router = useRouter();
+
+    const showCategoryHandler = (groupId) => {
+        router.push('/group/' + groupId)
+    }
+
 
     return (
         <Grid item xs={12} sm={12} md={3} xl={3} sx={{position: 'relative'}}>
@@ -16,21 +23,25 @@ const CategoryMenu = ({subCategory}) => {
                         دسته بندی ها :
                     </Typography>
                     {subCategory.map(item => (
-                        <Box key={item.id} sx={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center',
-                            ':hover': {
-                                bgcolor: '#F2F7FF'
-                            },
-                            ':hover svg': {
-                                visibility: 'visible'
-                            },
-                            borderRadius: 1,
-                            my: 1.75,
-                            mx: 1,
-                            cursor: 'pointer'
-                        }}>
+                        <Box key={item.id}
+                             sx={{
+                                 display: 'flex',
+                                 justifyContent: 'space-between',
+                                 alignItems: 'center',
+                                 ':hover': {
+                                     bgcolor: '#F2F7FF'
+                                 },
+                                 ':hover svg': {
+                                     visibility: 'visible'
+                                 },
+                                 borderRadius: 1,
+                                 my: 1.75,
+                                 mx: 1,
+                                 cursor: 'pointer'
+
+                             }}
+                             onClick={() => showCategoryHandler(item.id)}
+                        >
                             <Typography variant='body1' component='p'
                                         sx={{py: 0.75, px: 1, fontWeight: 600, color: '#757575'}}>
                                 {item.name}

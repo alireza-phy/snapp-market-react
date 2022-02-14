@@ -16,13 +16,13 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import { connect } from "react-redux";
 function incerementCounter(num) {
     return {
-        type: "SINGLEINC",
+        type: "INC",
         num: num,
     };
 }
 function decrementCounter(num) {
     return {
-        type: "SINGLEDEC",
+        type: "DEC",
         num: num,
     };
 }
@@ -31,6 +31,18 @@ function singleDataToCart(data) {
         type: "ADDTOCART",
         data: data,
     };
+}
+function finallDec(price) {
+  return {
+    type: "DECREMENT",
+    price: price,
+  };
+}
+function finallInc(price) {
+  return {
+    type: "INCEREMENT",
+    price: price,
+  };
 }
 function mapStateToProps(state) {
     return {
@@ -44,17 +56,31 @@ const mapDispatchToProps = {
     incerementCounter,
     decrementCounter,
     singleDataToCart,
+    finallDec,
+    finallInc,
 };
 const SingleProduct = (props) => {
     const incrementHandler = () => {
         props.incerementCounter(1);
+        let discountPrice =
+      props.currentProduct.price -
+      props.currentProduct.price * (props.currentProduct.discount / 100);
+        props.finallInc(discountPrice);
     };
     const decrementHandler = () => {
         props.decrementCounter(1);
+        let discountPrice =
+        props.currentProduct.price -
+        props.currentProduct.price * (props.currentProduct.discount / 100);
+          props.finallDec(discountPrice);
     };
     const addToCartHandler = () => {
+      let discountPrice =
+      props.currentProduct.price -
+      props.currentProduct.price * (props.currentProduct.discount / 100);
         props.singleDataToCart(props.currentProduct);
         props.incerementCounter(1);
+        props.finallInc(discountPrice);
     };
     return (
         <Container
@@ -274,7 +300,7 @@ const SingleProduct = (props) => {
                         </Typography>
                     </Box>
 
-                    {props.SingleCardCount === 0 ? (
+                    {props.count === 0 ? (
                         <Button
                             variant="outlined"
                             onClick={addToCartHandler}
@@ -302,7 +328,7 @@ const SingleProduct = (props) => {
                                 justifyContent: "center",
                             }}
                         >
-                            {props.SingleCardCount > 1 ? (
+                            {props.count > 1 ? (
                                 <RemoveIcon
                                     sx={{
                                         background: "none",
@@ -371,10 +397,10 @@ const SingleProduct = (props) => {
                                     component="span"
                                     sx={{ width: "100%", fontSize: "2rem", textAlign: "center" }}
                                 >
-                                    {PN.convertEnToPe(props.SingleCardCount)}
+                                    {PN.convertEnToPe(props.count)}
                                 </Typography>
                             </Box>
-                            {props.currentProduct.MaximumOrder === props.SingleCardCount ? (
+                            {props.currentProduct.MaximumOrder === props.count ? (
                                 <AddIcon
                                     disable
                                     sx={{

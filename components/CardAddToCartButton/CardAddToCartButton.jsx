@@ -36,6 +36,7 @@ const CardAddToCartButton = ({quantity,incrementHandler,decrementHandler,maximum
                                     border: 1,
                                     borderColor: 'grey.300',
                                     p: 0.75,
+                                    cursor:'pointer',
                                     ':hover': {
                                         bgcolor: '#2446f5',
                                         color: '#fff',
@@ -48,6 +49,7 @@ const CardAddToCartButton = ({quantity,incrementHandler,decrementHandler,maximum
                                     fontSize: 30,
                                     borderRadius: '100%',
                                     p: 0.75,
+                                    cursor:'pointer',
                                     ':hover': {
                                         bgcolor: '#2446f5',
                                         color: '#fff',
@@ -67,6 +69,7 @@ const CardAddToCartButton = ({quantity,incrementHandler,decrementHandler,maximum
                                 <AddIcon
                                     disable
                                     sx={{
+                                        cursor:'pointer',
                                         bgcolor: '#fff',
                                         color: 'grey.500',
                                         fontSize: 30,
@@ -79,6 +82,7 @@ const CardAddToCartButton = ({quantity,incrementHandler,decrementHandler,maximum
                                 :
                                 <AddIcon
                                     sx={{
+                                        cursor:'pointer',
                                         bgcolor: '#fff',
                                         color: '#2446f5',
                                         fontSize: 30,

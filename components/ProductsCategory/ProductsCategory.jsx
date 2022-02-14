@@ -15,6 +15,7 @@ import FlipGoldenCard from '../FlippeGoldenCard/FlippeGoldenCard'
 const ProductCategory = ({
                              groupNameObject,
                              categorySub,
+                             specialCategory,
                              ordinary,
                              special,
                              list,
@@ -53,7 +54,10 @@ const ProductCategory = ({
         }, 0)
     };
 
-    let categoryList = ProductData;
+    let categoryList = ProductData
+
+
+    if (specialCategory) {categoryList = specialCategory}
 
     if (categorySub) {
         categoryList = ProductData.filter(item => item.categoryEn === categorySub).slice(0, 9)
@@ -145,7 +149,9 @@ const ProductCategory = ({
                                             mr: 2.5,
                                             py: 1.2,
                                             cursor: 'pointer'
-                                        }}>
+                                        }}
+                                        onClick={() => showCategoryHandler(categoryList[0].categoryEn)}
+                        >
                                 {groupNameObject.name}
                             </Typography>
                             :
@@ -156,13 +162,15 @@ const ProductCategory = ({
                                             borderColor: '#2446f5',
                                             mr: 2.5,
                                             py: 1.2,
-                                            cursor: 'pointer'
-                                        }}>
+                                            cursor: 'pointer',
+                                        }}
+                                        onClick={() => showCategoryHandler(categoryList[0].categoryEn)}
+                            >
                                 {categoryList[0].categoryPe}
                             </Typography>
                     }
                     <Typography variant='body1' component='span'
-                                onClick={()=> showCategoryHandler(categoryList[0].categoryEn)}
+                                onClick={() => showCategoryHandler(categoryList[0].categoryEn)}
                                 sx={{
                                     display: 'flex',
                                     alignItems: 'center',
@@ -232,7 +240,8 @@ const ProductCategory = ({
                                         alignItems: 'center',
                                         color: '#fff',
                                         ml: 0.5,
-                                        mr: 1.5
+                                        mr: 1.5,
+                                        cursor:'pointer',
                                     }}>
                             {spTitle}
                         </Typography>
@@ -241,8 +250,12 @@ const ProductCategory = ({
                         goldenOffer
                         &&
                         <>
-                            <FlipGoldenCard/>
-                            <FlipGoldenCard/>
+                            <FlipGoldenCard
+                                goldenCatgory={'dairyProduct'}
+                            />
+                            <FlipGoldenCard
+                                goldenCatgory={'canned-food'}
+                            />
 
                         </>
                     }
@@ -261,7 +274,7 @@ const ProductCategory = ({
                                 />
                             )}
                             {
-                                ( ordinary && (categoryList.length > 5) )
+                                (ordinary && (categoryList.length > 5))
                                 &&
                                 <Paper sx={{
                                     display: 'flex',
