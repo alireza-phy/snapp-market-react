@@ -27,6 +27,7 @@ import {ShoppingBagOutlined, PersonOutline, GridViewOutlined} from "@mui/icons-m
 import {styled, alpha} from '@mui/material/styles';
 import {useTheme} from '@mui/material/styles';
 import {keyframes} from '@mui/system';
+import { connect } from "react-redux";
 
 const style = {
     display: 'flex',
@@ -294,18 +295,24 @@ const infinityShrinknessCircle = keyframes`
     transform: scale(0.8);
   }
 `
+function mapStateToProps(state) {
+    return {
+        count: state.productCountReducer.count,
+    };
+  }
 const HeaderStatic = ({
                           drawerOpen,
                           drawerOpenCart,
                           toggleDrawer,
                           toggleDrawerCart,
                           value,
+                          count,
                           handleChange,
                           slideDrawerModal
                       }) => {
     const theme = useTheme();
     return (
-        <Box sx={{direction: 'rtl', position: 'sticky', top: 0 , zIndex: 200000}}>
+        <Box sx={{direction: 'rtl', position: 'sticky', top: 0 , zIndex: 998}}>
             <Toolbar sx={{
                 backgroundImage: `url(${Image.src})`,
                 backgroundRepeat: "no-repeat",
@@ -466,7 +473,7 @@ const HeaderStatic = ({
                                                         height: "1rem",
                                                     },
                                                 }}>
-                                                    0
+                                                    {count}
                                                 </Typography>
                                             </Button>
                                             <CartDrawer openCart={drawerOpenCart} onCloseCart={toggleDrawerCart}/>
@@ -514,7 +521,7 @@ const HeaderStatic = ({
                                     vertical: 'top',
                                     horizontal: 'left',
                                 }}
-                                       badgeContent={1}
+                                       badgeContent={count}
                                        color="primary">
                                     <ShoppingCartOutlinedIcon color="action"/>
                                 </Badge>
@@ -880,4 +887,4 @@ const HeaderStatic = ({
         </Box>
     )
 }
-export default HeaderStatic
+export default connect(mapStateToProps,null)(HeaderStatic);
