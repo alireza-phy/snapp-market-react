@@ -31,7 +31,7 @@ export default function Home() {
                 </Head>
 
                 <Box component="img" src={marketParty.src}
-                     sx={{width: '100%', margin: 'auto', borderRadius: '0.5rem'}}/>
+                     sx={{width: '100%', margin: 'auto', borderRadius: '0.5rem', display:{xs:'none', sm:'flex'}}}/>
                 <ProductsCategory
                     special
                     spBlue
@@ -40,10 +40,10 @@ export default function Home() {
                     specialCategory={SpecialCategory_marketParty()}
                 />
                 <Box component="img" src={specialOffer.src}
-                     sx={{width: '100%', margin: 'auto', borderRadius: '0.5rem'}}/>
+                     sx={{width: '100%', margin: 'auto', borderRadius: '0.5rem', display:{xs:'none', sm:'flex'}}}/>
                 <Assortment/>
                 <Box component="img" src={kale.src}
-                     sx={{width: '100%', margin: 'auto', borderRadius: '0.5rem'}}/>
+                     sx={{width: '100%', margin: 'auto', borderRadius: '0.5rem', display:{xs:'none', sm:'flex'}}}/>
                 <ProductsCategory
                     categorySub={'dairyProduct'}
                     ordinary
@@ -53,7 +53,7 @@ export default function Home() {
                     ordinary
                 />
                 <Box component="img" src={kale2.src}
-                     sx={{width: '100%', margin: 'auto', borderRadius: '0.5rem'}}/>
+                     sx={{width: '100%', margin: 'auto', borderRadius: '0.5rem', display:{xs:'none', sm:'flex'}}}/>
                 <ProductsCategory
                     goldenOffer
                 />
@@ -62,7 +62,7 @@ export default function Home() {
                     ordinary
                 />
                 <Box component="img" src={bHaminTazegi.src}
-                     sx={{width: '100%', margin: 'auto', borderRadius: '0.5rem'}}/>
+                     sx={{width: '100%', margin: 'auto', borderRadius: '0.5rem', display:{xs:'none', sm:'flex'}}}/>
                 <ProductsCategory
                     categorySub={'junk-food'}
                     ordinary
@@ -98,7 +98,7 @@ export default function Home() {
                     ordinary
                 />
                 <Box component="img" src={pakshooma.src}
-                     sx={{width: '100%', margin: 'auto', borderRadius: '0.5rem'}}/>
+                     sx={{width: '100%', margin: 'auto', borderRadius: '0.5rem', display:{xs:'none', sm:'flex'}}}/>
                 <ProductsCategory
                     categorySub={'breakfast'}
                     ordinary
@@ -108,7 +108,7 @@ export default function Home() {
                     ordinary
                 />
                 <Box component="img" src={specialOffer.src}
-                     sx={{width: '100%', margin: 'auto', borderRadius: '0.5rem'}}/>
+                     sx={{width: '100%', margin: 'auto', borderRadius: '0.5rem', display:{xs:'none', sm:'flex'}}}/>
                 <ProductsCategory
                     categorySub={'home-and-lifestyle'}
                     ordinary
