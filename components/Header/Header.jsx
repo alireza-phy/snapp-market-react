@@ -14,7 +14,7 @@ import {useTheme, createTheme, makeStyles} from '@mui/material/styles';
 import {Container, IconButton, Link, Paper} from "@mui/material";
 import {styled, alpha} from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
-
+import Search from '../Search/Search'
 import {
     ShoppingBagOutlined,
     PersonOutline, QueryBuilder, GridViewOutlined, ExpandMore,
@@ -47,6 +47,7 @@ const style = {
     px: 3,
     pt: 3
 };
+
 const infinityShrinknessCircle = keyframes`
   0% {
     transform: scale(0.8);
@@ -60,60 +61,7 @@ const infinityShrinknessCircle = keyframes`
     transform: scale(0.8);
   }
 `
-//search
 
-const Search = styled('div')(({theme}) => ({
-    position: 'relative',
-    borderRadius: "5rem",
-    backgroundColor: alpha(theme.palette.common.white, 1),
-    width: '100%',
-    fontSize: "0.8rem",
-    fontWeight: 600,
-    [theme.breakpoints.up('sm')]: {
-        marginRight: theme.spacing(1),
-        width: 'auto',
-    },
-    [theme.breakpoints.down('sm')]: {
-        height: "2rem",
-        fontSize: "0.5rem"
-    },
-    [theme.breakpoints.between('sm', 'md')]: {
-        marginRight: "1rem"
-    },
-    [theme.breakpoints.up('md')]: {
-        marginRight: "1rem"
-    },
-
-}));
-
-const SearchIconWrapper = styled('div')(({theme}) => ({
-    padding: theme.spacing(0, 1),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    color: 'rgb(117, 117, 117)',
-}));
-
-const StyledInputBase = styled(InputBase)(({theme}) => ({
-    color: 'black',
-    display: "flex",
-    alignItems: "center",
-    '& .MuiInputBase-input': {
-        padding: theme.spacing(1, 0, 1, 0),
-        // vertical padding + font size from searchIcon
-        paddingRight: `calc(1em + ${theme.spacing(3)})`,
-        transition: theme.transitions.create('width'),
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            width: '20rem',
-        }, [theme.breakpoints.down('sm')]: {
-            width: '80%',
-        },
-    },
-}));
 const firstCol = [
     {
         id: 1, name: "لبنیات", groups: [
@@ -944,15 +892,7 @@ const Header = ({
                                     </Box>
                                 </Box>
                             </Modal>
-                            <Search>
-                                <SearchIconWrapper>
-                                    <SearchIcon/>
-                                </SearchIconWrapper>
-                                <StyledInputBase
-                                    placeholder="جست و جوی برند یا محصول"
-                                    inputProps={{'aria-label': 'search'}}
-                                />
-                            </Search>
+                            <Search/>
                         </Box>
                     </Container>
                 </Toolbar>
