@@ -149,7 +149,9 @@ const ProductCategory = ({
                                             mr: 2.5,
                                             py: 1.2,
                                             cursor: 'pointer'
-                                        }}>
+                                        }}
+                                        onClick={() => showCategoryHandler(categoryList[0].categoryEn)}
+                        >
                                 {groupNameObject.name}
                             </Typography>
                             :
@@ -160,8 +162,10 @@ const ProductCategory = ({
                                             borderColor: '#2446f5',
                                             mr: 2.5,
                                             py: 1.2,
-                                            cursor: 'pointer'
-                                        }}>
+                                            cursor: 'pointer',
+                                        }}
+                                        onClick={() => showCategoryHandler(categoryList[0].categoryEn)}
+                            >
                                 {categoryList[0].categoryPe}
                             </Typography>
                     }
@@ -236,7 +240,8 @@ const ProductCategory = ({
                                         alignItems: 'center',
                                         color: '#fff',
                                         ml: 0.5,
-                                        mr: 1.5
+                                        mr: 1.5,
+                                        cursor:'pointer',
                                     }}>
                             {spTitle}
                         </Typography>

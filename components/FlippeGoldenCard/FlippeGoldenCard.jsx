@@ -97,7 +97,7 @@ const FlipGoldenCard =({goldenCatgory}) =>{
                                 </IconButton>
                             </label>
                         </Box>
-                        <Box sx={{overflowY: 'auto', overflowX: 'hidden', maxHeight: '12rem'}}>
+                        <Box sx={{overflowY: 'auto', overflowX: 'hidden', maxHeight: '12rem' }}>
                             <Scroll>
                             {
 
