@@ -5,7 +5,7 @@ import PN from "persian-number";
 const CardPrice = ({price, discount, Exdiscount=0}) => {
 
     return (
-        <Box sx={{flexGrow: '2'}}>
+        <Box sx={{flexGrow: '2' , display:'flex' , flexDirection:'column' , justifyContent:'center', alignItems:'center'}}>
             <Box sx={{
                 display: 'flex',
                 alignItems: 'center',

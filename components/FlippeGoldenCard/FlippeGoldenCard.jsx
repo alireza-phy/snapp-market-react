@@ -7,6 +7,7 @@ import {styled,useTheme} from '@mui/material/styles';
 import {
     Box,
     Card,
+    Grid,
     Typography,
     List,
     ListItem,
@@ -19,6 +20,7 @@ import {
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import ReactCardFlip from 'react-card-flip';
 import {goldenBoqche} from '../ProductData/ProductData'
+import ListItemText from '@mui/material/ListItemText';
 
 const Scroll = styled('div')(({theme})=>({
         '*::-webkit-scrollbar':{
@@ -34,7 +36,7 @@ const Scroll = styled('div')(({theme})=>({
     }
 ));
 
-const FlipGoldenCard =() =>{
+const FlipGoldenCard =({goldenCatgory}) =>{
     const [isFlipped,SetFlipped]=useState(false)
     const handleClick=()=>{
         SetFlipped(!isFlipped);
@@ -57,7 +59,7 @@ const FlipGoldenCard =() =>{
                         isFlipped={isFlipped}
                         width={'15rem'}
                         category
-                        data={goldenBoqche('grocery-bread')}
+                        data={goldenBoqche(goldenCatgory)}
                     >
 
                     </GoldenCard>
@@ -66,10 +68,10 @@ const FlipGoldenCard =() =>{
 
                 <Card sx={{
                     width:'26rem',
-                    height:'16.2rem',
+                    height:'16.3rem',
                     py: '1rem',
                     px: '1rem',
-                    my: '2.5rem',
+                    my: '2.3rem',
                     position:'reletive',
                     mx: '1.5rem',
                     zIndex: 99,
@@ -99,29 +101,31 @@ const FlipGoldenCard =() =>{
                             <Scroll>
                             {
 
-                                goldenBoqche('grocery-bread').map(item =>
-                                    <ListItem  key={item.id}>
-                                        <ListItemAvatar>
-                                            <Avatar sx={{
-                                                border: 1,
-                                                borderColor: 'rgb(230, 230, 230)',
-                                                borderRadius: '50%',
-                                                width: '3rem',
-                                                height: '3rem',
-                                                p: '0.25rem'
-                                            }}
-                                                    src={item.images[0].url}
-                                            >
-                                                <ImageIcon/>
-                                            </Avatar>
-                                        </ListItemAvatar>
-                                        <Typography sx={{textAlign: 'right',fontSize:'0.8rem',width:150}}>{item.name}</Typography>
-                                        <CardActions 
-                                            sx={{width:140,p: '0', display: 'flex', alignItems: 'flex-start',fontSize:'0.5rem',marginRight:'2rem'}}>
-                                            <CardPrice Exdiscount={10} price={item.price} discount={item.discount}/>
-                                        </CardActions>
-                                        {/* <Divider component="li"/> */}
-                                    </ListItem>
+                                goldenBoqche(goldenCatgory).map(item =>
+                                    <Grid key={item.id} container spacing={1} sx={{marginBottom:'0.75rem' , alignItems:'center'}}>
+                                        <Grid item xs={2}>
+                                            <ListItemAvatar>
+                                                <Avatar sx={{
+                                                    border: 1,
+                                                    borderColor: 'rgb(230, 230, 230)',
+                                                    borderRadius: '50%',
+                                                    width: '3rem',
+                                                    height: '3rem',
+                                                    p: '0.25rem'
+                                                }}
+                                                        src={item.images[0].url}
+                                                >
+                                                    <ImageIcon/>
+                                                </Avatar>
+                                            </ListItemAvatar>
+                                        </Grid>
+                                        <Grid item xs={5.5}>
+                                            <Typography variant="body2" style={{ display: "inline-block", whiteSpace: "pre-line" , fontSize:"0.8rem" }} >{item.name}</Typography>
+                                        </Grid>
+                                        <Grid item xs={4.5}>
+                                                <CardPrice Exdiscount={10} price={item.price} discount={item.discount}/>
+                                        </Grid>
+                                    </Grid>
                                 )
                             }
                             </Scroll>

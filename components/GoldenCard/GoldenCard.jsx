@@ -12,19 +12,9 @@ import PN from "persian-number";
 
 const GoldenCard = ({width, category, data , SetFlipped, isFlipped }) => {
 
-    const imgPack = [{
-        id: 1,
-        src: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/383613.jpg'
-    }, {
-        id: 2,
-        src: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210815-122727.jpg'
-    }, {
-        id: 3,
-        src: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210815-122728.jpg'
-    }]
     const discount = 10
     let price = 0
-    data.map(item => price += item.price )
+    data.map(item => price += item.price*(100-item.discount)/100 )
     const available = true
     const maximumOrder = 1;
     const refer = useRef(null)
@@ -82,7 +72,7 @@ const GoldenCard = ({width, category, data , SetFlipped, isFlipped }) => {
                                         boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'
                                     }}
                                     key={item.id}
-                                    sx={{width: 60, height: 60}}
+                                    sx={{width: 40, height: 40 , padding:'0.5rem'}}
                                     src={item.images[0].url}
                                 />
                             )

@@ -245,8 +245,12 @@ const ProductCategory = ({
                         goldenOffer
                         &&
                         <>
-                            <FlipGoldenCard/>
-                            <FlipGoldenCard/>
+                            <FlipGoldenCard
+                                goldenCatgory={'dairyProduct'}
+                            />
+                            <FlipGoldenCard
+                                goldenCatgory={'canned-food'}
+                            />
 
                         </>
                     }
