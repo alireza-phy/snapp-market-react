@@ -122,9 +122,12 @@ function Item(props) {
 
 
 
-function Footer() {
+function Footer({children}) {
   const theme = useTheme();
     return (
+        <>
+            {children}
+
       <Box sx={{marginTop:20, backgroundColor:"white",overFlow:'hidden'}}>
         <Grid container alignItems="center" spacing={3}>
           
@@ -300,7 +303,7 @@ function Footer() {
           </Box3>
         </Grid>
       </Box>
-      
+        </>
     );
   }
   

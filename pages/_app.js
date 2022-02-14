@@ -1,10 +1,11 @@
 import "../styles/globals.css";
 import { makeServer } from "../library/mirage/index";
-import HeaderAndFooter from "../components/HeaderAndFooter/HeaderAndFooter";
+import Footer from "../components/Footer/Footer";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import theme from "../styles/theme";
 import { Provider } from "react-redux";
 import { createStore, combineReducers } from "redux";
+
 const initialState = {
   count: 0,
 };
@@ -60,9 +61,9 @@ function MyApp({ Component, pageProps }) {
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <HeaderAndFooter>
+        <Footer>
           <Component {...pageProps} />
-        </HeaderAndFooter>
+        </Footer>
       </ThemeProvider>
     </Provider>
   );

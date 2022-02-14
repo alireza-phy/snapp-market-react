@@ -2,7 +2,7 @@ import {useRouter} from 'next/router' ;
 import React from "react";
 import ProductData from '../../../components/ProductData/ProductData'
 import Page4 from '../../../components/Page4/Page4'
-
+import HeaderStatic from '../../../components/HeaderStatic/HeaderStatic'
 export default function group({ProductList}) {
 
     const router = useRouter();
@@ -11,10 +11,13 @@ export default function group({ProductList}) {
     console.log(router.query.group_id)
     console.log(router.query.category_name)
     return (
+        <>
+            <HeaderStatic/>
         <Page4
             groupId={router.query.group_id}
             categoryName={router.query.category_name}
         />
+        </>
 
     )
 }

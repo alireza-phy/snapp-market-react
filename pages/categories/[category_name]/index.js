@@ -8,6 +8,8 @@ import Box from '@mui/material/Box';
 import ProductData,{getSubCategory} from '../../../components/ProductData/ProductData'
 import PageDescription from '../../../components/PageDescription/PageDescription'
 import Container from '@mui/material/Container'
+import HeaderStatic from '../../../components/HeaderStatic/HeaderStatic';
+
 const Categories = ({ProductList}) => {
 
     const router = useRouter();
@@ -16,10 +18,13 @@ const Categories = ({ProductList}) => {
     console.log(currentCategory)
 
     return (
+        <>
+            <HeaderStatic/>
         <Container>
             <Grid container sx={{direction: 'rtl', mt: 4}} columnSpacing={3}>
                 <CategoryMenu
                     subCategory={getSubCategory(currentCategory[0].categoryEn)}
+                    currentCategory={currentCategory[0].categoryEn}
                 />
                 <Grid item xs={12} sm={12} md={9} xl={9}>
                     <Breadcrumb
@@ -38,6 +43,7 @@ const Categories = ({ProductList}) => {
                 <PageDescription/>
             </Grid>
         </Container>
+            </>
     )
 }
 

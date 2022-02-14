@@ -7,13 +7,14 @@ import {getSubCategory} from '../ProductData/ProductData';
 import Divider from '@mui/material/Divider';
 import {useRouter} from 'next/router';
 
-const CategoryMenu = ({subCategory}) => {
+const CategoryMenu = ({subCategory , currentCategory}) => {
     const router = useRouter();
 
     const showCategoryHandler = (groupId) => {
-        router.push('/group/' + groupId)
+        router.push('/categories/' + currentCategory + '/' + groupId)
     }
 
+    console.log(subCategory)
 
     return (
         <Grid item xs={12} sm={12} md={3} xl={3} sx={{position: 'relative'}}>

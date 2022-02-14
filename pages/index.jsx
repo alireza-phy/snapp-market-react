@@ -6,6 +6,9 @@ import {Container} from "@mui/material";
 import PageDescription from '../components/PageDescription/PageDescription'
 import Box from '@mui/material/Box'
 import {SpecialCategory_marketParty , SpecialCategory_nessesaryForHome} from '../components/ProductData/ProductData'
+import Header from "../components/Header/Header";
+import HeaderStatic from '../components/HeaderStatic/HeaderStatic';
+import {useEffect, useState} from "react";
 // ---------------- images ------------------ //
 
 import marketParty from '../public/mainpageImages/Banners/marketparty.jpg'
@@ -20,7 +23,63 @@ import specialOffer from '../public/mainpageImages/Banners/specialOffer.jpg'
 
 export default function Home() {
 
+    const [scrollBarStatic, setScrollBarStatic] = useState(false)
+    const [scrollBarHome, setScrollBarHome] = useState(true)
+    const [drawerOpen, setDrawerOpen] = useState(false)
+    const [drawerOpenCart, setDrawerOpenCart] = useState(false)
+    const [slideDrawerModal, setSlideDrawerModal] = useState(true)
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY < 230) {
+                setScrollBarHome(true)
+                setScrollBarStatic(false)
+                setSlideDrawerModal(false)
+            }
+            if (window.scrollY >= 230) {
+                setScrollBarHome(false)
+                setScrollBarStatic(true)
+                setSlideDrawerModal(true)
+            }
+        })
+    }, [])
+    //Drawer Category
+    const toggleDrawer = (value) => {
+        setDrawerOpen(value)
+    };
+    // Drawer Cart
+    const toggleDrawerCart = (value) => {
+        setDrawerOpenCart(value)
+    };
+    const [value, setValue] = useState('Home');
+    const handleChange = (newValue) => {
+        setValue(newValue);
+    };
     return (
+        <>
+            {
+                scrollBarHome
+                &&
+                <Header drawerOpen={drawerOpen}
+                        drawerOpenCart={drawerOpenCart}
+                        toggleDrawer={toggleDrawer}
+                        toggleDrawerCart={toggleDrawerCart}
+                        value = {value}
+                        handleChange = {handleChange}
+                        slideDrawerModal={slideDrawerModal}
+                />
+            }
+            {
+                scrollBarStatic
+                &&
+                <HeaderStatic drawerOpen={drawerOpen}
+                              drawerOpenCart={drawerOpenCart}
+                              toggleDrawer={toggleDrawer}
+                              toggleDrawerCart={toggleDrawerCart}
+                              value = {value}
+                              handleChange = {handleChange}
+                              slideDrawerModal={slideDrawerModal}
+                />
+            }
             <Container
                 maxWidth='lg'
                 sx={{marginY: "1rem", display: 'flex', flexDirection: 'column', gap: '1rem', justifyContent: 'center'}}>
@@ -123,5 +182,6 @@ export default function Home() {
                 />
                 <PageDescription/>
             </Container>
+            </>
     )
 }
