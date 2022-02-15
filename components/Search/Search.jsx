@@ -70,7 +70,7 @@ const Search = () => {
             <StyledInputBase
                 onKeyDown={e => {
                     if (e.keyCode === 13) {
-                        router.push('/search/' + e.target.value)
+                        router.push('/search/' + e.target.value.replace(/\s+/g, '-'))
                     }
                 }}
                 placeholder="جست و جوی برند یا محصول"

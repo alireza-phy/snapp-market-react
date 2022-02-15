@@ -5,10 +5,11 @@ import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
 import ProductData from '../ProductData/ProductData'
 import Slider from '@mui/material/Slider'
-import {useState} from "react";
+import {useState , useEffect} from "react";
 
-const Page4 = ({groupId , categoryName}) => {
-    const [data, setData] = useState(ProductData.filter((dairy) => (dairy.categoryEn == categoryName && dairy.groupId == groupId)))
+const Page4 = ({groupId , categoryName , searchList}) => {
+
+    const [data, setData] = (searchList) ? useState(searchList) : useState(ProductData.filter((dairy) => (dairy.categoryEn == categoryName && dairy.groupId == groupId)))
     const [productData, setProductData] = useState([...data])
     const [filter, setFilter] = useState([])
     const [justDiscountState, setJustDiscountState] = useState(false)
@@ -36,6 +37,7 @@ const Page4 = ({groupId , categoryName}) => {
         }
 
     }
+
     const priceRange = {
         to: ranger[0],
         from: ranger[1]

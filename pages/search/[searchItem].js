@@ -2,12 +2,13 @@ import {useRouter} from 'next/router' ;
 import React from "react";
 import ProductData from '../../components/ProductData/ProductData'
 import Page4 from '../../components/Page4/Page4'
+import HeaderStatic from '../../components/HeaderStatic/HeaderStatic'
 
 export default function group({ProductList}) {
 
     const router = useRouter();
 
-    let searchTerm = router.query.searchItem
+    let searchTerm = router.query.searchItem.replace(/-/g, ' ')
 
     let FilteredList = ProductData.filter(
         data =>
@@ -20,7 +21,12 @@ export default function group({ProductList}) {
     console.log(FilteredList)
 
     return (
-        <h1> Hello </h1>
+        <>
+            <HeaderStatic/>
+            <Page4
+                searchList={FilteredList}
+            />
+        </>
 
     )
 }

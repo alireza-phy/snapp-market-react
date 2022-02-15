@@ -3,6 +3,7 @@ import React from "react";
 import ProductData from '../../../components/ProductData/ProductData'
 import Page4 from '../../../components/Page4/Page4'
 import HeaderStatic from '../../../components/HeaderStatic/HeaderStatic'
+
 export default function group({ProductList}) {
 
     const router = useRouter();
