@@ -6,6 +6,7 @@ import ProductsCategory from '../../components/ProductsCategory/ProductsCategory
 import {similarProducts, ourOffer} from '../../components/ProductData/ProductData'
 import Box from '@mui/material/Box';
 import {Container} from "@mui/material";
+import HeaderStatic from '../../components/HeaderStatic/HeaderStatic';
 
 const Products = ({ProductList}) => {
 
@@ -14,6 +15,8 @@ const Products = ({ProductList}) => {
     let currentProduct = ProductList.filter(product => product.id == router.query.product_id)[0]
     console.log(similarProducts(router.query.product_id).length)
     return (
+        <>
+            <HeaderStatic/>
         <Container
             maxWidth='lg'
             sx={{marginY: "1rem", display: 'flex', flexDirection: 'column', gap: '1rem', justifyContent: 'center'}}>
@@ -44,6 +47,7 @@ const Products = ({ProductList}) => {
                 }
             </Box>
         </Container>
+            </>
     )
 }
 

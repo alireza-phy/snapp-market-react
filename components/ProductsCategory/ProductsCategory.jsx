@@ -39,7 +39,7 @@ const ProductCategory = ({
     const router = useRouter();
 
     const showCategoryHandler = (caseName) => {
-        (groupNameObject) ? router.push('/group/' + groupNameObject.id) : router.push('/categories/' + caseName)
+        (groupNameObject) ? router.push('/categories/' + caseName + '/' + groupNameObject.id) : router.push('/categories/' + caseName)
     }
 
     const scrollHandler = (scrollOffset) => {

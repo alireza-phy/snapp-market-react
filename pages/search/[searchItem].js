@@ -2,15 +2,31 @@ import {useRouter} from 'next/router' ;
 import React from "react";
 import ProductData from '../../components/ProductData/ProductData'
 import Page4 from '../../components/Page4/Page4'
+import HeaderStatic from '../../components/HeaderStatic/HeaderStatic'
 
 export default function group({ProductList}) {
 
     const router = useRouter();
 
-    let currentProduct = ProductList.filter(product => product.id == router.query.product_id)[0]
+    let searchTerm = router.query.searchItem.replace(/-/g, ' ')
+
+    let FilteredList = ProductData.filter(
+        data =>
+            data.name.includes(searchTerm) ||
+            data.brand.brandPe.includes(searchTerm) ||
+            data.categoryPe.includes(searchTerm) ||
+            data.groupName.includes(searchTerm)
+    )
+
+    console.log(FilteredList)
 
     return (
-        <Page4/>
+        <>
+            <HeaderStatic/>
+            <Page4
+                searchList={FilteredList}
+            />
+        </>
 
     )
 }
@@ -19,7 +35,7 @@ export async function getStaticPaths() {
 
     return {
         paths: [
-            {params: {group_id: '1'}}
+            {params: {searchItem: 'dairyProducts'}}
         ],
         fallback: 'blocking'
     };

@@ -10,7 +10,6 @@ import Stack from '@mui/material/Stack';
 import {createTheme,ThemeProvider} from'@mui/material';
 import Box from '@mui/material/Box';
 
-
 const HtmlTooltip = styled(({ className, ...props }) => (
     <Tooltip {...props} classes={{ popper: className }} />
         ))
@@ -25,6 +24,7 @@ const HtmlTooltip = styled(({ className, ...props }) => (
   height:40
  
 },
+
 }));
 const theme = createTheme({
   components:{
@@ -75,7 +75,7 @@ return (
                     </Button>
                   </ThemeProvider>
               </Stack>}>
-                  <img onClick={handleTooltipOpen} style={{width:125,height:40,margin:5}} src='https://snapp.market/v2/static/images/b73e78b6652ebf0b5c4034fd17b91933.png' alt=''></img>
+                 <img onClick={handleTooltipOpen} style={{width:125,height:40,margin:5}} src='https://snapp.market/v2/static/images/b73e78b6652ebf0b5c4034fd17b91933.png' alt=''/>
             </HtmlTooltip>   
         </div>
     </ClickAwayListener>

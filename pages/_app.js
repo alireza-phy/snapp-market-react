@@ -1,11 +1,12 @@
 import "../styles/globals.css";
 import { makeServer } from "../library/mirage/index";
-import HeaderAndFooter from "../components/HeaderAndFooter/HeaderAndFooter";
+import Footer from "../components/Footer/Footer";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import theme from "../styles/theme";
 import { Provider } from "react-redux";
 import { createStore, combineReducers } from "redux";
 import { propsToClassKey } from "@mui/styles";
+
 const initialState = {
   count: 0,
 };
@@ -73,14 +74,14 @@ if (process.env.NODE_ENV === "development") {
 
 function MyApp({ Component, pageProps }) {
   return (
-      <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <HeaderAndFooter>
-            <Component {...pageProps} />
-          </HeaderAndFooter>
-        </ThemeProvider>
-      </Provider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Footer>
+          <Component {...pageProps} />
+        </Footer>
+      </ThemeProvider>
+    </Provider>
   );
 }
 

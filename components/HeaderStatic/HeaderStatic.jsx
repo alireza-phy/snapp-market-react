@@ -62,7 +62,8 @@ const Search = styled('div')(({theme}) => ({
         marginRight: "0"
     },
     [theme.breakpoints.between('md', 'lg')]: {
-        marginRight: "9rem"
+        marginRight: "2rem",
+        width: '17rem'
     }
 }));
 
@@ -88,10 +89,10 @@ const StyledInputBase = styled(InputBase)(({theme}) => ({
         transition: theme.transitions.create('width'),
         width: '100%',
         [theme.breakpoints.up('sm')]: {
-            width: '20rem',
+            width: '16rem',
 
         }, [theme.breakpoints.between('sm', 'lg')]: {
-            width: '11rem',
+            width: '12rem',
         }
         , [theme.breakpoints.down('sm')]: {
             width: '80%',
@@ -327,10 +328,10 @@ const HeaderStatic = ({
                             borderColor: {xs: 'rgba(255, 255, 255, 0.16)', sm: ''}
                         }}>
                             <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-                                <Box sx={{display: 'flex', alignItems: 'center', gap: 2}}>
+                                <Box sx={{display: 'flex', alignItems: 'center', gap: 1}}>
                                     <img
                                         style={{
-                                            width: "3.5rem", height: "3.5rem",
+                                            width: "3.5rem", height: "3.5rem"
                                         }}
                                         src={Logo.src}
                                         alt="اسنپ مارکت"
@@ -348,13 +349,13 @@ const HeaderStatic = ({
                                         <Typography sx={{
                                             fontSize: "1.7rem", display: "flex", alignItems: "center", color: "white",
                                             [theme.breakpoints.down('sm')]: {
-                                                fontSize: "0.7rem", textOverflow: 'ellipsis',
+                                                fontSize: "0.5rem", textOverflow: 'ellipsis',
                                             },
                                             [theme.breakpoints.between('sm', 'md')]: {
-                                                fontSize: "0.8rem"
+                                                fontSize: "0.6rem"
                                             },
                                             [theme.breakpoints.up('md')]: {
-                                                fontSize: "1rem"
+                                                fontSize: "0.7rem"
                                             },
                                         }}>
                                             ابتدا آدرس خود را انتخاب کنید
