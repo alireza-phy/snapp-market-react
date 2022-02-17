@@ -3,9 +3,18 @@ import Paper from '@mui/material/Paper'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
-import {getSubCategory} from '../ProductData/ProductData'
-import Divider from '@mui/material/Divider'
-const CategoryMenu = ({category}) => {
+import {getSubCategory} from '../ProductData/ProductData';
+import Divider from '@mui/material/Divider';
+import {useRouter} from 'next/router';
+
+const CategoryMenu = ({subCategory , currentCategory}) => {
+    const router = useRouter();
+
+    const showCategoryHandler = (groupId) => {
+        router.push('/categories/' + currentCategory + '/' + groupId)
+    }
+
+    console.log(subCategory)
 
     return (
         <Grid item xs={12} sm={12} md={3} xl={3} sx={{position: 'relative'}}>
@@ -14,25 +23,29 @@ const CategoryMenu = ({category}) => {
                     <Typography variant='h6' component='h3' sx={{fontWeight: 600, mx: 2}}>
                         دسته بندی ها :
                     </Typography>
-                    {getSubCategory(category).map(item => (
-                        <Box key={item} sx={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center',
-                            ':hover': {
-                                bgcolor: '#F2F7FF'
-                            },
-                            ':hover svg': {
-                                visibility: 'visible'
-                            },
-                            borderRadius: 1,
-                            my: 1.75,
-                            mx: 1,
-                            cursor: 'pointer'
-                        }}>
+                    {subCategory.map(item => (
+                        <Box key={item.id}
+                             sx={{
+                                 display: 'flex',
+                                 justifyContent: 'space-between',
+                                 alignItems: 'center',
+                                 ':hover': {
+                                     bgcolor: '#F2F7FF'
+                                 },
+                                 ':hover svg': {
+                                     visibility: 'visible'
+                                 },
+                                 borderRadius: 1,
+                                 my: 1.75,
+                                 mx: 1,
+                                 cursor: 'pointer'
+
+                             }}
+                             onClick={() => showCategoryHandler(item.id)}
+                        >
                             <Typography variant='body1' component='p'
                                         sx={{py: 0.75, px: 1, fontWeight: 600, color: '#757575'}}>
-                                {item}
+                                {item.name}
                             </Typography>
                             <KeyboardArrowLeftOutlinedIcon sx={{color: 'rgb(117, 117, 117)', visibility: 'hidden'}}/>
                         </Box>
@@ -60,7 +73,7 @@ const CategoryMenu = ({category}) => {
                             whiteSpace: 'nowrap',
                             '::-webkit-scrollbar': {display: 'none'},
                         }}>
-                            {getSubCategory(category).map((group) => (
+                            {subCategory.map((group) => (
                                 <Box sx={{
                                     flex: {xs: `0 0 3.7rem`, sm: `0 0 4.45rem`, md: `0 0 4.45rem`, xl: `0 0 4.45rem`},
                                     border: 1,
@@ -68,7 +81,7 @@ const CategoryMenu = ({category}) => {
                                     borderRadius: 10,
                                     ml: 2,
                                     py: 0.5,
-                                }} key={group}>
+                                }} key={group.id}>
                                     <Typography variant='body1' component='span'
                                                 sx={{
                                                     display: 'flex',
@@ -76,7 +89,7 @@ const CategoryMenu = ({category}) => {
                                                     color: '#2446f5',
                                                     fontWeight: 600
                                                 }}>
-                                        {group}
+                                        {group.name}
                                     </Typography>
                                 </Box>
                             ))}

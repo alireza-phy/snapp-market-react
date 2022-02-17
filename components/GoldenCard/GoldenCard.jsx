@@ -10,31 +10,14 @@ import CardPrice from "../CardPrice/CardPrice";
 import CardAddToCartButton from "../CardAddToCartButton/CardAddToCartButton";
 import PN from "persian-number";
 
-const GoldenCard = ({width, category}) => {
-    const imgPack = [{
-        id: 1,
-        src: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/383613.jpg'
-    }, {
-        id: 2,
-        src: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210815-122727.jpg'
-    }, {
-        id: 3,
-        src: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210815-122728.jpg'
-    }]
-    const discount = 19
-    const price = 95000
+const GoldenCard = ({width, category, data , SetFlipped, isFlipped }) => {
+
+    const discount = 10
+    let price = 0
+    data.map(item => price += item.price*(100-item.discount)/100 )
     const available = true
     const maximumOrder = 1;
     const refer = useRef(null)
-    const [goldenOfferShow, setGoldenOfferShow] = useState(false)
-    const showDetailHandler = () => {
-        setGoldenOfferShow(!goldenOfferShow)
-        refer.current.style.transform = "rotateY(180deg)"
-    }
-    // const showCardHandler = () => {
-    //     setGoldenOfferShow(!goldenOfferShow)
-    //     refer.current.style.transform = "rotateY(0)"
-    // }
     const [quantity, setQuantity] = useState(0)
     const incrementHandler = () => {
         setQuantity(quantity + 1)
@@ -42,6 +25,11 @@ const GoldenCard = ({width, category}) => {
     const decrementHandler = () => {
         setQuantity(quantity - 1)
     }
+
+    const handleClick=()=>{
+        SetFlipped(!isFlipped);
+    }
+
     return (
         <Card ref={refer} sx={{
             width: {width},
@@ -66,7 +54,7 @@ const GoldenCard = ({width, category}) => {
                     <Typography variant="subtitle2" component="p">
                         بقچه طلایی
                     </Typography>
-                    <Typography onClick={showDetailHandler} variant="subtitle2" component="p"
+                    <Typography onClick={handleClick} variant="subtitle2" component="p"
                                 sx={{color: '#2347fb', cursor: 'pointer'}}>
                         جزئیات بیشتر
                     </Typography>
@@ -76,10 +64,18 @@ const GoldenCard = ({width, category}) => {
                     justifyContent: 'start',
                     position: 'relative'
                 }}>
-                    <AvatarGroup sx={{direction: 'ltr', my: 2}}>
+                    <AvatarGroup sx={{direction: 'ltr', m: 2}}>
                         {
-                            imgPack.map(img => <Avatar key={img.id} sx={{width: 60, height: 60, border: 1}}
-                                                       src={img.src}/>)
+                            data.slice(0, 3).map(item => <Avatar
+                                    style={{
+                                        border: '0.1px solid lightgray',
+                                        boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'
+                                    }}
+                                    key={item.id}
+                                    sx={{width: 40, height: 40 , padding:'0.5rem'}}
+                                    src={item.images[0].url}
+                                />
+                            )
                         }
                     </AvatarGroup>
                 </Box>
@@ -87,9 +83,9 @@ const GoldenCard = ({width, category}) => {
                     minHeight: 48,
                     color: '#30354b',
                     mb: 0.5,
-                    wordWrap:'break-word',
-                    wordBreak:'break-word',
-                    whiteSpace:'pre-wrap'
+                    wordWrap: 'break-word',
+                    wordBreak: 'break-word',
+                    whiteSpace: 'pre-wrap'
                 }}>
                     <Typography variant="body1" component="p">
                         با خرید یکجای این محصولات

@@ -9,12 +9,17 @@ import {useRef, useEffect, useState} from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import GoldenCard from '../GoldenCard/GoldenCard'
 import ProductData from '../ProductData/ProductData'
+import {useRouter} from 'next/router';
+import FlipGoldenCard from '../FlippeGoldenCard/FlippeGoldenCard'
 
 const ProductCategory = ({
-                             groupName,
+                             groupNameObject,
                              categorySub,
+                             specialCategory,
                              ordinary,
                              special,
+                             list,
+                             category,
                              goldenOffer,
                              children,
                              spTitle,
@@ -30,6 +35,13 @@ const ProductCategory = ({
     const [rightVisible, setRightVisible] = useState(false)
     const [leftVisible, setLeftVisible] = useState(true)
     // const [seeMoreProducts, setSeeMoreProducts] = useState(true)
+
+    const router = useRouter();
+
+    const showCategoryHandler = (caseName) => {
+        (groupNameObject) ? router.push('/categories/' + caseName + '/' + groupNameObject.id) : router.push('/categories/' + caseName)
+    }
+
     const scrollHandler = (scrollOffset) => {
         let i = 0
         let cancel = setInterval(() => {
@@ -42,7 +54,10 @@ const ProductCategory = ({
         }, 0)
     };
 
-    let categoryList = ProductData;
+    let categoryList = ProductData
+
+
+    if (specialCategory) {categoryList = specialCategory}
 
     if (categorySub) {
         categoryList = ProductData.filter(item => item.categoryEn === categorySub).slice(0, 9)
@@ -104,8 +119,8 @@ const ProductCategory = ({
         })
     }, [children, scroll]);
 
-    if (groupName) {
-        categoryList = categoryList.filter(item => item.groupName === groupName).slice(0, 9)
+    if (groupNameObject) {
+        categoryList = categoryList.filter(item => item.groupName === groupNameObject.name).slice(0, 9)
     }
 
     return (
@@ -125,7 +140,7 @@ const ProductCategory = ({
                 }}
                        variant='outlined'>
                     {
-                        (groupName) ?
+                        (groupNameObject) ?
                             <Typography variant='body1' component='span'
                                         sx={{
                                             borderBottom: 2.5,
@@ -134,8 +149,10 @@ const ProductCategory = ({
                                             mr: 2.5,
                                             py: 1.2,
                                             cursor: 'pointer'
-                                        }}>
-                                {groupName}
+                                        }}
+                                        onClick={() => showCategoryHandler(categoryList[0].categoryEn)}
+                        >
+                                {groupNameObject.name}
                             </Typography>
                             :
                             <Typography variant='body1' component='span'
@@ -145,12 +162,15 @@ const ProductCategory = ({
                                             borderColor: '#2446f5',
                                             mr: 2.5,
                                             py: 1.2,
-                                            cursor: 'pointer'
-                                        }}>
+                                            cursor: 'pointer',
+                                        }}
+                                        onClick={() => showCategoryHandler(categoryList[0].categoryEn)}
+                            >
                                 {categoryList[0].categoryPe}
                             </Typography>
                     }
                     <Typography variant='body1' component='span'
+                                onClick={() => showCategoryHandler(categoryList[0].categoryEn)}
                                 sx={{
                                     display: 'flex',
                                     alignItems: 'center',
@@ -220,7 +240,8 @@ const ProductCategory = ({
                                         alignItems: 'center',
                                         color: '#fff',
                                         ml: 0.5,
-                                        mr: 1.5
+                                        mr: 1.5,
+                                        cursor:'pointer',
                                     }}>
                             {spTitle}
                         </Typography>
@@ -229,14 +250,13 @@ const ProductCategory = ({
                         goldenOffer
                         &&
                         <>
-                            <GoldenCard category width='17rem'
+                            <FlipGoldenCard
+                                goldenCatgory={'dairyProduct'}
                             />
-                            <GoldenCard category width='17rem'
+                            <FlipGoldenCard
+                                goldenCatgory={'canned-food'}
                             />
-                            <GoldenCard category width='17rem'
-                            />
-                            <GoldenCard category width='17rem'
-                            />
+
                         </>
                     }
                     {
@@ -247,18 +267,14 @@ const ProductCategory = ({
                                 <ProductCard
                                     key={item.id}
                                     category
-                                    special
+                                    ordinary={ordinary}
+                                    special={special}
                                     width='14.5rem'
-                                    src={item.images[0].url}
-                                    title={item.name}
-                                    price={item.price}
-                                    discount={item.discount}
-                                    maximumOrder={item.MaximumOrder}
-                                    available={item.inventory.available}
+                                    item={item}
                                 />
                             )}
                             {
-                                ordinary
+                                (ordinary && (categoryList.length > 5))
                                 &&
                                 <Paper sx={{
                                     display: 'flex',

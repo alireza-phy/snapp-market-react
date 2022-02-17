@@ -18,7 +18,7 @@ const AssortmentMenu = () => {
     const handleShowAssortment = () => {
         (listHeight === 120) ? setListHeight(400) : setListHeight(120)
     }
-    console.log(AssortmentCardData)
+
     return (
         <Box>
             <Container sx={{marginY: "1rem", display: 'flex', flexDirection: 'column', gap: '2rem'}}>
@@ -65,7 +65,7 @@ const AssortmentMenu = () => {
                 </Box>
 
                 <Box onClick={() => handleShowAssortment()}
-                     sx={{cursor: 'pointer', width: 'fit-content', margin: 'auto'}}>
+                     sx={{cursor: 'pointer', width: 'fit-content', margin: 'auto' , overflowY:'auto' , overflowX:'hidden'}}>
                     {
                         (listHeight === 120) ?
                             <Box sx={{display: 'flex', justifyContent: 'center', gap: 1, color: 'rgb(117, 117, 117)'}}>

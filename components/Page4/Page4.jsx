@@ -5,10 +5,11 @@ import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
 import ProductData from '../ProductData/ProductData'
 import Slider from '@mui/material/Slider'
-import {useState} from "react";
+import {useState , useEffect} from "react";
 
-const Page4 = () => {
-    const [data, setData] = useState(ProductData.filter((dairy) => (dairy.category.categoryEn === 'dairy-product' && dairy.group.groupId === 1)))
+const Page4 = ({groupId , categoryName , searchList}) => {
+
+    const [data, setData] = (searchList) ? useState(searchList) : useState(ProductData.filter((dairy) => (dairy.categoryEn == categoryName && dairy.groupId == groupId)))
     const [productData, setProductData] = useState([...data])
     const [filter, setFilter] = useState([])
     const [justDiscountState, setJustDiscountState] = useState(false)
@@ -36,6 +37,7 @@ const Page4 = () => {
         }
 
     }
+
     const priceRange = {
         to: ranger[0],
         from: ranger[1]
@@ -66,7 +68,7 @@ const Page4 = () => {
     }
     const productFilter = () => {
     }
-
+    console.log(data)
     return (
         <Container sx={{px: {xs: 0, sm: '24px'}}}>
             <Grid container sx={{direction: 'rtl', mt: 4}} columnSpacing={{xs: 0, sm: 0, md: 3, lg: 3, xl: 3}}>
@@ -86,7 +88,7 @@ const Page4 = () => {
                     justDiscountState={justDiscountState}
                 />
                 <Grid item xs={12} sm={12} md={9} xl={9}>
-                    <Breadcrumb productCounter={data.length} group={'شیر'}/>
+                    {/*<Breadcrumb productCounter={data.length} category={data[0].categoryPe} group={data[0].groupName}/>*/}
                     <PaginationAndSort productData={productData}/>
 
                 </Grid>
