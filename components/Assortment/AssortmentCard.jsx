@@ -5,11 +5,21 @@ import Stack from '@mui/material/Stack';
 import {SkewBox} from "./ClassComponents";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import {useRouter} from 'next/router';
 
-const AssortmentCard = ({offer, title, image }) => {
+const AssortmentCard = ({offer, title, image, categoryname }) => {
+
+    const router = useRouter();
+
+    function showCategoryHandler() {
+        router.push('/categories/' + categoryname);
+    }
 
     return (
-        <Grid item xs={3}>
+        <Grid
+            sx={{cursor:'pointer'}}
+            onClick={showCategoryHandler}
+            item xs={3}>
             <Card elevation={0} sx={{
                 backgroundColor: 'white',
                 border: '0.1rem solid rgba(163, 163, 163, 0.25)',

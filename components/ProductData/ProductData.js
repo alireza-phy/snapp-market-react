@@ -17,14 +17,10 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60cf1e671bbe9.jpg'
             },
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'شیر'
-        },
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 1,
+        groupName: 'شیر',
         inventory: {
             available: true,
             quantity: 9,
@@ -51,14 +47,10 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/5fd9b62661447.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'شیر'
-        },
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 1,
+        groupName: 'شیر',
         inventory: {
             available: true,
             quantity: 12,
@@ -89,14 +81,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60cf474114e7e.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'شیر'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 1,
+        groupName: 'شیر',
         inventory: {
             available: true,
             quantity: 12,
@@ -122,14 +111,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60cdb2f4a7649.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'شیر'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 1,
+        groupName: 'شیر',
         inventory: {
             available: true,
             quantity: 12,
@@ -143,7 +129,7 @@ const ProductData = [
         MaximumOrder: 6
     },
     {
-        id:5,
+        id: 5,
         name: 'شیر نارگیل عالیس ۱ لیتری',
         brand: {
             brandEn: 'alis',
@@ -159,14 +145,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60cf28b24e84f.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'شیر'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 1,
+        groupName: 'شیر',
         inventory: {
             available: true,
             quantity: 12,
@@ -178,7 +161,7 @@ const ProductData = [
         MaximumOrder: 6
     },
     {
-        id:6,
+        id: 6,
         name: 'شیر کم چرب میهن ۲۰۰ میلی لیتری',
         brand: {
             brandEn: 'mihan',
@@ -190,14 +173,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/hph-244920-a.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'شیر'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 1,
+        groupName: 'شیر',
         inventory: {
             available: true,
             quantity: 12,
@@ -224,14 +204,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60cf1fb05945f.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'شیر'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 1,
+        groupName: 'شیر',
         inventory: {
             available: true,
             quantity: 12,
@@ -262,14 +239,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/312287-a.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'شیر'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 1,
+        groupName: 'شیر',
         inventory: {
             available: true,
             quantity: 12,
@@ -297,14 +271,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/61e5c927e3469.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'شیر'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 1,
+        groupName: 'شیر',
         inventory: {
             available: true,
             quantity: 12,
@@ -335,14 +306,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/608eb3b659750.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'شیر'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 1,
+        groupName: 'شیر',
         inventory: {
             available: true,
             quantity: 12,
@@ -372,14 +340,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/61e5c98db64ee.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'شیر'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 1,
+        groupName: 'شیر',
         inventory: {
             available: true,
             quantity: 12,
@@ -406,14 +371,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/hph-106673-a.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'شیر'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 1,
+        groupName: 'شیر',
         inventory: {
             available: true,
             quantity: 12,
@@ -443,14 +405,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/hph-207908-b.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 2,
-            groupName: 'پنیر'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 2,
+        groupName: 'پنیر',
         inventory: {
             available: true,
             quantity: 12,
@@ -465,7 +424,7 @@ const ProductData = [
         MaximumOrder: 6
     },
     {
-        id:14,
+        id: 14,
         name: 'پنیر ورقه‌ای پارمسان کاله ۱۸۰ گرمی',
         brand: {
             brandEn: 'kalleh',
@@ -481,14 +440,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/5f4cf960f1ab5.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 2,
-            groupName: 'پنیر'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 2,
+        groupName: 'پنیر',
         inventory: {
             available: true,
             quantity: 12,
@@ -503,7 +459,7 @@ const ProductData = [
         MaximumOrder: 6
     },
     {
-        id:15,
+        id: 15,
         name: 'پنیر خامه ای پگاه ۱۰۰ گرمی',
         brand: {
             brandEn: 'pegah',
@@ -519,14 +475,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/608fbac80c4d5.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 2,
-            groupName: 'پنیر'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 2,
+        groupName: 'پنیر',
         inventory: {
             available: true,
             quantity: 12,
@@ -557,14 +510,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/hph-305694-b.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 2,
-            groupName: 'پنیر'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 2,
+        groupName: 'پنیر',
         inventory: {
             available: true,
             quantity: 12,
@@ -595,14 +545,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/hph-207910-b.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 2,
-            groupName: 'پنیر'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 2,
+        groupName: 'پنیر',
         inventory: {
             available: true,
             quantity: 12,
@@ -637,14 +584,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60966b050384c.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 3,
-            groupName: 'ماست'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 3,
+        groupName: 'ماست',
         inventory: {
             available: true,
             quantity: 12,
@@ -679,14 +623,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60966b2fc1f0e.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 3,
-            groupName: 'ماست'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 3,
+        groupName: 'ماست',
         inventory: {
             available: true,
             quantity: 12,
@@ -700,7 +641,7 @@ const ProductData = [
         MaximumOrder: 6
     },
     {
-        id:20,
+        id: 20,
         name: 'ماست چکیده موسیردار پگاه ۲۵۰ گرمی',
         brand: {
             brandEn: 'pegha',
@@ -724,14 +665,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/hph-71215-a.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 3,
-            groupName: 'ماست'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 3,
+        groupName: 'ماست',
         inventory: {
             available: true,
             quantity: 12,
@@ -758,14 +696,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60966e513f177.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 3,
-            groupName: 'ماست'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 3,
+        groupName: 'ماست',
         inventory: {
             available: true,
             quantity: 12,
@@ -779,7 +714,7 @@ const ProductData = [
         MaximumOrder: 6
     },
     {
-        id:22,
+        id: 22,
         name: 'ماست موسیر هراز ۴۵۰ گرمی',
         brand: {
             brandEn: 'haraz',
@@ -799,14 +734,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60966b050384c.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 3,
-            groupName: 'ماست'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 3,
+        groupName: 'ماست',
         inventory: {
             available: true,
             quantity: 12,
@@ -837,14 +769,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210809-303348-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 4,
-            groupName: 'دوغ'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 4,
+        groupName: 'دوغ',
         inventory: {
             available: true,
             quantity: 12,
@@ -875,14 +804,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210809-185527-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 4,
-            groupName: 'دوغ'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 4,
+        groupName: 'دوغ',
         inventory: {
             available: true,
             quantity: 12,
@@ -912,14 +838,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210809-253951-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 4,
-            groupName: 'دوغ'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 4,
+        groupName: 'دوغ',
         inventory: {
             available: true,
             quantity: 12,
@@ -950,14 +873,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210809-71187-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 4,
-            groupName: 'دوغ'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 4,
+        groupName: 'دوغ',
         inventory: {
             available: true,
             quantity: 12,
@@ -972,7 +892,7 @@ const ProductData = [
         MaximumOrder: 5
     },
     {
-        id:27,
+        id: 27,
         name: 'دوغ هراز ۴ لیتری',
         brand: {
             brandEn: 'haraz',
@@ -988,14 +908,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210809-248499-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 4,
-            groupName: 'دوغ'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 4,
+        groupName: 'دوغ',
         inventory: {
             available: true,
             quantity: 12,
@@ -1029,14 +946,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/5b9cfb758547e.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 5,
-            groupName: 'کره'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 5,
+        groupName: 'کره',
         inventory: {
             available: true,
             quantity: 12,
@@ -1070,14 +984,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/5e3ab00148f78.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 5,
-            groupName: 'کره'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 5,
+        groupName: 'کره',
         inventory: {
             available: true,
             quantity: 12,
@@ -1095,7 +1006,7 @@ const ProductData = [
         name: 'کره گیاهی لیوانی مهگل ۲۵۰ گرمی',
         brand: {
             brandEn: 'mahgol',
-            brandPe: 'مهگول',
+            brandPe: 'مهگل',
         },
         images: [
             {
@@ -1107,14 +1018,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/609a545b89210.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 5,
-            groupName: 'کره'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 5,
+        groupName: 'کره',
         inventory: {
             available: true,
             quantity: 12,
@@ -1132,7 +1040,7 @@ const ProductData = [
         name: 'کره گیاهی کم چرب غنی شده با ویتامین D مهگل ۱۵۰ گرمی',
         brand: {
             brandEn: 'mahgol',
-            brandPe: 'مهگول',
+            brandPe: 'مهگل',
         },
         images: [
             {
@@ -1140,14 +1048,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/609a55913bf74.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 5,
-            groupName: 'کره'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 5,
+        groupName: 'کره',
         inventory: {
             available: true,
             quantity: 12,
@@ -1173,14 +1078,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/358068.jpg'
             }
         ],
-        category: {
-            categoryEn: 'dairy-product',
-            categoryPe: 'لبنیات'
-        },
-        group: {
-            groupId: 5,
-            groupName: 'کره'
-        },
+
+        categoryEn: 'dairyProduct',
+        categoryPe: 'لبنیات',
+        groupId: 5,
+        groupName: 'کره',
         inventory: {
             available: true,
             quantity: 12,
@@ -1211,14 +1113,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/5fd48afd49d4b.jpg'
             }
         ],
-        category: {
-            categoryEn: 'drinks',
-            categoryPe: 'نوشیدنی'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'نوشابه'
-        },
+
+        categoryEn: 'drinks',
+        categoryPe: 'نوشیدنی',
+        groupId: 1,
+        groupName: 'نوشابه',
         inventory: {
             available: true,
             quantity: 20,
@@ -1245,16 +1144,13 @@ const ProductData = [
                 id: 1,
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210731-238464.jpg'
             },
-            
+
         ],
-        category: {
-            categoryEn: 'drinks',
-            categoryPe: 'نوشیدنی'
-        },
-        group: {
-            groupId: 2,
-            groupName: 'ماءالعشیر'
-        },
+
+        categoryEn: 'drinks',
+        categoryPe: 'نوشیدنی',
+        groupId: 2,
+        groupName: 'ماءالعشیر',
         inventory: {
             available: true,
             quantity: 20,
@@ -1290,14 +1186,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60c080e40f0c9.jpg'
             }
         ],
-        category: {
-            categoryEn: 'drinks',
-            categoryPe: 'نوشیدنی'
-        },
-        group: {
-            groupId: 3,
-            groupName: 'آبمیوه'
-        },
+
+        categoryEn: 'drinks',
+        categoryPe: 'نوشیدنی',
+        groupId: 3,
+        groupName: 'آبمیوه',
         inventory: {
             available: true,
             quantity: 20,
@@ -1329,14 +1222,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/5d89d5107480b.jpg'
             }
         ],
-        category: {
-            categoryEn: 'drinks',
-            categoryPe: 'نوشیدنی'
-        },
-        group: {
-            groupId: 4,
-            groupName: 'چای و دمنوش'
-        },
+
+        categoryEn: 'drinks',
+        categoryPe: 'نوشیدنی',
+        groupId: 4,
+        groupName: 'چای و دمنوش',
         inventory: {
             available: true,
             quantity: 20,
@@ -1344,7 +1234,7 @@ const ProductData = [
         seller: 'هایپر استار',
         tags: [
             {id: 1, name: 'کیسه ای'},
-            
+
         ],
         price: 17900,
         discount: 14,
@@ -1362,16 +1252,13 @@ const ProductData = [
                 id: 1,
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60fd13db1b284.jpg'
             },
-           
+
         ],
-        category: {
-            categoryEn: 'drinks',
-            categoryPe: 'نوشیدنی'
-        },
-        group: {
-            groupId: 5,
-            groupName: 'آب'
-        },
+
+        categoryEn: 'drinks',
+        categoryPe: 'نوشیدنی',
+        groupId: 5,
+        groupName: 'آب',
         inventory: {
             available: true,
             quantity: 20,
@@ -1380,7 +1267,7 @@ const ProductData = [
         tags: [
             {id: 1, name: 'ساده'},
             {id: 2, name: 'بزرگ'},
-            
+
         ],
         price: 6000,
         discount: null,
@@ -1398,16 +1285,13 @@ const ProductData = [
                 id: 1,
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/5d7cf43ee8313.jpg'
             },
-            
+
         ],
-        category: {
-            categoryEn: 'drinks',
-            categoryPe: 'نوشیدنی'
-        },
-        group: {
-            groupId: 6,
-            groupName: 'قهوه و هات هاکلت'
-        },
+
+        categoryEn: 'drinks',
+        categoryPe: 'نوشیدنی',
+        groupId: 6,
+        groupName: 'قهوه و هات هاکلت',
         inventory: {
             available: true,
             quantity: 20,
@@ -1415,7 +1299,7 @@ const ProductData = [
         seller: 'هایپر استار',
         tags: [
             {id: 1, name: 'فوری'},
-            
+
         ],
         price: 71000,
         discount: 20,
@@ -1435,14 +1319,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/383613.jpg'
             }
         ],
-        category: {
-            categoryEn: 'fruit-and-vegetables',
-            categoryPe: 'میوه و سبزیجات تازه'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'میوه تازه'
-        },
+
+        categoryEn: 'fruit-and-vegetables',
+        categoryPe: 'میوه و سبزیجات تازه',
+        groupId: 1,
+        groupName: 'میوه تازه',
         inventory: {
             available: true,
             quantity: 12,
@@ -1470,14 +1351,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/617f0c8f1fd1d.jpg'
             }
         ],
-        category: {
-            categoryEn: 'fruit-and-vegetables',
-            categoryPe: 'میوه و سبزیجات تازه'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'میوه تازه'
-        },
+
+        categoryEn: 'fruit-and-vegetables',
+        categoryPe: 'میوه و سبزیجات تازه',
+        groupId: 1,
+        groupName: 'میوه تازه',
         inventory: {
             available: true,
             quantity: 12,
@@ -1505,21 +1383,18 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/617ef4b994087.jpg'
             }
         ],
-        category: {
-            categoryEn: 'fruit-and-vegetables',
-            categoryPe: 'میوه و سبزیجات تازه'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'میوه تازه'
-        },
+
+        categoryEn: 'fruit-and-vegetables',
+        categoryPe: 'میوه و سبزیجات تازه',
+        groupId: 1,
+        groupName: 'میوه تازه',
         inventory: {
             available: true,
             quantity: 12,
         },
         seller: 'هایپر استار',
         tags: [{id: 1, name: 'تازه'}],
-        price:21900,
+        price: 21900,
         discount: null,
         MaximumOrder: 6
     },
@@ -1536,14 +1411,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/5c19fd35451c2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'fruit-and-vegetables',
-            categoryPe: 'میوه و سبزیجات تازه'
-        },
-        group: {
-            groupId: 2,
-            groupName: 'سبزیجات و صیفی جات'
-        },
+
+        categoryEn: 'fruit-and-vegetables',
+        categoryPe: 'میوه و سبزیجات تازه',
+        groupId: 2,
+        groupName: 'سبزیجات و صیفی جات',
         inventory: {
             available: true,
             quantity: 12,
@@ -1555,7 +1427,7 @@ const ProductData = [
         MaximumOrder: 6
     },
     {
-        id:43,
+        id: 43,
         name: 'لوبیا سبز ۱ کیلوگرمی',
         brand: {
             brandEn: 'no-brand',
@@ -1567,14 +1439,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/617e7479b24cc.jpg'
             }
         ],
-        category: {
-            categoryEn: 'fruit-and-vegetables',
-            categoryPe: 'میوه و سبزیجات تازه'
-        },
-        group: {
-            groupId: 2,
-            groupName: 'سبزیجات و صیفی جات'
-        },
+
+        categoryEn: 'fruit-and-vegetables',
+        categoryPe: 'میوه و سبزیجات تازه',
+        groupId: 2,
+        groupName: 'سبزیجات و صیفی جات',
         inventory: {
             available: true,
             quantity: 12,
@@ -1598,14 +1467,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/5c2775a7dea20.jpg'
             }
         ],
-        category: {
-            categoryEn: 'fruit-and-vegetables',
-            categoryPe: 'میوه و سبزیجات تازه'
-        },
-        group: {
-            groupId: 2,
-            groupName: 'سبزیجات و صیفی جات'
-        },
+
+        categoryEn: 'fruit-and-vegetables',
+        categoryPe: 'میوه و سبزیجات تازه',
+        groupId: 2,
+        groupName: 'سبزیجات و صیفی جات',
         inventory: {
             available: true,
             quantity: 12,
@@ -1638,14 +1504,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210711-20657-3.jpg'
             }
         ],
-        category: {
-            categoryEn: 'nuts',
-            categoryPe: 'خشکبار، دسر و شیرینی'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'دسر'
-        },
+
+        categoryEn: 'nuts',
+        categoryPe: 'خشکبار، دسر و شیرینی',
+        groupId: 1,
+        groupName: 'دسر',
         inventory: {
             available: true,
             quantity: 20,
@@ -1669,21 +1532,18 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/61657b8b6331d.jpg'
             }
         ],
-        category: {
-            categoryEn: 'nuts',
-            categoryPe: 'خشکبار، دسر و شیرینی'
-        },
-        group: {
-            groupId: 2,
-            groupName: 'آجیل'
-        },
+
+        categoryEn: 'nuts',
+        categoryPe: 'خشکبار، دسر و شیرینی',
+        groupId: 2,
+        groupName: 'آجیل',
         inventory: {
             available: true,
             quantity: 20,
         },
         seller: 'هایپر استار',
         tags: [{id: 1, name: 'تخمه'}],
-        price:53750,
+        price: 53750,
         discount: null,
         MaximumOrder: 6
     },
@@ -1700,14 +1560,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/5dbd69f71e905.jpg'
             }
         ],
-        category: {
-            categoryEn: 'nuts',
-            categoryPe: 'خشکبار، دسر و شیرینی'
-        },
-        group: {
-            groupId: 3,
-            groupName: 'خرما'
-        },
+
+        categoryEn: 'nuts',
+        categoryPe: 'خشکبار، دسر و شیرینی',
+        groupId: 3,
+        groupName: 'خرما',
         inventory: {
             available: true,
             quantity: 20,
@@ -1739,21 +1596,18 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20591-3.jpg'
             }
         ],
-        category: {
-            categoryEn: 'nuts',
-            categoryPe: 'خشکبار، دسر و شیرینی'
-        },
-        group: {
-            groupId: 4,
-            groupName: 'ژله'
-        },
+
+        categoryEn: 'nuts',
+        categoryPe: 'خشکبار، دسر و شیرینی',
+        groupId: 4,
+        groupName: 'ژله',
         inventory: {
             available: true,
             quantity: 20,
         },
         seller: 'هایپر استار',
         tags: [{id: 1, name: 'توت فرنگی'}],
-        price:14900,
+        price: 14900,
         discount: 22,
         MaximumOrder: 12
     },
@@ -1770,14 +1624,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20211012-351.jpg'
             }
         ],
-        category: {
-            categoryEn: 'nuts',
-            categoryPe: 'خشکبار، دسر و شیرینی'
-        },
-        group: {
-            groupId: 5,
-            groupName: 'خشکبار'
-        },
+
+        categoryEn: 'nuts',
+        categoryPe: 'خشکبار، دسر و شیرینی',
+        groupId: 5,
+        groupName: 'خشکبار',
         inventory: {
             available: true,
             quantity: 20,
@@ -1809,14 +1660,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210711-20566-3.jpg'
             }
         ],
-        category: {
-            categoryEn: 'nuts',
-            categoryPe: 'خشکبار، دسر و شیرینی'
-        },
-        group: {
-            groupId: 6,
-            groupName: 'پودر کیک و پنکیک'
-        },
+
+        categoryEn: 'nuts',
+        categoryPe: 'خشکبار، دسر و شیرینی',
+        groupId: 6,
+        groupName: 'پودر کیک و پنکیک',
         inventory: {
             available: true,
             quantity: 20,
@@ -1840,14 +1688,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/61657b8b6331d.jpg'
             }
         ],
-        category: {
-            categoryEn: 'nuts',
-            categoryPe: 'خشکبار، دسر و شیرینی'
-        },
-        group: {
-            groupId: 7,
-            groupName: 'انواع شیرینی'
-        },
+
+        categoryEn: 'nuts',
+        categoryPe: 'خشکبار، دسر و شیرینی',
+        groupId: 7,
+        groupName: 'انواع شیرینی',
         inventory: {
             available: true,
             quantity: 20,
@@ -1858,7 +1703,7 @@ const ProductData = [
         discount: null,
         MaximumOrder: 6
     },
-     //------------------------------ دسته بندی 5:کودک و نوزاد-------------------------------------
+    //------------------------------ دسته بندی 5:کودک و نوزاد-------------------------------------
     {
         id: 52,
         name: 'آب استریلیزه نوزادان ماجان ۳۳۰ میلی لیتری',
@@ -1872,14 +1717,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/388379-1.jpg'
             }
         ],
-        category: {
-            categoryEn: 'kids',
-            categoryPe: 'کودک و نوزاد'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'مواد غذایی کودک'
-        },
+
+        categoryEn: 'kids',
+        categoryPe: 'کودک و نوزاد',
+        groupId: 1,
+        groupName: 'مواد غذایی کودک',
         inventory: {
             available: true,
             quantity: 13,
@@ -1911,14 +1753,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210929-279017-3.jpg'
             }
         ],
-        category: {
-            categoryEn: 'kids',
-            categoryPe: 'کودک و نوزاد'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'مواد غذایی کودک'
-        },
+
+        categoryEn: 'kids',
+        categoryPe: 'کودک و نوزاد',
+        groupId: 1,
+        groupName: 'مواد غذایی کودک',
         inventory: {
             available: true,
             quantity: 13,
@@ -1946,14 +1785,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210929-23675-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'kids',
-            categoryPe: 'کودک و نوزاد'
-        },
-        group: {
-            groupId: 2,
-            groupName: 'بهداشت کودک'
-        },
+
+        categoryEn: 'kids',
+        categoryPe: 'کودک و نوزاد',
+        groupId: 2,
+        groupName: 'بهداشت کودک',
         inventory: {
             available: true,
             quantity: 13,
@@ -1981,18 +1817,15 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210929-23655-2.jpg'
             },
             {
-                id:3,
+                id: 3,
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210929-23655-3.jpg'
             }
         ],
-        category: {
-            categoryEn: 'kids',
-            categoryPe: 'کودک و نوزاد'
-        },
-        group: {
-            groupId: 2,
-            groupName: 'بهداشت کودک'
-        },
+
+        categoryEn: 'kids',
+        categoryPe: 'کودک و نوزاد',
+        groupId: 2,
+        groupName: 'بهداشت کودک',
         inventory: {
             available: true,
             quantity: 13,
@@ -2016,14 +1849,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20220126-229736-1.jpg'
             }
         ],
-        category: {
-            categoryEn: 'kids',
-            categoryPe: 'کودک و نوزاد'
-        },
-        group: {
-            groupId: 3,
-            groupName: 'لوازم کودک و نوزاد'
-        },
+
+        categoryEn: 'kids',
+        categoryPe: 'کودک و نوزاد',
+        groupId: 3,
+        groupName: 'لوازم کودک و نوزاد',
         inventory: {
             available: true,
             quantity: 13,
@@ -2047,14 +1877,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image_thumbnail/uploads/images/vendors/users/app/259055.jpg'
             }
         ],
-        category: {
-            categoryEn: 'kids',
-            categoryPe: 'کودک و نوزاد'
-        },
-        group: {
-            groupId: 4,
-            groupName: 'اسباب بازی کودک'
-        },
+
+        categoryEn: 'kids',
+        categoryPe: 'کودک و نوزاد',
+        groupId: 4,
+        groupName: 'اسباب بازی کودک',
         inventory: {
             available: true,
             quantity: 13,
@@ -2065,7 +1892,7 @@ const ProductData = [
         discount: null,
         MaximumOrder: 6
     },
-     //------------------------------ دسته بندی 6:خواروبار و نان-------------------------------------
+    //------------------------------ دسته بندی 6:خواروبار و نان-------------------------------------
     {
         id: 58,
         name: 'روغن جوانه ذرت پخت و پز و سالاد زر اویل ۱.۶ لیتری',
@@ -2083,14 +1910,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210725-322422-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'grocery-bread',
-            categoryPe: 'خواربار و نان'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'روغن'
-        },
+
+        categoryEn: 'grocery-bread',
+        categoryPe: 'خواربار و نان',
+        groupId: 1,
+        groupName: 'روغن',
         inventory: {
             available: true,
             quantity: 35,
@@ -2114,14 +1938,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210815-122727.jpg'
             }
         ],
-        category: {
-            categoryEn: 'grocery-bread',
-            categoryPe: 'خواربار و نان'
-        },
-        group: {
-            groupId: 2,
-            groupName: 'ماکارونی و لازانیا و رشته'
-        },
+
+        categoryEn: 'grocery-bread',
+        categoryPe: 'خواربار و نان',
+        groupId: 2,
+        groupName: 'ماکارونی و لازانیا و رشته',
         inventory: {
             available: true,
             quantity: 35,
@@ -2145,14 +1966,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210727-256983-1.jpg'
             }
         ],
-        category: {
-            categoryEn: 'grocery-bread',
-            categoryPe: 'خواربار و نان'
-        },
-        group: {
-            groupId: 3,
-            groupName: 'رب'
-        },
+
+        categoryEn: 'grocery-bread',
+        categoryPe: 'خواربار و نان',
+        groupId: 3,
+        groupName: 'رب',
         inventory: {
             available: true,
             quantity: 35,
@@ -2180,14 +1998,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210801-33132-2.jpg'
             },
         ],
-        category: {
-            categoryEn: 'grocery-bread',
-            categoryPe: 'خواربار و نان'
-        },
-        group: {
-            groupId: 4,
-            groupName: 'حبوبات و سویا'
-        },
+
+        categoryEn: 'grocery-bread',
+        categoryPe: 'خواربار و نان',
+        groupId: 4,
+        groupName: 'حبوبات و سویا',
         inventory: {
             available: true,
             quantity: 35,
@@ -2195,7 +2010,7 @@ const ProductData = [
         seller: 'هایپر استار',
         tags: [],
         price: 71900,
-        discount:5,
+        discount: 5,
         MaximumOrder: 6
     },
     {
@@ -2211,14 +2026,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20211222-226994.jpg'
             }
         ],
-        category: {
-            categoryEn: 'grocery-bread',
-            categoryPe: 'خواربار و نان'
-        },
-        group: {
-            groupId: 5,
-            groupName: 'انواع نان'
-        },
+
+        categoryEn: 'grocery-bread',
+        categoryPe: 'خواربار و نان',
+        groupId: 5,
+        groupName: 'انواع نان',
         inventory: {
             available: true,
             quantity: 35,
@@ -2242,14 +2054,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/619cc123d092d.jpg'
             }
         ],
-        category: {
-            categoryEn: 'grocery-bread',
-            categoryPe: 'خواربار و نان'
-        },
-        group: {
-            groupId: 6,
-            groupName: 'برنج'
-        },
+
+        categoryEn: 'grocery-bread',
+        categoryPe: 'خواربار و نان',
+        groupId: 6,
+        groupName: 'برنج',
         inventory: {
             available: true,
             quantity: 35,
@@ -2273,21 +2082,18 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/6028e07322c3b.jpg'
             }
         ],
-        category: {
-            categoryEn: 'grocery-bread',
-            categoryPe: 'خواربار و نان'
-        },
-        group: {
-            groupId: 7,
-            groupName: 'قند و شکر و نبات'
-        },
+
+        categoryEn: 'grocery-bread',
+        categoryPe: 'خواربار و نان',
+        groupId: 7,
+        groupName: 'قند و شکر و نبات',
         inventory: {
             available: true,
             quantity: 35,
         },
         seller: 'هایپر استار',
         tags: [{id: 1, name: 'نبات نی دار'}],
-        price:32800,
+        price: 32800,
         discount: 5,
         MaximumOrder: 6
     },
@@ -2304,14 +2110,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210901-155767-1.jpg'
             }
         ],
-        category: {
-            categoryEn: 'grocery-bread',
-            categoryPe: 'خواربار و نان'
-        },
-        group: {
-            groupId: 8,
-            groupName: 'پودر سوخاری و آرد'
-        },
+
+        categoryEn: 'grocery-bread',
+        categoryPe: 'خواربار و نان',
+        groupId: 8,
+        groupName: 'پودر سوخاری و آرد',
         inventory: {
             available: true,
             quantity: 35,
@@ -2339,14 +2142,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20211010-280603-2.jpg'
             },
         ],
-        category: {
-            categoryEn: 'grocery-bread',
-            categoryPe: 'خواربار و نان'
-        },
-        group: {
-            groupId: 9,
-            groupName: 'غلات'
-        },
+
+        categoryEn: 'grocery-bread',
+        categoryPe: 'خواربار و نان',
+        groupId: 9,
+        groupName: 'غلات',
         inventory: {
             available: true,
             quantity: 35,
@@ -2378,14 +2178,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210816-382585-3.jpg'
             }
         ],
-        category: {
-            categoryEn: 'grocery-bread',
-            categoryPe: 'خواربار و نان'
-        },
-        group: {
-            groupId: 10,
-            groupName: 'انواع خمیر'
-        },
+
+        categoryEn: 'grocery-bread',
+        categoryPe: 'خواربار و نان',
+        groupId: 10,
+        groupName: 'انواع خمیر',
         inventory: {
             available: true,
             quantity: 35,
@@ -2396,7 +2193,7 @@ const ProductData = [
         discount: null,
         MaximumOrder: 6
     },
-     //------------------------------ دسته بندی 7:پروتئینی-------------------------------------
+    //------------------------------ دسته بندی 7:پروتئینی-------------------------------------
     {
         id: 68,
         name: 'تخم مرغ تلاونگ ۶ عددی',
@@ -2414,14 +2211,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210810-310456-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'proteins',
-            categoryPe: 'مواد پروتئینی'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'تخم مرغ'
-        },
+
+        categoryEn: 'proteins',
+        categoryPe: 'مواد پروتئینی',
+        groupId: 1,
+        groupName: 'تخم مرغ',
         inventory: {
             available: true,
             quantity: 9,
@@ -2449,14 +2243,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/210223-5407-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'proteins',
-            categoryPe: 'مواد پروتئینی'
-        },
-        group: {
-            groupId: 2,
-            groupName: 'مرغ'
-        },
+
+        categoryEn: 'proteins',
+        categoryPe: 'مواد پروتئینی',
+        groupId: 2,
+        groupName: 'مرغ',
         inventory: {
             available: true,
             quantity: 9,
@@ -2484,14 +2275,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/210223-5201-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'proteins',
-            categoryPe: 'مواد پروتئینی'
-        },
-        group: {
-            groupId: 3,
-            groupName: 'گوشت قرمز'
-        },
+
+        categoryEn: 'proteins',
+        categoryPe: 'مواد پروتئینی',
+        groupId: 3,
+        groupName: 'گوشت قرمز',
         inventory: {
             available: true,
             quantity: 9,
@@ -2515,14 +2303,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/5da590687aba6.jpg'
             }
         ],
-        category: {
-            categoryEn: 'proteins',
-            categoryPe: 'مواد پروتئینی'
-        },
-        group: {
-            groupId: 4,
-            groupName: 'ماهی و میگو'
-        },
+
+        categoryEn: 'proteins',
+        categoryPe: 'مواد پروتئینی',
+        groupId: 4,
+        groupName: 'ماهی و میگو',
         inventory: {
             available: true,
             quantity: 9,
@@ -2546,21 +2331,18 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210822-176542-1.jpg'
             }
         ],
-        category: {
-            categoryEn: 'proteins',
-            categoryPe: 'مواد پروتئینی'
-        },
-        group: {
-            groupId: 5,
-            groupName: 'سوسیس و کالباس'
-        },
+
+        categoryEn: 'proteins',
+        categoryPe: 'مواد پروتئینی',
+        groupId: 5,
+        groupName: 'سوسیس و کالباس',
         inventory: {
             available: true,
             quantity: 9,
         },
         seller: 'هایپر استار',
         tags: [],
-        price:30000,
+        price: 30000,
         discount: 5,
         MaximumOrder: 6
     },
@@ -2581,14 +2363,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210821-140355-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'proteins',
-            categoryPe: 'مواد پروتئینی'
-        },
-        group: {
-            groupId: 5,
-            groupName: 'سوسیس و کالباس'
-        },
+
+        categoryEn: 'proteins',
+        categoryPe: 'مواد پروتئینی',
+        groupId: 5,
+        groupName: 'سوسیس و کالباس',
         inventory: {
             available: true,
             quantity: 9,
@@ -2599,7 +2378,7 @@ const ProductData = [
         discount: 5,
         MaximumOrder: 6
     },
-     //------------------------------ دسته بندی 8:کنسرو وغذای اماده-------------------------------------
+    //------------------------------ دسته بندی 8:کنسرو وغذای اماده-------------------------------------
     {
         id: 74,
         name: 'نان پیتزا ب.آ ۴۸۰ گرمی',
@@ -2617,14 +2396,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210815-244584-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'canned-food',
-            categoryPe: 'کنسرو و غذای آماده '
-        },
-        group: {
-            groupId: 1,
-            groupName: 'فرآورده های منجمد یخچالی'
-        },
+
+        categoryEn: 'canned-food',
+        categoryPe: 'کنسرو و غذای آماده ',
+        groupId: 1,
+        groupName: 'فرآورده های منجمد یخچالی',
         inventory: {
             available: true,
             quantity: 12,
@@ -2656,14 +2432,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210818-177823-3.jpg'
             }
         ],
-        category: {
-            categoryEn: 'canned-food',
-            categoryPe: 'کنسرو و غذای آماده '
-        },
-        group: {
-            groupId: 2,
-            groupName: 'تن ماهی'
-        },
+
+        categoryEn: 'canned-food',
+        categoryPe: 'کنسرو و غذای آماده ',
+        groupId: 2,
+        groupName: 'تن ماهی',
         inventory: {
             available: true,
             quantity: 12,
@@ -2691,14 +2464,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210908-66182-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'canned-food',
-            categoryPe: 'کنسرو و غذای آماده '
-        },
-        group: {
-            groupId: 3,
-            groupName: 'غذای نیمه آماده'
-        },
+
+        categoryEn: 'canned-food',
+        categoryPe: 'کنسرو و غذای آماده ',
+        groupId: 3,
+        groupName: 'غذای نیمه آماده',
         inventory: {
             available: true,
             quantity: 12,
@@ -2726,14 +2496,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210829-308163-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'canned-food',
-            categoryPe: 'کنسرو و غذای آماده '
-        },
-        group: {
-            groupId: 4,
-            groupName: 'کنسرو و کمپوت'
-        },
+
+        categoryEn: 'canned-food',
+        categoryPe: 'کنسرو و غذای آماده ',
+        groupId: 4,
+        groupName: 'کنسرو و کمپوت',
         inventory: {
             available: true,
             quantity: 12,
@@ -2761,14 +2528,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/hph-13278-b.jpg'
             }
         ],
-        category: {
-            categoryEn: 'canned-food',
-            categoryPe: 'کنسرو و غذای آماده '
-        },
-        group: {
-            groupId: 5,
-            groupName: 'غذای آماده مصرف'
-        },
+
+        categoryEn: 'canned-food',
+        categoryPe: 'کنسرو و غذای آماده ',
+        groupId: 5,
+        groupName: 'غذای آماده مصرف',
         inventory: {
             available: true,
             quantity: 12,
@@ -2792,14 +2556,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/607a9610f2c71.jpg'
             }
         ],
-        category: {
-            categoryEn: 'canned-food',
-            categoryPe: 'کنسرو و غذای آماده '
-        },
-        group: {
-            groupId: 5,
-            groupName: 'غذای آماده مصرف'
-        },
+
+        categoryEn: 'canned-food',
+        categoryPe: 'کنسرو و غذای آماده ',
+        groupId: 5,
+        groupName: 'غذای آماده مصرف',
         inventory: {
             available: true,
             quantity: 12,
@@ -2810,7 +2571,7 @@ const ProductData = [
         discount: 19,
         MaximumOrder: 6
     },
-     //------------------------------ دسته بندی 9:خانه و سبک زندگی-------------------------------------
+    //------------------------------ دسته بندی 9:خانه و سبک زندگی-------------------------------------
     {
         id: 80,
         name: 'قابلمه تفلون نچسب سایز ۲۰ هایپر استار',
@@ -2828,14 +2589,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/07042021-251438-2.jpg'
             },
         ],
-        category: {
-            categoryEn: 'home-and-lifestyle',
-            categoryPe: 'خانه و سبک زندگی'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'لوازم آشپزخانه'
-        },
+
+        categoryEn: 'home-and-lifestyle',
+        categoryPe: 'خانه و سبک زندگی',
+        groupId: 1,
+        groupName: 'لوازم آشپزخانه',
         inventory: {
             available: true,
             quantity: 40,
@@ -2859,14 +2617,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/hph-279460-a.jpg'
             }
         ],
-        category: {
-            categoryEn: 'home-and-lifestyle',
-            categoryPe: 'خانه و سبک زندگی'
-        },
-        group: {
-            groupId: 2,
-            groupName: 'لوازم یکبارمصرف'
-        },
+
+        categoryEn: 'home-and-lifestyle',
+        categoryPe: 'خانه و سبک زندگی',
+        groupId: 2,
+        groupName: 'لوازم یکبارمصرف',
         inventory: {
             available: true,
             quantity: 40,
@@ -2890,14 +2645,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20211225-266563-1.jpg'
             }
         ],
-        category: {
-            categoryEn: 'home-and-lifestyle',
-            categoryPe: 'خانه و سبک زندگی'
-        },
-        group: {
-            groupId: 3,
-            groupName: 'لوازم خانه'
-        },
+
+        categoryEn: 'home-and-lifestyle',
+        categoryPe: 'خانه و سبک زندگی',
+        groupId: 3,
+        groupName: 'لوازم خانه',
         inventory: {
             available: true,
             quantity: 40,
@@ -2921,14 +2673,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/5d78a4f27c413.jpg'
             }
         ],
-        category: {
-            categoryEn: 'home-and-lifestyle',
-            categoryPe: 'خانه و سبک زندگی'
-        },
-        group: {
-            groupId: 4,
-            groupName: 'کالای حمام و سرویس بهداشتی'
-        },
+
+        categoryEn: 'home-and-lifestyle',
+        categoryPe: 'خانه و سبک زندگی',
+        groupId: 4,
+        groupName: 'کالای حمام و سرویس بهداشتی',
         inventory: {
             available: true,
             quantity: 40,
@@ -2952,14 +2701,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/11062021-350981-1.jpg'
             }
         ],
-        category: {
-            categoryEn: 'home-and-lifestyle',
-            categoryPe: 'خانه و سبک زندگی'
-        },
-        group: {
-            groupId: 5,
-            groupName: 'ابزار آلات و یراق آلات'
-        },
+
+        categoryEn: 'home-and-lifestyle',
+        categoryPe: 'خانه و سبک زندگی',
+        groupId: 5,
+        groupName: 'ابزار آلات و یراق آلات',
         inventory: {
             available: true,
             quantity: 40,
@@ -2967,7 +2713,7 @@ const ProductData = [
         seller: 'هایپر استار',
         tags: [],
         price: 43800,
-        discount:null,
+        discount: null,
         MaximumOrder: 6
     },
     {
@@ -2983,14 +2729,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/296740.jpg'
             }
         ],
-        category: {
-            categoryEn: 'home-and-lifestyle',
-            categoryPe: 'خانه و سبک زندگی'
-        },
-        group: {
-            groupId: 6,
-            groupName: 'باغبانی'
-        },
+
+        categoryEn: 'home-and-lifestyle',
+        categoryPe: 'خانه و سبک زندگی',
+        groupId: 6,
+        groupName: 'باغبانی',
         inventory: {
             available: true,
             quantity: 40,
@@ -3014,14 +2757,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/337708.jpg'
             }
         ],
-        category: {
-            categoryEn: 'home-and-lifestyle',
-            categoryPe: 'خانه و سبک زندگی'
-        },
-        group: {
-            groupId: 7,
-            groupName: 'گردش و سفر'
-        },
+
+        categoryEn: 'home-and-lifestyle',
+        categoryPe: 'خانه و سبک زندگی',
+        groupId: 7,
+        groupName: 'گردش و سفر',
         inventory: {
             available: true,
             quantity: 40,
@@ -3058,14 +2798,11 @@ const ProductData = [
             }
 
         ],
-        category: {
-            categoryEn: 'home-and-lifestyle',
-            categoryPe: 'خانه و سبک زندگی'
-        },
-        group: {
-            groupId: 8,
-            groupName: 'کالای سلامت'
-        },
+
+        categoryEn: 'home-and-lifestyle',
+        categoryPe: 'خانه و سبک زندگی',
+        groupId: 8,
+        groupName: 'کالای سلامت',
         inventory: {
             available: true,
             quantity: 40,
@@ -3089,14 +2826,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/6051ac43ba237.jpg'
             }
         ],
-        category: {
-            categoryEn: 'home-and-lifestyle',
-            categoryPe: 'خانه و سبک زندگی'
-        },
-        group: {
-            groupId: 9,
-            groupName: 'ورزش و بازی'
-        },
+
+        categoryEn: 'home-and-lifestyle',
+        categoryPe: 'خانه و سبک زندگی',
+        groupId: 9,
+        groupName: 'ورزش و بازی',
         inventory: {
             available: true,
             quantity: 40,
@@ -3124,14 +2858,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/hph-5431-b.jpg'
             }
         ],
-        category: {
-            categoryEn: 'home-and-lifestyle',
-            categoryPe: 'خانه و سبک زندگی'
-        },
-        group: {
-            groupId: 10,
-            groupName: 'خودرو، موتور سیکلت و دوچرخه'
-        },
+
+        categoryEn: 'home-and-lifestyle',
+        categoryPe: 'خانه و سبک زندگی',
+        groupId: 10,
+        groupName: 'خودرو، موتور سیکلت و دوچرخه',
         inventory: {
             available: true,
             quantity: 40,
@@ -3163,14 +2894,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/369109-1.jpg'
             },
         ],
-        category: {
-            categoryEn: 'home-and-lifestyle',
-            categoryPe: 'خانه و سبک زندگی'
-        },
-        group: {
-            groupId: 11,
-            groupName: 'لوازم جشن و کادو'
-        },
+
+        categoryEn: 'home-and-lifestyle',
+        categoryPe: 'خانه و سبک زندگی',
+        groupId: 11,
+        groupName: 'لوازم جشن و کادو',
         inventory: {
             available: true,
             quantity: 40,
@@ -3194,14 +2922,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/354399.jpg'
             }
         ],
-        category: {
-            categoryEn: 'home-and-lifestyle',
-            categoryPe: 'خانه و سبک زندگی'
-        },
-        group: {
-            groupId: 12,
-            groupName: 'دخانیات'
-        },
+
+        categoryEn: 'home-and-lifestyle',
+        categoryPe: 'خانه و سبک زندگی',
+        groupId: 12,
+        groupName: 'دخانیات',
         inventory: {
             available: true,
             quantity: 40,
@@ -3229,14 +2954,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/hph-253300-b.jpg'
             }
         ],
-        category: {
-            categoryEn: 'home-and-lifestyle',
-            categoryPe: 'خانه و سبک زندگی'
-        },
-        group: {
-            groupId: 13,
-            groupName: 'لوازم التحریر و اداری'
-        },
+
+        categoryEn: 'home-and-lifestyle',
+        categoryPe: 'خانه و سبک زندگی',
+        groupId: 13,
+        groupName: 'لوازم التحریر و اداری',
         inventory: {
             available: true,
             quantity: 40,
@@ -3247,9 +2969,9 @@ const ProductData = [
         discount: 10,
         MaximumOrder: 6
     },
-     //------------------------------ دسته بندی 10:دستمال و شوینده-------------------------------------
+    //------------------------------ دسته بندی 10:دستمال و شوینده-------------------------------------
     {
-        id:93,
+        id: 93,
         name: 'دستمال کاغذی ۲ لایه شکوه ۵۰ عددی',
         brand: {
             brandEn: 'shokouh',
@@ -3265,14 +2987,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/352394-(3).jpg'
             }
         ],
-        category: {
-            categoryEn: 'detergent',
-            categoryPe: 'دستمال و شوینده'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'دستمال کاغذی'
-        },
+
+        categoryEn: 'detergent',
+        categoryPe: 'دستمال و شوینده',
+        groupId: 1,
+        groupName: 'دستمال کاغذی',
         inventory: {
             available: true,
             quantity: 70,
@@ -3286,7 +3005,7 @@ const ProductData = [
         MaximumOrder: 6
     },
     {
-        id:94,
+        id: 94,
         name: 'دستمال رولی حوله ای گلرنگ ۲ عددی',
         brand: {
             brandEn: 'Golrang',
@@ -3298,14 +3017,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210929-350452-1.jpg'
             }
         ],
-        category: {
-            categoryEn: 'detergent',
-            categoryPe: 'دستمال و شوینده'
-        },
-        group: {
-            groupId: 2,
-            groupName: 'دستمال حوله ای'
-        },
+
+        categoryEn: 'detergent',
+        categoryPe: 'دستمال و شوینده',
+        groupId: 2,
+        groupName: 'دستمال حوله ای',
         inventory: {
             available: true,
             quantity: 70,
@@ -3317,7 +3033,7 @@ const ProductData = [
         MaximumOrder: 6
     },
     {
-        id:95,
+        id: 95,
         name: 'دستمال توالت کم حجم ۴ لایه سافتلن ۱۲ قلو',
         brand: {
             brandEn: 'Softlan',
@@ -3333,14 +3049,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/hph-241422.jpg'
             }
         ],
-        category: {
-            categoryEn: 'detergent',
-            categoryPe: 'دستمال و شوینده'
-        },
-        group: {
-            groupId: 3,
-            groupName: 'دستمال توالت'
-        },
+
+        categoryEn: 'detergent',
+        categoryPe: 'دستمال و شوینده',
+        groupId: 3,
+        groupName: 'دستمال توالت',
         inventory: {
             available: true,
             quantity: 70,
@@ -3349,12 +3062,12 @@ const ProductData = [
         tags: [
             {id: 1, name: 'ساده'},
         ],
-        price:101500,
+        price: 101500,
         discount: 2,
         MaximumOrder: 6
     },
     {
-        id:96,
+        id: 96,
         name: 'پاک کننده چند منظوره سطوح آشپزخانه آنتی گریس سیف ۷۵۰ میلی لیتری',
         brand: {
             brandEn: 'Cif',
@@ -3370,14 +3083,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/10172021-199439-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'detergent',
-            categoryPe: 'دستمال و شوینده'
-        },
-        group: {
-            groupId: 4,
-            groupName: 'نظافت خانه و آشپزخانه'
-        },
+
+        categoryEn: 'detergent',
+        categoryPe: 'دستمال و شوینده',
+        groupId: 4,
+        groupName: 'نظافت خانه و آشپزخانه',
         inventory: {
             available: true,
             quantity: 70,
@@ -3391,7 +3101,7 @@ const ProductData = [
         MaximumOrder: 6
     },
     {
-        id:97,
+        id: 97,
         name: 'مایع پاک کننده سرویس بهداشتی من ۱ لیتری',
         brand: {
             brandEn: 'man',
@@ -3407,14 +3117,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/11222021-173166-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'detergent',
-            categoryPe: 'دستمال و شوینده'
-        },
-        group: {
-            groupId: 5,
-            groupName: 'پاک کننده و ضدعفونی کننده سرویس بهداشتی'
-        },
+
+        categoryEn: 'detergent',
+        categoryPe: 'دستمال و شوینده',
+        groupId: 5,
+        groupName: 'پاک کننده و ضدعفونی کننده سرویس بهداشتی',
         inventory: {
             available: true,
             quantity: 70,
@@ -3426,7 +3133,7 @@ const ProductData = [
         MaximumOrder: 6
     },
     {
-        id:98,
+        id: 98,
         name: 'دستکش خانگی ساق کوتاه نرگس سایز کوچک رزمریم',
         brand: {
             brandEn: 'RozMaryam',
@@ -3438,14 +3145,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/616c077f4ac87.jpg'
             }
         ],
-        category: {
-            categoryEn: 'detergent',
-            categoryPe: 'دستمال و شوینده'
-        },
-        group: {
-            groupId: 6,
-            groupName: 'شستشوی ظروف'
-        },
+
+        categoryEn: 'detergent',
+        categoryPe: 'دستمال و شوینده',
+        groupId: 6,
+        groupName: 'شستشوی ظروف',
         inventory: {
             available: true,
             quantity: 70,
@@ -3457,7 +3161,7 @@ const ProductData = [
         MaximumOrder: 6
     },
     {
-        id:99,
+        id: 99,
         name: 'مایع ‌لباسشویی لباس مشکی و تیره سپید ۱ کیلوگرمی',
         brand: {
             brandEn: 'Sepid',
@@ -3473,14 +3177,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/612381307aa49.jpg'
             }
         ],
-        category: {
-            categoryEn: 'detergent',
-            categoryPe: 'دستمال و شوینده'
-        },
-        group: {
-            groupId: 7,
-            groupName: 'شستشوی لباس'
-        },
+
+        categoryEn: 'detergent',
+        categoryPe: 'دستمال و شوینده',
+        groupId: 7,
+        groupName: 'شستشوی لباس',
         inventory: {
             available: true,
             quantity: 70,
@@ -3494,7 +3195,7 @@ const ProductData = [
         MaximumOrder: 6
     },
     {
-        id:100,
+        id: 100,
         name: 'مایع دستشویی پرتقال بس ۱ لیتری',
         brand: {
             brandEn: 'bath',
@@ -3506,14 +3207,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/10172021-250287-1.jpg'
             }
         ],
-        category: {
-            categoryEn: 'detergent',
-            categoryPe: 'دستمال و شوینده'
-        },
-        group: {
-            groupId: 8,
-            groupName: 'فوم و مایع دستشویی'
-        },
+
+        categoryEn: 'detergent',
+        categoryPe: 'دستمال و شوینده',
+        groupId: 8,
+        groupName: 'فوم و مایع دستشویی',
         inventory: {
             available: true,
             quantity: 70,
@@ -3522,12 +3220,12 @@ const ProductData = [
         tags: [
             {id: 1, name: 'مایع'},
         ],
-        price:24680,
+        price: 24680,
         discount: 14,
         MaximumOrder: 6
     },
     {
-        id:101,
+        id: 101,
         name: 'گندزدای سبزی و میوه من ۵۰۰ میلی لیتری',
         brand: {
             brandEn: 'man',
@@ -3543,25 +3241,22 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20211225-173170-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'detergent',
-            categoryPe: 'دستمال و شوینده'
-        },
-        group: {
-            groupId: 9,
-            groupName: 'ضدعفونی کننده سطوح و میوه'
-        },
+
+        categoryEn: 'detergent',
+        categoryPe: 'دستمال و شوینده',
+        groupId: 9,
+        groupName: 'ضدعفونی کننده سطوح و میوه',
         inventory: {
             available: true,
             quantity: 70,
         },
         seller: 'هایپر استار',
-        tags: [ ],
+        tags: [],
         price: 8900,
         discount: null,
         MaximumOrder: 6
     },
-     //------------------------------ دسته بندی 11:ارایشی بهداشتی-------------------------------------
+    //------------------------------ دسته بندی 11:ارایشی بهداشتی-------------------------------------
     {
         id: 102,
         name: 'دستمال مرطوب مخصوص پوستهای مختلط بیول ۲۰ عددی',
@@ -3575,14 +3270,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/5d81e965655aa.jpg'
             },
         ],
-        category: {
-            categoryEn: 'health-and-beauty',
-            categoryPe: 'آرایشی و بهداشتی'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'محصولات آرایشی'
-        },
+
+        categoryEn: 'health-and-beauty',
+        categoryPe: 'آرایشی و بهداشتی',
+        groupId: 1,
+        groupName: 'محصولات آرایشی',
         inventory: {
             available: true,
             quantity: 11,
@@ -3608,14 +3300,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/619b7c166b04d.jpg'
             },
         ],
-        category: {
-            categoryEn: 'health-and-beauty',
-            categoryPe: 'آرایشی و بهداشتی'
-        },
-        group: {
-            groupId: 2,
-            groupName: 'بهداشت و مراقب صورت'
-        },
+
+        categoryEn: 'health-and-beauty',
+        categoryPe: 'آرایشی و بهداشتی',
+        groupId: 2,
+        groupName: 'بهداشت و مراقب صورت',
         inventory: {
             available: true,
             quantity: 11,
@@ -3641,14 +3330,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/hph-1400-a.jpg'
             },
         ],
-        category: {
-            categoryEn: 'health-and-beauty',
-            categoryPe: 'آرایشی و بهداشتی'
-        },
-        group: {
-            groupId: 3,
-            groupName: 'شامپو و مراقبت مو'
-        },
+
+        categoryEn: 'health-and-beauty',
+        categoryPe: 'آرایشی و بهداشتی',
+        groupId: 3,
+        groupName: 'شامپو و مراقبت مو',
         inventory: {
             available: true,
             quantity: 11,
@@ -3676,14 +3362,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/5e65f638ce807.jpg'
             }
         ],
-        category: {
-            categoryEn: 'health-and-beauty',
-            categoryPe: 'آرایشی و بهداشتی'
-        },
-        group: {
-            groupId: 4,
-            groupName: 'آرایش مو'
-        },
+
+        categoryEn: 'health-and-beauty',
+        categoryPe: 'آرایشی و بهداشتی',
+        groupId: 4,
+        groupName: 'آرایش مو',
         inventory: {
             available: true,
             quantity: 11,
@@ -3713,14 +3396,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/11222021-101288-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'health-and-beauty',
-            categoryPe: 'آرایشی و بهداشتی'
-        },
-        group: {
-            groupId: 5,
-            groupName: 'بهداشت و مراقبت بدن'
-        },
+
+        categoryEn: 'health-and-beauty',
+        categoryPe: 'آرایشی و بهداشتی',
+        groupId: 5,
+        groupName: 'بهداشت و مراقبت بدن',
         inventory: {
             available: true,
             quantity: 11,
@@ -3746,14 +3426,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/334699.jpg'
             },
         ],
-        category: {
-            categoryEn: 'health-and-beauty',
-            categoryPe: 'آرایشی و بهداشتی'
-        },
-        group: {
-            groupId: 6,
-            groupName: 'بهداشت دهان'
-        },
+
+        categoryEn: 'health-and-beauty',
+        categoryPe: 'آرایشی و بهداشتی',
+        groupId: 6,
+        groupName: 'بهداشت دهان',
         inventory: {
             available: true,
             quantity: 11,
@@ -3783,14 +3460,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/124748-(2).jpg'
             }
         ],
-        category: {
-            categoryEn: 'health-and-beauty',
-            categoryPe: 'آرایشی و بهداشتی'
-        },
-        group: {
-            groupId: 7,
-            groupName: 'اصلاح صورت و بدن'
-        },
+
+        categoryEn: 'health-and-beauty',
+        categoryPe: 'آرایشی و بهداشتی',
+        groupId: 7,
+        groupName: 'اصلاح صورت و بدن',
         inventory: {
             available: true,
             quantity: 11,
@@ -3816,14 +3490,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/hph-226925-a.jpg'
             },
         ],
-        category: {
-            categoryEn: 'health-and-beauty',
-            categoryPe: 'آرایشی و بهداشتی'
-        },
-        group: {
-            groupId: 8,
-            groupName: 'بهداشت جنسی'
-        },
+
+        categoryEn: 'health-and-beauty',
+        categoryPe: 'آرایشی و بهداشتی',
+        groupId: 8,
+        groupName: 'بهداشت جنسی',
         inventory: {
             available: true,
             quantity: 11,
@@ -3847,14 +3518,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/hph-249937.jpg'
             },
         ],
-        category: {
-            categoryEn: 'health-and-beauty',
-            categoryPe: 'آرایشی و بهداشتی'
-        },
-        group: {
-            groupId: 9,
-            groupName: 'اسپری و ضدتعریق'
-        },
+
+        categoryEn: 'health-and-beauty',
+        categoryPe: 'آرایشی و بهداشتی',
+        groupId: 9,
+        groupName: 'اسپری و ضدتعریق',
         inventory: {
             available: true,
             quantity: 11,
@@ -3868,7 +3536,7 @@ const ProductData = [
         discount: 14,
         MaximumOrder: 6
     },
-     //------------------------------ دسته بندی 12:صبحانه-------------------------------------
+    //------------------------------ دسته بندی 12:صبحانه-------------------------------------
     {
         id: 111,
         name: 'عسل چهل گیاه پت آبشن ۱.۸ کیلوگرمی',
@@ -3882,14 +3550,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210913-342415.jpg'
             },
         ],
-        category: {
-            categoryEn: 'breakfast',
-            categoryPe: 'صبحانه'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'عسل'
-        },
+
+        categoryEn: 'breakfast',
+        categoryPe: 'صبحانه',
+        groupId: 1,
+        groupName: 'عسل',
         inventory: {
             available: true,
             quantity: 36,
@@ -3915,14 +3580,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210921-312506-1.jpg'
             },
         ],
-        category: {
-            categoryEn: 'breakfast',
-            categoryPe: 'صبحانه'
-        },
-        group: {
-            groupId: 2,
-            groupName: 'مربا'
-        },
+
+        categoryEn: 'breakfast',
+        categoryPe: 'صبحانه',
+        groupId: 2,
+        groupName: 'مربا',
         inventory: {
             available: true,
             quantity: 36,
@@ -3952,14 +3614,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20211019-85323-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'breakfast',
-            categoryPe: 'صبحانه'
-        },
-        group: {
-            groupId: 3,
-            groupName: 'حلوا ارده و شیره'
-        },
+
+        categoryEn: 'breakfast',
+        categoryPe: 'صبحانه',
+        groupId: 3,
+        groupName: 'حلوا ارده و شیره',
         inventory: {
             available: true,
             quantity: 36,
@@ -3986,14 +3645,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/608e842177ba9.jpg'
             },
         ],
-        category: {
-            categoryEn: 'breakfast',
-            categoryPe: 'صبحانه'
-        },
-        group: {
-            groupId: 4,
-            groupName: 'شکلات صبحانه'
-        },
+
+        categoryEn: 'breakfast',
+        categoryPe: 'صبحانه',
+        groupId: 4,
+        groupName: 'شکلات صبحانه',
         inventory: {
             available: true,
             quantity: 36,
@@ -4024,14 +3680,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/202108301-122641-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'breakfast',
-            categoryPe: 'صبحانه'
-        },
-        group: {
-            groupId: 5,
-            groupName: 'غلات صبحانه'
-        },
+
+        categoryEn: 'breakfast',
+        categoryPe: 'صبحانه',
+        groupId: 5,
+        groupName: 'غلات صبحانه',
         inventory: {
             available: true,
             quantity: 36,
@@ -4057,14 +3710,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210901-306351-1.jpg'
             },
         ],
-        category: {
-            categoryEn: 'breakfast',
-            categoryPe: 'صبحانه'
-        },
-        group: {
-            groupId: 6,
-            groupName: 'کره بادام زمینی'
-        },
+
+        categoryEn: 'breakfast',
+        categoryPe: 'صبحانه',
+        groupId: 6,
+        groupName: 'کره بادام زمینی',
         inventory: {
             available: true,
             quantity: 36,
@@ -4075,7 +3725,7 @@ const ProductData = [
         discount: null,
         MaximumOrder: 6
     },
-     //------------------------------ دسته بندی 13:لوازم برقی و دیجیتال-------------------------------------
+    //------------------------------ دسته بندی 13:لوازم برقی و دیجیتال-------------------------------------
     {
         id: 117,
         name: 'باتری نیم قلم و قلمی کملیون ۸ عددی',
@@ -4093,14 +3743,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/hph-243662-a.jpg'
             }
         ],
-        category: {
-            categoryEn: 'appliances',
-            categoryPe: 'لوازم برقی و دیجیتال'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'باتری، محافظ و رابط'
-        },
+
+        categoryEn: 'appliances',
+        categoryPe: 'لوازم برقی و دیجیتال',
+        groupId: 1,
+        groupName: 'باتری، محافظ و رابط',
         inventory: {
             available: true,
             quantity: 36,
@@ -4108,7 +3755,7 @@ const ProductData = [
         seller: 'هایپر استار',
         tags: [],
         price: 32500,
-        discount:null ,
+        discount: null,
         MaximumOrder: 6
     },
     {
@@ -4132,14 +3779,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/10272021-332201-3.jpg'
             }
         ],
-        category: {
-            categoryEn: 'appliances',
-            categoryPe: 'لوازم برقی و دیجیتال'
-        },
-        group: {
-            groupId: 2,
-            groupName: 'نور و روشنایی'
-        },
+
+        categoryEn: 'appliances',
+        categoryPe: 'لوازم برقی و دیجیتال',
+        groupId: 2,
+        groupName: 'نور و روشنایی',
         inventory: {
             available: true,
             quantity: 36,
@@ -4212,7 +3856,7 @@ const ProductData = [
             }
             ,
             {
-                id:12,
+                id: 12,
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/61c72b982aa7a.jpg'
             }
             ,
@@ -4226,14 +3870,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/61c72b9939500.jpg'
             }
         ],
-        category: {
-            categoryEn: 'appliances',
-            categoryPe: 'لوازم برقی و دیجیتال'
-        },
-        group: {
-            groupId: 3,
-            groupName: 'لوازم برقی خانه'
-        },
+
+        categoryEn: 'appliances',
+        categoryPe: 'لوازم برقی و دیجیتال',
+        groupId: 3,
+        groupName: 'لوازم برقی خانه',
         inventory: {
             available: true,
             quantity: 36,
@@ -4262,14 +3903,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20211221-1002064-2.jpg'
             },
         ],
-        category: {
-            categoryEn: 'appliances',
-            categoryPe: 'لوازم برقی و دیجیتال'
-        },
-        group: {
-            groupId: 3,
-            groupName: 'نور و روشنایی'
-        },
+
+        categoryEn: 'appliances',
+        categoryPe: 'لوازم برقی و دیجیتال',
+        groupId: 3,
+        groupName: 'نور و روشنایی',
         inventory: {
             available: true,
             quantity: 36,
@@ -4280,7 +3918,7 @@ const ProductData = [
             {id: 2, name: 'وات12000'},
         ],
         price: 12820000,
-        discount:null,
+        discount: null,
         MaximumOrder: 5
     },
     {
@@ -4304,14 +3942,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/61dd87f02f8a2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'appliances',
-            categoryPe: 'لوازم برقی و دیجیتال'
-        },
-        group: {
-            groupId: 4,
-            groupName: 'لوازم برقی آشپزخانه'
-        },
+
+        categoryEn: 'appliances',
+        categoryPe: 'لوازم برقی و دیجیتال',
+        groupId: 4,
+        groupName: 'لوازم برقی آشپزخانه',
         inventory: {
             available: true,
             quantity: 36,
@@ -4346,14 +3981,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20211221-1002030-4.jpg'
             }
         ],
-        category: {
-            categoryEn: 'appliances',
-            categoryPe: 'لوازم برقی و دیجیتال'
-        },
-        group: {
-            groupId: 4,
-            groupName: 'لوازم برقی آشپزخانه'
-        },
+
+        categoryEn: 'appliances',
+        categoryPe: 'لوازم برقی و دیجیتال',
+        groupId: 4,
+        groupName: 'لوازم برقی آشپزخانه',
         inventory: {
             available: true,
             quantity: 36,
@@ -4367,7 +3999,7 @@ const ProductData = [
         discount: null,
         MaximumOrder: 6
     },
-     //------------------------------ دسته بندی 14:تنقلات-------------------------------------
+    //------------------------------ دسته بندی 14:تنقلات-------------------------------------
     {
         id: 123,
         name: 'چوب شور آلبینا شیرین عسل ۳۰ گرمی',
@@ -4385,14 +4017,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210811-271726-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'junk-food',
-            categoryPe: 'تنقلات'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'بیسکویت و ویفر'
-        },
+
+        categoryEn: 'junk-food',
+        categoryPe: 'تنقلات',
+        groupId: 1,
+        groupName: 'بیسکویت و ویفر',
         inventory: {
             available: true,
             quantity: 25,
@@ -4418,14 +4047,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210802-248650.jpg'
             }
         ],
-        category: {
-            categoryEn: 'junk-food',
-            categoryPe: 'تنقلات'
-        },
-        group: {
-            groupId: 2,
-            groupName: 'چیپس'
-        },
+
+        categoryEn: 'junk-food',
+        categoryPe: 'تنقلات',
+        groupId: 2,
+        groupName: 'چیپس',
         inventory: {
             available: true,
             quantity: 25,
@@ -4452,14 +4078,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210807-299868.jpg'
             }
         ],
-        category: {
-            categoryEn: 'junk-food',
-            categoryPe: 'تنقلات'
-        },
-        group: {
-            groupId: 3,
-            groupName: 'کیک و کلوچه'
-        },
+
+        categoryEn: 'junk-food',
+        categoryPe: 'تنقلات',
+        groupId: 3,
+        groupName: 'کیک و کلوچه',
         inventory: {
             available: true,
             quantity: 25,
@@ -4485,14 +4108,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210803-27908.jpg'
             }
         ],
-        category: {
-            categoryEn: 'junk-food',
-            categoryPe: 'تنقلات'
-        },
-        group: {
-            groupId: 4,
-            groupName: 'پفک و اسنک'
-        },
+
+        categoryEn: 'junk-food',
+        categoryPe: 'تنقلات',
+        groupId: 4,
+        groupName: 'پفک و اسنک',
         inventory: {
             available: true,
             quantity: 25,
@@ -4519,20 +4139,17 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210918-316649.jpg'
             }
         ],
-        category: {
-            categoryEn: 'junk-food',
-            categoryPe: 'تنقلات'
-        },
-        group: {
-            groupId: 5,
-            groupName: 'شکلات و آبنبات'
-        },
+
+        categoryEn: 'junk-food',
+        categoryPe: 'تنقلات',
+        groupId: 5,
+        groupName: 'شکلات و آبنبات',
         inventory: {
             available: true,
             quantity: 25,
         },
         seller: 'هایپر استار',
-        tags: [ ],
+        tags: [],
         price: 4000,
         discount: null,
         MaximumOrder: 6
@@ -4550,14 +4167,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210828-313463.jpg'
             }
         ],
-        category: {
-            categoryEn: 'junk-food',
-            categoryPe: 'تنقلات'
-        },
-        group: {
-            groupId: 6,
-            groupName: 'پاستیل و آدامس'
-        },
+
+        categoryEn: 'junk-food',
+        categoryPe: 'تنقلات',
+        groupId: 6,
+        groupName: 'پاستیل و آدامس',
         inventory: {
             available: true,
             quantity: 25,
@@ -4587,14 +4201,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/6120a97623bab.jpg'
             }
         ],
-        category: {
-            categoryEn: 'junk-food',
-            categoryPe: 'تنقلات'
-        },
-        group: {
-            groupId: 7,
-            groupName: 'آجیل تک و مغز آجیلبیسکویت و ویفر'
-        },
+
+        categoryEn: 'junk-food',
+        categoryPe: 'تنقلات',
+        groupId: 7,
+        groupName: 'آجیل تک و مغز آجیلبیسکویت و ویفر',
         inventory: {
             available: true,
             quantity: 25,
@@ -4620,14 +4231,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210829-256512-1.jpg'
             }
         ],
-        category: {
-            categoryEn: 'junk-food',
-            categoryPe: 'تنقلات'
-        },
-        group: {
-            groupId: 8,
-            groupName: 'پاپ کورن و گندمک'
-        },
+
+        categoryEn: 'junk-food',
+        categoryPe: 'تنقلات',
+        groupId: 8,
+        groupName: 'پاپ کورن و گندمک',
         inventory: {
             available: true,
             quantity: 25,
@@ -4638,7 +4246,7 @@ const ProductData = [
         ],
         price: 7000,
         discount: 19,
-        MaximumOrder:6
+        MaximumOrder: 6
     },
     {
         id: 131,
@@ -4653,14 +4261,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20210811-555.jpg'
             }
         ],
-        category: {
-            categoryEn: 'junk-food',
-            categoryPe: 'تنقلات'
-        },
-        group: {
-            groupId: 9,
-            groupName: 'آلوچه و لواشک'
-        },
+
+        categoryEn: 'junk-food',
+        categoryPe: 'تنقلات',
+        groupId: 9,
+        groupName: 'آلوچه و لواشک',
         inventory: {
             available: true,
             quantity: 25,
@@ -4674,7 +4279,7 @@ const ProductData = [
         discount: null,
         MaximumOrder: 6
     },
-     //------------------------------ دسته بندی 15:چاشنی و افزودنی-------------------------------------
+    //------------------------------ دسته بندی 15:چاشنی و افزودنی-------------------------------------
     {
         id: 132,
         name: 'سس فلفل سبز گالری ۸۸ میلی لیتری',
@@ -4688,14 +4293,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/5fa27c8a8b43a.jpg'
             }
         ],
-        category: {
-            categoryEn: 'condiment',
-            categoryPe: 'چاشنی و افزودنی'
-        },
-        group: {
-            groupId: 1,
-            groupName: 'سس'
-        },
+
+        categoryEn: 'condiment',
+        categoryPe: 'چاشنی و افزودنی',
+        groupId: 1,
+        groupName: 'سس',
         inventory: {
             available: true,
             quantity: 12,
@@ -4725,20 +4327,17 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/2021120-19813-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'condiment',
-            categoryPe: 'چاشنی و افزودنی'
-        },
-        group: {
-            groupId: 2,
-            groupName: 'ادویه'
-        },
+
+        categoryEn: 'condiment',
+        categoryPe: 'چاشنی و افزودنی',
+        groupId: 2,
+        groupName: 'ادویه',
         inventory: {
             available: true,
             quantity: 12,
         },
         seller: 'هایپر استار',
-        tags: [ ],
+        tags: [],
         price: 8000,
         discount: 15,
         MaximumOrder: 6
@@ -4760,14 +4359,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20211228-72426-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'condiment',
-            categoryPe: 'چاشنی و افزودنی'
-        },
-        group: {
-            groupId: 3,
-            groupName: 'خیارشور و زیتون'
-        },
+
+        categoryEn: 'condiment',
+        categoryPe: 'چاشنی و افزودنی',
+        groupId: 3,
+        groupName: 'خیارشور و زیتون',
         inventory: {
             available: true,
             quantity: 12,
@@ -4797,20 +4393,17 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/2021114-160145-2.jpg'
             },
         ],
-        category: {
-            categoryEn: 'condiment',
-            categoryPe: 'چاشنی و افزودنی'
-        },
-        group: {
-            groupId: 4,
-            groupName: 'آبلیمو و سرکه و آبغوره'
-        },
+
+        categoryEn: 'condiment',
+        categoryPe: 'چاشنی و افزودنی',
+        groupId: 4,
+        groupName: 'آبلیمو و سرکه و آبغوره',
         inventory: {
             available: true,
             quantity: 12,
         },
         seller: 'هایپر استار',
-        tags: [ ],
+        tags: [],
         price: 14800,
         discount: 14,
         MaximumOrder: 6
@@ -4832,14 +4425,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/2021207-200174-2.jpg'
             },
         ],
-        category: {
-            categoryEn: 'condiment',
-            categoryPe: 'چاشنی و افزودنی'
-        },
-        group: {
-            groupId: 5,
-            groupName: 'ترشی و شور'
-        },
+
+        categoryEn: 'condiment',
+        categoryPe: 'چاشنی و افزودنی',
+        groupId: 5,
+        groupName: 'ترشی و شور',
         inventory: {
             available: true,
             quantity: 12,
@@ -4866,14 +4456,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/60f684160029a.jpg'
             }
         ],
-        category: {
-            categoryEn: 'condiment',
-            categoryPe: 'چاشنی و افزودنی'
-        },
-        group: {
-            groupId: 6,
-            groupName: 'افزودنی های شیرینی پزی'
-        },
+
+        categoryEn: 'condiment',
+        categoryPe: 'چاشنی و افزودنی',
+        groupId: 6,
+        groupName: 'افزودنی های شیرینی پزی',
         inventory: {
             available: true,
             quantity: 12,
@@ -4903,20 +4490,17 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/2021201-175134-2.jpg'
             }
         ],
-        category: {
-            categoryEn: 'condiment',
-            categoryPe: 'چاشنی و افزودنی'
-        },
-        group: {
-            groupId: 7,
-            groupName: 'زعفران'
-        },
+
+        categoryEn: 'condiment',
+        categoryPe: 'چاشنی و افزودنی',
+        groupId: 7,
+        groupName: 'زعفران',
         inventory: {
             available: true,
             quantity: 12,
         },
         seller: 'هایپر استار',
-        tags: [ ],
+        tags: [],
         price: 2000,
         discount: 14,
         MaximumOrder: 6
@@ -4934,14 +4518,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/20211213-158605-1.jpg'
             }
         ],
-        category: {
-            categoryEn: 'condiment',
-            categoryPe: 'چاشنی و افزودنی'
-        },
-        group: {
-            groupId: 8,
-            groupName: 'سبزیجات خشک و سرخ شده'
-        },
+
+        categoryEn: 'condiment',
+        categoryPe: 'چاشنی و افزودنی',
+        groupId: 8,
+        groupName: 'سبزیجات خشک و سرخ شده',
         inventory: {
             available: true,
             quantity: 12,
@@ -4965,14 +4546,11 @@ const ProductData = [
                 url: 'https://api.snapp.market/media/cache/product-variation_image2/uploads/images/vendors/users/app/5fa27c8a8b43a.jpg'
             }
         ],
-        category: {
-            categoryEn: 'condiment',
-            categoryPe: 'چاشنی و افزودنی'
-        },
-        group: {
-            groupId: 9,
-            groupName: 'سایر افزودنی ها'
-        },
+
+        categoryEn: 'condiment',
+        categoryPe: 'چاشنی و افزودنی',
+        groupId: 9,
+        groupName: 'سایر افزودنی ها',
         inventory: {
             available: true,
             quantity: 12,
@@ -4983,8 +4561,129 @@ const ProductData = [
         discount: 20,
         MaximumOrder: 12
     },
-
-    
 ]
 
 export default ProductData
+
+
+export const getSubCategory=(mainCategory)=>{
+    let result=[]
+    ProductData.filter(item=>item.categoryEn===mainCategory).map
+    (item=>{ if(!result.includes(item.groupName)) {result.push(item.groupName)}})
+    return result
+}
+
+
+export const AssortmentCardData = [
+    {
+        cardVarity: 'ordinary',
+        img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a5ba7ea4f.png',
+        title: 'آرایشی و بهداشتی',
+        titleEn: 'health-and-beauty',
+        offer: '45'
+    },
+    {
+        cardVarity: 'ordinary',
+        img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a61baf7e1.png',
+        title: 'میوه و سبزیجات تازه',
+        titleEn: "fruit-and-vegetables",
+        offer: '25'
+    },
+    {
+        cardVarity: 'ordinary',
+        img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a63db458e.png',
+        title: 'نوشیدنی',
+        titleEn: "drinks",
+        offer: '40'
+    },
+    {
+        cardVarity: 'ordinary',
+        img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a653eef12.png',
+        title: 'مواد پروتئینی',
+        titleEn: "proteins",
+        offer: '30'
+    },
+    {
+        cardVarity: 'ordinary',
+        img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a66977ce3.png',
+        title: 'تنقلات',
+        titleEn: "junk-food",
+        offer: '40'
+    },
+    {
+        cardVarity: 'ordinary',
+        img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a67de1462.png',
+        title: 'چاشنی و افزودنی',
+        titleEn: "condiment",
+        offer: '35'
+    },
+    {
+        cardVarity: 'ordinary',
+        img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a69760621.png',
+        title: 'صبحانه',
+        titleEn: "breakfast",
+        offer: '43'
+    },
+    {
+        cardVarity: 'ordinary',
+        img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a6b6ba3c0.png',
+        title: 'کنسرو، غذای آماده و منجمد',
+        titleEn: "canned-food",
+        offer: '41'
+    },
+    {
+        cardVarity: 'ordinary',
+        img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a6d29d1ad.png',
+        title: 'کودک و نوزاد',
+        titleEn: "kids",
+        offer: '44'
+    },
+    {
+        cardVarity: 'ordinary',
+        img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a6eaccc7d.png',
+        title: 'خشکبار، دسر و شیرینی',
+        titleEn: "nuts",
+        offer: '40'
+    },
+    {
+        cardVarity: 'ordinary',
+        img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a7015b7b9.png',
+        title: 'خانه و سبک زندگی',
+        titleEn: "home-and-lifestyle",
+        offer: '60'
+    },
+    {
+        cardVarity: 'ordinary',
+        img: 'https://api.snapp.market/uploads/images/mobile-sliders/61ee70e70f503.png',
+        title: 'لوازم برقی و دیجیتال',
+        titleEn: "appliances",
+        offer: '55'
+    },
+    {
+        cardVarity: 'special',
+        offer: "۵۰",
+        title: "دستمال و شوینده",
+        titleEn: "detergent",
+        img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a5d4ab909.png',
+        bkGColor: "rgba(255, 203, 150, 0.27)",
+        bordercolor: "rgba(255, 203, 150, 0.43)",
+    },
+    {
+        cardVarity: 'special',
+        offer: "۵۵",
+        title: "لبنیات",
+        titleEn: "dairyProduct",
+        img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a5ed7bb6d.png',
+        bkGColor: "rgba(168, 224, 244, 0.25)",
+        bordercolor: "rgba(168, 224, 244, 0.56)"
+    },
+    {
+        cardVarity: 'special',
+        offer: "۳۵",
+        title: "خواربار و نان",
+        titleEn: "grocery-bread",
+        img: 'https://api.snapp.market/uploads/images/mobile-sliders/61e6a5ba7ea4f.png',
+        bkGColor: "rgba(250, 237, 163, 0.31)",
+        bordercolor: "rgba(250, 237, 163, 0.67)"
+    }
+]

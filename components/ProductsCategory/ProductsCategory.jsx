@@ -8,9 +8,10 @@ import Divider from '@mui/material/Divider';
 import {useRef, useEffect, useState} from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import GoldenCard from '../GoldenCard/GoldenCard'
-import {getCategory} from '../../library/axios/getData';
+import ProductData from '../ProductData/ProductData'
 
 const ProductCategory = ({
+                             groupName,
                              categorySub,
                              ordinary,
                              special,
@@ -28,7 +29,7 @@ const ProductCategory = ({
     const scroll = useRef(null)
     const [rightVisible, setRightVisible] = useState(false)
     const [leftVisible, setLeftVisible] = useState(true)
-    const [seeMoreProducts, setSeeMoreProducts] = useState(true)
+    // const [seeMoreProducts, setSeeMoreProducts] = useState(true)
     const scrollHandler = (scrollOffset) => {
         let i = 0
         let cancel = setInterval(() => {
@@ -41,58 +42,20 @@ const ProductCategory = ({
         }, 0)
     };
 
-    const [categoryList, setCategoryList] = useState([{
-        id: 1,
-        name: '',
-        brand: {
-            brandEn: '',
-            brandPe: '',
-        },
-        images: [
-            {
-                id: 1,
-                url: ''
-            },
-            {
-                id: 2,
-                url: ''
-            },
-        ],
-        category: {
-            categoryEn: '',
-            categoryPe: ''
-        },
-        group: {
-            groupId: 1,
-            groupName: ''
-        },
-        inventory: {
-            available: true,
-            quantity: 0,
-        },
-        seller: '',
-        tags: [
-            {id: 1, name: ''},
-            {id: 2, name: ''}
-        ],
-        price: 0,
-        discount: 0,
-        MaximumOrder: 0
-    }]);
+    let categoryList = ProductData;
 
-    useEffect(() => {
-        getCategory(categorySub)
-            .then(data => setCategoryList(data.products.slice(0, 9)))
-    }, [])
+    if (categorySub) {
+        categoryList = ProductData.filter(item => item.categoryEn === categorySub).slice(0, 9)
+    }
 
     useEffect(() => {
         if (scroll.current.scrollWidth === scroll.current.clientWidth) {
             setRightVisible(false)
             setLeftVisible(false)
         }
-        if (scroll.current.childNodes.length < 10) {
-            setSeeMoreProducts(false)
-        }
+        // if (scroll.current.childNodes.length < 10) {
+        //     setSeeMoreProducts(false)
+        // }
         scroll.current.addEventListener('scroll', () => {
             if (ordinary) {
                 if (scroll.current.scrollLeft < -50) {
@@ -140,6 +103,11 @@ const ProductCategory = ({
             }
         })
     }, [children, scroll]);
+
+    if (groupName) {
+        categoryList = categoryList.filter(item => item.groupName === groupName).slice(0, 9)
+    }
+
     return (
         <Box sx={{
             direction: 'rtl',
@@ -156,33 +124,44 @@ const ProductCategory = ({
                     justifyContent: 'space-between'
                 }}
                        variant='outlined'>
+                    {
+                        (groupName) ?
+                            <Typography variant='body1' component='span'
+                                        sx={{
+                                            borderBottom: 2.5,
+                                            color: '#404040',
+                                            borderColor: '#2446f5',
+                                            mr: 2.5,
+                                            py: 1.2,
+                                            cursor: 'pointer'
+                                        }}>
+                                {groupName}
+                            </Typography>
+                            :
+                            <Typography variant='body1' component='span'
+                                        sx={{
+                                            borderBottom: 2.5,
+                                            color: '#404040',
+                                            borderColor: '#2446f5',
+                                            mr: 2.5,
+                                            py: 1.2,
+                                            cursor: 'pointer'
+                                        }}>
+                                {categoryList[0].categoryPe}
+                            </Typography>
+                    }
                     <Typography variant='body1' component='span'
                                 sx={{
-                                    borderBottom: 2.5,
-                                    color: '#404040',
-                                    borderColor: '#2446f5',
-                                    mr: 2.5,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    color: '#2446f5',
+                                    ml: {xl: 2.5, md: 2.5, xs: 1},
                                     py: 1.2,
                                     cursor: 'pointer'
                                 }}>
-                        {categoryList[0].category.categoryPe}
+                        مشاهده بیشتر
+                        <KeyboardArrowLeftIcon/>
                     </Typography>
-                    {
-                        seeMoreProducts
-                        &&
-                        <Typography variant='body1' component='span'
-                                    sx={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        color: '#2446f5',
-                                        ml: {xl: 2.5, md: 2.5, xs: 1},
-                                        py: 1.2,
-                                        cursor: 'pointer'
-                                    }}>
-                            مشاهده بیشتر
-                            <KeyboardArrowLeftIcon/>
-                        </Typography>
-                    }
                 </Paper>
             }
             {
@@ -265,22 +244,22 @@ const ProductCategory = ({
                         &&
                         <>
                             {categoryList.map(item =>
-                                <ProductCard category
-                                             special
-                                             width='14.5rem'
-                                             src={item.images[0].url}
-                                             title={item.name}
-                                             price={item.price}
-                                             discount={item.discount}
-                                             maximumOrder={item.MaximumOrder}
-                                             available={item.inventory.available}
+                                <ProductCard
+                                    key={item.id}
+                                    category
+                                    special
+                                    width='14.5rem'
+                                    src={item.images[0].url}
+                                    title={item.name}
+                                    price={item.price}
+                                    discount={item.discount}
+                                    maximumOrder={item.MaximumOrder}
+                                    available={item.inventory.available}
                                 />
                             )}
                             {
                                 ordinary
                                 &&
-                                // seeMoreProducts
-                                // &&
                                 <Paper sx={{
                                     display: 'flex',
                                     flexDirection: "column",
@@ -299,12 +278,14 @@ const ProductCategory = ({
                                         py: 1.75,
                                     }}>
                                         {categoryList.slice(0, 3).map(item =>
-                                            <Box component='img' alt=''
-                                                 src={item.images[0].url}
-                                                 sx={{
-                                                     width: '3rem',
-                                                     opacity: '0.34'
-                                                 }}/>
+                                            <Box
+                                                key={item.id}
+                                                component='img' alt=''
+                                                src={item.images[0].url}
+                                                sx={{
+                                                    width: '3rem',
+                                                    opacity: '0.34'
+                                                }}/>
                                         )}
                                     </Box>
                                     <Box sx={{
@@ -333,12 +314,14 @@ const ProductCategory = ({
                                         py: 1.75,
                                     }}>
                                         {categoryList.slice(3, 6).map(item =>
-                                            <Box component='img' alt=''
-                                                 src={item.images[0].url}
-                                                 sx={{
-                                                     width: '3rem',
-                                                     opacity: '0.34'
-                                                 }}/>
+                                            <Box
+                                                key={item.id}
+                                                component='img' alt=''
+                                                src={item.images[0].url}
+                                                sx={{
+                                                    width: '3rem',
+                                                    opacity: '0.34'
+                                                }}/>
                                         )}
                                     </Box>
                                 </Paper>
